@@ -1,0 +1,39 @@
+import { useState } from 'react';
+import type { Roadmap } from '../types/roadmap';
+import { ElectivesList } from './ElectivesList';
+import { Notes } from './Notes';
+import { ResourceMap } from './ResourceMap';
+import { TimeSummaryTable } from './TimeSummaryTable';
+
+/** Collapsed reference section at the bottom of Overview. Default closed. */
+export function Appendix({ roadmap }: { roadmap: Roadmap }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <section className={`appendix${open ? ' open' : ''}`} aria-label="Appendix and reference">
+      <button
+        type="button"
+        className="appendix-toggle"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+      >
+        <span className="chevron" aria-hidden="true" />
+        <span className="appendix-kicker mono">Appendix · reference</span>
+        <span className="appendix-hint">
+          {open ? 'Hide' : 'Resource map · electives · time budget · buying notes'}
+        </span>
+      </button>
+
+      <div className="appendix-body" hidden={!open}>
+        <ResourceMap rows={roadmap.resourceMap} />
+        <ElectivesList items={roadmap.electives} />
+        <div className="block">
+          <h3>Time allocation summary</h3>
+          <TimeSummaryTable rows={roadmap.timeSummary} />
+        </div>
+        <div className="block">
+          <Notes notes={roadmap.notes} />
+        </div>
+      </div>
+    </section>
+  );
+}

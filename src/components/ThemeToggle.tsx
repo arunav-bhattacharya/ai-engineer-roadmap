@@ -7,16 +7,18 @@ export function ThemeToggle() {
   return (
     <button
       type="button"
-      className="theme-toggle"
+      className={`theme-switch${isDark ? ' is-dark' : ' is-light'}`}
       onClick={toggle}
       aria-label={label}
       title={label}
-      aria-pressed={isDark}
+      role="switch"
+      aria-checked={isDark}
     >
-      <span aria-hidden="true" style={{ fontSize: 14, lineHeight: 1 }}>
-        {isDark ? '☀' : '☾'}
+      <span className="theme-switch-track" aria-hidden="true">
+        <span className="theme-switch-ico sun">☀</span>
+        <span className="theme-switch-ico moon">☾</span>
+        <span className="theme-switch-knob">{isDark ? '☾' : '☀'}</span>
       </span>
-      <span>{isDark ? 'Light' : 'Dark'}</span>
     </button>
   );
 }

@@ -18,7 +18,6 @@ export function Notes({ notes }: { notes: NotesT }) {
           <li key={i} dangerouslySetInnerHTML={{ __html: html }} />
         ))}
       </ul>
-      {notes.sig ? <p className="sig" dangerouslySetInnerHTML={{ __html: notes.sig }} /> : null}
     </div>
   );
 }
