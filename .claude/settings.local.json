@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la /Users/arunav/Documents/workspace/ai-engineer-roadmap/ 2>/dev/null && echo \"---\" && ls -la /Users/arunav/Downloads/ai-engineer-roadmap_11.html 2>/dev/null)"
+    ]
+  }
+}

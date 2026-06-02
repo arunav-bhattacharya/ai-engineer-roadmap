@@ -1,0 +1,2187 @@
+{
+  "meta": {
+    "duration": "17 wk + elective",
+    "pace": "~10–12 hrs / wk",
+    "ratio": "70% build / 30% read",
+    "prereq_gap": "Python (Week 0)"
+  },
+  "kicker": "Senior JVM Engineer → AI Engineer",
+  "titleHtml": "AI Engineer<br><em>Roadmap</em>",
+  "lede": "Seventeen weeks + an optional elective, build-first. <b>Part I</b> (W0–10) takes you from Python to a deployed capstone — including a <b>JVM-native track (W2B)</b> so you can ship AI in your own Quarkus/Kotlin stack. <b>Part II</b> (W11–17) is post-capstone depth. Every day has a focus, linked resources, a time estimate, and a hands-on task. Integrates everything you own: <b>Ed Donner's full 6-course series</b>, <b>Chip Huyen's</b> <i>AI Engineering</i>, your <b>ByteByteGo</b> cohort, <b>Mike X Cohen's</b> deep-mechanisms course, and <b>Java Brains — From Java to AI</b> — mapped per week in the resource panel below.",
+  "courses": [
+    {
+      "name": "Ed Donner — AI Engineer Core Track",
+      "description": "8-wk backbone · RAG, QLoRA, agents, LiteLLM, prompt caching",
+      "url": "https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/"
+    },
+    {
+      "name": "AI Engineer Agentic Track — Agent & MCP Course",
+      "description": "6-wk · 8 projects · OpenAI SDK, CrewAI, LangGraph, AutoGen, MCP",
+      "url": "https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/"
+    },
+    {
+      "name": "AI Engineer Production Track — Deploy at Scale",
+      "description": "DevOps layer · AWS Bedrock/SageMaker, Lambda, Terraform, CI/CD",
+      "url": "https://www.udemy.com/course/generative-and-agentic-ai-in-production/"
+    },
+    {
+      "name": "AI Coder — Vibe Coder → Agentic Engineer",
+      "description": "Spine for W1 · Claude Code deep, Agent Teams, Agent SDK, autonomous Jira→PR",
+      "url": "https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer/"
+    }
+  ],
+  "keyTopics": [
+    {
+      "label": "Claude Code & agentic coding",
+      "star": true,
+      "raw": "Claude Code & agentic coding ★"
+    },
+    {
+      "label": "JVM-native AI",
+      "star": true,
+      "raw": "JVM-native AI ★"
+    },
+    {
+      "label": "LLM APIs & tool use",
+      "star": false,
+      "raw": "LLM APIs & tool use"
+    },
+    {
+      "label": "RAG & retrieval",
+      "star": false,
+      "raw": "RAG & retrieval"
+    },
+    {
+      "label": "Multi-framework agents",
+      "star": false,
+      "raw": "Multi-framework agents"
+    },
+    {
+      "label": "Fine-tuning & datasets",
+      "star": false,
+      "raw": "Fine-tuning & datasets"
+    },
+    {
+      "label": "Evaluation",
+      "star": false,
+      "raw": "Evaluation"
+    },
+    {
+      "label": "Temporal orchestration",
+      "star": true,
+      "raw": "Temporal orchestration ★"
+    },
+    {
+      "label": "Inference optimization",
+      "star": true,
+      "raw": "Inference optimization ★"
+    },
+    {
+      "label": "FM internals & reasoning",
+      "star": false,
+      "raw": "FM internals & reasoning"
+    },
+    {
+      "label": "Production & deployment",
+      "star": false,
+      "raw": "Production & deployment"
+    },
+    {
+      "label": "Multimodal",
+      "star": false,
+      "raw": "Multimodal ◇"
+    }
+  ],
+  "moat": "<strong>Distributed systems applied to LLMs — in your own stack.</strong> Three pillars no bootcamp grad has: <b>W2B</b> (shipping AI natively in Quarkus/Kotlin via LangChain4j), <b>W8</b> (agents as durable, throttled Temporal workflows at 500K+ scale), and <b>W15</b> (inference optimization — batching, KV cache, throughput). Agents are workflows, serving is a throughput problem, and you already build production JVM systems.",
+  "resourceMap": [
+    {
+      "name": "Ed Donner — AI Coder",
+      "url": "https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer/",
+      "bestFor": "Claude Code mastery, agentic coding, Agent Teams, Agent SDK",
+      "drives": "W1"
+    },
+    {
+      "name": "Ed Donner — Core Track",
+      "url": "https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/",
+      "bestFor": "LLM APIs, RAG, QLoRA, agents from scratch",
+      "drives": "W2, W3, W6"
+    },
+    {
+      "name": "Ed Donner — Agentic Track",
+      "url": "https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/",
+      "bestFor": "OpenAI SDK, CrewAI, LangGraph, AutoGen, MCP",
+      "drives": "W4, W5"
+    },
+    {
+      "name": "Ed Donner — Production Track",
+      "url": "https://www.udemy.com/course/generative-and-agentic-ai-in-production/",
+      "bestFor": "AWS, Docker, Terraform, CI/CD, SaaS, MLOps",
+      "drives": "W16"
+    },
+    {
+      "name": "ByteByteGo — Become an AI Engineer",
+      "url": "https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/",
+      "bestFor": "Pre-training, reasoning models, agent reasoning, multimodal",
+      "drives": "W2, W3, W4, W11, W13, W17"
+    },
+    {
+      "name": "Chip Huyen — AI Engineering",
+      "bestFor": "Evaluation, retrieval, finetuning, inference, architecture",
+      "drives": "W11–16 spine"
+    },
+    {
+      "name": "Java Brains — From Java to AI",
+      "url": "https://javabrains.io/courses/from-java-to-ai",
+      "bestFor": "Code-free LLM on-ramp + JVM integration framing (Spring AI / LangChain4j)",
+      "drives": "W2B"
+    },
+    {
+      "name": "Mike X Cohen — Deep LLM Mechanisms",
+      "url": "https://www.udemy.com/course/dullms_x/",
+      "bestFor": "Transformer math, PyTorch-from-scratch, interpretability",
+      "drives": "W11 + deep-dive elective"
+    },
+    {
+      "name": "Ed Donner — AI Builder",
+      "url": "https://www.udemy.com/course/ai-builder-with-n8n-create-agents-voice-agents/",
+      "bestFor": "n8n + voice agents · business/commercial mindset",
+      "drives": "Electives"
+    }
+  ],
+  "howToStudy": {
+    "paragraphs": [
+      "Budget ~10 hrs/week: ~2 hrs read/watch, ~6 hrs coding, ~2 hrs writing (a README or short post — this is where it snaps into your head). The single biggest predictor of retention is the build-to-theory ratio.",
+      "<b>The pattern that works for engineers like you:</b>",
+      "<b>Part I vs Part II:</b> Part I is hands-keyboard build cadence to a shippable capstone — don't stall on theory. Part II is the depth that makes you <i>senior</i> in AI, not just functional: it's anchored on Chip Huyen's <i>AI Engineering</i> (O'Reilly) — keep the book open as the spine for W11–16.",
+      "<b>Don't fall for:</b> tutorial hell, framework-collecting, chasing every model release. Pick one frontier API (Anthropic) + one open-source path (HuggingFace + Ollama) and stick to them."
+    ],
+    "bullets": [
+      "Read the topic intro (15 min) — skim, don't deep-read.",
+      "Watch one video on 1.5x.",
+      "<b>Build the smallest thing that demonstrates the concept, with no framework.</b> Highest-leverage step.",
+      "Rebuild with the framework — now you see what it was hiding.",
+      "Write a 200-word note: \"what I'd use this for at work.\""
+    ]
+  },
+  "setup": {
+    "items": [
+      "<b>Editor:</b> VS Code + Python/Jupyter extensions, or PyCharm if you want JetBrains-familiar.",
+      "<b>Package manager:</b> <a href=\"https://docs.astral.sh/uv/getting-started/\" target=\"_blank\">uv</a> (fast, lockfile-based, Gradle-like).",
+      "<b>API keys:</b> Anthropic ($5 free), OpenAI ($5), Groq (free tier, fast inference for experiments).",
+      "<b>Local models:</b> install <a href=\"https://ollama.com/\" target=\"_blank\">Ollama</a>, pull <code>llama3.2:3b</code> and <code>qwen2.5:7b</code>.",
+      "<b>Vector DB:</b> start with Chroma (in-process, zero-ops). Move to pgvector/Qdrant later.",
+      "<b>Observability:</b> sign up for <a href=\"https://langfuse.com/\" target=\"_blank\">Langfuse</a> (open-source, self-hostable).",
+      "<b>Git:</b> one repo <code>ai-learning-lab</code>, one folder per week.",
+      "<b>Claude Code:</b> install <a href=\"https://docs.claude.com/en/docs/claude-code/overview\" target=\"_blank\">Claude Code</a> now — Week 1 turns it into your daily driver."
+    ]
+  },
+  "parts": [
+    {
+      "id": "part1",
+      "pn": "Part I",
+      "title": "Foundations & Build",
+      "sub": "Weeks 0–10 · to a deployed capstone",
+      "weeks": [
+        {
+          "id": "w0",
+          "tag": "WEEK 00",
+          "title": "Python Pre-Prep & Environment",
+          "hours": "~10 hrs",
+          "goal": "<b>Goal:</b> stop fighting Python. Be fluent enough that the language is invisible by Week 1. No AI yet — pure language + tooling delta from Kotlin.",
+          "variant": "default",
+          "star": false,
+          "days": [
+            {
+              "n": "1",
+              "focusTitle": "Python for Java/Kotlin devs",
+              "focusSub": "Syntax map, type hints, the traps",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Real Python — Python for Java devs",
+                  "url": "https://realpython.com/"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Learn X in Y — Python",
+                  "url": "https://learnxinyminutes.com/docs/python/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Rewrite a Kotlin CSV transformer in Python with full type hints. <a href=\"https://exercism.org/tracks/python\" target=\"_blank\">Exercism Python</a>: 3 starter exercises."
+            },
+            {
+              "n": "2",
+              "focusTitle": "Core idioms",
+              "focusSub": "dataclasses, comprehensions, generators, context managers",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Real Python — dataclasses",
+                  "url": "https://realpython.com/python-data-classes/",
+                  "trailing": "+ comprehensions/generators"
+                }
+              ],
+              "est": "2h",
+              "hands": "<a href=\"https://exercism.org/tracks/python\" target=\"_blank\">Exercism</a>: 4–5 exercises hitting comprehensions, dicts, generators."
+            },
+            {
+              "n": "3",
+              "focusTitle": "async + typing",
+              "focusSub": "asyncio ≈ coroutines; mypy",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Real Python — Async IO in Python",
+                  "url": "https://realpython.com/async-io-python/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Async <code>httpx</code> fetcher hitting 5 URLs concurrently; time it vs sequential."
+            },
+            {
+              "n": "4",
+              "focusTitle": "Pydantic v2 + uv",
+              "focusSub": "Your structured-output validator all course long",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Pydantic v2 docs",
+                  "url": "https://docs.pydantic.dev/latest/"
+                },
+                {
+                  "typeClass": "tool",
+                  "typeLabel": "tool",
+                  "label": "uv quickstart",
+                  "url": "https://docs.astral.sh/uv/getting-started/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Model a billpay <code>Payment</code> as a Pydantic model with validators + a failing-validation test."
+            },
+            {
+              "n": "5",
+              "focusTitle": "FastAPI + pytest",
+              "focusSub": "Your Quarkus comfort zone, in Python",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "FastAPI tutorial",
+                  "url": "https://fastapi.tiangolo.com/tutorial/"
+                }
+              ],
+              "est": "2h",
+              "hands": "FastAPI service: 2 endpoints (1 async) + 1 pytest. Commit to <code>ai-learning-lab/week-00</code>."
+            }
+          ],
+          "udemy": "Udemy: <b>none — courses assume Python.</b> Don't pay for syntax.",
+          "udemyNone": true,
+          "deliverable": "Async FastAPI service + Pydantic models, typed, tested."
+        },
+        {
+          "id": "w1",
+          "tag": "WEEK 01 ★",
+          "title": "Claude Code & Agentic Coding",
+          "hours": "~11 hrs",
+          "goal": "<b>Goal — front-loaded on purpose.</b> You already use Claude Code daily; this week turns it into an autonomous coding system you drive efficiently, then pushes into multi-agent coding. Spine: <a href=\"https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer/\" target=\"_blank\">Ed Donner — AI Coder</a>. You'll use these skills to build every later project, so the payoff compounds.",
+          "variant": "claude",
+          "star": true,
+          "days": [
+            {
+              "n": "1",
+              "focusTitle": "CLAUDE.md / AGENTS.md = project constitution",
+              "focusSub": "The single highest-leverage file",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "Claude Code overview",
+                  "url": "https://docs.claude.com/en/docs/claude-code/overview"
+                },
+                {
+                  "typeClass": "course",
+                  "typeLabel": "core",
+                  "label": "AI Coder — Wk1 (context mgmt)",
+                  "url": "https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Write a real <code>CLAUDE.md</code> for your Billpay repo: build/lint/test commands, module map, conventions (Exposed, Temporal, KSP). Run one real task end-to-end."
+            },
+            {
+              "n": "2",
+              "focusTitle": "Skills & slash commands",
+              "focusSub": "Reusable prompt/workflow macros",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "Slash commands",
+                  "url": "https://code.claude.com/docs/en/slash-commands",
+                  "trailing": "(now merged into Skills)"
+                }
+              ],
+              "est": "2h",
+              "hands": "Create 2 skills in <code>.claude/skills/</code>: one to generate Docusaurus pages from KSP variant metadata, one <code>/pr-summary</code>. Invoke both."
+            },
+            {
+              "n": "3",
+              "focusTitle": "Hooks — deterministic guardrails",
+              "focusSub": "Run 100% of the time, unlike CLAUDE.md",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "Hooks reference",
+                  "url": "https://code.claude.com/docs/en/hooks"
+                }
+              ],
+              "est": "2h",
+              "hands": "Add a <code>PreToolUse</code> hook that blocks force-push to <code>main</code> + scans writes for secrets (exit 2 = deny), and a <code>PostToolUse</code> hook running ktlint/detekt after edits. Verify they fire every time."
+            },
+            {
+              "n": "4",
+              "focusTitle": "Subagents, Agent Teams, Ralph Loops",
+              "focusSub": "Parallelism + context isolation + checkpoints",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "Claude Code — subagents & plan mode",
+                  "url": "https://docs.claude.com/en/docs/claude-code/overview"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "Checkpointing",
+                  "url": "https://code.claude.com/docs/en/checkpointing"
+                },
+                {
+                  "typeClass": "course",
+                  "typeLabel": "core",
+                  "label": "AI Coder — Wk3 (Agent Teams, Ralph Loops)",
+                  "url": "https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer/"
+                }
+              ],
+              "est": "2.5h",
+              "hands": "Run 3 subagents concurrently to review auth, payments, migrations. Use <b>plan mode</b> for a multi-file refactor; try a <b>Ralph Loop</b> (persistent self-correcting agent) on a sandboxed task; roll back via checkpoint."
+            },
+            {
+              "n": "5",
+              "focusTitle": "Headless/CI, autonomous loops, Agent SDK",
+              "focusSub": "Claude Code beyond the terminal",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "Plugins reference",
+                  "url": "https://code.claude.com/docs/en/plugins-reference"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "Claude API / Agent SDK",
+                  "url": "https://docs.claude.com/en/api/overview"
+                },
+                {
+                  "typeClass": "course",
+                  "typeLabel": "core",
+                  "label": "AI Coder — Wk2 (Jira→PR), Cowork",
+                  "url": "https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer/"
+                }
+              ],
+              "est": "2.5h",
+              "hands": "Run <code>claude -p</code> headless in a GitHub Action / pre-commit. Wire an <b>autonomous loop</b>: raise a Jira issue → agent builds, tests, opens a PR. Connect a GitHub MCP server; skim the Agent SDK + Cowork."
+            }
+          ],
+          "udemy": "Udemy: <b>AI Coder</b> (spine) + official docs.",
+          "udemyNone": false,
+          "deliverable": "Billpay repo: <code>CLAUDE.md</code> + 2 skills + 2 hooks + CI PR-review + autonomous Jira→PR loop demo."
+        },
+        {
+          "id": "w2",
+          "tag": "WEEK 02",
+          "title": "Gen AI Building Blocks",
+          "hours": "~10 hrs",
+          "goal": "<b>Goal:</b> understand how LLMs actually work, and ship 3 LLM-powered scripts from raw API calls — no framework.",
+          "variant": "default",
+          "star": false,
+          "days": [
+            {
+              "n": "1",
+              "focusTitle": "How LLMs work",
+              "focusSub": "Tokens, context, sampling, cost intuition",
+              "resources": [
+                {
+                  "typeClass": "vid",
+                  "typeLabel": "video",
+                  "label": "Karpathy — Intro to LLMs (1h)",
+                  "url": "https://www.youtube.com/watch?v=zjkBMFhNj_g"
+                }
+              ],
+              "est": "1.5h",
+              "hands": "Note the $/M-token cost of 3 models you'll use. Sketch when each fits."
+            },
+            {
+              "n": "2",
+              "focusTitle": "Tokenization deep-dive",
+              "focusSub": "Why prompts behave oddly",
+              "resources": [
+                {
+                  "typeClass": "vid",
+                  "typeLabel": "video",
+                  "label": "Karpathy — Build the GPT Tokenizer (2h)",
+                  "url": "https://www.youtube.com/watch?v=zduSFxRajkE"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Anthropic — Building Effective Agents",
+                  "url": "https://www.anthropic.com/research/building-effective-agents",
+                  "trailing": "(skim, bookmark)"
+                }
+              ],
+              "est": "2.5h",
+              "hands": "Tokenize 3 sample inputs; predict then verify token counts."
+            },
+            {
+              "n": "3",
+              "focusTitle": "Prompt engineering",
+              "focusSub": "Zero/few-shot, CoT, structured outputs",
+              "resources": [
+                {
+                  "typeClass": "course",
+                  "typeLabel": "course",
+                  "label": "Anthropic Prompt-Eng Interactive Tutorial",
+                  "url": "https://github.com/anthropics/prompt-eng-interactive-tutorial"
+                }
+              ],
+              "est": "2h",
+              "hands": "Work notebooks ch.1–6. <b>Build 1:</b> CLI that summarizes a dir of markdown notes (raw <code>anthropic</code> SDK)."
+            },
+            {
+              "n": "4",
+              "focusTitle": "Structured output + function calling",
+              "focusSub": "Maps to your Activity mindset",
+              "resources": [
+                {
+                  "typeClass": "course",
+                  "typeLabel": "course",
+                  "label": "DLAI — Function Calling & Data Extraction",
+                  "url": "https://www.deeplearning.ai/short-courses/function-calling-and-data-extraction-with-llms/"
+                }
+              ],
+              "est": "2h",
+              "hands": "<b>Build 2:</b> extractor — job description → <code>{role, seniority, skills[], remote}</code> as a Pydantic model."
+            },
+            {
+              "n": "5",
+              "focusTitle": "Tool use",
+              "focusSub": "Multi-tool dispatch loop",
+              "resources": [
+                {
+                  "typeClass": "course",
+                  "typeLabel": "core",
+                  "label": "Ed Donner — Week 1",
+                  "url": "https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/",
+                  "trailing": "(frontier models, prompting, tool use)"
+                }
+              ],
+              "est": "2h",
+              "hands": "<b>Build 3:</b> LLM that can call 3 tools — <code>get_weather</code>, <code>search_files</code>, <code>run_sql</code>."
+            }
+          ],
+          "udemy": "Udemy: <b>Core Track — Week 1</b>",
+          "udemyNone": false,
+          "deliverable": "Repo <code>week-02-basics</code> + README on tokens, context windows, cost math."
+        },
+        {
+          "id": "w2b",
+          "tag": "WEEK 02B ★",
+          "title": "JVM-Native AI — Spring AI & LangChain4j",
+          "hours": "~10 hrs",
+          "goal": "<b>Goal — your unfair advantage.</b> Re-implement what you just learned in Python (LLM APIs, tool use, structured output) in your <i>real</i> stack — LangChain4j / Spring AI on Quarkus — so you can ship AI into Billpay without leaving the JVM. Almost no AI-engineering learner can do this; you already own the stack. On-ramp: <a href=\"https://javabrains.io/courses/from-java-to-ai\" target=\"_blank\">Java Brains — From Java to AI</a> (skim if any concept feels shaky).",
+          "variant": "moat",
+          "star": true,
+          "days": [
+            {
+              "n": "1",
+              "focusTitle": "Landscape & setup",
+              "focusSub": "Spring AI vs LangChain4j vs Quarkus-LangChain4j",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "LangChain4j docs",
+                  "url": "https://docs.langchain4j.dev/"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "Quarkus-LangChain4j",
+                  "url": "https://docs.quarkiverse.io/quarkus-langchain4j/dev/"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "Spring AI",
+                  "url": "https://spring.io/projects/spring-ai"
+                }
+              ],
+              "est": "2h",
+              "hands": "Add <code>quarkus-langchain4j</code> to a Quarkus project; wire an Anthropic/OpenAI chat model; get your first completion from Kotlin."
+            },
+            {
+              "n": "2",
+              "focusTitle": "Chat, prompts & parameters",
+              "focusSub": "AiServices, prompt templates, streaming",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "LangChain4j — Ai Services",
+                  "url": "https://docs.langchain4j.dev/tutorials/ai-services"
+                }
+              ],
+              "est": "2h",
+              "hands": "Port your W2 summarizer to a LangChain4j <code>AiServices</code> interface; add a system prompt + temperature; stream the response."
+            },
+            {
+              "n": "3",
+              "focusTitle": "Structured output & type safety",
+              "focusSub": "map LLM output → Kotlin data classes",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "LangChain4j — Structured Outputs",
+                  "url": "https://docs.langchain4j.dev/tutorials/structured-outputs"
+                }
+              ],
+              "est": "2h",
+              "hands": "Rebuild your W2 extractor to return a typed Kotlin <code>data class</code> directly — no manual JSON parsing."
+            },
+            {
+              "n": "4",
+              "focusTitle": "Tool calling & RAG on the JVM",
+              "focusSub": "@Tool methods, pgvector embedding store",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "LangChain4j — Tools",
+                  "url": "https://docs.langchain4j.dev/tutorials/tools"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "Quarkus-LangChain4j — RAG",
+                  "url": "https://docs.quarkiverse.io/quarkus-langchain4j/dev/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Expose 2–3 <code>@Tool</code> methods (incl. a read-only Oracle query); build a minimal RAG over Temporal docs using a pgvector embedding store."
+            },
+            {
+              "n": "5",
+              "focusTitle": "Memory, error handling & resilience",
+              "focusSub": "chat memory, retries, fallbacks, validation",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "LangChain4j — Chat Memory",
+                  "url": "https://docs.langchain4j.dev/tutorials/chat-memory"
+                },
+                {
+                  "typeClass": "course",
+                  "typeLabel": "course",
+                  "label": "Java Brains — error handling",
+                  "url": "https://javabrains.io/courses/from-java-to-ai"
+                }
+              ],
+              "est": "2h",
+              "hands": "Add chat memory + robust error handling (retry on malformed output, typed fallback) to your service. This is the pattern your capstone will ship on."
+            }
+          ],
+          "udemy": "Resources: <b>Java Brains</b> (on-ramp) + LangChain4j / Spring AI / Quarkus docs",
+          "udemyNone": false,
+          "deliverable": "Repo <code>billpay-ai-jvm</code> — Quarkus/Kotlin service: tool-using, RAG-backed, typed, memory-aware LLM endpoint."
+        },
+        {
+          "id": "w3",
+          "tag": "WEEK 03",
+          "title": "Context Engineering & RAG",
+          "hours": "~10 hrs",
+          "goal": "<b>Goal:</b> build RAG from scratch (no framework), then rebuild with a framework. Corpus: Temporal docs — eat your own dog food. (Deep retrieval theory comes back in Week 13.)",
+          "variant": "default",
+          "star": false,
+          "days": [
+            {
+              "n": "1",
+              "focusTitle": "Embeddings & chunking",
+              "resources": [
+                {
+                  "typeClass": "course",
+                  "typeLabel": "course",
+                  "label": "DLAI — Advanced Retrieval with Chroma",
+                  "url": "https://www.deeplearning.ai/short-courses/advanced-retrieval-for-ai/"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Pinecone — Chunking",
+                  "url": "https://www.pinecone.io/learn/chunking-strategies/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Write a 1-pager: 3 chunking strategies + when each wins."
+            },
+            {
+              "n": "2",
+              "focusTitle": "RAG from scratch",
+              "focusSub": "anthropic + chromadb + sentence-transformers",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Anthropic — Contextual Retrieval",
+                  "url": "https://www.anthropic.com/news/contextual-retrieval"
+                }
+              ],
+              "est": "2h",
+              "hands": "Ingest Temporal docs; chunk 3 ways; embed with <code>all-MiniLM-L6-v2</code>."
+            },
+            {
+              "n": "3",
+              "focusTitle": "Retrieve → augment → generate",
+              "focusSub": "+ re-ranking",
+              "resources": [
+                {
+                  "typeClass": "course",
+                  "typeLabel": "core",
+                  "label": "Ed Donner — Week 5 (RAG)",
+                  "url": "https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Add a re-ranker (<code>cohere/rerank</code> free or <code>bge-reranker-v2-m3</code>). Compare with/without."
+            },
+            {
+              "n": "4",
+              "focusTitle": "Framework rebuild",
+              "focusSub": "hybrid, HyDE, query rewriting",
+              "resources": [
+                {
+                  "typeClass": "course",
+                  "typeLabel": "course",
+                  "label": "DLAI — Building & Evaluating Advanced RAG",
+                  "url": "https://www.deeplearning.ai/short-courses/building-evaluating-advanced-rag/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Rebuild in LlamaIndex/LangChain; implement hybrid + HyDE + query rewriting."
+            },
+            {
+              "n": "5",
+              "focusTitle": "Production RAG",
+              "focusSub": "pgvector swap — your Postgres edge",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Hamel — most RAG problems are retrieval problems",
+                  "url": "https://hamel.dev/blog/posts/evals/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Swap Chroma → <code>pgvector</code>. Record recall@5 / MRR across chunking strategies in <code>results.md</code>."
+            }
+          ],
+          "udemy": "Udemy: <b>Core Track — Week 5</b>",
+          "udemyNone": false,
+          "deliverable": "Repo <code>week-03-rag</code> — answers \"what is sticky queue starvation?\" with citations + numbers."
+        },
+        {
+          "id": "w4",
+          "tag": "WEEK 04",
+          "title": "Agents — Build Without Frameworks",
+          "hours": "~10 hrs",
+          "goal": "<b>Goal:</b> write a ReAct loop in ~100 lines. Once you grok this, every framework becomes a thin wrapper in your mind.",
+          "variant": "default",
+          "star": false,
+          "days": [
+            {
+              "n": "1",
+              "focusTitle": "What is an agent?",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Anthropic — Building Effective Agents",
+                  "url": "https://www.anthropic.com/research/building-effective-agents"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Lilian Weng — LLM-Powered Agents",
+                  "url": "https://lilianweng.github.io/posts/2023-06-23-agent/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Diagram the ReAct loop on paper before writing any code."
+            },
+            {
+              "n": "2–3",
+              "focusTitle": "ReAct agent from scratch",
+              "focusSub": "The most important exercise in the course",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "build",
+                  "label": "Loop: thought → action → observation → repeat"
+                }
+              ],
+              "est": "4h",
+              "hands": "Write the loop yourself with 5 tools: web search (<a href=\"https://tavily.com/\" target=\"_blank\">Tavily</a> free), file r/w, python REPL, calculator, current_date."
+            },
+            {
+              "n": "4",
+              "focusTitle": "Agentic patterns",
+              "resources": [
+                {
+                  "typeClass": "course",
+                  "typeLabel": "course",
+                  "label": "HF AI Agents Course",
+                  "url": "https://huggingface.co/learn/agents-course",
+                  "trailing": "Units 1–2"
+                }
+              ],
+              "est": "2h",
+              "hands": "Sketch each Anthropic pattern as a flow."
+            },
+            {
+              "n": "5",
+              "focusTitle": "Implement the 5 patterns",
+              "focusSub": "chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer",
+              "resources": [
+                {
+                  "typeClass": "course",
+                  "typeLabel": "core",
+                  "label": "Agentic Track — foundations",
+                  "url": "https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/",
+                  "trailing": "+"
+                }
+              ],
+              "est": "2h",
+              "hands": "Each pattern as a standalone example. Note: when would you use each <i>inside a Temporal workflow</i>?"
+            }
+          ],
+          "udemy": "Udemy: <b>Agentic Track (foundations)</b> + Core Track Wk 8",
+          "udemyNone": false,
+          "deliverable": "Repo <code>week-04-agents-from-scratch</code> — ReAct + 5 patterns + Temporal-context comparison."
+        },
+        {
+          "id": "w5",
+          "tag": "WEEK 05",
+          "title": "Multi-Framework Agents + MCP",
+          "hours": "~11 hrs",
+          "goal": "<b>Goal:</b> become fluent across the four frameworks the Agentic Track teaches — build the <i>same</i> agent in each, then form opinions on each vs a real workflow engine. Breadth here makes you fluent in any team's stack.",
+          "variant": "default",
+          "star": false,
+          "days": [
+            {
+              "n": "1",
+              "focusTitle": "LangGraph",
+              "focusSub": "state, nodes, edges, checkpointer, HITL ≈ Temporal",
+              "resources": [
+                {
+                  "typeClass": "course",
+                  "typeLabel": "course",
+                  "label": "LangChain Academy — Intro to LangGraph",
+                  "url": "https://academy.langchain.com/courses/intro-to-langgraph"
+                }
+              ],
+              "est": "2.5h",
+              "hands": "Port your W4 ReAct agent to LangGraph; add a checkpointer + human-in-the-loop interrupt. Note where this mirrors Temporal signals."
+            },
+            {
+              "n": "2",
+              "focusTitle": "OpenAI Agents SDK",
+              "focusSub": "handoffs, guardrails, sessions",
+              "resources": [
+                {
+                  "typeClass": "course",
+                  "typeLabel": "core",
+                  "label": "Agentic Track — OpenAI SDK week",
+                  "url": "https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "OpenAI Agents SDK docs",
+                  "url": "https://openai.github.io/openai-agents-python/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Rebuild the same agent in the OpenAI Agents SDK; compare its handoff &amp; guardrail primitives to LangGraph edges."
+            },
+            {
+              "n": "3",
+              "focusTitle": "CrewAI",
+              "focusSub": "role-based multi-agent crews",
+              "resources": [
+                {
+                  "typeClass": "course",
+                  "typeLabel": "core",
+                  "label": "Agentic Track — CrewAI week",
+                  "url": "https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "CrewAI docs",
+                  "url": "https://docs.crewai.com/"
+                }
+              ],
+              "est": "2h",
+              "hands": "A 3-role crew (researcher → analyst → writer) producing a billpay incident summary."
+            },
+            {
+              "n": "4",
+              "focusTitle": "AutoGen",
+              "focusSub": "conversational multi-agent / group chat",
+              "resources": [
+                {
+                  "typeClass": "course",
+                  "typeLabel": "core",
+                  "label": "Agentic Track — AutoGen week",
+                  "url": "https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "AutoGen docs",
+                  "url": "https://microsoft.github.io/autogen/"
+                }
+              ],
+              "est": "2h",
+              "hands": "A group-chat of agents solving a task; note how orchestration/turn-taking differs from CrewAI roles."
+            },
+            {
+              "n": "5",
+              "focusTitle": "MCP + the verdict",
+              "focusSub": "build your demo server, then judge them all",
+              "resources": [
+                {
+                  "typeClass": "course",
+                  "typeLabel": "course",
+                  "label": "HF — MCP Course",
+                  "url": "https://huggingface.co/learn/mcp-course",
+                  "trailing": "(w/ Anthropic)"
+                },
+                {
+                  "typeClass": "course",
+                  "typeLabel": "core",
+                  "label": "Agentic Track — MCP week",
+                  "url": "https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/"
+                }
+              ],
+              "est": "2.5h",
+              "hands": "<b>Build:</b> an MCP server exposing your Oracle DB read-only (reused later). Write \"<b>4 frameworks vs Temporal as a workflow engine</b>\" — a portfolio piece only you can write."
+            }
+          ],
+          "udemy": "Udemy: <b>Agentic Track (full course)</b> — OpenAI SDK · CrewAI · LangGraph · AutoGen · MCP",
+          "udemyNone": false,
+          "deliverable": "Repo <code>week-05-frameworks</code> — same agent ×4 + Oracle MCP server + comparison doc."
+        },
+        {
+          "id": "w6",
+          "tag": "WEEK 06",
+          "title": "Fine-Tuning & Local Models",
+          "hours": "~10 hrs",
+          "goal": "<b>Goal:</b> know when fine-tuning helps (rarely) and how to do it when it does. Decision tree: prompt → few-shot → RAG → fine-tune. (The memory math &amp; quantization theory deepen in Week 14.)",
+          "variant": "default",
+          "star": false,
+          "days": [
+            {
+              "n": "1",
+              "focusTitle": "When fine-tuning pays off",
+              "focusSub": "Read before you build",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Hamel — Fine-Tuning is Probably Not For You",
+                  "url": "https://hamel.dev/blog/posts/fine_tuning_valuable.html"
+                }
+              ],
+              "est": "1.5h",
+              "hands": "Write your escalation decision tree; mark where billpay tasks would land."
+            },
+            {
+              "n": "2–3",
+              "focusTitle": "LoRA / QLoRA / PEFT",
+              "resources": [
+                {
+                  "typeClass": "course",
+                  "typeLabel": "course",
+                  "label": "DLAI — Finetuning LLMs",
+                  "url": "https://www.deeplearning.ai/short-courses/finetuning-large-language-models/"
+                },
+                {
+                  "typeClass": "course",
+                  "typeLabel": "core",
+                  "label": "Core Track — Week 7 (QLoRA)",
+                  "url": "https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/"
+                }
+              ],
+              "est": "4h",
+              "hands": "Fine-tune <code>Qwen2.5-3B</code> with LoRA via <a href=\"https://github.com/unslothai/unsloth\" target=\"_blank\">unsloth</a> on a free Colab T4. Task: SQL gen on a synthetic billpay schema."
+            },
+            {
+              "n": "4",
+              "focusTitle": "Local serving",
+              "focusSub": "Ollama vs vLLM; quantization preview",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "llama.cpp",
+                  "url": "https://github.com/ggerganov/llama.cpp",
+                  "trailing": "— Q4_K_M vs Q5_K_M vs FP16"
+                }
+              ],
+              "est": "2h",
+              "hands": "Serve your fine-tuned model with vLLM; benchmark tokens/sec vs Ollama."
+            },
+            {
+              "n": "5",
+              "focusTitle": "Optional — transformers from the metal",
+              "focusSub": "High-leverage if you have appetite",
+              "resources": [
+                {
+                  "typeClass": "vid",
+                  "typeLabel": "video",
+                  "label": "Karpathy — Let's build GPT",
+                  "url": "https://www.youtube.com/watch?v=kCc8FmEb1nY"
+                }
+              ],
+              "est": "2h",
+              "hands": "Pre-train a tiny GPT on Tiny Shakespeare. Optional but you'll never see transformers the same way."
+            }
+          ],
+          "udemy": "Udemy: <b>Core Track — Week 7</b>",
+          "udemyNone": false,
+          "deliverable": "Repo <code>week-06-finetuning</code> — LoRA model beating base on held-out test + \"when would I fine-tune at work?\" writeup."
+        },
+        {
+          "id": "w7",
+          "tag": "WEEK 07",
+          "title": "Evals, Observability & Production Basics",
+          "hours": "~10 hrs",
+          "goal": "<b>Goal:</b> the most undervalued skill in AI engineering. After this week you're in the top 10% purely because most people skip evals. (The measurement theory — perplexity, judges, ranking — goes deep in Week 12.)",
+          "variant": "default",
+          "star": false,
+          "days": [
+            {
+              "n": "1",
+              "focusTitle": "Why evals are everything",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Hamel — LLM Evals FAQ",
+                  "url": "https://hamel.dev/blog/posts/evals-faq/"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Eugene Yan — LLM Patterns",
+                  "url": "https://eugeneyan.com/writing/llm-patterns/"
+                }
+              ],
+              "est": "2h",
+              "hands": "List the failure modes you expect in your Week 5 agent."
+            },
+            {
+              "n": "2–3",
+              "focusTitle": "Build evals",
+              "focusSub": "the Hamel method",
+              "resources": [
+                {
+                  "typeClass": "course",
+                  "typeLabel": "course",
+                  "label": "DLAI — Evaluating AI Agents",
+                  "url": "https://www.deeplearning.ai/short-courses/evaluating-ai-agents/"
+                }
+              ],
+              "est": "4h",
+              "hands": "On your W5 agent: label 100 traces → cluster failures → LLM-as-judge per mode → validate (TPR/TNR) → golden set of 20–30 that gate CI."
+            },
+            {
+              "n": "4",
+              "focusTitle": "Observability",
+              "resources": [
+                {
+                  "typeClass": "tool",
+                  "typeLabel": "tool",
+                  "label": "Langfuse",
+                  "url": "https://langfuse.com/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Instrument every agent call (cost, latency, tools). Dashboard: \"which tool calls fail most?\""
+            },
+            {
+              "n": "5",
+              "focusTitle": "Security & red-teaming",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "OWASP Top 10 for LLM Apps",
+                  "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+                },
+                {
+                  "typeClass": "tool",
+                  "typeLabel": "play",
+                  "label": "Lakera Gandalf",
+                  "url": "https://gandalf.lakera.ai/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Add I/O guardrails. Try 10 attacks; document mitigations. (Expanded in Week 16.)"
+            }
+          ],
+          "udemy": "Udemy: <b>weak fit.</b> Use the practitioners above; <a href=\"https://maven.com/parlance-labs/evals\" target=\"_blank\">Maven AI Evals</a> if you later invest.",
+          "udemyNone": true,
+          "deliverable": "Repo <code>week-07-evals</code> — eval suite + Langfuse dashboard + 3 judges w/ TPR/TNR + red-team doc."
+        },
+        {
+          "id": "w8",
+          "tag": "WEEK 08 ★",
+          "title": "Temporal + LLM Orchestration",
+          "hours": "~11 hrs",
+          "goal": "<b>Goal — YOUR DIFFERENTIATOR.</b> No course teaches this. Run agents as durable, throttled, observable Temporal workflows at 500K+ scale. This is why you're hireable; the capstone is built on it.",
+          "variant": "moat",
+          "star": true,
+          "days": [
+            {
+              "n": "1",
+              "focusTitle": "Agents → workflows mapping",
+              "focusSub": "Determinism boundary",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Temporal docs",
+                  "url": "https://docs.temporal.io/",
+                  "trailing": "+ your production experience"
+                }
+              ],
+              "est": "2h",
+              "hands": "Wrap each LLM call as an Activity; keep non-determinism out of Workflow code. Port your W5 agent into a Temporal workflow skeleton."
+            },
+            {
+              "n": "2",
+              "focusTitle": "Reliability for flaky LLMs",
+              "focusSub": "retry, timeout, heartbeat, idempotency",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Temporal retry policies + Activity heartbeating"
+                }
+              ],
+              "est": "2h",
+              "hands": "Add backoff retries + timeouts to LLM/tool Activities; make tool side-effects idempotent."
+            },
+            {
+              "n": "3",
+              "focusTitle": "Human-in-the-loop",
+              "focusSub": "Signals, Queries, long-running",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Temporal Signals / Queries / Updates"
+                }
+              ],
+              "est": "2h",
+              "hands": "Add an approval gate via Signal; expose live agent state via Query; <code>executeUpdateWithStart</code> for kick-off + first input."
+            },
+            {
+              "n": "4",
+              "focusTitle": "Throttled fan-out at scale",
+              "focusSub": "Your 500K-workflow problem",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Temporal Schedules · task-queue partitioning · worker tuning"
+                }
+              ],
+              "est": "3h",
+              "hands": "Trigger 500K workflows throttled — rate-limit LLM calls, cap concurrency, protect the <code>r8g.8xlarge</code> Postgres without scaling it. Schedules vs <code>Workflow.sleep()</code> at scale."
+            },
+            {
+              "n": "5",
+              "focusTitle": "Write the thesis",
+              "focusSub": "Portfolio + positioning",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "write",
+                  "label": "Blog: \"What Agent Frameworks Get Wrong About Workflow Orchestration\""
+                }
+              ],
+              "est": "2h",
+              "hands": "Draft the post — it basically writes itself with your background. Your standout interview asset."
+            }
+          ],
+          "udemy": "Udemy: <b>none exists — this is uniquely yours.</b>",
+          "udemyNone": true,
+          "deliverable": "Repo <code>week-08-temporal-llm</code> — durable multi-agent workflow w/ HITL signals + throttled fan-out + blog draft."
+        },
+        {
+          "id": "w9",
+          "tag": "WEEK 09–10",
+          "title": "Capstone — Billpay Ops Copilot",
+          "hours": "~20 hrs",
+          "goal": "<b>Goal:</b> ship one real, end-to-end agentic system you'd demo to a hiring manager. Uses everything: structured outputs, RAG, multi-framework agents, MCP, evals, Langfuse, and Temporal orchestration. No tutorials — just build. <b style=\"color:var(--amber-soft)\">Build it JVM-native</b> — Quarkus + Quarkus-LangChain4j + the Temporal Java SDK, reusing your Week 2B work. The Python weeks were for learning; the capstone ships on your stack, which makes it a far stronger portfolio piece for <i>your</i> background.",
+          "variant": "default",
+          "star": false,
+          "days": [
+            {
+              "n": "W9 · Mon–Tue",
+              "focusTitle": "Scope & happy path",
+              "resources": [],
+              "est": "4h",
+              "hands": "Design doc (architecture, tradeoffs); implement the happy-path diagnosis on one failure class."
+            },
+            {
+              "n": "W9 · Wed",
+              "focusTitle": "Tool integrations",
+              "resources": [],
+              "est": "4h",
+              "hands": "Wire Temporal API tool, Oracle read MCP, runbook RAG, metrics tool."
+            },
+            {
+              "n": "W9 · Thu",
+              "focusTitle": "Reliability + observability",
+              "resources": [],
+              "est": "4h",
+              "hands": "Temporal orchestration, retries/timeouts, HITL approval signal, Langfuse tracing."
+            },
+            {
+              "n": "W9 · Fri",
+              "focusTitle": "Deploy",
+              "resources": [],
+              "est": "4h",
+              "hands": "Deploy to Fly.io / Modal (full AWS deploy comes in Week 16). Smoke test end-to-end."
+            },
+            {
+              "n": "W10 · 1–3",
+              "focusTitle": "Finish + evals + writeup",
+              "resources": [],
+              "est": "8h",
+              "hands": "≥10 golden incidents in the eval suite; 1500-word writeup on architecture, tradeoffs, \"what I'd do at 10× scale.\""
+            },
+            {
+              "n": "W10 · 4",
+              "focusTitle": "Portfolio polish",
+              "resources": [],
+              "est": "3h",
+              "hands": "Pin repo; blog post; LinkedIn + Loom demo. Resume bullets that lead with outcomes (\"cut RAG P95 800ms→180ms via hybrid + reranker\"), not tech names."
+            },
+            {
+              "n": "W10 · 5",
+              "focusTitle": "Reflect + plan Part II",
+              "resources": [],
+              "est": "2h",
+              "hands": "Subscribe: <a href=\"https://hamel.dev/\" target=\"_blank\">Hamel</a>, <a href=\"https://eugeneyan.com/\" target=\"_blank\">Eugene Yan</a>, <a href=\"https://www.latent.space/\" target=\"_blank\">Latent Space</a>. Open Chip Huyen's book — Part II starts."
+            }
+          ],
+          "udemy": "Synthesis — Agentic Track Capstone + Core Track Wk 8 for reference patterns.",
+          "udemyNone": false,
+          "deliverable": "Deployed Billpay Ops Copilot + eval suite + writeup + portfolio assets.",
+          "specs": [
+            {
+              "kind": "pick",
+              "heading": "The build — recommended pick (strongest for your portfolio)",
+              "body": "An agent that diagnoses a <b>stuck Temporal workflow</b> given a workflow ID, then proposes (and optionally executes, behind a human-approval signal) a mitigation. It sits exactly at the intersection of your moat and AI engineering.",
+              "bullets": [
+                "<b>Input:</b> a workflow ID (or an alert webhook).",
+                "<b>Tools / MCP servers:</b> query Temporal API (history, pending activities, stuck task queues); read Oracle business state via your Week-5 read-only MCP server; RAG over runbooks + Temporal docs (Week 3); a metrics tool (shard latency, sync-match rate).",
+                "<b>Reasoning:</b> a Quarkus-LangChain4j agent (or LangGraph if you'd rather stay in Python) classifies the failure (sticky-queue starvation, poller starvation, <code>IO:XactSync</code> contention, prepared-statement pinning, …) and drafts a mitigation.",
+                "<b>Orchestration:</b> the whole diagnosis runs as a <b>Temporal workflow (Java SDK)</b> — durable, retryable, with a human-approval <b>Signal</b> before any write action.",
+                "<b>Quality gates:</b> eval suite (Week 7) with golden incidents; LLM-as-judge on diagnosis correctness.",
+                "<b>Observability:</b> full Langfuse tracing of every tool call and token."
+              ]
+            },
+            {
+              "kind": "alt",
+              "heading": "Alternative picks (if you want a change of domain)",
+              "bullets": [
+                "<b>Code Review Agent</b> — reviews Kotlin PRs against your team style guide + anti-patterns; RAG over the guide + history.",
+                "<b>India Relocation Concierge</b> — multi-step planning (schools, neighborhoods, doc checklists). Personally useful, less technically flashy.",
+                "<b>Wildlife Photography Assistant</b> — RAG over EXIF + field guides; suggests lens/settings. Niche but distinctive."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part2",
+      "pn": "Part II",
+      "title": "Depth & Systems",
+      "sub": "Weeks 11–17 · post-capstone · Huyen + ByteByteGo + Production Track",
+      "weeks": [
+        {
+          "id": "w11",
+          "tag": "WEEK 11",
+          "title": "Foundation Model Internals",
+          "hours": "~12 hrs",
+          "goal": "<b>Goal:</b> understand <i>why</i> models behave as they do — the theory you skipped in Part I, now that you can contextualize it against systems you've built. <span class=\"mono\" style=\"color:var(--amber-soft)\">Huyen Ch 2.</span>",
+          "variant": "default",
+          "star": false,
+          "days": [
+            {
+              "n": "1",
+              "focusTitle": "Sampling & decoding",
+              "focusSub": "temperature, top-k, top-p, greedy; structured outputs",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 2 — Sampling"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "HF — How to generate text",
+                  "url": "https://huggingface.co/blog/how-to-generate"
+                }
+              ],
+              "est": "2h",
+              "hands": "Implement temperature + top-p sampling over raw logprobs; show how each reshapes the output distribution."
+            },
+            {
+              "n": "2",
+              "focusTitle": "Test-time compute & reasoning",
+              "focusSub": "CoT, best-of-N, ToT, parallel/sequential sampling, search-against-verifier",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 2 — Test Time Compute"
+                },
+                {
+                  "typeClass": "course",
+                  "typeLabel": "cohort",
+                  "label": "ByteByteGo P4 — Deep Research / reasoning",
+                  "url": "https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/"
+                }
+              ],
+              "est": "2.5h",
+              "hands": "Implement best-of-N, self-consistency, and a simple <b>Tree-of-Thoughts</b> + verifier search on a SQL/math task; chart accuracy vs token cost."
+            },
+            {
+              "n": "3",
+              "focusTitle": "Probabilistic nature & hallucination",
+              "focusSub": "why inconsistency happens",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 2 — The Probabilistic Nature of AI"
+                }
+              ],
+              "est": "2h",
+              "hands": "Run the same prompt 20× at temp 0 vs 1; quantify variance. Design a determinism strategy for billpay-grade reliability."
+            },
+            {
+              "n": "4",
+              "focusTitle": "Post-training & reasoning-RL",
+              "focusSub": "SFT, RLHF, DPO; reward modeling (ORM/PRM), STaR, Meta-CoT",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 2 — Post-Training"
+                },
+                {
+                  "typeClass": "course",
+                  "typeLabel": "cohort",
+                  "label": "ByteByteGo P4 — training-time techniques",
+                  "url": "https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/"
+                },
+                {
+                  "typeClass": "course",
+                  "typeLabel": "course",
+                  "label": "HF LLM Course — alignment",
+                  "url": "https://huggingface.co/learn/llm-course"
+                }
+              ],
+              "est": "2h",
+              "hands": "Read a DPO preference dataset; diagram outcome- vs process-reward models (ORM/PRM) and how STaR bootstraps reasoning data. Sketch preference data for a billpay assistant."
+            },
+            {
+              "n": "5",
+              "focusTitle": "Pre-training, architecture & size",
+              "focusSub": "data corpora (Common Crawl/FineWeb), BPE, params, context, MoE",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 2 — Modeling"
+                },
+                {
+                  "typeClass": "course",
+                  "typeLabel": "cohort",
+                  "label": "ByteByteGo P1 — Pre-Training",
+                  "url": "https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Map the pre-training pipeline (corpora → cleaning → BPE → architecture). Build a decision table: per task class, which model size/family + why."
+            },
+            {
+              "n": "6",
+              "focusTitle": "Mechanistic interpretability",
+              "focusSub": "optional deep path — what's inside the weights",
+              "resources": [
+                {
+                  "typeClass": "course",
+                  "typeLabel": "course",
+                  "label": "Mike X Cohen — Deep LLM Mechanisms",
+                  "url": "https://www.udemy.com/course/dullms_x/",
+                  "trailing": "(+ )"
+                }
+              ],
+              "est": "1.5h",
+              "hands": "Optional: probe attention heads / activations on a small model. Pull the relevant module from Cohen's course — don't attempt all 90h; sample interpretability + attention internals."
+            }
+          ],
+          "udemy": "Spine: <b>Huyen Ch 2</b> + ByteByteGo P1/P4 · Cohen (optional)",
+          "udemyNone": false,
+          "deliverable": "Repo <code>week-11-fm-internals</code> — sampling + ToT/verifier eval + reward-model notes + determinism writeup."
+        },
+        {
+          "id": "w12",
+          "tag": "WEEK 12",
+          "title": "Evaluation, Deep",
+          "hours": "~11 hrs",
+          "goal": "<b>Goal:</b> the measurement foundations behind Week 7. This is what separates engineers who <i>think</i> their system works from those who can prove it. <span class=\"mono\" style=\"color:var(--amber-soft)\">Huyen Ch 3–4.</span>",
+          "variant": "default",
+          "star": false,
+          "days": [
+            {
+              "n": "1",
+              "focusTitle": "Language-modeling metrics",
+              "focusSub": "entropy, cross-entropy, perplexity, BPC/BPB",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 3 — Understanding LM Metrics"
+                }
+              ],
+              "est": "2h",
+              "hands": "Compute perplexity of a local model on a held-out billpay-docs set; interpret what it tells you."
+            },
+            {
+              "n": "2",
+              "focusTitle": "AI as a judge",
+              "focusSub": "how, limitations, judge bias",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 3 — AI as a Judge"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Hamel — Evals FAQ",
+                  "url": "https://hamel.dev/blog/posts/evals-faq/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Build an LLM judge with an explicit rubric; validate against human labels (TPR/TNR); measure position/verbosity bias."
+            },
+            {
+              "n": "3",
+              "focusTitle": "Comparative eval & ranking",
+              "focusSub": "pairwise, Elo, arenas",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 3 — Comparative Evaluation"
+                },
+                {
+                  "typeClass": "tool",
+                  "typeLabel": "tool",
+                  "label": "LMArena (Chatbot Arena)",
+                  "url": "https://lmarena.ai/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Pairwise-compare 3 models on your task; compute an Elo ranking from the results."
+            },
+            {
+              "n": "4",
+              "focusTitle": "Eval criteria & model selection",
+              "focusSub": "capability, cost/latency; build vs buy; benchmarks",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 4 — Evaluation Criteria + Model Selection"
+                }
+              ],
+              "est": "2.5h",
+              "hands": "Build a model-selection scorecard for billpay (capability × cost × latency × control). Critically read 2 public benchmarks for leakage/mismatch."
+            },
+            {
+              "n": "5",
+              "focusTitle": "Eval pipeline design",
+              "focusSub": "eval all components, guidelines, methods + data",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 4 — Design Your Evaluation Pipeline"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Eugene Yan — LLM Patterns",
+                  "url": "https://eugeneyan.com/writing/llm-patterns/"
+                }
+              ],
+              "est": "2.5h",
+              "hands": "Design an end-to-end eval pipeline for your capstone (component-level + system-level); wire it into CI as a release gate."
+            }
+          ],
+          "udemy": "Spine: <b>Huyen Ch 3–4</b> · <a href=\"https://maven.com/parlance-labs/evals\" target=\"_blank\">Maven AI Evals</a> if investing",
+          "udemyNone": false,
+          "deliverable": "Repo <code>week-12-eval</code> — perplexity calc + validated judge + Elo + model scorecard + CI eval gate."
+        },
+        {
+          "id": "w13",
+          "tag": "WEEK 13",
+          "title": "Advanced RAG & Agents",
+          "hours": "~11 hrs",
+          "goal": "<b>Goal:</b> the retrieval and agent depth that actually moves production quality — beyond the basic pipeline you built in Week 3. <span class=\"mono\" style=\"color:var(--amber-soft)\">Huyen Ch 6.</span>",
+          "variant": "default",
+          "star": false,
+          "days": [
+            {
+              "n": "1",
+              "focusTitle": "Retrieval algorithms",
+              "focusSub": "term-based (BM25), embedding, hybrid + fusion",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 6 — Retrieval Algorithms"
+                }
+              ],
+              "est": "2h",
+              "hands": "Implement BM25 + dense + RRF fusion on your W3 corpus; compare recall across the three."
+            },
+            {
+              "n": "2",
+              "focusTitle": "Retrieval optimization",
+              "focusSub": "reranking, query rewriting, contextual retrieval",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 6 — Retrieval Optimization"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Anthropic — Contextual Retrieval",
+                  "url": "https://www.anthropic.com/news/contextual-retrieval"
+                }
+              ],
+              "est": "2h",
+              "hands": "Add a cross-encoder reranker + query rewriting; measure nDCG lift vs the W3 baseline."
+            },
+            {
+              "n": "3",
+              "focusTitle": "RAG beyond text",
+              "focusSub": "multimodal, tabular / text-to-SQL retrieval",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 6 — RAG Beyond Texts"
+                }
+              ],
+              "est": "2h",
+              "hands": "Add tabular retrieval over your Oracle schema — text-to-SQL plus row retrieval — feeding the agent."
+            },
+            {
+              "n": "4",
+              "focusTitle": "Agent memory systems",
+              "focusSub": "short/long-term, episodic, summary memory",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 6 — Memory"
+                }
+              ],
+              "est": "2h",
+              "hands": "Add a memory layer to your capstone agent (vector recall + rolling summary); test multi-session recall."
+            },
+            {
+              "n": "5",
+              "focusTitle": "Agent failure modes & eval",
+              "focusSub": "planning errors, tool errors, loops",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 6 — Agent Failure Modes and Evaluation"
+                }
+              ],
+              "est": "2h",
+              "hands": "Build a failure taxonomy + targeted evals for your agent; add loop/cost circuit-breakers."
+            },
+            {
+              "n": "6",
+              "focusTitle": "Advanced agent reasoning",
+              "focusSub": "Reflexion, ReWOO, Tree-of-Thoughts, tree search",
+              "resources": [
+                {
+                  "typeClass": "cohort",
+                  "typeLabel": "cohort",
+                  "label": "ByteByteGo P3 — multi-step agents",
+                  "url": "https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/"
+                },
+                {
+                  "typeClass": "course",
+                  "typeLabel": "core",
+                  "label": "Agentic Track",
+                  "url": "https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Implement Reflexion (self-critique memory) and ReWOO (plan-then-execute) variants of your agent; compare against plain ReAct on your eval set."
+            }
+          ],
+          "udemy": "Spine: <b>Huyen Ch 6</b>",
+          "udemyNone": false,
+          "deliverable": "Repo <code>week-13-advanced-rag</code> — hybrid+rerank + tabular RAG + agent memory + failure evals."
+        },
+        {
+          "id": "w14",
+          "tag": "WEEK 14",
+          "title": "Finetuning Depth + Dataset Engineering",
+          "hours": "~11 hrs",
+          "goal": "<b>Goal:</b> the quantitative grounding behind fine-tuning, and the data work that actually decides whether it works — the half of fine-tuning nobody shows you. <span class=\"mono\" style=\"color:var(--amber-soft)\">Huyen Ch 7–8.</span>",
+          "variant": "default",
+          "star": false,
+          "days": [
+            {
+              "n": "1",
+              "focusTitle": "Memory math & numerics",
+              "focusSub": "FP32/16/BF16/INT8/INT4; footprint formula",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 7 — Memory Bottlenecks"
+                }
+              ],
+              "est": "2h",
+              "hands": "Compute VRAM for full vs LoRA vs QLoRA on 7B/13B; verify against your actual Week-6 run."
+            },
+            {
+              "n": "2",
+              "focusTitle": "Quantization",
+              "focusSub": "PTQ, GPTQ/AWQ, GGUF; quality/latency tradeoffs",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 7 — Quantization"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "llama.cpp",
+                  "url": "https://github.com/ggerganov/llama.cpp"
+                }
+              ],
+              "est": "2h",
+              "hands": "Quantize your W6 model to Q4/Q5; benchmark quality + tokens/sec at each level."
+            },
+            {
+              "n": "3",
+              "focusTitle": "Model merging & multi-task",
+              "focusSub": "SLERP, TIES, DARE",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 7 — Model Merging"
+                },
+                {
+                  "typeClass": "tool",
+                  "typeLabel": "tool",
+                  "label": "mergekit",
+                  "url": "https://github.com/arcee-ai/mergekit"
+                }
+              ],
+              "est": "2h",
+              "hands": "Merge two LoRA adapters with mergekit; eval the merged model on both source tasks."
+            },
+            {
+              "n": "4",
+              "focusTitle": "Data curation",
+              "focusSub": "quality, coverage, quantity; acquisition & annotation",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 8 — Data Curation"
+                }
+              ],
+              "est": "2.5h",
+              "hands": "Build a 200-example billpay instruction dataset with an explicit quality rubric + coverage check."
+            },
+            {
+              "n": "5",
+              "focusTitle": "Synthesis, distillation & RAFT",
+              "focusSub": "AI-powered synthesis, distillation, retrieval-augmented fine-tuning",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 8 — Data Augmentation & Processing"
+                },
+                {
+                  "typeClass": "cohort",
+                  "typeLabel": "cohort",
+                  "label": "ByteByteGo P2 — RAFT",
+                  "url": "https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/"
+                }
+              ],
+              "est": "2.5h",
+              "hands": "Synthesize + distill from a frontier model into your small model; dedup &amp; filter; try <b>RAFT</b> (train the model to ignore distractor docs) and re-run the W6 eval to show lift."
+            }
+          ],
+          "udemy": "Spine: <b>Huyen Ch 7–8</b>",
+          "udemyNone": false,
+          "deliverable": "Repo <code>week-14-data</code> — memory-math sheet + quantized models + merged adapter + synthetic dataset."
+        },
+        {
+          "id": "w15",
+          "tag": "WEEK 15 ★",
+          "title": "Inference Optimization",
+          "hours": "~11 hrs",
+          "goal": "<b>Goal — YOUR SECOND MOAT.</b> Distributed-systems thinking applied to LLM serving: throughput, batching, caching, latency-vs-cost. This is the strongest moat-adjacent material in the plan — most AI engineers can't reason about it; you do this for a living. <span class=\"mono\" style=\"color:var(--amber-soft)\">Huyen Ch 9.</span>",
+          "variant": "moat",
+          "star": true,
+          "days": [
+            {
+              "n": "1",
+              "focusTitle": "Inference metrics & accelerators",
+              "focusSub": "TTFT, TPOT, throughput, goodput; GPU basics",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 9 — Understanding Inference Optimization"
+                }
+              ],
+              "est": "2h",
+              "hands": "Benchmark TTFT / TPOT / throughput of your W6 model under load; build a latency-vs-cost table."
+            },
+            {
+              "n": "2",
+              "focusTitle": "Model optimization",
+              "focusSub": "quantization, distillation, speculative decoding, parallelism",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 9 — Model Optimization"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "vLLM docs",
+                  "url": "https://docs.vllm.ai/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Enable speculative decoding in vLLM; measure the speedup vs baseline."
+            },
+            {
+              "n": "3",
+              "focusTitle": "Service optimization",
+              "focusSub": "continuous batching, KV cache, prefill/decode disaggregation",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 9 — Inference Service Optimization"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "vLLM — batching & paged attention",
+                  "url": "https://docs.vllm.ai/"
+                }
+              ],
+              "est": "2.5h",
+              "hands": "Load-test vLLM continuous batching; chart throughput vs concurrency; observe KV-cache + prefill effects."
+            },
+            {
+              "n": "4",
+              "focusTitle": "Caching & routing for cost",
+              "focusSub": "prompt cache, semantic cache, model gateway/router",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 10 — Caches + Router/Gateway"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "LiteLLM (gateway)",
+                  "url": "https://docs.litellm.ai/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Add prompt + semantic caching; route easy queries to a small model via a gateway; measure $ saved."
+            },
+            {
+              "n": "5",
+              "focusTitle": "Throughput at scale",
+              "focusSub": "tie to your Temporal fan-out",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 9 + your Week 8"
+                }
+              ],
+              "est": "2.5h",
+              "hands": "Design the serving tier for 500K throttled workflows: concurrency caps, batching, cache-hit targets — without scaling the <code>r8g.8xlarge</code>. This is your interview centerpiece."
+            }
+          ],
+          "udemy": "Spine: <b>Huyen Ch 9</b> — no course matches your background here.",
+          "udemyNone": true,
+          "deliverable": "Repo <code>week-15-inference</code> — load-test harness + spec-decoding bench + batching chart + gateway/cache + scale design doc."
+        },
+        {
+          "id": "w16",
+          "tag": "WEEK 16",
+          "title": "AI Eng Architecture & Production Deployment",
+          "hours": "~13 hrs",
+          "goal": "<b>Goal:</b> assemble everything into a production reference architecture and deploy it to the cloud — the platform-engineering layer that is 70–80% of real production AI work. <span class=\"mono\" style=\"color:var(--amber-soft)\">Huyen Ch 10 + Ed Donner Production Track.</span>",
+          "variant": "default",
+          "star": false,
+          "days": [
+            {
+              "n": "1",
+              "focusTitle": "Reference architecture",
+              "focusSub": "context → guardrails → router → cache → agents → orchestration",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 10 — AI Engineering Architecture"
+                }
+              ],
+              "est": "2h",
+              "hands": "Draw your capstone as the full layered architecture; label each layer in your actual code."
+            },
+            {
+              "n": "2",
+              "focusTitle": "Guardrails & defensive prompting",
+              "focusSub": "I/O guardrails, jailbreak / prompt-injection defenses",
+              "resources": [
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 5 (Defensive PE) + Ch 10 (Guardrails)"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "OWASP LLM Top 10",
+                  "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Add input + output guardrails to the capstone; red-team with 10 injections; document each defense."
+            },
+            {
+              "n": "3",
+              "focusTitle": "Cloud deploy",
+              "focusSub": "Docker, AWS Bedrock, SageMaker, Lambda, App Runner, API Gateway",
+              "resources": [
+                {
+                  "typeClass": "course",
+                  "typeLabel": "core",
+                  "label": "Production Track — Wk 1 & 3",
+                  "url": "https://www.udemy.com/course/generative-and-agentic-ai-in-production/"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "AWS Bedrock docs",
+                  "url": "https://docs.aws.amazon.com/bedrock/"
+                }
+              ],
+              "est": "3h",
+              "hands": "Containerize the capstone (Docker); deploy behind API Gateway + Lambda (or App Runner for the long-running agent); call Bedrock as a model provider."
+            },
+            {
+              "n": "4",
+              "focusTitle": "IaC & CI/CD for AI",
+              "focusSub": "Terraform, GitHub Actions, multi-cloud (Vercel/GCP/Azure)",
+              "resources": [
+                {
+                  "typeClass": "course",
+                  "typeLabel": "core",
+                  "label": "Production Track — platform engineering",
+                  "url": "https://www.udemy.com/course/generative-and-agentic-ai-in-production/"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "Terraform docs",
+                  "url": "https://developer.hashicorp.com/terraform"
+                }
+              ],
+              "est": "2.5h",
+              "hands": "Terraform your infra; GitHub Actions pipeline that runs the Week-12 eval gate before any deploy. Note the Vercel/GCP/Azure equivalents the Production Track covers."
+            },
+            {
+              "n": "5",
+              "focusTitle": "Serverless multi-agent + feedback",
+              "focusSub": "Aurora Serverless/SQS, Langfuse, user-feedback loops",
+              "resources": [
+                {
+                  "typeClass": "course",
+                  "typeLabel": "core",
+                  "label": "Production Track — Wk 4",
+                  "url": "https://www.udemy.com/course/generative-and-agentic-ai-in-production/"
+                },
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Huyen Ch 10 — User Feedback"
+                }
+              ],
+              "est": "2.5h",
+              "hands": "Deploy the multi-agent capstone serverless (Aurora Serverless + SQS); wire Langfuse; add a conversational feedback-capture loop."
+            },
+            {
+              "n": "6",
+              "focusTitle": "SaaS productization & MLOps",
+              "focusSub": "user management, subscriptions, monitoring maturity",
+              "resources": [
+                {
+                  "typeClass": "course",
+                  "typeLabel": "core",
+                  "label": "Production Track — SaaS + MLOps",
+                  "url": "https://www.udemy.com/course/generative-and-agentic-ai-in-production/"
+                }
+              ],
+              "est": "2.5h",
+              "hands": "Add a thin SaaS layer (auth, usage metering, subscription tier) in front of the capstone; document the MLOps loop — monitoring, retraining triggers, rollback. Optional but makes the project look commercial."
+            }
+          ],
+          "udemy": "Udemy: <b>Production Track</b> + Huyen Ch 10",
+          "udemyNone": false,
+          "deliverable": "Capstone deployed to AWS, Terraform-managed, eval-gated CI/CD, Langfuse-instrumented, with a feedback loop."
+        },
+        {
+          "id": "w17",
+          "tag": "WEEK 17 ◇ ELECTIVE",
+          "title": "Multimodal & Generative Media",
+          "hours": "~10 hrs",
+          "goal": "<b>Optional — breadth, and personally relevant.</b> The least central to a backend-agentic path, but it's an entire domain (and ties to your photography). Spine: <a href=\"https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/\" target=\"_blank\">ByteByteGo P5</a>. Skip without guilt if you're optimizing purely for agentic-backend roles.",
+          "variant": "elective",
+          "star": false,
+          "days": [
+            {
+              "n": "1",
+              "focusTitle": "Generative model families",
+              "focusSub": "VAE, GANs, autoregressive, diffusion",
+              "resources": [
+                {
+                  "typeClass": "cohort",
+                  "typeLabel": "cohort",
+                  "label": "ByteByteGo P5 — overview",
+                  "url": "https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/"
+                },
+                {
+                  "typeClass": "course",
+                  "typeLabel": "course",
+                  "label": "HF — Diffusion Models Course",
+                  "url": "https://huggingface.co/learn/diffusion-course"
+                }
+              ],
+              "est": "2h",
+              "hands": "One-pager comparing the four families; where diffusion won and why."
+            },
+            {
+              "n": "2",
+              "focusTitle": "Diffusion deep",
+              "focusSub": "forward/backward process, U-Net vs DiT, sampling",
+              "resources": [
+                {
+                  "typeClass": "course",
+                  "typeLabel": "course",
+                  "label": "HF Diffusion Course — units 1–2",
+                  "url": "https://huggingface.co/learn/diffusion-course"
+                }
+              ],
+              "est": "2h",
+              "hands": "Run the HF diffusion-from-scratch notebook; sample at varying step counts and observe quality/latency."
+            },
+            {
+              "n": "3",
+              "focusTitle": "Text-to-Image hands-on",
+              "focusSub": "Stable Diffusion / diffusers; FID, CLIP score",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "HF diffusers docs",
+                  "url": "https://huggingface.co/docs/diffusers"
+                }
+              ],
+              "est": "2h",
+              "hands": "Generate images with SDXL via <code>diffusers</code>; evaluate a set with CLIP score; try ControlNet for composition control."
+            },
+            {
+              "n": "4",
+              "focusTitle": "Text-to-Video",
+              "focusSub": "latent diffusion, DiT for video, T2V systems",
+              "resources": [
+                {
+                  "typeClass": "cohort",
+                  "typeLabel": "cohort",
+                  "label": "ByteByteGo P5 — T2V",
+                  "url": "https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Read the T2V system design; run an open T2V model on a short clip; note the scaling challenges."
+            },
+            {
+              "n": "5",
+              "focusTitle": "Build — a generation agent",
+              "focusSub": "tie it to your photography",
+              "resources": [
+                {
+                  "typeClass": "cohort",
+                  "typeLabel": "cohort",
+                  "label": "ByteByteGo P5 — capstone",
+                  "url": "https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Build a small T2I agent that generates concept references / backdrops from a prompt — a useful pre-shoot tool for your portrait work."
+            }
+          ],
+          "udemy": "Spine: <b>ByteByteGo P5</b> + HF Diffusion Course",
+          "udemyNone": false,
+          "deliverable": "Repo <code>week-17-multimodal</code> — diffusion notebook + T2I generation agent."
+        }
+      ]
+    }
+  ],
+  "electives": [
+    "<b><a href=\"https://javabrains.io/courses/from-java-to-ai\" target=\"_blank\">Java Brains — From Java to AI</a></b>: a short, code-free LLM primer for Java devs. Below your level conceptually, but a fast, friendly on-ramp and a clean reference for the JVM-integration framing in Week 2B. Skim at 1.5–2×.",
+    "<b><a href=\"https://www.udemy.com/course/executive-briefing-generative-ai-and-large-language-models-llm/\" target=\"_blank\">Ed Donner — AI Leader</a></b>: not a coding course — a business/strategy briefing. A genuine force-multiplier in interviews and design reviews; demonstrating commercial judgment separates senior AI engineers from implementers.",
+    "<b><a href=\"https://www.udemy.com/course/dullms_x/\" target=\"_blank\">Mike X Cohen — Deep Understanding of LLM Mechanisms</a></b> (+ <a href=\"https://github.com/mikexcohen/LLM_course\" target=\"_blank\">code</a>): 90+ hrs of transformer math, PyTorch-from-scratch, and mechanistic interpretability. The deepest theory path here — sample it (Week 11) rather than completing it end-to-end unless you want research-grade depth."
+  ],
+  "timeSummary": [
+    {
+      "wk": "0",
+      "topic": "Python pre-prep + setup",
+      "build": 6,
+      "read": 4,
+      "deliverable": "Async FastAPI + Pydantic",
+      "star": false
+    },
+    {
+      "wk": "1 ★",
+      "topic": "<b>Claude Code &amp; agentic coding</b>",
+      "build": 7,
+      "read": 4,
+      "deliverable": "CLAUDE.md + hooks + autonomous Jira→PR",
+      "star": true
+    },
+    {
+      "wk": "2",
+      "topic": "Gen AI building blocks",
+      "build": 6,
+      "read": 4,
+      "deliverable": "3 raw-API scripts",
+      "star": false
+    },
+    {
+      "wk": "2B ★",
+      "topic": "<b>JVM-native AI (Spring AI/LangChain4j)</b>",
+      "build": 7,
+      "read": 3,
+      "deliverable": "Quarkus/Kotlin LLM service",
+      "star": true
+    },
+    {
+      "wk": "3",
+      "topic": "Context engineering + RAG",
+      "build": 7,
+      "read": 3,
+      "deliverable": "RAG over Temporal docs",
+      "star": false
+    },
+    {
+      "wk": "4",
+      "topic": "Agents from scratch",
+      "build": 7,
+      "read": 3,
+      "deliverable": "ReAct + 5 patterns",
+      "star": false
+    },
+    {
+      "wk": "5",
+      "topic": "Multi-framework agents + MCP",
+      "build": 7,
+      "read": 4,
+      "deliverable": "Same agent ×4 + Oracle MCP",
+      "star": false
+    },
+    {
+      "wk": "6",
+      "topic": "Fine-tuning + local",
+      "build": 6,
+      "read": 4,
+      "deliverable": "LoRA-tuned 3B + vLLM bench",
+      "star": false
+    },
+    {
+      "wk": "7",
+      "topic": "Evals + observability",
+      "build": 7,
+      "read": 3,
+      "deliverable": "Eval suite + Langfuse",
+      "star": false
+    },
+    {
+      "wk": "8 ★",
+      "topic": "<b>Temporal + LLM (moat)</b>",
+      "build": 8,
+      "read": 3,
+      "deliverable": "Durable agent + throttled fan-out",
+      "star": true
+    },
+    {
+      "wk": "9–10",
+      "topic": "Capstone build + polish",
+      "build": 17,
+      "read": 3,
+      "deliverable": "Billpay Ops Copilot, deployed",
+      "star": false
+    },
+    {
+      "wk": "11",
+      "topic": "FM internals + reasoning",
+      "build": 6,
+      "read": 6,
+      "deliverable": "Sampling + ToT/verifier eval",
+      "star": false
+    },
+    {
+      "wk": "12",
+      "topic": "Evaluation, deep",
+      "build": 6,
+      "read": 5,
+      "deliverable": "Judge + Elo + CI eval gate",
+      "star": false
+    },
+    {
+      "wk": "13",
+      "topic": "Advanced RAG &amp; agents",
+      "build": 8,
+      "read": 3,
+      "deliverable": "Hybrid+rerank + memory + Reflexion/ReWOO",
+      "star": false
+    },
+    {
+      "wk": "14",
+      "topic": "Finetuning + dataset eng",
+      "build": 7,
+      "read": 4,
+      "deliverable": "Quantized + merged + synth + RAFT",
+      "star": false
+    },
+    {
+      "wk": "15 ★",
+      "topic": "<b>Inference optimization (moat)</b>",
+      "build": 8,
+      "read": 3,
+      "deliverable": "Load-test + batching + scale doc",
+      "star": true
+    },
+    {
+      "wk": "16",
+      "topic": "Architecture + AWS deploy",
+      "build": 9,
+      "read": 4,
+      "deliverable": "Capstone on AWS, IaC, SaaS, eval-gated",
+      "star": false
+    },
+    {
+      "wk": "17 ◇",
+      "topic": "Multimodal (elective)",
+      "build": 6,
+      "read": 4,
+      "deliverable": "Diffusion notebook + T2I agent",
+      "star": false
+    }
+  ],
+  "notes": {
+    "paidCourses": [
+      "<a href=\"https://maven.com/parlance-labs/evals\" target=\"_blank\">AI Evals for Engineers &amp; PMs</a> (Hamel Husain &amp; Shreya Shankar) — highest-signal paid course in the space (~$2k). Pairs with Weeks 7 &amp; 12.",
+      "<a href=\"https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/\" target=\"_blank\">Ed Donner — AI Engineer Core Track</a> (~$15–20 on sale) — backbone for Weeks 2, 3, 6.",
+      "<a href=\"https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/\" target=\"_blank\">AI Engineer Agentic Track</a> (~$15–20) — 8 projects across OpenAI SDK / CrewAI / LangGraph / AutoGen / MCP; drives Weeks 4–5.",
+      "<a href=\"https://www.udemy.com/course/generative-and-agentic-ai-in-production/\" target=\"_blank\">AI Engineer Production Track</a> (~$15–20) — AWS Bedrock/SageMaker, Lambda, Terraform, CI/CD, serverless multi-agent; drives Week 16."
+    ],
+    "buyingTip": "<b>Buying tip:</b> all three Ed Donner courses are on Udemy — the Personal Plan unlocks everything and beats buying individually; otherwise wait for the recurring ~$10–20 sale and never pay sticker. Chip Huyen's <i>AI Engineering</i> (the book you have) is the Part II spine — no course replaces it.",
+    "pitfalls": [
+      "<b>You now own overlapping courses — don't binge them linearly.</b> Use the resource map: one primary per week, the rest as reference. Watching all six Ed Donner courses + ByteByteGo + Cohen end-to-end is hundreds of hours and mostly redundant.",
+      "<b>Don't let Part II block shipping.</b> The capstone (W10) is the hireable artifact; Weeks 11–17 deepen you but a portfolio project beats half-read theory. Ship first.",
+      "<b>Don't chase \"the correct framework.\"</b> Week 5 is breadth on purpose — learn all four, commit to none.",
+      "<b>Your backend rigor is a superpower past Week 4.</b> Most AI engineers can't reason about throughput, idempotency, retries, or transactional semantics — your capstone and Week 15 should be 10× more production-ready than the median learner's.",
+      "<b>Don't fine-tune unless evals say to.</b> The #1 trap for technical learners.",
+      "<b>Your moats are Weeks 2B, 8, and 15.</b> JVM-native AI + Temporal orchestration + inference optimization. Build the capstone on the JVM and write the blog posts — they're your differentiated interview assets."
+    ],
+    "sig": "Roadmap v7 · progress tracker · 17-week + elective · Google Sans Flex · 1 Jun 2026 · sources: Huyen, AI Engineering (O'Reilly) · Ed Donner full 6-course series · ByteByteGo cohort · Mike X Cohen · Java Brains (JVM-native)"
+  }
+}

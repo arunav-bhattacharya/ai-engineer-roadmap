@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineer Roadmap — Progress Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;500;700&family=Google+Sans+Flex:wght@100..900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d100e; --panel:#141815; --panel-2:#191e1a; --ink:#e8e6dd;
+    --ink-dim:#9aa094; --line:#2a2f29; --amber:#e8a33d; --amber-soft:#caa15f;
+    --green:#7fb069; --red:#d9695a; --blue:#6fa8c7; --grid:rgba(255,255,255,.025);
+    --font-display:"Google Sans Flex",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --font-body:"Google Sans Flex",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --font-mono:"Google Sans Code",ui-monospace,"SF Mono",Menlo,"Cascadia Code","Roboto Mono",monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--bg);
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:34px 34px;color:var(--ink);
+    font-family:var(--font-body);font-size:15.5px;line-height:1.7;-webkit-font-smoothing:antialiased;
+    letter-spacing:-.005em;
+  }
+  a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(111,168,199,.3);}
+  a:hover{color:var(--amber);border-color:var(--amber);}
+  .wrap{max-width:1240px;margin:0 auto;padding:60px 34px 104px;}
+  .mono{font-family:var(--font-mono);}
+  b,strong{font-weight:600;}
+
+  header{border:1px solid var(--line);background:linear-gradient(160deg,var(--panel),#10130f);padding:48px 52px;position:relative;overflow:hidden;}
+  header::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--amber),var(--green),var(--blue));}
+  .kicker{font-family:var(--font-mono);color:var(--amber);font-size:11px;letter-spacing:.3em;text-transform:uppercase;margin:0 0 14px;font-weight:600;}
+  h1{font-family:var(--font-display);font-weight:650;font-size:clamp(34px,5.5vw,60px);line-height:1.02;margin:0 0 18px;letter-spacing:-.03em;}
+  h1 em{font-style:normal;color:var(--amber-soft);font-weight:600;}
+  .lede{color:var(--ink-dim);max-width:760px;margin:0;font-size:15.5px;}
+  .meta{display:flex;flex-wrap:wrap;gap:32px;margin-top:30px;padding-top:26px;border-top:1px solid var(--line);}
+  .meta div span{display:block;font-family:var(--font-mono);color:var(--ink-dim);font-size:10px;letter-spacing:.16em;text-transform:uppercase;}
+  .meta div strong{font-family:var(--font-display);font-size:19px;font-weight:600;color:var(--ink);letter-spacing:-.02em;}
+
+  .courses{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;}
+  .cbtn{display:flex;flex-direction:column;border:1px solid var(--line);background:var(--panel-2);padding:12px 16px;border-radius:6px;min-width:220px;flex:1;transition:.15s;}
+  .cbtn:hover{border-color:var(--amber);background:#1a1f16;}
+  .cbtn .nm{color:var(--green);font-weight:600;font-size:12px;border:none;}
+  .cbtn .ds{color:var(--ink-dim);font-size:11.5px;margin-top:3px;}
+  .cbtn .lk{font-family:var(--font-mono);color:var(--amber-soft);font-size:9.5px;margin-top:6px;border:none;letter-spacing:.02em;}
+
+  nav{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 8px;align-items:center;}
+  nav .navlbl{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-right:4px;}
+  nav a{font-family:var(--font-mono);font-size:10.5px;padding:5px 9px;border:1px solid var(--line);border-radius:4px;color:var(--ink-dim);background:var(--panel);}
+  nav a:hover{color:var(--amber);border-color:var(--amber);}
+
+  .partbar{display:flex;align-items:baseline;gap:14px;margin:58px 0 6px;padding-bottom:10px;border-bottom:2px solid var(--line);}
+  .partbar .pn{font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;color:var(--amber);text-transform:uppercase;}
+  .partbar h2{font-family:var(--font-display);font-size:25px;font-weight:650;margin:0;letter-spacing:-.025em;}
+  .partbar .sub{margin-left:auto;font-size:12.5px;color:var(--ink-dim);}
+
+  .moat{margin:32px 0;border:1px solid var(--amber);border-left-width:4px;background:linear-gradient(90deg,rgba(232,163,61,.10),transparent);padding:22px 28px;display:flex;gap:18px;align-items:flex-start;}
+  .moat .tag{font-family:var(--font-mono);color:var(--amber);font-weight:700;font-size:11px;letter-spacing:.18em;white-space:nowrap;padding-top:2px;}
+  .moat p{margin:0;color:var(--ink);font-size:14.5px;line-height:1.6;}
+  .moat strong{color:var(--amber-soft);}
+
+  .week{margin-top:34px;border:1px solid var(--line);background:var(--panel);border-radius:8px;overflow:hidden;}
+  .week.moatwk{border-color:var(--amber);}
+  .week.claudewk{border-color:var(--green);}
+  .whead{padding:28px 32px;border-bottom:1px solid var(--line);background:var(--panel-2);}
+  .whead .row1{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;}
+  .wtag{font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--amber-soft);letter-spacing:.06em;}
+  .wtitle{font-family:var(--font-display);font-size:23px;font-weight:650;margin:0;letter-spacing:-.025em;}
+  .moatwk .wtitle{color:var(--amber);}
+  .claudewk .wtitle{color:var(--green);}
+  .whrs{font-family:var(--font-mono);margin-left:auto;font-size:11px;color:var(--ink-dim);border:1px solid var(--line);padding:4px 10px;border-radius:4px;}
+  .wgoal{margin:13px 0 0;color:var(--ink-dim);font-size:14px;line-height:1.6;}
+  .wgoal b{color:var(--ink);}
+
+  .scroller{overflow-x:auto;}
+  table{border-collapse:collapse;width:100%;min-width:880px;}
+  thead th{font-family:var(--font-mono);background:#11150f;text-align:left;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);font-weight:600;padding:14px 18px;border-bottom:1px solid var(--line);}
+  tbody td{padding:19px 20px;border-bottom:1px solid var(--line);vertical-align:top;font-size:13.5px;line-height:1.55;color:var(--ink);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:nth-child(even){background:#11150f;}
+  tbody tr:hover{background:#1a1f16;}
+  td.day{white-space:nowrap;}
+  .daynum{font-family:var(--font-mono);font-size:16px;font-weight:650;color:var(--amber-soft);}
+  .focus b{color:var(--ink);font-weight:600;display:block;margin-bottom:5px;font-size:14.5px;}
+  .focus span{color:var(--ink-dim);font-size:13px;line-height:1.5;}
+  .res{font-size:13px;color:var(--ink-dim);line-height:1.6;}
+  .res a{font-size:13px;}
+  .res .ty{font-family:var(--font-mono);display:inline-block;font-size:8.5px;padding:1px 5px;border-radius:3px;margin-right:5px;letter-spacing:.04em;text-transform:uppercase;border-bottom:none;}
+  .ty.vid{background:rgba(217,105,90,.18);color:var(--red);}
+  .ty.course{background:rgba(127,176,105,.18);color:var(--green);}
+  .ty.read{background:rgba(111,168,199,.18);color:var(--blue);}
+  .ty.tool{background:rgba(232,163,61,.18);color:var(--amber);}
+  .ty.book{background:rgba(202,161,95,.2);color:var(--amber-soft);}
+  .ty.cohort{background:rgba(127,176,105,.14);color:var(--green);}
+  .est{font-family:var(--font-mono);white-space:nowrap;color:var(--amber-soft);font-weight:600;font-size:13px;}
+  .hands{font-size:13px;color:var(--green);line-height:1.55;}
+  .hands::before{content:"▸ ";}
+  code{font-family:var(--font-mono);background:#11150f;border:1px solid var(--line);padding:1px 5px;border-radius:3px;font-size:11.5px;color:var(--amber-soft);}
+
+  .wfoot{padding:20px 32px;border-top:1px solid var(--line);background:#11150f;display:flex;flex-wrap:wrap;gap:20px;align-items:center;}
+  .udemy{font-size:13px;color:var(--ink-dim);}
+  .udemy b{color:var(--green);}
+  .udemy.none b{color:var(--red);}
+  .deliver{font-size:13.5px;color:var(--ink);margin-left:auto;}
+  .deliver::before{content:"DELIVERABLE ▸ ";font-family:var(--font-mono);color:var(--amber);font-weight:700;font-size:9.5px;letter-spacing:.06em;}
+
+  .block{border:1px solid var(--line);background:var(--panel);padding:32px 34px;margin-top:30px;border-radius:8px;}
+  .block h3{font-family:var(--font-display);color:var(--amber);font-size:17px;margin:0 0 14px;font-weight:640;letter-spacing:-.02em;}
+  .block p{margin:0 0 13px;color:var(--ink-dim);font-size:14px;line-height:1.65;max-width:940px;}
+  .block p b,.block li b{color:var(--ink);font-weight:600;}
+  .block ul{margin:0 0 6px;padding-left:20px;color:var(--ink-dim);font-size:14px;line-height:1.6;}
+  .block ul li{margin-bottom:8px;}
+  .ratio{display:flex;gap:0;margin:14px 0 8px;height:30px;border-radius:5px;overflow:hidden;border:1px solid var(--line);max-width:560px;}
+  .ratio span{display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:10px;color:#0d100e;font-weight:700;letter-spacing:.03em;}
+  .ratio .build{background:var(--green);flex:7;}
+  .ratio .read{background:var(--blue);flex:3;}
+
+  .spec{border:1px solid var(--line);background:#11150f;padding:22px 26px;margin:0 32px 26px;border-radius:6px;}
+  .spec h4{font-family:var(--font-display);color:var(--amber-soft);font-size:14px;margin:0 0 8px;font-weight:700;letter-spacing:-.01em;}
+  .spec p{margin:0 0 9px;color:var(--ink-dim);font-size:13.5px;line-height:1.6;}
+  .spec ul{margin:0;padding-left:20px;color:var(--ink-dim);font-size:13.5px;line-height:1.6;}
+  .spec ul li{margin-bottom:6px;}
+  .spec ul li b{color:var(--ink);}
+  .pick{border-left:3px solid var(--amber);}
+
+  .gtable{border:1px solid var(--line);margin-top:14px;overflow-x:auto;border-radius:5px;}
+  .gtable table{min-width:640px;}
+  .gtable td b{color:var(--ink);}
+
+  .notes{margin-top:56px;border-top:1px solid var(--line);padding-top:28px;color:var(--ink-dim);font-size:13.5px;}
+  .notes h3{font-family:var(--font-display);color:var(--amber);font-size:15px;margin:0 0 12px;font-weight:640;letter-spacing:-.02em;}
+  .notes p{margin:0 0 12px;max-width:940px;line-height:1.65;}
+  .notes li{margin-bottom:9px;line-height:1.55;}
+  .sig{font-family:var(--font-mono);margin-top:34px;font-size:10px;color:var(--ink-dim);letter-spacing:.12em;text-transform:uppercase;}
+
+  @media(max-width:640px){.wrap{padding:30px 12px 60px;}header{padding:24px 20px;}.block{padding:20px 18px;}.spec{margin:0 14px 18px;}}
+  @media print{body{background:#fff;color:#111;}a{color:#1a5;}.week,.block,.moat{break-inside:avoid;}tbody tr:hover{background:inherit;}}
+  /* ===== progress tracker ===== */
+  #topbar{position:fixed;top:0;left:0;height:4px;width:100%;background:var(--line);z-index:60;}
+  #topbar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--amber));transition:width .35s;}
+  .keytopics{margin:26px 0 0;border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:22px 26px;}
+  .keytopics h3{font-family:var(--font-display);font-size:13px;letter-spacing:.04em;color:var(--amber);margin:0 0 14px;font-weight:640;text-transform:uppercase;}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;}
+  .chip{font-family:var(--font-mono);font-size:12px;padding:7px 13px;border:1px solid var(--line);border-radius:20px;color:var(--ink);background:var(--panel-2);}
+  .chip.star{border-color:var(--amber);color:var(--amber-soft);}
+  .dash{display:flex;flex-wrap:wrap;align-items:center;gap:26px;margin-top:20px;border:1px solid var(--line);background:linear-gradient(160deg,var(--panel),#10130f);border-radius:8px;padding:24px 28px;}
+  .ring{--p:0;width:88px;height:88px;border-radius:50%;background:conic-gradient(var(--green) calc(var(--p)*1%),var(--line) 0);display:flex;align-items:center;justify-content:center;flex:none;}
+  .ring>div{width:66px;height:66px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:640;font-size:19px;color:var(--ink);}
+  .dashinfo{flex:1;min-width:220px;}
+  .dashinfo .t{font-family:var(--font-display);font-weight:640;font-size:18px;}
+  .dashinfo .s{color:var(--ink-dim);font-size:13px;margin-top:4px;}
+  .partstats{display:flex;gap:20px;margin-top:9px;flex-wrap:wrap;}
+  .partstats span{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-dim);}
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;}
+  .toolbar button{font-family:var(--font-mono);font-size:11.5px;padding:8px 13px;border:1px solid var(--line);background:var(--panel-2);color:var(--ink-dim);border-radius:6px;cursor:pointer;transition:.15s;}
+  .toolbar button:hover{border-color:var(--amber);color:var(--amber);}
+  .wprog{display:flex;align-items:center;gap:11px;margin-top:14px;}
+  .wprog .bar{flex:1;height:7px;background:var(--line);border-radius:4px;overflow:hidden;}
+  .wprog .bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--amber));transition:width .3s;}
+  .wprog .pct{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-dim);white-space:nowrap;}
+  .partbar .psub{font-family:var(--font-mono);font-size:12px;color:var(--green);margin-left:8px;}
+  .refchk{display:flex;align-items:flex-start;gap:8px;margin:0 0 7px;cursor:pointer;}
+  .refchk:last-child{margin-bottom:0;}
+  .refchk>span{flex:1;}
+  .refchk input,.handschk input,.topicchk input{appearance:none;-webkit-appearance:none;width:15px;height:15px;min-width:15px;margin-top:1px;border:1.5px solid var(--ink-dim);border-radius:4px;cursor:pointer;position:relative;background:transparent;flex:none;}
+  .refchk input:checked,.handschk input:checked,.topicchk input:checked{background:var(--green);border-color:var(--green);}
+  .refchk input:checked::after,.handschk input:checked::after,.topicchk input:checked::after{content:"✓";position:absolute;color:#0d100e;font-size:11px;font-weight:700;left:1.5px;top:-1px;}
+  .refchk input:indeterminate,.topicchk input:indeterminate{background:var(--amber);border-color:var(--amber);}
+  .refchk input:indeterminate::after,.topicchk input:indeterminate::after{content:"–";position:absolute;color:#0d100e;font-size:12px;font-weight:700;left:3px;top:-2px;}
+  .refchk.done>span{opacity:.5;}
+  .handschk{display:flex;align-items:flex-start;gap:8px;cursor:pointer;}
+  .handschk.done>span{opacity:.5;}
+  .topicchk{display:inline-flex;align-items:center;gap:6px;margin-top:9px;}
+  .topicchk span{font-family:var(--font-mono);font-size:9.5px;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.07em;}
+  @media print{#topbar,.toolbar{display:none;}}
+</style>
+</head>
+<body>
+<div id="topbar"><i></i></div>
+<div class="wrap">
+
+  <header>
+    <p class="kicker">Senior JVM Engineer → AI Engineer</p>
+    <h1>AI Engineer<br><em>Roadmap</em></h1>
+    <p class="lede">Seventeen weeks + an optional elective, build-first. <b>Part I</b> (W0–10) takes you from Python to a deployed capstone — including a <b>JVM-native track (W2B)</b> so you can ship AI in your own Quarkus/Kotlin stack. <b>Part II</b> (W11–17) is post-capstone depth. Every day has a focus, linked resources, a time estimate, and a hands-on task. Integrates everything you own: <b>Ed Donner's full 6-course series</b>, <b>Chip Huyen's</b> <i>AI Engineering</i>, your <b>ByteByteGo</b> cohort, <b>Mike X Cohen's</b> deep-mechanisms course, and <b>Java Brains — From Java to AI</b> — mapped per week in the resource panel below.</p>
+    <div class="meta">
+      <div><span>Duration</span><strong>17 wk + elective</strong></div>
+      <div><span>Pace</span><strong>~10–12 hrs / wk</strong></div>
+      <div><span>Ratio</span><strong>70% build / 30% read</strong></div>
+      <div><span>Prereq gap</span><strong>Python (Week 0)</strong></div>
+    </div>
+    <div class="courses">
+      <a class="cbtn" href="https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/" target="_blank">
+        <span class="nm">Ed Donner — AI Engineer Core Track</span>
+        <span class="ds">8-wk backbone · RAG, QLoRA, agents, LiteLLM, prompt caching</span>
+        <span class="lk">udemy.com → llm-engineering-master-ai ↗</span>
+      </a>
+      <a class="cbtn" href="https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/" target="_blank">
+        <span class="nm">AI Engineer Agentic Track — Agent &amp; MCP Course</span>
+        <span class="ds">6-wk · 8 projects · OpenAI SDK, CrewAI, LangGraph, AutoGen, MCP</span>
+        <span class="lk">udemy.com → the-complete-agentic-ai-engineering-course ↗</span>
+      </a>
+      <a class="cbtn" href="https://www.udemy.com/course/generative-and-agentic-ai-in-production/" target="_blank">
+        <span class="nm">AI Engineer Production Track — Deploy at Scale</span>
+        <span class="ds">DevOps layer · AWS Bedrock/SageMaker, Lambda, Terraform, CI/CD</span>
+        <span class="lk">udemy.com → generative-and-agentic-ai-in-production ↗</span>
+      </a>
+      <a class="cbtn" href="https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer/" target="_blank">
+        <span class="nm">AI Coder — Vibe Coder → Agentic Engineer</span>
+        <span class="ds">Spine for W1 · Claude Code deep, Agent Teams, Agent SDK, autonomous Jira→PR</span>
+        <span class="lk">udemy.com → ai-coder-from-vibe-coder-to-agentic-engineer ↗</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="keytopics">
+    <h3>Key topics you'll master</h3>
+    <div class="chips">
+      <span class="chip star">Claude Code &amp; agentic coding ★</span>
+      <span class="chip star">JVM-native AI ★</span>
+      <span class="chip">LLM APIs &amp; tool use</span>
+      <span class="chip">RAG &amp; retrieval</span>
+      <span class="chip">Multi-framework agents</span>
+      <span class="chip">Fine-tuning &amp; datasets</span>
+      <span class="chip">Evaluation</span>
+      <span class="chip star">Temporal orchestration ★</span>
+      <span class="chip star">Inference optimization ★</span>
+      <span class="chip">FM internals &amp; reasoning</span>
+      <span class="chip">Production &amp; deployment</span>
+      <span class="chip">Multimodal ◇</span>
+    </div>
+  </div>
+
+  <div class="dash">
+    <div class="ring" id="ring"><div id="ringpct">0%</div></div>
+    <div class="dashinfo">
+      <div class="t">Your progress</div>
+      <div class="s" id="dashsub">0 of 0 items complete</div>
+      <div class="partstats"><span id="p1stat">Part I —</span><span id="p2stat">Part II —</span></div>
+    </div>
+    <div class="toolbar">
+      <button id="btnexport" type="button">Export</button>
+      <button id="btnimport" type="button">Import</button>
+      <button id="btnreset" type="button">Reset</button>
+      <input type="file" id="fileimport" accept="application/json" style="display:none">
+    </div>
+  </div>
+
+  <nav>
+    <span class="navlbl">Part I</span>
+    <a href="#how">How to study</a>
+    <a href="#setup">Setup</a>
+    <a href="#w0">W0 Python</a>
+    <a href="#w1">W1 Claude/Coding★</a>
+    <a href="#w2">W2 Gen AI</a>
+    <a href="#w2b">W2B JVM★</a>
+    <a href="#w3">W3 RAG</a>
+    <a href="#w4">W4 Agents</a>
+    <a href="#w5">W5 Frameworks</a>
+    <a href="#w6">W6 Fine-tune</a>
+    <a href="#w7">W7 Evals</a>
+    <a href="#w8">W8 Temporal★</a>
+    <a href="#w9">W9–10 Capstone</a>
+  </nav>
+  <nav>
+    <span class="navlbl">Part II</span>
+    <a href="#w11">W11 FM internals</a>
+    <a href="#w12">W12 Eval deep</a>
+    <a href="#w13">W13 Adv RAG</a>
+    <a href="#w14">W14 Data/FT</a>
+    <a href="#w15">W15 Inference★</a>
+    <a href="#w16">W16 Arch + Deploy</a>
+    <a href="#w17">W17 Multimodal◇</a>
+  </nav>
+
+  <div class="moat">
+    <span class="tag">YOUR MOAT</span>
+    <p><strong>Distributed systems applied to LLMs — in your own stack.</strong> Three pillars no bootcamp grad has: <b>W2B</b> (shipping AI natively in Quarkus/Kotlin via LangChain4j), <b>W8</b> (agents as durable, throttled Temporal workflows at 500K+ scale), and <b>W15</b> (inference optimization — batching, KV cache, throughput). Agents are workflows, serving is a throughput problem, and you already build production JVM systems.</p>
+  </div>
+
+  <div class="block" id="resources">
+    <h3>Your resource stack — what drives each week</h3>
+    <p>You own all of these. Don't watch them linearly — they overlap heavily. Use one primary per week (below) and treat the rest as reference. The book is the Part II spine.</p>
+    <div class="gtable"><table>
+      <thead><tr><th>Resource</th><th>What it's best for</th><th>Drives</th></tr></thead>
+      <tbody>
+        <tr><td><b><a href="https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer/" target="_blank">Ed Donner — AI Coder</a></b></td><td>Claude Code mastery, agentic coding, Agent Teams, Agent SDK</td><td>W1</td></tr>
+        <tr><td><b><a href="https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/" target="_blank">Ed Donner — Core Track</a></b></td><td>LLM APIs, RAG, QLoRA, agents from scratch</td><td>W2, W3, W6</td></tr>
+        <tr><td><b><a href="https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/" target="_blank">Ed Donner — Agentic Track</a></b></td><td>OpenAI SDK, CrewAI, LangGraph, AutoGen, MCP</td><td>W4, W5</td></tr>
+        <tr><td><b><a href="https://www.udemy.com/course/generative-and-agentic-ai-in-production/" target="_blank">Ed Donner — Production Track</a></b></td><td>AWS, Docker, Terraform, CI/CD, SaaS, MLOps</td><td>W16</td></tr>
+        <tr><td><b><a href="https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/" target="_blank">ByteByteGo — Become an AI Engineer</a></b></td><td>Pre-training, reasoning models, agent reasoning, multimodal</td><td>W2, W3, W4, W11, W13, W17</td></tr>
+        <tr><td><b>Chip Huyen — <i>AI Engineering</i></b> (book)</td><td>Evaluation, retrieval, finetuning, inference, architecture</td><td>W11–16 spine</td></tr>
+        <tr><td><b><a href="https://javabrains.io/courses/from-java-to-ai" target="_blank">Java Brains — From Java to AI</a></b></td><td>Code-free LLM on-ramp + JVM integration framing (Spring AI / LangChain4j)</td><td>W2B</td></tr>
+        <tr><td><b><a href="https://www.udemy.com/course/dullms_x/" target="_blank">Mike X Cohen — Deep LLM Mechanisms</a></b></td><td>Transformer math, PyTorch-from-scratch, interpretability</td><td>W11 + deep-dive elective</td></tr>
+        <tr><td><b><a href="https://www.udemy.com/course/ai-builder-with-n8n-create-agents-voice-agents/" target="_blank">Ed Donner — AI Builder</a></b> · <b><a href="https://www.udemy.com/course/executive-briefing-generative-ai-and-large-language-models-llm/" target="_blank">AI Leader</a></b></td><td>n8n + voice agents · business/commercial mindset</td><td>Electives</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="block" id="how">
+    <h3>How to study — read once, refer back</h3>
+    <p>Budget ~10 hrs/week: ~2 hrs read/watch, ~6 hrs coding, ~2 hrs writing (a README or short post — this is where it snaps into your head). The single biggest predictor of retention is the build-to-theory ratio.</p>
+    <div class="ratio"><span class="build">70% BUILD</span><span class="read">30% READ</span></div>
+    <p><b>The pattern that works for engineers like you:</b></p>
+    <ul>
+      <li>Read the topic intro (15 min) — skim, don't deep-read.</li>
+      <li>Watch one video on 1.5x.</li>
+      <li><b>Build the smallest thing that demonstrates the concept, with no framework.</b> Highest-leverage step.</li>
+      <li>Rebuild with the framework — now you see what it was hiding.</li>
+      <li>Write a 200-word note: "what I'd use this for at work."</li>
+    </ul>
+    <p><b>Part I vs Part II:</b> Part I is hands-keyboard build cadence to a shippable capstone — don't stall on theory. Part II is the depth that makes you <i>senior</i> in AI, not just functional: it's anchored on Chip Huyen's <i>AI Engineering</i> (O'Reilly) — keep the book open as the spine for W11–16.</p>
+    <p><b>Don't fall for:</b> tutorial hell, framework-collecting, chasing every model release. Pick one frontier API (Anthropic) + one open-source path (HuggingFace + Ollama) and stick to them.</p>
+  </div>
+
+  <div class="block" id="setup">
+    <h3>Day-0 setup — do before Week 0</h3>
+    <ul>
+      <li><b>Editor:</b> VS Code + Python/Jupyter extensions, or PyCharm if you want JetBrains-familiar.</li>
+      <li><b>Package manager:</b> <a href="https://docs.astral.sh/uv/getting-started/" target="_blank">uv</a> (fast, lockfile-based, Gradle-like).</li>
+      <li><b>API keys:</b> Anthropic ($5 free), OpenAI ($5), Groq (free tier, fast inference for experiments).</li>
+      <li><b>Local models:</b> install <a href="https://ollama.com/" target="_blank">Ollama</a>, pull <code>llama3.2:3b</code> and <code>qwen2.5:7b</code>.</li>
+      <li><b>Vector DB:</b> start with Chroma (in-process, zero-ops). Move to pgvector/Qdrant later.</li>
+      <li><b>Observability:</b> sign up for <a href="https://langfuse.com/" target="_blank">Langfuse</a> (open-source, self-hostable).</li>
+      <li><b>Git:</b> one repo <code>ai-learning-lab</code>, one folder per week.</li>
+      <li><b>Claude Code:</b> install <a href="https://docs.claude.com/en/docs/claude-code/overview" target="_blank">Claude Code</a> now — Week 1 turns it into your daily driver.</li>
+    </ul>
+  </div>
+
+  <div class="partbar"><span class="pn">Part I</span><h2>Foundations &amp; Build</h2><span class="sub">Weeks 0–10 · to a deployed capstone</span></div>
+
+  <section class="week" id="w0">
+    <div class="whead">
+      <div class="row1"><span class="wtag">WEEK 00</span><h2 class="wtitle">Python Pre-Prep &amp; Environment</h2><span class="whrs">~10 hrs</span></div>
+      <p class="wgoal"><b>Goal:</b> stop fighting Python. Be fluent enough that the language is invisible by Week 1. No AI yet — pure language + tooling delta from Kotlin.</p>
+    </div>
+    <div class="scroller"><table>
+      <thead><tr><th style="width:6%">Day</th><th style="width:24%">Focus</th><th style="width:34%">Resources</th><th style="width:7%">Est</th><th style="width:29%">Hands-on / Practice</th></tr></thead>
+      <tbody>
+        <tr><td class="day"><span class="daynum">1</span></td>
+          <td class="focus"><b>Python for Java/Kotlin devs</b><span>Syntax map, type hints, the traps</span></td>
+          <td class="res"><span class="ty read">read</span><a href="https://realpython.com/" target="_blank">Real Python — Python for Java devs</a><br><span class="ty read">read</span><a href="https://learnxinyminutes.com/docs/python/" target="_blank">Learn X in Y — Python</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Rewrite a Kotlin CSV transformer in Python with full type hints. <a href="https://exercism.org/tracks/python" target="_blank">Exercism Python</a>: 3 starter exercises.</td></tr>
+        <tr><td class="day"><span class="daynum">2</span></td>
+          <td class="focus"><b>Core idioms</b><span>dataclasses, comprehensions, generators, context managers</span></td>
+          <td class="res"><span class="ty read">read</span><a href="https://realpython.com/python-data-classes/" target="_blank">Real Python — dataclasses</a> + comprehensions/generators</td>
+          <td class="est">2h</td>
+          <td class="hands"><a href="https://exercism.org/tracks/python" target="_blank">Exercism</a>: 4–5 exercises hitting comprehensions, dicts, generators.</td></tr>
+        <tr><td class="day"><span class="daynum">3</span></td>
+          <td class="focus"><b>async + typing</b><span>asyncio ≈ coroutines; mypy</span></td>
+          <td class="res"><span class="ty read">read</span><a href="https://realpython.com/async-io-python/" target="_blank">Real Python — Async IO in Python</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Async <code>httpx</code> fetcher hitting 5 URLs concurrently; time it vs sequential.</td></tr>
+        <tr><td class="day"><span class="daynum">4</span></td>
+          <td class="focus"><b>Pydantic v2 + uv</b><span>Your structured-output validator all course long</span></td>
+          <td class="res"><span class="ty read">read</span><a href="https://docs.pydantic.dev/latest/" target="_blank">Pydantic v2 docs</a><br><span class="ty tool">tool</span><a href="https://docs.astral.sh/uv/getting-started/" target="_blank">uv quickstart</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Model a billpay <code>Payment</code> as a Pydantic model with validators + a failing-validation test.</td></tr>
+        <tr><td class="day"><span class="daynum">5</span></td>
+          <td class="focus"><b>FastAPI + pytest</b><span>Your Quarkus comfort zone, in Python</span></td>
+          <td class="res"><span class="ty read">read</span><a href="https://fastapi.tiangolo.com/tutorial/" target="_blank">FastAPI tutorial</a></td>
+          <td class="est">2h</td>
+          <td class="hands">FastAPI service: 2 endpoints (1 async) + 1 pytest. Commit to <code>ai-learning-lab/week-00</code>.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="wfoot"><span class="udemy none">Udemy: <b>none — courses assume Python.</b> Don't pay for syntax.</span><span class="deliver">Async FastAPI service + Pydantic models, typed, tested.</span></div>
+  </section>
+
+  <section class="week claudewk" id="w1">
+    <div class="whead">
+      <div class="row1"><span class="wtag" style="color:var(--green)">WEEK 01 ★</span><h2 class="wtitle">Claude Code &amp; Agentic Coding</h2><span class="whrs">~11 hrs</span></div>
+      <p class="wgoal"><b>Goal — front-loaded on purpose.</b> You already use Claude Code daily; this week turns it into an autonomous coding system you drive efficiently, then pushes into multi-agent coding. Spine: <a href="https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer/" target="_blank">Ed Donner — AI Coder</a>. You'll use these skills to build every later project, so the payoff compounds.</p>
+    </div>
+    <div class="scroller"><table>
+      <thead><tr><th style="width:6%">Day</th><th style="width:24%">Focus</th><th style="width:34%">Resources</th><th style="width:7%">Est</th><th style="width:29%">Hands-on / Practice</th></tr></thead>
+      <tbody>
+        <tr><td class="day"><span class="daynum">1</span></td>
+          <td class="focus"><b>CLAUDE.md / AGENTS.md = project constitution</b><span>The single highest-leverage file</span></td>
+          <td class="res"><span class="ty read">docs</span><a href="https://docs.claude.com/en/docs/claude-code/overview" target="_blank">Claude Code overview</a><br><span class="ty course">core</span><a href="https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer/" target="_blank">AI Coder — Wk1 (context mgmt)</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Write a real <code>CLAUDE.md</code> for your Billpay repo: build/lint/test commands, module map, conventions (Exposed, Temporal, KSP). Run one real task end-to-end.</td></tr>
+        <tr><td class="day"><span class="daynum">2</span></td>
+          <td class="focus"><b>Skills &amp; slash commands</b><span>Reusable prompt/workflow macros</span></td>
+          <td class="res"><span class="ty read">docs</span><a href="https://code.claude.com/docs/en/slash-commands" target="_blank">Slash commands</a> (now merged into Skills)</td>
+          <td class="est">2h</td>
+          <td class="hands">Create 2 skills in <code>.claude/skills/</code>: one to generate Docusaurus pages from KSP variant metadata, one <code>/pr-summary</code>. Invoke both.</td></tr>
+        <tr><td class="day"><span class="daynum">3</span></td>
+          <td class="focus"><b>Hooks — deterministic guardrails</b><span>Run 100% of the time, unlike CLAUDE.md</span></td>
+          <td class="res"><span class="ty read">docs</span><a href="https://code.claude.com/docs/en/hooks" target="_blank">Hooks reference</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Add a <code>PreToolUse</code> hook that blocks force-push to <code>main</code> + scans writes for secrets (exit 2 = deny), and a <code>PostToolUse</code> hook running ktlint/detekt after edits. Verify they fire every time.</td></tr>
+        <tr><td class="day"><span class="daynum">4</span></td>
+          <td class="focus"><b>Subagents, Agent Teams, Ralph Loops</b><span>Parallelism + context isolation + checkpoints</span></td>
+          <td class="res"><span class="ty read">docs</span><a href="https://docs.claude.com/en/docs/claude-code/overview" target="_blank">Claude Code — subagents &amp; plan mode</a><br><span class="ty read">docs</span><a href="https://code.claude.com/docs/en/checkpointing" target="_blank">Checkpointing</a><br><span class="ty course">core</span><a href="https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer/" target="_blank">AI Coder — Wk3 (Agent Teams, Ralph Loops)</a></td>
+          <td class="est">2.5h</td>
+          <td class="hands">Run 3 subagents concurrently to review auth, payments, migrations. Use <b>plan mode</b> for a multi-file refactor; try a <b>Ralph Loop</b> (persistent self-correcting agent) on a sandboxed task; roll back via checkpoint.</td></tr>
+        <tr><td class="day"><span class="daynum">5</span></td>
+          <td class="focus"><b>Headless/CI, autonomous loops, Agent SDK</b><span>Claude Code beyond the terminal</span></td>
+          <td class="res"><span class="ty read">docs</span><a href="https://code.claude.com/docs/en/plugins-reference" target="_blank">Plugins reference</a><br><span class="ty read">docs</span><a href="https://docs.claude.com/en/api/overview" target="_blank">Claude API / Agent SDK</a><br><span class="ty course">core</span><a href="https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer/" target="_blank">AI Coder — Wk2 (Jira→PR), Cowork</a></td>
+          <td class="est">2.5h</td>
+          <td class="hands">Run <code>claude -p</code> headless in a GitHub Action / pre-commit. Wire an <b>autonomous loop</b>: raise a Jira issue → agent builds, tests, opens a PR. Connect a GitHub MCP server; skim the Agent SDK + Cowork.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="wfoot"><span class="udemy">Udemy: <b>AI Coder</b> (spine) + official docs.</span><span class="deliver">Billpay repo: <code>CLAUDE.md</code> + 2 skills + 2 hooks + CI PR-review + autonomous Jira→PR loop demo.</span></div>
+  </section>
+
+  <section class="week" id="w2">
+    <div class="whead">
+      <div class="row1"><span class="wtag">WEEK 02</span><h2 class="wtitle">Gen AI Building Blocks</h2><span class="whrs">~10 hrs</span></div>
+      <p class="wgoal"><b>Goal:</b> understand how LLMs actually work, and ship 3 LLM-powered scripts from raw API calls — no framework.</p>
+    </div>
+    <div class="scroller"><table>
+      <thead><tr><th style="width:6%">Day</th><th style="width:24%">Focus</th><th style="width:34%">Resources</th><th style="width:7%">Est</th><th style="width:29%">Hands-on / Practice</th></tr></thead>
+      <tbody>
+        <tr><td class="day"><span class="daynum">1</span></td>
+          <td class="focus"><b>How LLMs work</b><span>Tokens, context, sampling, cost intuition</span></td>
+          <td class="res"><span class="ty vid">video</span><a href="https://www.youtube.com/watch?v=zjkBMFhNj_g" target="_blank">Karpathy — Intro to LLMs (1h)</a></td>
+          <td class="est">1.5h</td>
+          <td class="hands">Note the $/M-token cost of 3 models you'll use. Sketch when each fits.</td></tr>
+        <tr><td class="day"><span class="daynum">2</span></td>
+          <td class="focus"><b>Tokenization deep-dive</b><span>Why prompts behave oddly</span></td>
+          <td class="res"><span class="ty vid">video</span><a href="https://www.youtube.com/watch?v=zduSFxRajkE" target="_blank">Karpathy — Build the GPT Tokenizer (2h)</a><br><span class="ty read">read</span><a href="https://www.anthropic.com/research/building-effective-agents" target="_blank">Anthropic — Building Effective Agents</a> (skim, bookmark)</td>
+          <td class="est">2.5h</td>
+          <td class="hands">Tokenize 3 sample inputs; predict then verify token counts.</td></tr>
+        <tr><td class="day"><span class="daynum">3</span></td>
+          <td class="focus"><b>Prompt engineering</b><span>Zero/few-shot, CoT, structured outputs</span></td>
+          <td class="res"><span class="ty course">course</span><a href="https://github.com/anthropics/prompt-eng-interactive-tutorial" target="_blank">Anthropic Prompt-Eng Interactive Tutorial</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Work notebooks ch.1–6. <b>Build 1:</b> CLI that summarizes a dir of markdown notes (raw <code>anthropic</code> SDK).</td></tr>
+        <tr><td class="day"><span class="daynum">4</span></td>
+          <td class="focus"><b>Structured output + function calling</b><span>Maps to your Activity mindset</span></td>
+          <td class="res"><span class="ty course">course</span><a href="https://www.deeplearning.ai/short-courses/function-calling-and-data-extraction-with-llms/" target="_blank">DLAI — Function Calling &amp; Data Extraction</a></td>
+          <td class="est">2h</td>
+          <td class="hands"><b>Build 2:</b> extractor — job description → <code>{role, seniority, skills[], remote}</code> as a Pydantic model.</td></tr>
+        <tr><td class="day"><span class="daynum">5</span></td>
+          <td class="focus"><b>Tool use</b><span>Multi-tool dispatch loop</span></td>
+          <td class="res"><span class="ty course">core</span><a href="https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/" target="_blank">Ed Donner — Week 1</a> (frontier models, prompting, tool use)</td>
+          <td class="est">2h</td>
+          <td class="hands"><b>Build 3:</b> LLM that can call 3 tools — <code>get_weather</code>, <code>search_files</code>, <code>run_sql</code>.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="wfoot"><span class="udemy">Udemy: <b>Core Track — Week 1</b></span><span class="deliver">Repo <code>week-02-basics</code> + README on tokens, context windows, cost math.</span></div>
+  </section>
+
+  <section class="week moatwk" id="w2b">
+    <div class="whead">
+      <div class="row1"><span class="wtag" style="color:var(--amber)">WEEK 02B ★</span><h2 class="wtitle">JVM-Native AI — Spring AI &amp; LangChain4j</h2><span class="whrs">~10 hrs</span></div>
+      <p class="wgoal"><b>Goal — your unfair advantage.</b> Re-implement what you just learned in Python (LLM APIs, tool use, structured output) in your <i>real</i> stack — LangChain4j / Spring AI on Quarkus — so you can ship AI into Billpay without leaving the JVM. Almost no AI-engineering learner can do this; you already own the stack. On-ramp: <a href="https://javabrains.io/courses/from-java-to-ai" target="_blank">Java Brains — From Java to AI</a> (skim if any concept feels shaky).</p>
+    </div>
+    <div class="scroller"><table>
+      <thead><tr><th style="width:6%">Day</th><th style="width:24%">Focus</th><th style="width:34%">Resources</th><th style="width:7%">Est</th><th style="width:29%">Hands-on / Practice</th></tr></thead>
+      <tbody>
+        <tr><td class="day"><span class="daynum">1</span></td>
+          <td class="focus"><b>Landscape &amp; setup</b><span>Spring AI vs LangChain4j vs Quarkus-LangChain4j</span></td>
+          <td class="res"><span class="ty read">docs</span><a href="https://docs.langchain4j.dev/" target="_blank">LangChain4j docs</a><br><span class="ty read">docs</span><a href="https://docs.quarkiverse.io/quarkus-langchain4j/dev/" target="_blank">Quarkus-LangChain4j</a><br><span class="ty read">docs</span><a href="https://spring.io/projects/spring-ai" target="_blank">Spring AI</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Add <code>quarkus-langchain4j</code> to a Quarkus project; wire an Anthropic/OpenAI chat model; get your first completion from Kotlin.</td></tr>
+        <tr><td class="day"><span class="daynum">2</span></td>
+          <td class="focus"><b>Chat, prompts &amp; parameters</b><span>AiServices, prompt templates, streaming</span></td>
+          <td class="res"><span class="ty read">docs</span><a href="https://docs.langchain4j.dev/tutorials/ai-services" target="_blank">LangChain4j — Ai Services</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Port your W2 summarizer to a LangChain4j <code>AiServices</code> interface; add a system prompt + temperature; stream the response.</td></tr>
+        <tr><td class="day"><span class="daynum">3</span></td>
+          <td class="focus"><b>Structured output &amp; type safety</b><span>map LLM output → Kotlin data classes</span></td>
+          <td class="res"><span class="ty read">docs</span><a href="https://docs.langchain4j.dev/tutorials/structured-outputs" target="_blank">LangChain4j — Structured Outputs</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Rebuild your W2 extractor to return a typed Kotlin <code>data class</code> directly — no manual JSON parsing.</td></tr>
+        <tr><td class="day"><span class="daynum">4</span></td>
+          <td class="focus"><b>Tool calling &amp; RAG on the JVM</b><span>@Tool methods, pgvector embedding store</span></td>
+          <td class="res"><span class="ty read">docs</span><a href="https://docs.langchain4j.dev/tutorials/tools" target="_blank">LangChain4j — Tools</a><br><span class="ty read">docs</span><a href="https://docs.quarkiverse.io/quarkus-langchain4j/dev/" target="_blank">Quarkus-LangChain4j — RAG</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Expose 2–3 <code>@Tool</code> methods (incl. a read-only Oracle query); build a minimal RAG over Temporal docs using a pgvector embedding store.</td></tr>
+        <tr><td class="day"><span class="daynum">5</span></td>
+          <td class="focus"><b>Memory, error handling &amp; resilience</b><span>chat memory, retries, fallbacks, validation</span></td>
+          <td class="res"><span class="ty read">docs</span><a href="https://docs.langchain4j.dev/tutorials/chat-memory" target="_blank">LangChain4j — Chat Memory</a><br><span class="ty course">course</span><a href="https://javabrains.io/courses/from-java-to-ai" target="_blank">Java Brains — error handling</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Add chat memory + robust error handling (retry on malformed output, typed fallback) to your service. This is the pattern your capstone will ship on.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="wfoot"><span class="udemy">Resources: <b>Java Brains</b> (on-ramp) + LangChain4j / Spring AI / Quarkus docs</span><span class="deliver">Repo <code>billpay-ai-jvm</code> — Quarkus/Kotlin service: tool-using, RAG-backed, typed, memory-aware LLM endpoint.</span></div>
+  </section>
+
+  <section class="week" id="w3">
+    <div class="whead">
+      <div class="row1"><span class="wtag">WEEK 03</span><h2 class="wtitle">Context Engineering &amp; RAG</h2><span class="whrs">~10 hrs</span></div>
+      <p class="wgoal"><b>Goal:</b> build RAG from scratch (no framework), then rebuild with a framework. Corpus: Temporal docs — eat your own dog food. (Deep retrieval theory comes back in Week 13.)</p>
+    </div>
+    <div class="scroller"><table>
+      <thead><tr><th style="width:6%">Day</th><th style="width:24%">Focus</th><th style="width:34%">Resources</th><th style="width:7%">Est</th><th style="width:29%">Hands-on / Practice</th></tr></thead>
+      <tbody>
+        <tr><td class="day"><span class="daynum">1</span></td>
+          <td class="focus"><b>Embeddings &amp; chunking</b></td>
+          <td class="res"><span class="ty course">course</span><a href="https://www.deeplearning.ai/short-courses/advanced-retrieval-for-ai/" target="_blank">DLAI — Advanced Retrieval with Chroma</a><br><span class="ty read">read</span><a href="https://www.pinecone.io/learn/chunking-strategies/" target="_blank">Pinecone — Chunking</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Write a 1-pager: 3 chunking strategies + when each wins.</td></tr>
+        <tr><td class="day"><span class="daynum">2</span></td>
+          <td class="focus"><b>RAG from scratch</b><span>anthropic + chromadb + sentence-transformers</span></td>
+          <td class="res"><span class="ty read">read</span><a href="https://www.anthropic.com/news/contextual-retrieval" target="_blank">Anthropic — Contextual Retrieval</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Ingest Temporal docs; chunk 3 ways; embed with <code>all-MiniLM-L6-v2</code>.</td></tr>
+        <tr><td class="day"><span class="daynum">3</span></td>
+          <td class="focus"><b>Retrieve → augment → generate</b><span>+ re-ranking</span></td>
+          <td class="res"><span class="ty course">core</span><a href="https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/" target="_blank">Ed Donner — Week 5 (RAG)</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Add a re-ranker (<code>cohere/rerank</code> free or <code>bge-reranker-v2-m3</code>). Compare with/without.</td></tr>
+        <tr><td class="day"><span class="daynum">4</span></td>
+          <td class="focus"><b>Framework rebuild</b><span>hybrid, HyDE, query rewriting</span></td>
+          <td class="res"><span class="ty course">course</span><a href="https://www.deeplearning.ai/short-courses/building-evaluating-advanced-rag/" target="_blank">DLAI — Building &amp; Evaluating Advanced RAG</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Rebuild in LlamaIndex/LangChain; implement hybrid + HyDE + query rewriting.</td></tr>
+        <tr><td class="day"><span class="daynum">5</span></td>
+          <td class="focus"><b>Production RAG</b><span>pgvector swap — your Postgres edge</span></td>
+          <td class="res"><span class="ty read">read</span><a href="https://hamel.dev/blog/posts/evals/" target="_blank">Hamel — most RAG problems are retrieval problems</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Swap Chroma → <code>pgvector</code>. Record recall@5 / MRR across chunking strategies in <code>results.md</code>.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="wfoot"><span class="udemy">Udemy: <b>Core Track — Week 5</b></span><span class="deliver">Repo <code>week-03-rag</code> — answers "what is sticky queue starvation?" with citations + numbers.</span></div>
+  </section>
+
+  <section class="week" id="w4">
+    <div class="whead">
+      <div class="row1"><span class="wtag">WEEK 04</span><h2 class="wtitle">Agents — Build Without Frameworks</h2><span class="whrs">~10 hrs</span></div>
+      <p class="wgoal"><b>Goal:</b> write a ReAct loop in ~100 lines. Once you grok this, every framework becomes a thin wrapper in your mind.</p>
+    </div>
+    <div class="scroller"><table>
+      <thead><tr><th style="width:6%">Day</th><th style="width:24%">Focus</th><th style="width:34%">Resources</th><th style="width:7%">Est</th><th style="width:29%">Hands-on / Practice</th></tr></thead>
+      <tbody>
+        <tr><td class="day"><span class="daynum">1</span></td>
+          <td class="focus"><b>What is an agent?</b></td>
+          <td class="res"><span class="ty read">read</span><a href="https://www.anthropic.com/research/building-effective-agents" target="_blank">Anthropic — Building Effective Agents</a><br><span class="ty read">read</span><a href="https://lilianweng.github.io/posts/2023-06-23-agent/" target="_blank">Lilian Weng — LLM-Powered Agents</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Diagram the ReAct loop on paper before writing any code.</td></tr>
+        <tr><td class="day"><span class="daynum">2–3</span></td>
+          <td class="focus"><b>ReAct agent from scratch</b><span>The most important exercise in the course</span></td>
+          <td class="res"><span class="ty read">build</span>Loop: <code>thought → action → observation → repeat</code></td>
+          <td class="est">4h</td>
+          <td class="hands">Write the loop yourself with 5 tools: web search (<a href="https://tavily.com/" target="_blank">Tavily</a> free), file r/w, python REPL, calculator, current_date.</td></tr>
+        <tr><td class="day"><span class="daynum">4</span></td>
+          <td class="focus"><b>Agentic patterns</b></td>
+          <td class="res"><span class="ty course">course</span><a href="https://huggingface.co/learn/agents-course" target="_blank">HF AI Agents Course</a> Units 1–2</td>
+          <td class="est">2h</td>
+          <td class="hands">Sketch each Anthropic pattern as a flow.</td></tr>
+        <tr><td class="day"><span class="daynum">5</span></td>
+          <td class="focus"><b>Implement the 5 patterns</b><span>chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer</span></td>
+          <td class="res"><span class="ty course">core</span><a href="https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/" target="_blank">Agentic Track — foundations</a> + <a href="https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/" target="_blank">Core Track Week 8</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Each pattern as a standalone example. Note: when would you use each <i>inside a Temporal workflow</i>?</td></tr>
+      </tbody>
+    </table></div>
+    <div class="wfoot"><span class="udemy">Udemy: <b>Agentic Track (foundations)</b> + Core Track Wk 8</span><span class="deliver">Repo <code>week-04-agents-from-scratch</code> — ReAct + 5 patterns + Temporal-context comparison.</span></div>
+  </section>
+
+  <section class="week" id="w5">
+    <div class="whead">
+      <div class="row1"><span class="wtag">WEEK 05</span><h2 class="wtitle">Multi-Framework Agents + MCP</h2><span class="whrs">~11 hrs</span></div>
+      <p class="wgoal"><b>Goal:</b> become fluent across the four frameworks the Agentic Track teaches — build the <i>same</i> agent in each, then form opinions on each vs a real workflow engine. Breadth here makes you fluent in any team's stack.</p>
+    </div>
+    <div class="scroller"><table>
+      <thead><tr><th style="width:6%">Day</th><th style="width:24%">Focus</th><th style="width:34%">Resources</th><th style="width:7%">Est</th><th style="width:29%">Hands-on / Practice</th></tr></thead>
+      <tbody>
+        <tr><td class="day"><span class="daynum">1</span></td>
+          <td class="focus"><b>LangGraph</b><span>state, nodes, edges, checkpointer, HITL ≈ Temporal</span></td>
+          <td class="res"><span class="ty course">course</span><a href="https://academy.langchain.com/courses/intro-to-langgraph" target="_blank">LangChain Academy — Intro to LangGraph</a></td>
+          <td class="est">2.5h</td>
+          <td class="hands">Port your W4 ReAct agent to LangGraph; add a checkpointer + human-in-the-loop interrupt. Note where this mirrors Temporal signals.</td></tr>
+        <tr><td class="day"><span class="daynum">2</span></td>
+          <td class="focus"><b>OpenAI Agents SDK</b><span>handoffs, guardrails, sessions</span></td>
+          <td class="res"><span class="ty course">core</span><a href="https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/" target="_blank">Agentic Track — OpenAI SDK week</a><br><span class="ty read">docs</span><a href="https://openai.github.io/openai-agents-python/" target="_blank">OpenAI Agents SDK docs</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Rebuild the same agent in the OpenAI Agents SDK; compare its handoff &amp; guardrail primitives to LangGraph edges.</td></tr>
+        <tr><td class="day"><span class="daynum">3</span></td>
+          <td class="focus"><b>CrewAI</b><span>role-based multi-agent crews</span></td>
+          <td class="res"><span class="ty course">core</span><a href="https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/" target="_blank">Agentic Track — CrewAI week</a><br><span class="ty read">docs</span><a href="https://docs.crewai.com/" target="_blank">CrewAI docs</a></td>
+          <td class="est">2h</td>
+          <td class="hands">A 3-role crew (researcher → analyst → writer) producing a billpay incident summary.</td></tr>
+        <tr><td class="day"><span class="daynum">4</span></td>
+          <td class="focus"><b>AutoGen</b><span>conversational multi-agent / group chat</span></td>
+          <td class="res"><span class="ty course">core</span><a href="https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/" target="_blank">Agentic Track — AutoGen week</a><br><span class="ty read">docs</span><a href="https://microsoft.github.io/autogen/" target="_blank">AutoGen docs</a></td>
+          <td class="est">2h</td>
+          <td class="hands">A group-chat of agents solving a task; note how orchestration/turn-taking differs from CrewAI roles.</td></tr>
+        <tr><td class="day"><span class="daynum">5</span></td>
+          <td class="focus"><b>MCP + the verdict</b><span>build your demo server, then judge them all</span></td>
+          <td class="res"><span class="ty course">course</span><a href="https://huggingface.co/learn/mcp-course" target="_blank">HF — MCP Course</a> (w/ Anthropic)<br><span class="ty course">core</span><a href="https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/" target="_blank">Agentic Track — MCP week</a></td>
+          <td class="est">2.5h</td>
+          <td class="hands"><b>Build:</b> an MCP server exposing your Oracle DB read-only (reused later). Write "<b>4 frameworks vs Temporal as a workflow engine</b>" — a portfolio piece only you can write.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="wfoot"><span class="udemy">Udemy: <b>Agentic Track (full course)</b> — OpenAI SDK · CrewAI · LangGraph · AutoGen · MCP</span><span class="deliver">Repo <code>week-05-frameworks</code> — same agent ×4 + Oracle MCP server + comparison doc.</span></div>
+  </section>
+
+  <section class="week" id="w6">
+    <div class="whead">
+      <div class="row1"><span class="wtag">WEEK 06</span><h2 class="wtitle">Fine-Tuning &amp; Local Models</h2><span class="whrs">~10 hrs</span></div>
+      <p class="wgoal"><b>Goal:</b> know when fine-tuning helps (rarely) and how to do it when it does. Decision tree: prompt → few-shot → RAG → fine-tune. (The memory math &amp; quantization theory deepen in Week 14.)</p>
+    </div>
+    <div class="scroller"><table>
+      <thead><tr><th style="width:6%">Day</th><th style="width:24%">Focus</th><th style="width:34%">Resources</th><th style="width:7%">Est</th><th style="width:29%">Hands-on / Practice</th></tr></thead>
+      <tbody>
+        <tr><td class="day"><span class="daynum">1</span></td>
+          <td class="focus"><b>When fine-tuning pays off</b><span>Read before you build</span></td>
+          <td class="res"><span class="ty read">read</span><a href="https://hamel.dev/blog/posts/fine_tuning_valuable.html" target="_blank">Hamel — Fine-Tuning is Probably Not For You</a></td>
+          <td class="est">1.5h</td>
+          <td class="hands">Write your escalation decision tree; mark where billpay tasks would land.</td></tr>
+        <tr><td class="day"><span class="daynum">2–3</span></td>
+          <td class="focus"><b>LoRA / QLoRA / PEFT</b></td>
+          <td class="res"><span class="ty course">course</span><a href="https://www.deeplearning.ai/short-courses/finetuning-large-language-models/" target="_blank">DLAI — Finetuning LLMs</a><br><span class="ty course">core</span><a href="https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/" target="_blank">Core Track — Week 7 (QLoRA)</a></td>
+          <td class="est">4h</td>
+          <td class="hands">Fine-tune <code>Qwen2.5-3B</code> with LoRA via <a href="https://github.com/unslothai/unsloth" target="_blank">unsloth</a> on a free Colab T4. Task: SQL gen on a synthetic billpay schema.</td></tr>
+        <tr><td class="day"><span class="daynum">4</span></td>
+          <td class="focus"><b>Local serving</b><span>Ollama vs vLLM; quantization preview</span></td>
+          <td class="res"><span class="ty read">read</span><a href="https://github.com/ggerganov/llama.cpp" target="_blank">llama.cpp</a> — Q4_K_M vs Q5_K_M vs FP16</td>
+          <td class="est">2h</td>
+          <td class="hands">Serve your fine-tuned model with vLLM; benchmark tokens/sec vs Ollama.</td></tr>
+        <tr><td class="day"><span class="daynum">5</span></td>
+          <td class="focus"><b>Optional — transformers from the metal</b><span>High-leverage if you have appetite</span></td>
+          <td class="res"><span class="ty vid">video</span><a href="https://www.youtube.com/watch?v=kCc8FmEb1nY" target="_blank">Karpathy — Let's build GPT</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Pre-train a tiny GPT on Tiny Shakespeare. Optional but you'll never see transformers the same way.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="wfoot"><span class="udemy">Udemy: <b>Core Track — Week 7</b></span><span class="deliver">Repo <code>week-06-finetuning</code> — LoRA model beating base on held-out test + "when would I fine-tune at work?" writeup.</span></div>
+  </section>
+
+  <section class="week" id="w7">
+    <div class="whead">
+      <div class="row1"><span class="wtag">WEEK 07</span><h2 class="wtitle">Evals, Observability &amp; Production Basics</h2><span class="whrs">~10 hrs</span></div>
+      <p class="wgoal"><b>Goal:</b> the most undervalued skill in AI engineering. After this week you're in the top 10% purely because most people skip evals. (The measurement theory — perplexity, judges, ranking — goes deep in Week 12.)</p>
+    </div>
+    <div class="scroller"><table>
+      <thead><tr><th style="width:6%">Day</th><th style="width:24%">Focus</th><th style="width:34%">Resources</th><th style="width:7%">Est</th><th style="width:29%">Hands-on / Practice</th></tr></thead>
+      <tbody>
+        <tr><td class="day"><span class="daynum">1</span></td>
+          <td class="focus"><b>Why evals are everything</b></td>
+          <td class="res"><span class="ty read">read</span><a href="https://hamel.dev/blog/posts/evals-faq/" target="_blank">Hamel — LLM Evals FAQ</a><br><span class="ty read">read</span><a href="https://eugeneyan.com/writing/llm-patterns/" target="_blank">Eugene Yan — LLM Patterns</a></td>
+          <td class="est">2h</td>
+          <td class="hands">List the failure modes you expect in your Week 5 agent.</td></tr>
+        <tr><td class="day"><span class="daynum">2–3</span></td>
+          <td class="focus"><b>Build evals</b><span>the Hamel method</span></td>
+          <td class="res"><span class="ty course">course</span><a href="https://www.deeplearning.ai/short-courses/evaluating-ai-agents/" target="_blank">DLAI — Evaluating AI Agents</a></td>
+          <td class="est">4h</td>
+          <td class="hands">On your W5 agent: label 100 traces → cluster failures → LLM-as-judge per mode → validate (TPR/TNR) → golden set of 20–30 that gate CI.</td></tr>
+        <tr><td class="day"><span class="daynum">4</span></td>
+          <td class="focus"><b>Observability</b></td>
+          <td class="res"><span class="ty tool">tool</span><a href="https://langfuse.com/" target="_blank">Langfuse</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Instrument every agent call (cost, latency, tools). Dashboard: "which tool calls fail most?"</td></tr>
+        <tr><td class="day"><span class="daynum">5</span></td>
+          <td class="focus"><b>Security &amp; red-teaming</b></td>
+          <td class="res"><span class="ty read">read</span><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank">OWASP Top 10 for LLM Apps</a><br><span class="ty tool">play</span><a href="https://gandalf.lakera.ai/" target="_blank">Lakera Gandalf</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Add I/O guardrails. Try 10 attacks; document mitigations. (Expanded in Week 16.)</td></tr>
+      </tbody>
+    </table></div>
+    <div class="wfoot"><span class="udemy none">Udemy: <b>weak fit.</b> Use the practitioners above; <a href="https://maven.com/parlance-labs/evals" target="_blank">Maven AI Evals</a> if you later invest.</span><span class="deliver">Repo <code>week-07-evals</code> — eval suite + Langfuse dashboard + 3 judges w/ TPR/TNR + red-team doc.</span></div>
+  </section>
+
+  <section class="week moatwk" id="w8">
+    <div class="whead">
+      <div class="row1"><span class="wtag" style="color:var(--amber)">WEEK 08 ★</span><h2 class="wtitle">Temporal + LLM Orchestration</h2><span class="whrs">~11 hrs</span></div>
+      <p class="wgoal"><b>Goal — YOUR DIFFERENTIATOR.</b> No course teaches this. Run agents as durable, throttled, observable Temporal workflows at 500K+ scale. This is why you're hireable; the capstone is built on it.</p>
+    </div>
+    <div class="scroller"><table>
+      <thead><tr><th style="width:6%">Day</th><th style="width:24%">Focus</th><th style="width:34%">Resources</th><th style="width:7%">Est</th><th style="width:29%">Hands-on / Practice</th></tr></thead>
+      <tbody>
+        <tr><td class="day"><span class="daynum">1</span></td>
+          <td class="focus"><b>Agents → workflows mapping</b><span>Determinism boundary</span></td>
+          <td class="res"><span class="ty read">read</span><a href="https://docs.temporal.io/" target="_blank">Temporal docs</a> + your production experience</td>
+          <td class="est">2h</td>
+          <td class="hands">Wrap each LLM call as an Activity; keep non-determinism out of Workflow code. Port your W5 agent into a Temporal workflow skeleton.</td></tr>
+        <tr><td class="day"><span class="daynum">2</span></td>
+          <td class="focus"><b>Reliability for flaky LLMs</b><span>retry, timeout, heartbeat, idempotency</span></td>
+          <td class="res"><span class="ty read">read</span>Temporal retry policies + Activity heartbeating</td>
+          <td class="est">2h</td>
+          <td class="hands">Add backoff retries + timeouts to LLM/tool Activities; make tool side-effects idempotent.</td></tr>
+        <tr><td class="day"><span class="daynum">3</span></td>
+          <td class="focus"><b>Human-in-the-loop</b><span>Signals, Queries, long-running</span></td>
+          <td class="res"><span class="ty read">read</span>Temporal Signals / Queries / Updates</td>
+          <td class="est">2h</td>
+          <td class="hands">Add an approval gate via Signal; expose live agent state via Query; <code>executeUpdateWithStart</code> for kick-off + first input.</td></tr>
+        <tr><td class="day"><span class="daynum">4</span></td>
+          <td class="focus"><b>Throttled fan-out at scale</b><span>Your 500K-workflow problem</span></td>
+          <td class="res"><span class="ty read">read</span>Temporal Schedules · task-queue partitioning · worker tuning</td>
+          <td class="est">3h</td>
+          <td class="hands">Trigger 500K workflows throttled — rate-limit LLM calls, cap concurrency, protect the <code>r8g.8xlarge</code> Postgres without scaling it. Schedules vs <code>Workflow.sleep()</code> at scale.</td></tr>
+        <tr><td class="day"><span class="daynum">5</span></td>
+          <td class="focus"><b>Write the thesis</b><span>Portfolio + positioning</span></td>
+          <td class="res"><span class="ty read">write</span>Blog: "What Agent Frameworks Get Wrong About Workflow Orchestration"</td>
+          <td class="est">2h</td>
+          <td class="hands">Draft the post — it basically writes itself with your background. Your standout interview asset.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="wfoot"><span class="udemy none">Udemy: <b>none exists — this is uniquely yours.</b></span><span class="deliver">Repo <code>week-08-temporal-llm</code> — durable multi-agent workflow w/ HITL signals + throttled fan-out + blog draft.</span></div>
+  </section>
+
+  <section class="week" id="w9">
+    <div class="whead">
+      <div class="row1"><span class="wtag">WEEK 09–10</span><h2 class="wtitle">Capstone — Billpay Ops Copilot</h2><span class="whrs">~20 hrs</span></div>
+      <p class="wgoal"><b>Goal:</b> ship one real, end-to-end agentic system you'd demo to a hiring manager. Uses everything: structured outputs, RAG, multi-framework agents, MCP, evals, Langfuse, and Temporal orchestration. No tutorials — just build. <b style="color:var(--amber-soft)">Build it JVM-native</b> — Quarkus + Quarkus-LangChain4j + the Temporal Java SDK, reusing your Week 2B work. The Python weeks were for learning; the capstone ships on your stack, which makes it a far stronger portfolio piece for <i>your</i> background.</p>
+    </div>
+
+    <div class="spec pick">
+      <h4>The build — recommended pick (strongest for your portfolio)</h4>
+      <p>An agent that diagnoses a <b>stuck Temporal workflow</b> given a workflow ID, then proposes (and optionally executes, behind a human-approval signal) a mitigation. It sits exactly at the intersection of your moat and AI engineering.</p>
+      <ul>
+        <li><b>Input:</b> a workflow ID (or an alert webhook).</li>
+        <li><b>Tools / MCP servers:</b> query Temporal API (history, pending activities, stuck task queues); read Oracle business state via your Week-5 read-only MCP server; RAG over runbooks + Temporal docs (Week 3); a metrics tool (shard latency, sync-match rate).</li>
+        <li><b>Reasoning:</b> a Quarkus-LangChain4j agent (or LangGraph if you'd rather stay in Python) classifies the failure (sticky-queue starvation, poller starvation, <code>IO:XactSync</code> contention, prepared-statement pinning, …) and drafts a mitigation.</li>
+        <li><b>Orchestration:</b> the whole diagnosis runs as a <b>Temporal workflow (Java SDK)</b> — durable, retryable, with a human-approval <b>Signal</b> before any write action.</li>
+        <li><b>Quality gates:</b> eval suite (Week 7) with golden incidents; LLM-as-judge on diagnosis correctness.</li>
+        <li><b>Observability:</b> full Langfuse tracing of every tool call and token.</li>
+      </ul>
+    </div>
+
+    <div class="spec">
+      <h4>Alternative picks (if you want a change of domain)</h4>
+      <ul>
+        <li><b>Code Review Agent</b> — reviews Kotlin PRs against your team style guide + anti-patterns; RAG over the guide + history.</li>
+        <li><b>India Relocation Concierge</b> — multi-step planning (schools, neighborhoods, doc checklists). Personally useful, less technically flashy.</li>
+        <li><b>Wildlife Photography Assistant</b> — RAG over EXIF + field guides; suggests lens/settings. Niche but distinctive.</li>
+      </ul>
+    </div>
+
+    <div class="scroller"><table>
+      <thead><tr><th style="width:14%">Phase</th><th style="width:24%">Focus</th><th style="width:7%">Est</th><th style="width:55%">Tasks</th></tr></thead>
+      <tbody>
+        <tr><td class="day"><span class="daynum" style="font-size:13px">W9 · Mon–Tue</span></td><td class="focus"><b>Scope &amp; happy path</b></td><td class="est">4h</td><td class="hands">Design doc (architecture, tradeoffs); implement the happy-path diagnosis on one failure class.</td></tr>
+        <tr><td class="day"><span class="daynum" style="font-size:13px">W9 · Wed</span></td><td class="focus"><b>Tool integrations</b></td><td class="est">4h</td><td class="hands">Wire Temporal API tool, Oracle read MCP, runbook RAG, metrics tool.</td></tr>
+        <tr><td class="day"><span class="daynum" style="font-size:13px">W9 · Thu</span></td><td class="focus"><b>Reliability + observability</b></td><td class="est">4h</td><td class="hands">Temporal orchestration, retries/timeouts, HITL approval signal, Langfuse tracing.</td></tr>
+        <tr><td class="day"><span class="daynum" style="font-size:13px">W9 · Fri</span></td><td class="focus"><b>Deploy</b></td><td class="est">4h</td><td class="hands">Deploy to Fly.io / Modal (full AWS deploy comes in Week 16). Smoke test end-to-end.</td></tr>
+        <tr><td class="day"><span class="daynum" style="font-size:13px">W10 · 1–3</span></td><td class="focus"><b>Finish + evals + writeup</b></td><td class="est">8h</td><td class="hands">≥10 golden incidents in the eval suite; 1500-word writeup on architecture, tradeoffs, "what I'd do at 10× scale."</td></tr>
+        <tr><td class="day"><span class="daynum" style="font-size:13px">W10 · 4</span></td><td class="focus"><b>Portfolio polish</b></td><td class="est">3h</td><td class="hands">Pin repo; blog post; LinkedIn + Loom demo. Resume bullets that lead with outcomes ("cut RAG P95 800ms→180ms via hybrid + reranker"), not tech names.</td></tr>
+        <tr><td class="day"><span class="daynum" style="font-size:13px">W10 · 5</span></td><td class="focus"><b>Reflect + plan Part II</b></td><td class="est">2h</td><td class="hands">Subscribe: <a href="https://hamel.dev/" target="_blank">Hamel</a>, <a href="https://eugeneyan.com/" target="_blank">Eugene Yan</a>, <a href="https://www.latent.space/" target="_blank">Latent Space</a>. Open Chip Huyen's book — Part II starts.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="wfoot"><span class="udemy">Synthesis — Agentic Track Capstone + Core Track Wk 8 for reference patterns.</span><span class="deliver">Deployed Billpay Ops Copilot + eval suite + writeup + portfolio assets.</span></div>
+  </section>
+
+  <div class="partbar"><span class="pn">Part II</span><h2>Depth &amp; Systems</h2><span class="sub">Weeks 11–17 · post-capstone · Huyen + ByteByteGo + Production Track</span></div>
+
+  <div class="block">
+    <p style="margin:0;"><b>Spine for Part II:</b> Chip Huyen, <i>AI Engineering: Building Applications with Foundation Models</i> (O'Reilly, 2025) — the book you uploaded. Each week below maps to its chapters and goes after the depth Part I deliberately skipped: <b>why</b> models behave as they do, rigorous evaluation, retrieval/agent internals, the data and fine-tuning math, inference performance (your wheelhouse), and the full production architecture. Ed Donner's <b>Production Track</b> supplies the cloud-deployment hands-on in Week 16.</p>
+  </div>
+
+  <section class="week" id="w11">
+    <div class="whead">
+      <div class="row1"><span class="wtag">WEEK 11</span><h2 class="wtitle">Foundation Model Internals</h2><span class="whrs">~12 hrs</span></div>
+      <p class="wgoal"><b>Goal:</b> understand <i>why</i> models behave as they do — the theory you skipped in Part I, now that you can contextualize it against systems you've built. <span class="mono" style="color:var(--amber-soft)">Huyen Ch 2.</span></p>
+    </div>
+    <div class="scroller"><table>
+      <thead><tr><th style="width:6%">Day</th><th style="width:24%">Focus</th><th style="width:34%">Resources</th><th style="width:7%">Est</th><th style="width:29%">Hands-on / Practice</th></tr></thead>
+      <tbody>
+        <tr><td class="day"><span class="daynum">1</span></td>
+          <td class="focus"><b>Sampling &amp; decoding</b><span>temperature, top-k, top-p, greedy; structured outputs</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 2 — Sampling<br><span class="ty read">read</span><a href="https://huggingface.co/blog/how-to-generate" target="_blank">HF — How to generate text</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Implement temperature + top-p sampling over raw logprobs; show how each reshapes the output distribution.</td></tr>
+        <tr><td class="day"><span class="daynum">2</span></td>
+          <td class="focus"><b>Test-time compute &amp; reasoning</b><span>CoT, best-of-N, ToT, parallel/sequential sampling, search-against-verifier</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 2 — Test Time Compute<br><span class="ty course">cohort</span><a href="https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/" target="_blank">ByteByteGo P4 — Deep Research / reasoning</a></td>
+          <td class="est">2.5h</td>
+          <td class="hands">Implement best-of-N, self-consistency, and a simple <b>Tree-of-Thoughts</b> + verifier search on a SQL/math task; chart accuracy vs token cost.</td></tr>
+        <tr><td class="day"><span class="daynum">3</span></td>
+          <td class="focus"><b>Probabilistic nature &amp; hallucination</b><span>why inconsistency happens</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 2 — The Probabilistic Nature of AI</td>
+          <td class="est">2h</td>
+          <td class="hands">Run the same prompt 20× at temp 0 vs 1; quantify variance. Design a determinism strategy for billpay-grade reliability.</td></tr>
+        <tr><td class="day"><span class="daynum">4</span></td>
+          <td class="focus"><b>Post-training &amp; reasoning-RL</b><span>SFT, RLHF, DPO; reward modeling (ORM/PRM), STaR, Meta-CoT</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 2 — Post-Training<br><span class="ty course">cohort</span><a href="https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/" target="_blank">ByteByteGo P4 — training-time techniques</a><br><span class="ty course">course</span><a href="https://huggingface.co/learn/llm-course" target="_blank">HF LLM Course — alignment</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Read a DPO preference dataset; diagram outcome- vs process-reward models (ORM/PRM) and how STaR bootstraps reasoning data. Sketch preference data for a billpay assistant.</td></tr>
+        <tr><td class="day"><span class="daynum">5</span></td>
+          <td class="focus"><b>Pre-training, architecture &amp; size</b><span>data corpora (Common Crawl/FineWeb), BPE, params, context, MoE</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 2 — Modeling<br><span class="ty course">cohort</span><a href="https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/" target="_blank">ByteByteGo P1 — Pre-Training</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Map the pre-training pipeline (corpora → cleaning → BPE → architecture). Build a decision table: per task class, which model size/family + why.</td></tr>
+        <tr><td class="day"><span class="daynum">6</span></td>
+          <td class="focus"><b>Mechanistic interpretability</b><span>optional deep path — what's inside the weights</span></td>
+          <td class="res"><span class="ty course">course</span><a href="https://www.udemy.com/course/dullms_x/" target="_blank">Mike X Cohen — Deep LLM Mechanisms</a> (+ <a href="https://github.com/mikexcohen/LLM_course" target="_blank">code</a>)</td>
+          <td class="est">1.5h</td>
+          <td class="hands">Optional: probe attention heads / activations on a small model. Pull the relevant module from Cohen's course — don't attempt all 90h; sample interpretability + attention internals.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="wfoot"><span class="udemy">Spine: <b>Huyen Ch 2</b> + ByteByteGo P1/P4 · Cohen (optional)</span><span class="deliver">Repo <code>week-11-fm-internals</code> — sampling + ToT/verifier eval + reward-model notes + determinism writeup.</span></div>
+  </section>
+
+  <section class="week" id="w12">
+    <div class="whead">
+      <div class="row1"><span class="wtag">WEEK 12</span><h2 class="wtitle">Evaluation, Deep</h2><span class="whrs">~11 hrs</span></div>
+      <p class="wgoal"><b>Goal:</b> the measurement foundations behind Week 7. This is what separates engineers who <i>think</i> their system works from those who can prove it. <span class="mono" style="color:var(--amber-soft)">Huyen Ch 3–4.</span></p>
+    </div>
+    <div class="scroller"><table>
+      <thead><tr><th style="width:6%">Day</th><th style="width:24%">Focus</th><th style="width:34%">Resources</th><th style="width:7%">Est</th><th style="width:29%">Hands-on / Practice</th></tr></thead>
+      <tbody>
+        <tr><td class="day"><span class="daynum">1</span></td>
+          <td class="focus"><b>Language-modeling metrics</b><span>entropy, cross-entropy, perplexity, BPC/BPB</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 3 — Understanding LM Metrics</td>
+          <td class="est">2h</td>
+          <td class="hands">Compute perplexity of a local model on a held-out billpay-docs set; interpret what it tells you.</td></tr>
+        <tr><td class="day"><span class="daynum">2</span></td>
+          <td class="focus"><b>AI as a judge</b><span>how, limitations, judge bias</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 3 — AI as a Judge<br><span class="ty read">read</span><a href="https://hamel.dev/blog/posts/evals-faq/" target="_blank">Hamel — Evals FAQ</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Build an LLM judge with an explicit rubric; validate against human labels (TPR/TNR); measure position/verbosity bias.</td></tr>
+        <tr><td class="day"><span class="daynum">3</span></td>
+          <td class="focus"><b>Comparative eval &amp; ranking</b><span>pairwise, Elo, arenas</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 3 — Comparative Evaluation<br><span class="ty tool">tool</span><a href="https://lmarena.ai/" target="_blank">LMArena (Chatbot Arena)</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Pairwise-compare 3 models on your task; compute an Elo ranking from the results.</td></tr>
+        <tr><td class="day"><span class="daynum">4</span></td>
+          <td class="focus"><b>Eval criteria &amp; model selection</b><span>capability, cost/latency; build vs buy; benchmarks</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 4 — Evaluation Criteria + Model Selection</td>
+          <td class="est">2.5h</td>
+          <td class="hands">Build a model-selection scorecard for billpay (capability × cost × latency × control). Critically read 2 public benchmarks for leakage/mismatch.</td></tr>
+        <tr><td class="day"><span class="daynum">5</span></td>
+          <td class="focus"><b>Eval pipeline design</b><span>eval all components, guidelines, methods + data</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 4 — Design Your Evaluation Pipeline<br><span class="ty read">read</span><a href="https://eugeneyan.com/writing/llm-patterns/" target="_blank">Eugene Yan — LLM Patterns</a></td>
+          <td class="est">2.5h</td>
+          <td class="hands">Design an end-to-end eval pipeline for your capstone (component-level + system-level); wire it into CI as a release gate.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="wfoot"><span class="udemy">Spine: <b>Huyen Ch 3–4</b> · <a href="https://maven.com/parlance-labs/evals" target="_blank">Maven AI Evals</a> if investing</span><span class="deliver">Repo <code>week-12-eval</code> — perplexity calc + validated judge + Elo + model scorecard + CI eval gate.</span></div>
+  </section>
+
+  <section class="week" id="w13">
+    <div class="whead">
+      <div class="row1"><span class="wtag">WEEK 13</span><h2 class="wtitle">Advanced RAG &amp; Agents</h2><span class="whrs">~11 hrs</span></div>
+      <p class="wgoal"><b>Goal:</b> the retrieval and agent depth that actually moves production quality — beyond the basic pipeline you built in Week 3. <span class="mono" style="color:var(--amber-soft)">Huyen Ch 6.</span></p>
+    </div>
+    <div class="scroller"><table>
+      <thead><tr><th style="width:6%">Day</th><th style="width:24%">Focus</th><th style="width:34%">Resources</th><th style="width:7%">Est</th><th style="width:29%">Hands-on / Practice</th></tr></thead>
+      <tbody>
+        <tr><td class="day"><span class="daynum">1</span></td>
+          <td class="focus"><b>Retrieval algorithms</b><span>term-based (BM25), embedding, hybrid + fusion</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 6 — Retrieval Algorithms</td>
+          <td class="est">2h</td>
+          <td class="hands">Implement BM25 + dense + RRF fusion on your W3 corpus; compare recall across the three.</td></tr>
+        <tr><td class="day"><span class="daynum">2</span></td>
+          <td class="focus"><b>Retrieval optimization</b><span>reranking, query rewriting, contextual retrieval</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 6 — Retrieval Optimization<br><span class="ty read">read</span><a href="https://www.anthropic.com/news/contextual-retrieval" target="_blank">Anthropic — Contextual Retrieval</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Add a cross-encoder reranker + query rewriting; measure nDCG lift vs the W3 baseline.</td></tr>
+        <tr><td class="day"><span class="daynum">3</span></td>
+          <td class="focus"><b>RAG beyond text</b><span>multimodal, tabular / text-to-SQL retrieval</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 6 — RAG Beyond Texts</td>
+          <td class="est">2h</td>
+          <td class="hands">Add tabular retrieval over your Oracle schema — text-to-SQL plus row retrieval — feeding the agent.</td></tr>
+        <tr><td class="day"><span class="daynum">4</span></td>
+          <td class="focus"><b>Agent memory systems</b><span>short/long-term, episodic, summary memory</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 6 — Memory</td>
+          <td class="est">2h</td>
+          <td class="hands">Add a memory layer to your capstone agent (vector recall + rolling summary); test multi-session recall.</td></tr>
+        <tr><td class="day"><span class="daynum">5</span></td>
+          <td class="focus"><b>Agent failure modes &amp; eval</b><span>planning errors, tool errors, loops</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 6 — Agent Failure Modes and Evaluation</td>
+          <td class="est">2h</td>
+          <td class="hands">Build a failure taxonomy + targeted evals for your agent; add loop/cost circuit-breakers.</td></tr>
+        <tr><td class="day"><span class="daynum">6</span></td>
+          <td class="focus"><b>Advanced agent reasoning</b><span>Reflexion, ReWOO, Tree-of-Thoughts, tree search</span></td>
+          <td class="res"><span class="ty cohort">cohort</span><a href="https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/" target="_blank">ByteByteGo P3 — multi-step agents</a><br><span class="ty course">core</span><a href="https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/" target="_blank">Agentic Track</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Implement Reflexion (self-critique memory) and ReWOO (plan-then-execute) variants of your agent; compare against plain ReAct on your eval set.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="wfoot"><span class="udemy">Spine: <b>Huyen Ch 6</b></span><span class="deliver">Repo <code>week-13-advanced-rag</code> — hybrid+rerank + tabular RAG + agent memory + failure evals.</span></div>
+  </section>
+
+  <section class="week" id="w14">
+    <div class="whead">
+      <div class="row1"><span class="wtag">WEEK 14</span><h2 class="wtitle">Finetuning Depth + Dataset Engineering</h2><span class="whrs">~11 hrs</span></div>
+      <p class="wgoal"><b>Goal:</b> the quantitative grounding behind fine-tuning, and the data work that actually decides whether it works — the half of fine-tuning nobody shows you. <span class="mono" style="color:var(--amber-soft)">Huyen Ch 7–8.</span></p>
+    </div>
+    <div class="scroller"><table>
+      <thead><tr><th style="width:6%">Day</th><th style="width:24%">Focus</th><th style="width:34%">Resources</th><th style="width:7%">Est</th><th style="width:29%">Hands-on / Practice</th></tr></thead>
+      <tbody>
+        <tr><td class="day"><span class="daynum">1</span></td>
+          <td class="focus"><b>Memory math &amp; numerics</b><span>FP32/16/BF16/INT8/INT4; footprint formula</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 7 — Memory Bottlenecks</td>
+          <td class="est">2h</td>
+          <td class="hands">Compute VRAM for full vs LoRA vs QLoRA on 7B/13B; verify against your actual Week-6 run.</td></tr>
+        <tr><td class="day"><span class="daynum">2</span></td>
+          <td class="focus"><b>Quantization</b><span>PTQ, GPTQ/AWQ, GGUF; quality/latency tradeoffs</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 7 — Quantization<br><span class="ty read">read</span><a href="https://github.com/ggerganov/llama.cpp" target="_blank">llama.cpp</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Quantize your W6 model to Q4/Q5; benchmark quality + tokens/sec at each level.</td></tr>
+        <tr><td class="day"><span class="daynum">3</span></td>
+          <td class="focus"><b>Model merging &amp; multi-task</b><span>SLERP, TIES, DARE</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 7 — Model Merging<br><span class="ty tool">tool</span><a href="https://github.com/arcee-ai/mergekit" target="_blank">mergekit</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Merge two LoRA adapters with mergekit; eval the merged model on both source tasks.</td></tr>
+        <tr><td class="day"><span class="daynum">4</span></td>
+          <td class="focus"><b>Data curation</b><span>quality, coverage, quantity; acquisition &amp; annotation</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 8 — Data Curation</td>
+          <td class="est">2.5h</td>
+          <td class="hands">Build a 200-example billpay instruction dataset with an explicit quality rubric + coverage check.</td></tr>
+        <tr><td class="day"><span class="daynum">5</span></td>
+          <td class="focus"><b>Synthesis, distillation &amp; RAFT</b><span>AI-powered synthesis, distillation, retrieval-augmented fine-tuning</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 8 — Data Augmentation &amp; Processing<br><span class="ty cohort">cohort</span><a href="https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/" target="_blank">ByteByteGo P2 — RAFT</a></td>
+          <td class="est">2.5h</td>
+          <td class="hands">Synthesize + distill from a frontier model into your small model; dedup &amp; filter; try <b>RAFT</b> (train the model to ignore distractor docs) and re-run the W6 eval to show lift.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="wfoot"><span class="udemy">Spine: <b>Huyen Ch 7–8</b></span><span class="deliver">Repo <code>week-14-data</code> — memory-math sheet + quantized models + merged adapter + synthetic dataset.</span></div>
+  </section>
+
+  <section class="week moatwk" id="w15">
+    <div class="whead">
+      <div class="row1"><span class="wtag" style="color:var(--amber)">WEEK 15 ★</span><h2 class="wtitle">Inference Optimization</h2><span class="whrs">~11 hrs</span></div>
+      <p class="wgoal"><b>Goal — YOUR SECOND MOAT.</b> Distributed-systems thinking applied to LLM serving: throughput, batching, caching, latency-vs-cost. This is the strongest moat-adjacent material in the plan — most AI engineers can't reason about it; you do this for a living. <span class="mono" style="color:var(--amber-soft)">Huyen Ch 9.</span></p>
+    </div>
+    <div class="scroller"><table>
+      <thead><tr><th style="width:6%">Day</th><th style="width:24%">Focus</th><th style="width:34%">Resources</th><th style="width:7%">Est</th><th style="width:29%">Hands-on / Practice</th></tr></thead>
+      <tbody>
+        <tr><td class="day"><span class="daynum">1</span></td>
+          <td class="focus"><b>Inference metrics &amp; accelerators</b><span>TTFT, TPOT, throughput, goodput; GPU basics</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 9 — Understanding Inference Optimization</td>
+          <td class="est">2h</td>
+          <td class="hands">Benchmark TTFT / TPOT / throughput of your W6 model under load; build a latency-vs-cost table.</td></tr>
+        <tr><td class="day"><span class="daynum">2</span></td>
+          <td class="focus"><b>Model optimization</b><span>quantization, distillation, speculative decoding, parallelism</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 9 — Model Optimization<br><span class="ty read">docs</span><a href="https://docs.vllm.ai/" target="_blank">vLLM docs</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Enable speculative decoding in vLLM; measure the speedup vs baseline.</td></tr>
+        <tr><td class="day"><span class="daynum">3</span></td>
+          <td class="focus"><b>Service optimization</b><span>continuous batching, KV cache, prefill/decode disaggregation</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 9 — Inference Service Optimization<br><span class="ty read">docs</span><a href="https://docs.vllm.ai/" target="_blank">vLLM — batching &amp; paged attention</a></td>
+          <td class="est">2.5h</td>
+          <td class="hands">Load-test vLLM continuous batching; chart throughput vs concurrency; observe KV-cache + prefill effects.</td></tr>
+        <tr><td class="day"><span class="daynum">4</span></td>
+          <td class="focus"><b>Caching &amp; routing for cost</b><span>prompt cache, semantic cache, model gateway/router</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 10 — Caches + Router/Gateway<br><span class="ty read">docs</span><a href="https://docs.litellm.ai/" target="_blank">LiteLLM (gateway)</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Add prompt + semantic caching; route easy queries to a small model via a gateway; measure $ saved.</td></tr>
+        <tr><td class="day"><span class="daynum">5</span></td>
+          <td class="focus"><b>Throughput at scale</b><span>tie to your Temporal fan-out</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 9 + your Week 8</td>
+          <td class="est">2.5h</td>
+          <td class="hands">Design the serving tier for 500K throttled workflows: concurrency caps, batching, cache-hit targets — without scaling the <code>r8g.8xlarge</code>. This is your interview centerpiece.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="wfoot"><span class="udemy none">Spine: <b>Huyen Ch 9</b> — no course matches your background here.</span><span class="deliver">Repo <code>week-15-inference</code> — load-test harness + spec-decoding bench + batching chart + gateway/cache + scale design doc.</span></div>
+  </section>
+
+  <section class="week" id="w16">
+    <div class="whead">
+      <div class="row1"><span class="wtag">WEEK 16</span><h2 class="wtitle">AI Eng Architecture &amp; Production Deployment</h2><span class="whrs">~13 hrs</span></div>
+      <p class="wgoal"><b>Goal:</b> assemble everything into a production reference architecture and deploy it to the cloud — the platform-engineering layer that is 70–80% of real production AI work. <span class="mono" style="color:var(--amber-soft)">Huyen Ch 10 + Ed Donner Production Track.</span></p>
+    </div>
+    <div class="scroller"><table>
+      <thead><tr><th style="width:6%">Day</th><th style="width:24%">Focus</th><th style="width:34%">Resources</th><th style="width:7%">Est</th><th style="width:29%">Hands-on / Practice</th></tr></thead>
+      <tbody>
+        <tr><td class="day"><span class="daynum">1</span></td>
+          <td class="focus"><b>Reference architecture</b><span>context → guardrails → router → cache → agents → orchestration</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 10 — AI Engineering Architecture</td>
+          <td class="est">2h</td>
+          <td class="hands">Draw your capstone as the full layered architecture; label each layer in your actual code.</td></tr>
+        <tr><td class="day"><span class="daynum">2</span></td>
+          <td class="focus"><b>Guardrails &amp; defensive prompting</b><span>I/O guardrails, jailbreak / prompt-injection defenses</span></td>
+          <td class="res"><span class="ty book">book</span>Huyen Ch 5 (Defensive PE) + Ch 10 (Guardrails)<br><span class="ty read">read</span><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank">OWASP LLM Top 10</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Add input + output guardrails to the capstone; red-team with 10 injections; document each defense.</td></tr>
+        <tr><td class="day"><span class="daynum">3</span></td>
+          <td class="focus"><b>Cloud deploy</b><span>Docker, AWS Bedrock, SageMaker, Lambda, App Runner, API Gateway</span></td>
+          <td class="res"><span class="ty course">core</span><a href="https://www.udemy.com/course/generative-and-agentic-ai-in-production/" target="_blank">Production Track — Wk 1 &amp; 3</a><br><span class="ty read">docs</span><a href="https://docs.aws.amazon.com/bedrock/" target="_blank">AWS Bedrock docs</a></td>
+          <td class="est">3h</td>
+          <td class="hands">Containerize the capstone (Docker); deploy behind API Gateway + Lambda (or App Runner for the long-running agent); call Bedrock as a model provider.</td></tr>
+        <tr><td class="day"><span class="daynum">4</span></td>
+          <td class="focus"><b>IaC &amp; CI/CD for AI</b><span>Terraform, GitHub Actions, multi-cloud (Vercel/GCP/Azure)</span></td>
+          <td class="res"><span class="ty course">core</span><a href="https://www.udemy.com/course/generative-and-agentic-ai-in-production/" target="_blank">Production Track — platform engineering</a><br><span class="ty read">docs</span><a href="https://developer.hashicorp.com/terraform" target="_blank">Terraform docs</a></td>
+          <td class="est">2.5h</td>
+          <td class="hands">Terraform your infra; GitHub Actions pipeline that runs the Week-12 eval gate before any deploy. Note the Vercel/GCP/Azure equivalents the Production Track covers.</td></tr>
+        <tr><td class="day"><span class="daynum">5</span></td>
+          <td class="focus"><b>Serverless multi-agent + feedback</b><span>Aurora Serverless/SQS, Langfuse, user-feedback loops</span></td>
+          <td class="res"><span class="ty course">core</span><a href="https://www.udemy.com/course/generative-and-agentic-ai-in-production/" target="_blank">Production Track — Wk 4</a><br><span class="ty book">book</span>Huyen Ch 10 — User Feedback</td>
+          <td class="est">2.5h</td>
+          <td class="hands">Deploy the multi-agent capstone serverless (Aurora Serverless + SQS); wire Langfuse; add a conversational feedback-capture loop.</td></tr>
+        <tr><td class="day"><span class="daynum">6</span></td>
+          <td class="focus"><b>SaaS productization &amp; MLOps</b><span>user management, subscriptions, monitoring maturity</span></td>
+          <td class="res"><span class="ty course">core</span><a href="https://www.udemy.com/course/generative-and-agentic-ai-in-production/" target="_blank">Production Track — SaaS + MLOps</a></td>
+          <td class="est">2.5h</td>
+          <td class="hands">Add a thin SaaS layer (auth, usage metering, subscription tier) in front of the capstone; document the MLOps loop — monitoring, retraining triggers, rollback. Optional but makes the project look commercial.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="wfoot"><span class="udemy">Udemy: <b>Production Track</b> + Huyen Ch 10</span><span class="deliver">Capstone deployed to AWS, Terraform-managed, eval-gated CI/CD, Langfuse-instrumented, with a feedback loop.</span></div>
+  </section>
+
+  <section class="week" id="w17" style="border-style:dashed;border-color:var(--blue);">
+    <div class="whead" style="background:#11150f;">
+      <div class="row1"><span class="wtag" style="color:var(--blue)">WEEK 17 ◇ ELECTIVE</span><h2 class="wtitle" style="color:var(--blue);">Multimodal &amp; Generative Media</h2><span class="whrs">~10 hrs</span></div>
+      <p class="wgoal"><b>Optional — breadth, and personally relevant.</b> The least central to a backend-agentic path, but it's an entire domain (and ties to your photography). Spine: <a href="https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/" target="_blank">ByteByteGo P5</a>. Skip without guilt if you're optimizing purely for agentic-backend roles.</p>
+    </div>
+    <div class="scroller"><table>
+      <thead><tr><th style="width:6%">Day</th><th style="width:24%">Focus</th><th style="width:34%">Resources</th><th style="width:7%">Est</th><th style="width:29%">Hands-on / Practice</th></tr></thead>
+      <tbody>
+        <tr><td class="day"><span class="daynum">1</span></td>
+          <td class="focus"><b>Generative model families</b><span>VAE, GANs, autoregressive, diffusion</span></td>
+          <td class="res"><span class="ty cohort">cohort</span><a href="https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/" target="_blank">ByteByteGo P5 — overview</a><br><span class="ty course">course</span><a href="https://huggingface.co/learn/diffusion-course" target="_blank">HF — Diffusion Models Course</a></td>
+          <td class="est">2h</td>
+          <td class="hands">One-pager comparing the four families; where diffusion won and why.</td></tr>
+        <tr><td class="day"><span class="daynum">2</span></td>
+          <td class="focus"><b>Diffusion deep</b><span>forward/backward process, U-Net vs DiT, sampling</span></td>
+          <td class="res"><span class="ty course">course</span><a href="https://huggingface.co/learn/diffusion-course" target="_blank">HF Diffusion Course — units 1–2</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Run the HF diffusion-from-scratch notebook; sample at varying step counts and observe quality/latency.</td></tr>
+        <tr><td class="day"><span class="daynum">3</span></td>
+          <td class="focus"><b>Text-to-Image hands-on</b><span>Stable Diffusion / diffusers; FID, CLIP score</span></td>
+          <td class="res"><span class="ty read">docs</span><a href="https://huggingface.co/docs/diffusers" target="_blank">HF diffusers docs</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Generate images with SDXL via <code>diffusers</code>; evaluate a set with CLIP score; try ControlNet for composition control.</td></tr>
+        <tr><td class="day"><span class="daynum">4</span></td>
+          <td class="focus"><b>Text-to-Video</b><span>latent diffusion, DiT for video, T2V systems</span></td>
+          <td class="res"><span class="ty cohort">cohort</span><a href="https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/" target="_blank">ByteByteGo P5 — T2V</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Read the T2V system design; run an open T2V model on a short clip; note the scaling challenges.</td></tr>
+        <tr><td class="day"><span class="daynum">5</span></td>
+          <td class="focus"><b>Build — a generation agent</b><span>tie it to your photography</span></td>
+          <td class="res"><span class="ty cohort">cohort</span><a href="https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/" target="_blank">ByteByteGo P5 — capstone</a></td>
+          <td class="est">2h</td>
+          <td class="hands">Build a small T2I agent that generates concept references / backdrops from a prompt — a useful pre-shoot tool for your portrait work.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="wfoot"><span class="udemy">Spine: <b>ByteByteGo P5</b> + HF Diffusion Course</span><span class="deliver">Repo <code>week-17-multimodal</code> — diffusion notebook + T2I generation agent.</span></div>
+  </section>
+
+  <div class="block" id="electives">
+    <h3>Optional electives — pick by interest, not obligation</h3>
+    <ul>
+      <li><b><a href="https://javabrains.io/courses/from-java-to-ai" target="_blank">Java Brains — From Java to AI</a></b>: a short, code-free LLM primer for Java devs. Below your level conceptually, but a fast, friendly on-ramp and a clean reference for the JVM-integration framing in Week 2B. Skim at 1.5–2×.</li> (n8n + ElevenLabs voice agents): low-code automation + voice. Fast ROI for shipping internal tools and demos without writing a backend — worth a weekend even as a senior engineer.</li>
+      <li><b><a href="https://www.udemy.com/course/executive-briefing-generative-ai-and-large-language-models-llm/" target="_blank">Ed Donner — AI Leader</a></b>: not a coding course — a business/strategy briefing. A genuine force-multiplier in interviews and design reviews; demonstrating commercial judgment separates senior AI engineers from implementers.</li>
+      <li><b><a href="https://www.udemy.com/course/dullms_x/" target="_blank">Mike X Cohen — Deep Understanding of LLM Mechanisms</a></b> (+ <a href="https://github.com/mikexcohen/LLM_course" target="_blank">code</a>): 90+ hrs of transformer math, PyTorch-from-scratch, and mechanistic interpretability. The deepest theory path here — sample it (Week 11) rather than completing it end-to-end unless you want research-grade depth.</li>
+    </ul>
+  </div>
+
+  <div class="block" style="margin-top:40px;">
+    <h3>Time allocation summary</h3>
+    <div class="gtable"><table>
+      <thead><tr><th>Wk</th><th>Topic</th><th>Build</th><th>Read</th><th>Deliverable</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>Python pre-prep + setup</td><td>6</td><td>4</td><td>Async FastAPI + Pydantic</td></tr>
+        <tr><td><b>1 ★</b></td><td><b>Claude Code &amp; agentic coding</b></td><td>7</td><td>4</td><td>CLAUDE.md + hooks + autonomous Jira→PR</td></tr>
+        <tr><td>2</td><td>Gen AI building blocks</td><td>6</td><td>4</td><td>3 raw-API scripts</td></tr>
+        <tr><td><b>2B ★</b></td><td><b>JVM-native AI (Spring AI/LangChain4j)</b></td><td>7</td><td>3</td><td>Quarkus/Kotlin LLM service</td></tr>
+        <tr><td>3</td><td>Context engineering + RAG</td><td>7</td><td>3</td><td>RAG over Temporal docs</td></tr>
+        <tr><td>4</td><td>Agents from scratch</td><td>7</td><td>3</td><td>ReAct + 5 patterns</td></tr>
+        <tr><td>5</td><td>Multi-framework agents + MCP</td><td>7</td><td>4</td><td>Same agent ×4 + Oracle MCP</td></tr>
+        <tr><td>6</td><td>Fine-tuning + local</td><td>6</td><td>4</td><td>LoRA-tuned 3B + vLLM bench</td></tr>
+        <tr><td>7</td><td>Evals + observability</td><td>7</td><td>3</td><td>Eval suite + Langfuse</td></tr>
+        <tr><td><b>8 ★</b></td><td><b>Temporal + LLM (moat)</b></td><td>8</td><td>3</td><td>Durable agent + throttled fan-out</td></tr>
+        <tr><td>9–10</td><td>Capstone build + polish</td><td>17</td><td>3</td><td>Billpay Ops Copilot, deployed</td></tr>
+        <tr><td>11</td><td>FM internals + reasoning</td><td>6</td><td>6</td><td>Sampling + ToT/verifier eval</td></tr>
+        <tr><td>12</td><td>Evaluation, deep</td><td>6</td><td>5</td><td>Judge + Elo + CI eval gate</td></tr>
+        <tr><td>13</td><td>Advanced RAG &amp; agents</td><td>8</td><td>3</td><td>Hybrid+rerank + memory + Reflexion/ReWOO</td></tr>
+        <tr><td>14</td><td>Finetuning + dataset eng</td><td>7</td><td>4</td><td>Quantized + merged + synth + RAFT</td></tr>
+        <tr><td><b>15 ★</b></td><td><b>Inference optimization (moat)</b></td><td>8</td><td>3</td><td>Load-test + batching + scale doc</td></tr>
+        <tr><td>16</td><td>Architecture + AWS deploy</td><td>9</td><td>4</td><td>Capstone on AWS, IaC, SaaS, eval-gated</td></tr>
+        <tr><td>17 ◇</td><td>Multimodal (elective)</td><td>6</td><td>4</td><td>Diffusion notebook + T2I agent</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="notes">
+    <h3>Paid courses worth the money (ROI order, if reimbursed)</h3>
+    <ul>
+      <li><a href="https://maven.com/parlance-labs/evals" target="_blank">AI Evals for Engineers &amp; PMs</a> (Hamel Husain &amp; Shreya Shankar) — highest-signal paid course in the space (~$2k). Pairs with Weeks 7 &amp; 12.</li>
+      <li><a href="https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/" target="_blank">Ed Donner — AI Engineer Core Track</a> (~$15–20 on sale) — backbone for Weeks 2, 3, 6.</li>
+      <li><a href="https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/" target="_blank">AI Engineer Agentic Track</a> (~$15–20) — 8 projects across OpenAI SDK / CrewAI / LangGraph / AutoGen / MCP; drives Weeks 4–5.</li>
+      <li><a href="https://www.udemy.com/course/generative-and-agentic-ai-in-production/" target="_blank">AI Engineer Production Track</a> (~$15–20) — AWS Bedrock/SageMaker, Lambda, Terraform, CI/CD, serverless multi-agent; drives Week 16.</li>
+    </ul>
+    <p style="margin-top:8px;"><b>Buying tip:</b> all three Ed Donner courses are on Udemy — the Personal Plan unlocks everything and beats buying individually; otherwise wait for the recurring ~$10–20 sale and never pay sticker. Chip Huyen's <i>AI Engineering</i> (the book you have) is the Part II spine — no course replaces it.</p>
+
+    <h3 style="margin-top:22px;">Pitfalls specific to senior backend engineers (you)</h3>
+    <ul>
+      <li><b>You now own overlapping courses — don't binge them linearly.</b> Use the resource map: one primary per week, the rest as reference. Watching all six Ed Donner courses + ByteByteGo + Cohen end-to-end is hundreds of hours and mostly redundant.</li>
+      <li><b>Don't let Part II block shipping.</b> The capstone (W10) is the hireable artifact; Weeks 11–17 deepen you but a portfolio project beats half-read theory. Ship first.</li>
+      <li><b>Don't chase "the correct framework."</b> Week 5 is breadth on purpose — learn all four, commit to none.</li>
+      <li><b>Your backend rigor is a superpower past Week 4.</b> Most AI engineers can't reason about throughput, idempotency, retries, or transactional semantics — your capstone and Week 15 should be 10× more production-ready than the median learner's.</li>
+      <li><b>Don't fine-tune unless evals say to.</b> The #1 trap for technical learners.</li>
+      <li><b>Your moats are Weeks 2B, 8, and 15.</b> JVM-native AI + Temporal orchestration + inference optimization. Build the capstone on the JVM and write the blog posts — they're your differentiated interview assets.</li>
+    </ul>
+    <p class="sig">Roadmap v7 · progress tracker · 17-week + elective · Google Sans Flex · 1 Jun 2026 · sources: Huyen, AI Engineering (O'Reilly) · Ed Donner full 6-course series · ByteByteGo cohort · Mike X Cohen · Java Brains (JVM-native)</p>
+  </div>
+
+</div>
+<script>
+(function(){
+  var KEY='ai-roadmap-progress-v1';
+  var state={};
+
+  async function load(){
+    try{ if(window.storage){ var r=await window.storage.get(KEY); if(r&&r.value) return JSON.parse(r.value); } }catch(e){}
+    try{ var v=localStorage.getItem(KEY); if(v) return JSON.parse(v); }catch(e){}
+    return {};
+  }
+  async function save(){
+    var s=JSON.stringify(state);
+    try{ if(window.storage){ await window.storage.set(KEY,s); return; } }catch(e){}
+    try{ localStorage.setItem(KEY,s); }catch(e){}
+  }
+
+  function leaves(){ return Array.prototype.slice.call(document.querySelectorAll('input[data-leaf]')); }
+
+  function build(){
+    var weeks=document.querySelectorAll('section.week');
+    Array.prototype.forEach.call(weeks,function(wk){
+      var wid=wk.id||('wk'+Math.random().toString(36).slice(2));
+      var rows=wk.querySelectorAll('tbody tr');
+      Array.prototype.forEach.call(rows,function(tr,ri){
+        // resources -> one checkbox per reference
+        var res=tr.querySelector('.res');
+        if(res){
+          var segs=res.innerHTML.split(/<br\s*\/?>/i).map(function(s){return s.trim();}).filter(Boolean);
+          res.innerHTML='';
+          segs.forEach(function(seg,si){
+            var lab=document.createElement('label'); lab.className='refchk';
+            var cb=document.createElement('input'); cb.type='checkbox'; cb.setAttribute('data-leaf',''); cb.dataset.id=wid+'-'+ri+'-r'+si;
+            var sp=document.createElement('span'); sp.innerHTML=seg;
+            lab.appendChild(cb); lab.appendChild(sp); res.appendChild(lab);
+          });
+        }
+        // hands-on -> one checkbox
+        var hands=tr.querySelector('.hands');
+        if(hands){
+          var inner=hands.innerHTML; hands.innerHTML='';
+          var lab2=document.createElement('label'); lab2.className='handschk';
+          var cb2=document.createElement('input'); cb2.type='checkbox'; cb2.setAttribute('data-leaf',''); cb2.dataset.id=wid+'-'+ri+'-h';
+          var sp2=document.createElement('span'); sp2.innerHTML=inner;
+          lab2.appendChild(cb2); lab2.appendChild(sp2); hands.appendChild(lab2);
+        }
+        // topic master in the day cell
+        var day=tr.querySelector('.day');
+        if(day && (res||hands)){
+          var tc=document.createElement('label'); tc.className='topicchk';
+          var cbm=document.createElement('input'); cbm.type='checkbox'; cbm.setAttribute('data-master',''); cbm.dataset.row=wid+'-'+ri;
+          var spm=document.createElement('span'); spm.textContent='topic';
+          tc.appendChild(cbm); tc.appendChild(spm); day.appendChild(tc);
+        }
+      });
+      // week progress bar
+      var wh=wk.querySelector('.whead');
+      if(wh){ var wp=document.createElement('div'); wp.className='wprog'; wp.dataset.week=wid; wp.innerHTML='<div class="bar"><i></i></div><span class="pct">0%</span>'; wh.appendChild(wp); }
+    });
+  }
+
+  function rowLeaves(rowKey){ return leaves().filter(function(cb){ return cb.dataset.id.indexOf(rowKey+'-')===0; }); }
+
+  function partOf(wk){
+    var bars=document.querySelectorAll('.partbar');
+    if(bars.length<2) return 1;
+    return (bars[1].compareDocumentPosition(wk)&Node.DOCUMENT_POSITION_FOLLOWING)?2:1;
+  }
+
+  function recompute(){
+    var all=leaves(), total=all.length, done=0;
+    var perWeek={}, perPart={1:{d:0,t:0},2:{d:0,t:0}};
+    var weekPart={};
+    Array.prototype.forEach.call(document.querySelectorAll('section.week'),function(wk){ weekPart[wk.id]=partOf(wk); });
+    // tally by walking weeks
+    Array.prototype.forEach.call(document.querySelectorAll('section.week'),function(wk){
+      var wid=wk.id; var cbs=Array.prototype.slice.call(wk.querySelectorAll('input[data-leaf]'));
+      var d=0; cbs.forEach(function(c){ if(c.checked) d++; });
+      perWeek[wid]={d:d,t:cbs.length};
+      done+=d;
+      var p=weekPart[wid]||1; perPart[p].d+=d; perPart[p].t+=cbs.length;
+      var bar=wk.querySelector('.wprog'); if(bar){ var pct=cbs.length?Math.round(d/cbs.length*100):0; bar.querySelector('i').style.width=pct+'%'; bar.querySelector('.pct').textContent=d+'/'+cbs.length+' · '+pct+'%'; }
+    });
+    var opct=total?Math.round(done/total*100):0;
+    var ring=document.getElementById('ring'); if(ring){ ring.style.setProperty('--p',opct); document.getElementById('ringpct').textContent=opct+'%'; }
+    var sub=document.getElementById('dashsub'); if(sub) sub.textContent=done+' of '+total+' items complete';
+    var tb=document.querySelector('#topbar>i'); if(tb) tb.style.width=opct+'%';
+    function pp(o){ return o.t?Math.round(o.d/o.t*100):0; }
+    var p1=document.getElementById('p1stat'); if(p1) p1.textContent='Part I — '+perPart[1].d+'/'+perPart[1].t+' ('+pp(perPart[1])+'%)';
+    var p2=document.getElementById('p2stat'); if(p2) p2.textContent='Part II — '+perPart[2].d+'/'+perPart[2].t+' ('+pp(perPart[2])+'%)';
+    var bars=document.querySelectorAll('.partbar');
+    if(bars.length>=2){
+      setPsub(bars[0],pp(perPart[1])); setPsub(bars[1],pp(perPart[2]));
+    }
+    // masters + done styling
+    Array.prototype.forEach.call(document.querySelectorAll('input[data-master]'),function(m){
+      var rl=rowLeaves(m.dataset.row); var dn=rl.filter(function(c){return c.checked;}).length;
+      m.checked = rl.length>0 && dn===rl.length;
+      m.indeterminate = dn>0 && dn<rl.length;
+    });
+    all.forEach(function(c){ var lab=c.closest('.refchk,.handschk'); if(lab) lab.classList.toggle('done',c.checked); });
+  }
+  function setPsub(bar,pct){ var s=bar.querySelector('.psub'); if(!s){ s=document.createElement('span'); s.className='psub'; bar.appendChild(s); } s.textContent=pct+'% done'; }
+
+  function restore(){ leaves().forEach(function(cb){ cb.checked=!!state[cb.dataset.id]; }); }
+
+  document.addEventListener('change',function(e){
+    var t=e.target;
+    if(t.matches('input[data-leaf]')){
+      if(t.checked) state[t.dataset.id]=1; else delete state[t.dataset.id];
+      save(); recompute();
+    } else if(t.matches('input[data-master]')){
+      var rl=rowLeaves(t.dataset.row);
+      rl.forEach(function(c){ c.checked=t.checked; if(t.checked) state[c.dataset.id]=1; else delete state[c.dataset.id]; });
+      save(); recompute();
+    }
+  });
+
+  function wireToolbar(){
+    var ex=document.getElementById('btnexport'); if(ex) ex.onclick=function(){
+      var blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});
+      var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='ai-roadmap-progress.json'; a.click(); URL.revokeObjectURL(a.href);
+    };
+    var imp=document.getElementById('btnimport'); var f=document.getElementById('fileimport');
+    if(imp&&f){ imp.onclick=function(){ f.click(); }; f.onchange=function(){ var file=f.files[0]; if(!file) return; var rd=new FileReader(); rd.onload=function(){ try{ state=JSON.parse(rd.result)||{}; restore(); save(); recompute(); }catch(err){ alert('Could not read that file.'); } }; rd.readAsText(file); }; }
+    var rs=document.getElementById('btnreset'); if(rs) rs.onclick=function(){ if(confirm('Reset all progress?')){ state={}; restore(); save(); recompute(); } };
+  }
+
+  async function init(){ build(); state=await load(); restore(); wireToolbar(); recompute(); }
+  if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded',init);
+})();
+</script>
+</body>
+</html>
