@@ -1,13 +1,13 @@
 {
   "meta": {
-    "duration": "17 wk + elective",
+    "duration": "17 weeks",
     "pace": "~10–12 hrs / wk",
     "ratio": "70% build / 30% read",
     "prereq_gap": "Python (Week 0)"
   },
   "kicker": "Senior JVM Engineer → AI Engineer",
   "titleHtml": "AI Engineer<br><em>Roadmap</em>",
-  "lede": "Seventeen weeks + an optional elective, build-first. <b>Part I</b> (W0–10) takes you from Python to a deployed capstone — including a <b>JVM-native track (W2B)</b> so you can ship AI in your own Quarkus/Kotlin stack. <b>Part II</b> (W11–17) is post-capstone depth. Every day has a focus, linked resources, a time estimate, and a hands-on task. Integrates everything you own: <b>Ed Donner's full 6-course series</b>, <b>Chip Huyen's</b> <i>AI Engineering</i>, your <b>ByteByteGo</b> cohort, <b>Mike X Cohen's</b> deep-mechanisms course, and <b>Java Brains — From Java to AI</b> — mapped per week in the resource panel below.",
+  "lede": "Seventeen weeks, build-first. <b>Part I</b> takes you from Python to a deployed, <b>JVM-native capstone</b>; <b>Part II</b> adds post-capstone depth. Every day: a focus, linked resources, and a hands-on task.",
   "courses": [
     {
       "name": "Ed Donner — AI Engineer Core Track",
@@ -33,13 +33,13 @@
   "keyTopics": [
     {
       "label": "Claude Code & agentic coding",
-      "star": true,
-      "raw": "Claude Code & agentic coding ★"
+      "star": false,
+      "raw": "Claude Code & agentic coding"
     },
     {
       "label": "JVM-native AI",
-      "star": true,
-      "raw": "JVM-native AI ★"
+      "star": false,
+      "raw": "JVM-native AI"
     },
     {
       "label": "LLM APIs & tool use",
@@ -68,13 +68,13 @@
     },
     {
       "label": "Temporal orchestration",
-      "star": true,
-      "raw": "Temporal orchestration ★"
+      "star": false,
+      "raw": "Temporal orchestration"
     },
     {
       "label": "Inference optimization",
-      "star": true,
-      "raw": "Inference optimization ★"
+      "star": false,
+      "raw": "Inference optimization"
     },
     {
       "label": "FM internals & reasoning",
@@ -89,10 +89,9 @@
     {
       "label": "Multimodal",
       "star": false,
-      "raw": "Multimodal ◇"
+      "raw": "Multimodal"
     }
   ],
-  "moat": "<strong>Distributed systems applied to LLMs — in your own stack.</strong> Three pillars no bootcamp grad has: <b>W2B</b> (shipping AI natively in Quarkus/Kotlin via LangChain4j), <b>W8</b> (agents as durable, throttled Temporal workflows at 500K+ scale), and <b>W15</b> (inference optimization — batching, KV cache, throughput). Agents are workflows, serving is a throughput problem, and you already build production JVM systems.",
   "resourceMap": [
     {
       "name": "Ed Donner — AI Coder",
@@ -139,13 +138,13 @@
       "name": "Mike X Cohen — Deep LLM Mechanisms",
       "url": "https://www.udemy.com/course/dullms_x/",
       "bestFor": "Transformer math, PyTorch-from-scratch, interpretability",
-      "drives": "W11 + deep-dive elective"
+      "drives": "W11 + deep-dive"
     },
     {
       "name": "Ed Donner — AI Builder",
       "url": "https://www.udemy.com/course/ai-builder-with-n8n-create-agents-voice-agents/",
       "bestFor": "n8n + voice agents · business/commercial mindset",
-      "drives": "Electives"
+      "drives": "Optional"
     }
   ],
   "howToStudy": {
@@ -286,12 +285,12 @@
         },
         {
           "id": "w1",
-          "tag": "WEEK 01 ★",
+          "tag": "WEEK 01",
           "title": "Claude Code & Agentic Coding",
           "hours": "~11 hrs",
           "goal": "<b>Goal — front-loaded on purpose.</b> You already use Claude Code daily; this week turns it into an autonomous coding system you drive efficiently, then pushes into multi-agent coding. Spine: <a href=\"https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer/\" target=\"_blank\">Ed Donner — AI Coder</a>. You'll use these skills to build every later project, so the payoff compounds.",
           "variant": "claude",
-          "star": true,
+          "star": false,
           "days": [
             {
               "n": "1",
@@ -503,12 +502,12 @@
         },
         {
           "id": "w2b",
-          "tag": "WEEK 02B ★",
+          "tag": "WEEK 02B",
           "title": "JVM-Native AI — Spring AI & LangChain4j",
           "hours": "~10 hrs",
           "goal": "<b>Goal — your unfair advantage.</b> Re-implement what you just learned in Python (LLM APIs, tool use, structured output) in your <i>real</i> stack — LangChain4j / Spring AI on Quarkus — so you can ship AI into Billpay without leaving the JVM. Almost no AI-engineering learner can do this; you already own the stack. On-ramp: <a href=\"https://javabrains.io/courses/from-java-to-ai\" target=\"_blank\">Java Brains — From Java to AI</a> (skim if any concept feels shaky).",
-          "variant": "moat",
-          "star": true,
+          "variant": "default",
+          "star": false,
           "days": [
             {
               "n": "1",
@@ -1066,12 +1065,12 @@
         },
         {
           "id": "w8",
-          "tag": "WEEK 08 ★",
+          "tag": "WEEK 08",
           "title": "Temporal + LLM Orchestration",
           "hours": "~11 hrs",
           "goal": "<b>Goal — YOUR DIFFERENTIATOR.</b> No course teaches this. Run agents as durable, throttled, observable Temporal workflows at 500K+ scale. This is why you're hireable; the capstone is built on it.",
-          "variant": "moat",
-          "star": true,
+          "variant": "default",
+          "star": false,
           "days": [
             {
               "n": "1",
@@ -1216,7 +1215,7 @@
             {
               "kind": "pick",
               "heading": "The build — recommended pick (strongest for your portfolio)",
-              "body": "An agent that diagnoses a <b>stuck Temporal workflow</b> given a workflow ID, then proposes (and optionally executes, behind a human-approval signal) a mitigation. It sits exactly at the intersection of your moat and AI engineering.",
+              "body": "An agent that diagnoses a <b>stuck Temporal workflow</b> given a workflow ID, then proposes (and optionally executes, behind a human-approval signal) a mitigation. It sits exactly at the intersection of your strengths and AI engineering.",
               "bullets": [
                 "<b>Input:</b> a workflow ID (or an alert webhook).",
                 "<b>Tools / MCP servers:</b> query Temporal API (history, pending activities, stuck task queues); read Oracle business state via your Week-5 read-only MCP server; RAG over runbooks + Temporal docs (Week 3); a metrics tool (shard latency, sync-match rate).",
@@ -1692,12 +1691,12 @@
         },
         {
           "id": "w15",
-          "tag": "WEEK 15 ★",
+          "tag": "WEEK 15",
           "title": "Inference Optimization",
           "hours": "~11 hrs",
-          "goal": "<b>Goal — YOUR SECOND MOAT.</b> Distributed-systems thinking applied to LLM serving: throughput, batching, caching, latency-vs-cost. This is the strongest moat-adjacent material in the plan — most AI engineers can't reason about it; you do this for a living. <span class=\"mono\" style=\"color:var(--amber-soft)\">Huyen Ch 9.</span>",
-          "variant": "moat",
-          "star": true,
+          "goal": "<b>Goal — YOUR SECOND EDGE.</b> Distributed-systems thinking applied to LLM serving: throughput, batching, caching, latency-vs-cost. This is the strongest specialised material in the plan — most AI engineers can't reason about it; you do this for a living. <span class=\"mono\" style=\"color:var(--amber-soft)\">Huyen Ch 9.</span>",
+          "variant": "default",
+          "star": false,
           "days": [
             {
               "n": "1",
@@ -1919,11 +1918,11 @@
         },
         {
           "id": "w17",
-          "tag": "WEEK 17 ◇ ELECTIVE",
+          "tag": "WEEK 17",
           "title": "Multimodal & Generative Media",
           "hours": "~10 hrs",
           "goal": "<b>Optional — breadth, and personally relevant.</b> The least central to a backend-agentic path, but it's an entire domain (and ties to your photography). Spine: <a href=\"https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/\" target=\"_blank\">ByteByteGo P5</a>. Skip without guilt if you're optimizing purely for agentic-backend roles.",
-          "variant": "elective",
+          "variant": "default",
           "star": false,
           "days": [
             {
@@ -2015,11 +2014,6 @@
       ]
     }
   ],
-  "electives": [
-    "<b><a href=\"https://javabrains.io/courses/from-java-to-ai\" target=\"_blank\">Java Brains — From Java to AI</a></b>: a short, code-free LLM primer for Java devs. Below your level conceptually, but a fast, friendly on-ramp and a clean reference for the JVM-integration framing in Week 2B. Skim at 1.5–2×.",
-    "<b><a href=\"https://www.udemy.com/course/executive-briefing-generative-ai-and-large-language-models-llm/\" target=\"_blank\">Ed Donner — AI Leader</a></b>: not a coding course — a business/strategy briefing. A genuine force-multiplier in interviews and design reviews; demonstrating commercial judgment separates senior AI engineers from implementers.",
-    "<b><a href=\"https://www.udemy.com/course/dullms_x/\" target=\"_blank\">Mike X Cohen — Deep Understanding of LLM Mechanisms</a></b> (+ <a href=\"https://github.com/mikexcohen/LLM_course\" target=\"_blank\">code</a>): 90+ hrs of transformer math, PyTorch-from-scratch, and mechanistic interpretability. The deepest theory path here — sample it (Week 11) rather than completing it end-to-end unless you want research-grade depth."
-  ],
   "timeSummary": [
     {
       "wk": "0",
@@ -2030,12 +2024,12 @@
       "star": false
     },
     {
-      "wk": "1 ★",
+      "wk": "1",
       "topic": "<b>Claude Code &amp; agentic coding</b>",
       "build": 7,
       "read": 4,
       "deliverable": "CLAUDE.md + hooks + autonomous Jira→PR",
-      "star": true
+      "star": false
     },
     {
       "wk": "2",
@@ -2046,12 +2040,12 @@
       "star": false
     },
     {
-      "wk": "2B ★",
+      "wk": "2B",
       "topic": "<b>JVM-native AI (Spring AI/LangChain4j)</b>",
       "build": 7,
       "read": 3,
       "deliverable": "Quarkus/Kotlin LLM service",
-      "star": true
+      "star": false
     },
     {
       "wk": "3",
@@ -2094,12 +2088,12 @@
       "star": false
     },
     {
-      "wk": "8 ★",
-      "topic": "<b>Temporal + LLM (moat)</b>",
+      "wk": "8",
+      "topic": "<b>Temporal + LLM</b>",
       "build": 8,
       "read": 3,
       "deliverable": "Durable agent + throttled fan-out",
-      "star": true
+      "star": false
     },
     {
       "wk": "9–10",
@@ -2142,12 +2136,12 @@
       "star": false
     },
     {
-      "wk": "15 ★",
-      "topic": "<b>Inference optimization (moat)</b>",
+      "wk": "15",
+      "topic": "<b>Inference optimization</b>",
       "build": 8,
       "read": 3,
       "deliverable": "Load-test + batching + scale doc",
-      "star": true
+      "star": false
     },
     {
       "wk": "16",
@@ -2158,8 +2152,8 @@
       "star": false
     },
     {
-      "wk": "17 ◇",
-      "topic": "Multimodal (elective)",
+      "wk": "17",
+      "topic": "Multimodal",
       "build": 6,
       "read": 4,
       "deliverable": "Diffusion notebook + T2I agent",
@@ -2180,8 +2174,8 @@
       "<b>Don't chase \"the correct framework.\"</b> Week 5 is breadth on purpose — learn all four, commit to none.",
       "<b>Your backend rigor is a superpower past Week 4.</b> Most AI engineers can't reason about throughput, idempotency, retries, or transactional semantics — your capstone and Week 15 should be 10× more production-ready than the median learner's.",
       "<b>Don't fine-tune unless evals say to.</b> The #1 trap for technical learners.",
-      "<b>Your moats are Weeks 2B, 8, and 15.</b> JVM-native AI + Temporal orchestration + inference optimization. Build the capstone on the JVM and write the blog posts — they're your differentiated interview assets."
+      "<b>Your edges are Weeks 2B, 8, and 15.</b> JVM-native AI + Temporal orchestration + inference optimization. Build the capstone on the JVM and write the blog posts — they're your differentiated interview assets."
     ],
-    "sig": "Roadmap v7 · progress tracker · 17-week + elective · Google Sans Flex · 1 Jun 2026 · sources: Huyen, AI Engineering (O'Reilly) · Ed Donner full 6-course series · ByteByteGo cohort · Mike X Cohen · Java Brains (JVM-native)"
+    "sig": "Roadmap v7 · progress tracker · 17-week · Google Sans Flex · 1 Jun 2026 · sources: Huyen, AI Engineering (O'Reilly) · Ed Donner full 6-course series · ByteByteGo cohort · Mike X Cohen · Java Brains (JVM-native)"
   }
 }

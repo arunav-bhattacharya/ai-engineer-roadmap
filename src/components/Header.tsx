@@ -18,7 +18,6 @@ export function Header({ roadmap, aside }: Props) {
   return (
     <header className="hero">
       <div className="hero-main">
-        <p className="kicker">{roadmap.kicker}</p>
         <h1 dangerouslySetInnerHTML={{ __html: roadmap.titleHtml }} />
         <p className="lede" dangerouslySetInnerHTML={{ __html: roadmap.lede }} />
         <div className="herostats">

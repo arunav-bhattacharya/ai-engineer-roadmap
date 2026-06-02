@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import type { Roadmap } from '../types/roadmap';
-import { ElectivesList } from './ElectivesList';
 import { Notes } from './Notes';
 import { ResourceMap } from './ResourceMap';
 import { TimeSummaryTable } from './TimeSummaryTable';
@@ -17,15 +16,14 @@ export function Appendix({ roadmap }: { roadmap: Roadmap }) {
         aria-expanded={open}
       >
         <span className="chevron" aria-hidden="true" />
-        <span className="appendix-kicker mono">Appendix · reference</span>
+        <span className="sec-title">Appendix · reference</span>
         <span className="appendix-hint">
-          {open ? 'Hide' : 'Resource map · electives · time budget · buying notes'}
+          {open ? 'Hide' : 'Resource map · time budget · buying notes'}
         </span>
       </button>
 
       <div className="appendix-body" hidden={!open}>
         <ResourceMap rows={roadmap.resourceMap} />
-        <ElectivesList items={roadmap.electives} />
         <div className="block">
           <h3>Time allocation summary</h3>
           <TimeSummaryTable rows={roadmap.timeSummary} />

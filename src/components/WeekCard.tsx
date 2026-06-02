@@ -1,5 +1,6 @@
 import { useProgress } from '../lib/ProgressContext';
 import { useCollapse } from '../lib/CollapseContext';
+import { weekColor } from '../lib/colors';
 import { leavesForWeek } from '../lib/ids';
 import type { Week } from '../types/roadmap';
 import { CapstoneSpec } from './CapstoneSpec';
@@ -11,9 +12,7 @@ interface Props {
 
 const variantClass = {
   default: '',
-  moat: ' moatwk',
   claude: ' claudewk',
-  elective: ' electivewk',
 } as const;
 
 export function WeekCard({ week }: Props) {
@@ -27,7 +26,11 @@ export function WeekCard({ week }: Props) {
   const bodyId = `weekbody-${week.id}`;
 
   return (
-    <section className={`week${variantClass[week.variant]}${collapsed ? ' collapsed' : ''}`} id={week.id}>
+    <section
+      className={`week${variantClass[week.variant]}${collapsed ? ' collapsed' : ''}`}
+      id={week.id}
+      style={{ '--wk-accent': weekColor(week.id) } as React.CSSProperties}
+    >
       <button
         type="button"
         className="whead"
