@@ -1629,7 +1629,7 @@ code {
   display: grid;
   grid-template-columns: 1fr 52px 1fr;
   align-items: center;
-  margin: 10px 0;
+  margin: 6px 0;
 }
 .rmap-dot {
   grid-column: 2;
@@ -1652,23 +1652,23 @@ code {
   justify-self: end;
   position: relative;
   width: 100%;
-  max-width: 440px;
+  max-width: 340px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 5px;
   text-align: left;
   font: inherit;
   color: var(--ink);
   cursor: pointer;
   background: linear-gradient(
     158deg,
-    color-mix(in srgb, var(--wk-color) 8%, var(--panel)),
-    var(--panel)
+    color-mix(in srgb, var(--wk-color) 32%, var(--panel)),
+    color-mix(in srgb, var(--wk-color) 15%, var(--panel))
   );
-  border: 1px solid color-mix(in srgb, var(--wk-color) 30%, var(--line));
+  border: 1px solid color-mix(in srgb, var(--wk-color) 42%, var(--line));
   border-left: 4px solid var(--wk-color);
-  border-radius: 12px;
-  padding: 13px 16px;
+  border-radius: 11px;
+  padding: 9px 13px;
   transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
 }
 .side-right .rmap-node {
@@ -1726,25 +1726,10 @@ code {
 .rmap-title {
   font-family: var(--font-display);
   font-weight: 640;
-  font-size: 15.5px;
+  font-size: 13.5px;
   letter-spacing: -0.02em;
-  line-height: 1.22;
+  line-height: 1.2;
   color: var(--ink);
-}
-.rmap-focus {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-}
-.rmap-chip {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--ink-dim);
-  background: color-mix(in srgb, var(--wk-color) 9%, var(--panel-2));
-  border: 1px solid color-mix(in srgb, var(--wk-color) 18%, var(--line));
-  border-radius: 6px;
-  padding: 3px 7px;
-  line-height: 1.25;
 }
 .rmap-prog {
   display: flex;
