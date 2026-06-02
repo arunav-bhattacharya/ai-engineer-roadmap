@@ -60,7 +60,6 @@ function RoadmapNode({
 }) {
   const done = pctVal === 100;
   const tagBase = week.tag.replace(/\s*[★◇].*$/, '').trim();
-  const focuses = week.days.map((d) => d.focusTitle).filter(Boolean);
   const cls = ['rmap-week', `side-${side}`, done ? 'is-done' : '', pctVal === 0 ? 'is-empty' : '']
     .filter(Boolean)
     .join(' ');
@@ -80,16 +79,6 @@ function RoadmapNode({
         </span>
 
         <span className="rmap-title">{week.title}</span>
-
-        {focuses.length > 0 ? (
-          <span className="rmap-focus">
-            {focuses.map((f, i) => (
-              <span className="rmap-chip" key={i}>
-                {f}
-              </span>
-            ))}
-          </span>
-        ) : null}
 
         <span className="rmap-prog">
           <span className="rmap-prog-bar">
