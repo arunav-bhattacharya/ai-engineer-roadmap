@@ -1,5 +1,5 @@
 export type ChipClass = 'read' | 'course' | 'vid' | 'tool' | 'book' | 'cohort';
-export type WeekVariant = 'default' | 'claude' | 'moat' | 'elective';
+export type WeekVariant = 'default' | 'claude';
 
 export interface Resource {
   typeClass: ChipClass;
@@ -99,12 +99,10 @@ export interface Roadmap {
   lede: string;
   courses: Course[];
   keyTopics: KeyTopic[];
-  moat: string;
   resourceMap: ResourceMapRow[];
   howToStudy: HowToStudy;
   setup: SetupBlock;
   parts: Part[];
-  electives: string[];
   timeSummary: TimeSummaryRow[];
   notes: Notes;
 }

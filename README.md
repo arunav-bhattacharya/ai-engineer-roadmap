@@ -24,8 +24,8 @@ npm run dev         # http://localhost:5173
 - **Content source**: `scripts/source.html` (the single-file tracker). The parser in `scripts/parse-html.mjs` turns it into `src/data/roadmap.json` — the runtime never touches the HTML.
 - **Persistence**: each resource link and each hands-on task is a checkbox leaf with a deterministic ID (`${weekId}-${dayIdx}-r${resIdx}` or `…-h`). All state lives in `localStorage['ai-roadmap-progress-v1']`.
 - **Backwards compat**: the leaf-ID scheme matches the original single-file tracker's, so an `ai-roadmap-progress.json` exported from the old tracker imports cleanly here.
-- **Pages**: Overview · Part I · Part II · JVM Track (W2B focus) · Electives (W17 + paid courses + pitfalls). Routes use HashRouter (`#/part-1`) so GH Pages serves them without a 404 fallback.
-- **Theme**: light / dark toggle in the toolbar. Defaults to your OS preference on first visit; choice persists in `localStorage['ai-roadmap-theme']`. An inline boot script in `index.html` paints the theme before React mounts to avoid FOUC.
+- **Pages**: Overview (hero + visual roadmap + appendix) · Part I · Part II. Routes use HashRouter (`#/part-1`) so GH Pages serves them without a 404 fallback.
+- **Theme**: light / dark toggle in the top bar. Defaults to your OS preference on first visit; choice persists in `localStorage['ai-roadmap-theme']`. An inline boot script in `index.html` paints the theme before React mounts to avoid FOUC.
 
 ## Deploy to GitHub Pages
 

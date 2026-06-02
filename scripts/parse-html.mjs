@@ -53,9 +53,6 @@ $('.keytopics .chip').each((_, c) => {
   });
 });
 
-// ---------- moat callout ----------
-const moat = innerHtml($('.moat p').first());
-
 // ---------- resource map ----------
 const resourceMap = [];
 $('#resources .gtable table tbody tr').each((_, tr) => {
@@ -170,15 +167,8 @@ function parsePhaseRow(tr) {
 }
 
 function variantOf($week) {
-  if ($week.hasClass('moatwk')) return 'moat';
   if ($week.hasClass('claudewk')) return 'claude';
-  if (($week.attr('style') ?? '').includes('dashed')) return 'elective';
   return 'default';
-}
-
-function detectStar($week) {
-  const tag = text($week.find('.wtag').first());
-  return tag.includes('★');
 }
 
 function parseSpecs($week) {
@@ -232,12 +222,14 @@ function partOfWeek(weekEl) {
 $('section.week').each((_, week) => {
   const $week = $(week);
   const id = $week.attr('id') ?? '';
-  const tag = text($week.find('.wtag').first());
+  const tag = text($week.find('.wtag').first())
+    .replace(/\s*★\s*$/u, '')
+    .trim();
   const title = text($week.find('.wtitle').first());
   const hours = text($week.find('.whrs').first());
   const goal = innerHtml($week.find('.wgoal').first());
   const variant = variantOf($week);
-  const star = detectStar($week);
+  const star = false;
 
   const isCapstone = id === 'w9';
   const rows = $week.find('tbody tr').toArray();
@@ -269,15 +261,9 @@ $('section.week').each((_, week) => {
   parts[partOfWeek(week)].weeks.push(weekObj);
 });
 
-// ---------- electives block ----------
-const electives = [];
-$('#electives ul').first().children('li').each((_, li) => {
-  electives.push(innerHtml(li));
-});
-
 // ---------- time allocation summary ----------
 const timeSummary = [];
-// The time table is the .block right after #electives, identified by its first <th> being "Wk".
+// The time table is the .block identified by its first <th> being "Wk".
 $('.block').each((_, blk) => {
   const $blk = $(blk);
   if (text($blk.find('h3').first()) === 'Time allocation summary') {
@@ -327,12 +313,10 @@ const roadmap = {
   lede,
   courses,
   keyTopics,
-  moat,
   resourceMap,
   howToStudy,
   setup,
   parts,
-  electives,
   timeSummary,
   notes: { paidCourses, buyingTip, pitfalls, sig },
 };
@@ -358,6 +342,5 @@ console.log(`  Total leaves (resources + hands): ${leafCount}`);
 console.log(`  Key topics: ${keyTopics.length}`);
 console.log(`  Courses: ${courses.length}`);
 console.log(`  Resource map rows: ${resourceMap.length}`);
-console.log(`  Electives: ${electives.length}`);
 console.log(`  Time summary rows: ${timeSummary.length}`);
 console.log(`  Wrote ${outPath}`);

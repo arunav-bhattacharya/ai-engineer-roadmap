@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { weekColor } from '../lib/colors';
 import { useProgress } from '../lib/ProgressContext';
 import { useCollapse } from '../lib/CollapseContext';
 import { leavesForWeek } from '../lib/ids';
@@ -7,13 +8,6 @@ import type { Week } from '../types/roadmap';
 interface Props {
   weeks: Week[];
 }
-
-const dotClass = {
-  default: 'dot-default',
-  moat: 'dot-moat',
-  claude: 'dot-claude',
-  elective: 'dot-elective',
-} as const;
 
 export function WeekSidebar({ weeks }: Props) {
   const { pct } = useProgress();
@@ -64,7 +58,11 @@ export function WeekSidebar({ weeks }: Props) {
                   onClick={onJump(w.id)}
                   className={active === w.id ? 'active' : ''}
                 >
-                  <span className={`wk-dot ${dotClass[w.variant]}`} aria-hidden="true" />
+                  <span
+                    className="wk-dot"
+                    style={{ background: weekColor(w.id) }}
+                    aria-hidden="true"
+                  />
                   <span className="wk-label">
                     <span className="wk-tag">{w.tag}</span>
                     <span className="wk-title">{w.title}</span>
