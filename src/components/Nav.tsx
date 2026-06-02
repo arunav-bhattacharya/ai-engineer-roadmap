@@ -4,7 +4,6 @@ const links = [
   { to: '/', label: 'Overview', end: true },
   { to: '/part-1', label: 'Part I' },
   { to: '/part-2', label: 'Part II' },
-  { to: '/electives', label: 'Electives' },
 ];
 
 export function Nav() {

@@ -1,6 +1,7 @@
 import roadmap from '../data/roadmap.json';
 import { Collapsible } from '../components/Collapsible';
 import { CourseBand } from '../components/CourseBand';
+import { ElectivesList } from '../components/ElectivesList';
 import { Header } from '../components/Header';
 import { HowToStudy } from '../components/HowToStudy';
 import { KeyTopics } from '../components/KeyTopics';
@@ -26,6 +27,8 @@ export function Overview() {
       </div>
 
       <ResourceMap rows={r.resourceMap} />
+
+      <ElectivesList items={r.electives} />
 
       <Collapsible title="Time allocation summary" defaultOpen>
         <TimeSummaryTable rows={r.timeSummary} />

@@ -5,7 +5,6 @@ import { TopBar } from './components/TopBar';
 import { CollapseProvider } from './lib/CollapseContext';
 import { ProgressProvider } from './lib/ProgressContext';
 import { ThemeProvider } from './lib/ThemeContext';
-import { Electives } from './pages/Electives';
 import { Overview } from './pages/Overview';
 import { PartI } from './pages/PartI';
 import { PartII } from './pages/PartII';
@@ -26,7 +25,6 @@ export default function App() {
                 <Route path="/" element={<Overview />} />
                 <Route path="/part-1" element={<PartI />} />
                 <Route path="/part-2" element={<PartII />} />
-                <Route path="/electives" element={<Electives />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </div>
