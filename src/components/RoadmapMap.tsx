@@ -1,17 +1,13 @@
 import { useNavigate } from 'react-router-dom';
-import { weekColor } from '../lib/colors';
-import { useProgress } from '../lib/ProgressContext';
 import { TOPIC_GROUPS } from '../lib/topics';
+import { useProgress } from '../lib/ProgressContext';
 import { leavesForWeek } from '../lib/ids';
 import type { Roadmap, Week } from '../types/roadmap';
 
 export function RoadmapMap({ roadmap }: { roadmap: Roadmap }) {
   const navigate = useNavigate();
   const { pct } = useProgress();
-  const weekById = new Map<string, Week>(
-    roadmap.parts.flatMap((p) => p.weeks).map((w) => [w.id, w]),
-  );
-  let gi = 0; // running week index → alternating side
+  const weekById = new Map<string, Week>(roadmap.weeks.map((w) => [w.id, w]));
 
   return (
     <section className="rmap" aria-label="Visual roadmap">
@@ -24,27 +20,26 @@ export function RoadmapMap({ roadmap }: { roadmap: Roadmap }) {
           const weeks = tg.weekIds
             .map((id) => weekById.get(id))
             .filter((w): w is Week => Boolean(w));
+          // Whole topic stays on one side; alternate sides by topic index.
+          const side: 'left' | 'right' = ti % 2 === 0 ? 'left' : 'right';
           const kicker = `TOPIC ${String(ti + 1).padStart(2, '0')}`;
           return (
-            <div className="rmap-part" key={tg.id}>
+            <div className="rmap-part" key={tg.id} style={{ '--wk-color': tg.color } as React.CSSProperties}>
               <div className="rmap-partbadge">
                 <span className="rmap-partpn mono">{kicker}</span>
                 <span className="rmap-parttitle">{tg.label}</span>
                 <span className="rmap-partsub mono">{tg.sub}</span>
               </div>
-              {weeks.map((week) => {
-                const side = gi++ % 2 === 0 ? 'left' : 'right';
-                return (
-                  <RoadmapNode
-                    key={week.id}
-                    week={week}
-                    side={side}
-                    color={weekColor(week.id)}
-                    pctVal={pct(leavesForWeek(week)).pct}
-                    onClick={() => navigate('/study-plan', { state: { jump: week.id } })}
-                  />
-                );
-              })}
+              {weeks.map((week) => (
+                <RoadmapNode
+                  key={week.id}
+                  week={week}
+                  side={side}
+                  color={tg.color}
+                  pctVal={pct(leavesForWeek(week)).pct}
+                  onClick={() => navigate('/study-plan', { state: { jump: week.id } })}
+                />
+              ))}
             </div>
           );
         })}

@@ -1,16 +1,15 @@
 /**
- * Topic groupings for the Overview roadmap.
- *
- * These collapse the underlying Part I / Part II split into thematic groups that
- * span weeks — e.g. LLM Fundamentals covers W2 (intro), W2B (JVM applied), and
- * W11 (theory deep-dive). The data model in roadmap.json keeps the parts
- * structure (used by Study Plan sidebar + OverallProgress); this file is the
- * single source of truth for how the Overview presents the journey.
+ * Topic groupings — the single source of truth for how weeks are organised on
+ * both the Overview roadmap and the Study Plan. Each topic carries:
+ *   - the weeks (by new sequential ID) it covers
+ *   - a base colour that all weeks inside the topic share (with subtle per-week
+ *     lightness variation handled at the consumer level if needed)
  */
 export interface TopicGroup {
   id: string;
   label: string;
   sub: string;
+  color: string;
   weekIds: string[];
 }
 
@@ -19,54 +18,74 @@ export const TOPIC_GROUPS: TopicGroup[] = [
     id: 'foundations',
     label: 'Foundations',
     sub: 'Python · agentic coding tooling',
+    color: '#e0913a', // amber
     weekIds: ['w0', 'w1'],
   },
   {
     id: 'llm-fundamentals',
     label: 'LLM Fundamentals',
     sub: 'How LLMs work · JVM-native applied · theory deep-dive',
-    weekIds: ['w2', 'w2b', 'w11'],
+    color: '#4f9dd6', // blue
+    weekIds: ['w2', 'w3', 'w4'],
   },
   {
     id: 'retrieval-rag',
     label: 'Retrieval & RAG',
     sub: 'From scratch · vector DBs · advanced retrieval and memory',
-    weekIds: ['w3', 'w13'],
+    color: '#56ab6c', // green
+    weekIds: ['w5', 'w6'],
   },
   {
     id: 'agents-orchestration',
     label: 'Agents & Orchestration',
     sub: 'ReAct · multi-framework · MCP · durable workflows',
-    weekIds: ['w4', 'w5', 'w8'],
+    color: '#9b7fe0', // violet
+    weekIds: ['w7', 'w8', 'w9'],
   },
   {
     id: 'fine-tuning',
     label: 'Fine-Tuning & Data',
     sub: 'LoRA · dataset engineering · memory math',
-    weekIds: ['w6', 'w14'],
+    color: '#3bb6a6', // teal
+    weekIds: ['w10', 'w11'],
   },
   {
     id: 'evals-mlops',
     label: 'Evals, Observability & MLOps',
     sub: 'Eval suites · MLflow / Langfuse · judges, Elo, CI gates',
-    weekIds: ['w7', 'w7b', 'w12'],
+    color: '#e07a9b', // rose
+    weekIds: ['w12', 'w13', 'w14'],
   },
   {
     id: 'capstone',
     label: 'Capstone',
     sub: 'Ship one real, end-to-end agentic system',
-    weekIds: ['w9'],
+    color: '#d9794a', // orange (milestone)
+    weekIds: ['w15'],
   },
   {
     id: 'production',
     label: 'System Design & Production at Scale',
     sub: 'AI system design · inference economics · AWS deploy',
-    weekIds: ['w12b', 'w15', 'w16'],
+    color: '#5b8def', // indigo
+    weekIds: ['w16', 'w17', 'w18'],
   },
   {
     id: 'portfolio',
     label: 'Multimodal & Portfolio',
     sub: 'Diffusion · STAR stories · job search',
-    weekIds: ['w17', 'w18'],
+    color: '#c77fd4', // orchid
+    weekIds: ['w19', 'w20'],
   },
 ];
+
+const topicByWeekId: Record<string, TopicGroup> = {};
+for (const tg of TOPIC_GROUPS) {
+  for (const wid of tg.weekIds) {
+    topicByWeekId[wid] = tg;
+  }
+}
+
+export function topicForWeek(weekId: string): TopicGroup | undefined {
+  return topicByWeekId[weekId];
+}

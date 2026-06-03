@@ -40,14 +40,6 @@ export interface Week {
   specs?: CapstoneSpec[];
 }
 
-export interface Part {
-  id: 'part1' | 'part2';
-  pn: string;
-  title: string;
-  sub: string;
-  weeks: Week[];
-}
-
 export interface KeyTopic {
   label: string;
   star: boolean;
@@ -102,7 +94,7 @@ export interface Roadmap {
   resourceMap: ResourceMapRow[];
   howToStudy: HowToStudy;
   setup: SetupBlock;
-  parts: Part[];
+  weeks: Week[];
   timeSummary: TimeSummaryRow[];
   notes: Notes;
 }

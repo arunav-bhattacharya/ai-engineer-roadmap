@@ -1,7 +1,8 @@
 import { useRef } from 'react';
 import { useProgress } from '../lib/ProgressContext';
-import { leavesForPart, leavesForRoadmap } from '../lib/ids';
-import type { Roadmap } from '../types/roadmap';
+import { leavesForRoadmap, leavesForWeek } from '../lib/ids';
+import { TOPIC_GROUPS } from '../lib/topics';
+import type { Roadmap, Week } from '../types/roadmap';
 
 interface Stat {
   done: number;
@@ -18,9 +19,26 @@ export function OverallProgress({
 }) {
   const { pct, exportNow, importNow, reset } = useProgress();
   const o = pct(leavesForRoadmap(roadmap));
-  const s1 = pct(leavesForPart(roadmap.parts[0]));
-  const s2 = pct(leavesForPart(roadmap.parts[1]));
   const fileRef = useRef<HTMLInputElement | null>(null);
+  const weekById = new Map<string, Week>(roadmap.weeks.map((w) => [w.id, w]));
+
+  // Build/Depth split: everything up to and including the capstone is build;
+  // everything after is depth.
+  const capstoneTopicIdx = TOPIC_GROUPS.findIndex((t) => t.id === 'capstone');
+  const buildIds = TOPIC_GROUPS.slice(0, capstoneTopicIdx + 1).flatMap((t) =>
+    t.weekIds.flatMap((id) => {
+      const w = weekById.get(id);
+      return w ? leavesForWeek(w) : [];
+    }),
+  );
+  const depthIds = TOPIC_GROUPS.slice(capstoneTopicIdx + 1).flatMap((t) =>
+    t.weekIds.flatMap((id) => {
+      const w = weekById.get(id);
+      return w ? leavesForWeek(w) : [];
+    }),
+  );
+  const sBuild = pct(buildIds);
+  const sDepth = pct(depthIds);
 
   const onImport = () => fileRef.current?.click();
   const onFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,8 +71,8 @@ export function OverallProgress({
       </div>
 
       <div className="partbars">
-        <PartBar label="Build" s={s1} />
-        <PartBar label="Depth" s={s2} />
+        <PartBar label="Build" s={sBuild} />
+        <PartBar label="Depth" s={sDepth} />
       </div>
 
       <div className="toolbar">
