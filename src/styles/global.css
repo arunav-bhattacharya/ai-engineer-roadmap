@@ -801,17 +801,24 @@ code {
 .study-card h3,
 .setup-card h3 {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
+  align-items: stretch;
+  gap: 12px;
+  margin-bottom: 14px;
+  /* match the "The roadmap" .sec-title heading */
+  color: var(--ink);
+  font-size: 24px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
 }
 .study-card h3::before,
 .setup-card h3::before {
   content: '';
-  width: 4px;
-  height: 16px;
-  border-radius: 2px;
-  background: linear-gradient(var(--amber), var(--green));
+  flex: none;
+  width: 5px;
+  align-self: stretch;
+  margin: 0.18em 0;
+  border-radius: 3px;
+  background: linear-gradient(var(--amber), var(--green), var(--blue));
 }
 .study-intro,
 .setup-intro {
