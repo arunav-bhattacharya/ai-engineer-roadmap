@@ -7,7 +7,7 @@
   },
   "kicker": "Senior JVM Engineer → AI Engineer",
   "titleHtml": "AI Engineer<br><em>Roadmap</em>",
-  "lede": "Twenty weeks, build-first. <b>Part I</b> takes you from Python to a deployed, <b>JVM-native capstone</b>; <b>Part II</b> adds post-capstone depth, AI system design, and interview / portfolio polish. Every day: a focus, linked resources, and a hands-on task.",
+  "lede": "Twenty weeks, build-first. From Python to a deployed, <b>JVM-native capstone</b>, then deep into evaluation, retrieval, fine-tuning math, inference economics, AI system design, and the portfolio polish that converts builds into offers. Every day: a focus, linked resources, and a hands-on task.",
   "courses": [
     {
       "name": "Ed Donner — AI Engineer Core Track",
@@ -151,7 +151,7 @@
     "paragraphs": [
       "Budget ~10 hrs/week: ~2 hrs read/watch, ~6 hrs coding, ~2 hrs writing (a README or short post — this is where it snaps into your head). The single biggest predictor of retention is the build-to-theory ratio.",
       "<b>The pattern that works for engineers like you:</b>",
-      "<b>Part I vs Part II:</b> Part I is hands-keyboard build cadence to a shippable capstone — don't stall on theory. Part II is the depth that makes you <i>senior</i> in AI, not just functional: it's anchored on Chip Huyen's <i>AI Engineering</i> (O'Reilly) — keep the book open as the spine for W11–16.",
+      "<b>Two cadences:</b> the build phase (Weeks 0–10) is hands-keyboard, capstone-driven — don't stall on theory. The depth phase (Weeks 11–18) is what makes you <i>senior</i> in AI, not just functional: it's anchored on Chip Huyen's <i>AI Engineering</i> (O'Reilly) — keep the book open as the spine for W11–16, then AI system design (W12B) and interview prep (W18) close it out.",
       "<b>Don't fall for:</b> tutorial hell, framework-collecting, chasing every model release. Pick one frontier API (Anthropic) + one open-source path (HuggingFace + Ollama) and stick to them."
     ],
     "bullets": [
@@ -2539,10 +2539,10 @@
       "<a href=\"https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/\" target=\"_blank\">AI Engineer Agentic Track</a> (~$15–20) — 8 projects across OpenAI SDK / CrewAI / LangGraph / AutoGen / MCP; drives Weeks 4–5.",
       "<a href=\"https://www.udemy.com/course/generative-and-agentic-ai-in-production/\" target=\"_blank\">AI Engineer Production Track</a> (~$15–20) — AWS Bedrock/SageMaker, Lambda, Terraform, CI/CD, serverless multi-agent; drives Week 16."
     ],
-    "buyingTip": "<b>Buying tip:</b> all three Ed Donner courses are on Udemy — the Personal Plan unlocks everything and beats buying individually; otherwise wait for the recurring ~$10–20 sale and never pay sticker. Chip Huyen's <i>AI Engineering</i> (the book you have) is the Part II spine — no course replaces it.",
+    "buyingTip": "<b>Buying tip:</b> all three Ed Donner courses are on Udemy — the Personal Plan unlocks everything and beats buying individually; otherwise wait for the recurring ~$10–20 sale and never pay sticker. Chip Huyen's <i>AI Engineering</i> (the book you have) is the depth-weeks spine — no course replaces it.",
     "pitfalls": [
       "<b>You now own overlapping courses — don't binge them linearly.</b> Use the resource map: one primary per week, the rest as reference. Watching all six Ed Donner courses + ByteByteGo + Cohen end-to-end is hundreds of hours and mostly redundant.",
-      "<b>Don't let Part II block shipping.</b> The capstone (W10) is the hireable artifact; Weeks 11–17 deepen you but a portfolio project beats half-read theory. Ship first.",
+      "<b>Don't let the depth weeks block shipping.</b> The capstone (W10) is the hireable artifact; W11–18 deepen you but a portfolio project beats half-read theory. Ship first.",
       "<b>Don't chase \"the correct framework.\"</b> Week 5 is breadth on purpose — learn all four, commit to none.",
       "<b>Your backend rigor is a superpower past Week 4.</b> Most AI engineers can't reason about throughput, idempotency, retries, or transactional semantics — your capstone and Week 15 should be 10× more production-ready than the median learner's.",
       "<b>Don't fine-tune unless evals say to.</b> The #1 trap for technical learners.",

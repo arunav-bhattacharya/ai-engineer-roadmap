@@ -53,8 +53,8 @@ export function OverallProgress({
       </div>
 
       <div className="partbars">
-        <PartBar label="Part I" s={s1} />
-        <PartBar label="Part II" s={s2} />
+        <PartBar label="Build" s={s1} />
+        <PartBar label="Depth" s={s2} />
       </div>
 
       <div className="toolbar">
