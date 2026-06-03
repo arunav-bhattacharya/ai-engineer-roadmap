@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import roadmap from '../data/roadmap.json';
 import { useCollapse } from '../lib/CollapseContext';
@@ -12,6 +12,15 @@ import { WeekToolbar } from './WeekToolbar';
 
 const r = roadmap as Roadmap;
 
+const SIDEBAR_KEY = 'ai-roadmap-sidebar-v1';
+const loadSidebarOpen = (): boolean => {
+  try {
+    return localStorage.getItem(SIDEBAR_KEY) !== 'collapsed';
+  } catch {
+    return true;
+  }
+};
+
 interface Props {
   part: Part;
   intro?: React.ReactNode;
@@ -23,6 +32,15 @@ export function PartLayout({ part, intro }: Props) {
   const location = useLocation();
   const s = pct(leavesForPart(part));
   const weekIds = part.weeks.map((w) => w.id);
+
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(loadSidebarOpen);
+  useEffect(() => {
+    try {
+      localStorage.setItem(SIDEBAR_KEY, sidebarOpen ? 'open' : 'collapsed');
+    } catch {
+      /* ignore */
+    }
+  }, [sidebarOpen]);
 
   // Deep-link from the Overview roadmap: navigate(state:{jump}) → expand + scroll.
   // Guard on location.key so each navigation is handled exactly once (and we
@@ -53,10 +71,14 @@ export function PartLayout({ part, intro }: Props) {
         <span className="sub">{part.sub}</span>
       </div>
 
-      <div className="partlayout">
-        <WeekSidebar weeks={part.weeks} />
+      <div className={`partlayout${sidebarOpen ? '' : ' sidebar-collapsed'}`}>
+        {sidebarOpen ? <WeekSidebar weeks={part.weeks} /> : null}
         <div className="weekcol">
-          <WeekToolbar weekIds={weekIds} />
+          <WeekToolbar
+            weekIds={weekIds}
+            sidebarOpen={sidebarOpen}
+            onToggleSidebar={() => setSidebarOpen((o) => !o)}
+          />
           {intro}
           {part.weeks.map((w) => (
             <WeekCard key={w.id} week={w} />
