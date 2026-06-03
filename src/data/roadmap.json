@@ -1,13 +1,13 @@
 {
   "meta": {
-    "duration": "17 weeks",
+    "duration": "20 weeks",
     "pace": "~10–12 hrs / wk",
     "ratio": "70% build / 30% read",
     "prereq_gap": "Python (Week 0)"
   },
   "kicker": "Senior JVM Engineer → AI Engineer",
   "titleHtml": "AI Engineer<br><em>Roadmap</em>",
-  "lede": "Seventeen weeks, build-first. <b>Part I</b> takes you from Python to a deployed, <b>JVM-native capstone</b>; <b>Part II</b> adds post-capstone depth. Every day: a focus, linked resources, and a hands-on task.",
+  "lede": "Twenty weeks, build-first. <b>Part I</b> takes you from Python to a deployed, <b>JVM-native capstone</b>; <b>Part II</b> adds post-capstone depth, AI system design, and interview / portfolio polish. Every day: a focus, linked resources, and a hands-on task.",
   "courses": [
     {
       "name": "Ed Donner — AI Engineer Core Track",
@@ -179,7 +179,7 @@
       "id": "part1",
       "pn": "Part I",
       "title": "Foundations & Build",
-      "sub": "Weeks 0–10 · to a deployed capstone",
+      "sub": "Weeks 0–10 · to a deployed capstone · 12 weeks",
       "weeks": [
         {
           "id": "w0",
@@ -1367,7 +1367,7 @@
       "id": "part2",
       "pn": "Part II",
       "title": "Depth & Systems",
-      "sub": "Weeks 11–17 · post-capstone · Huyen + ByteByteGo + Production Track",
+      "sub": "Weeks 11–18 · post-capstone · Huyen + ByteByteGo + AI system design + interview prep",
       "weeks": [
         {
           "id": "w11",
@@ -2436,6 +2436,14 @@
       "star": false
     },
     {
+      "wk": "7B",
+      "topic": "MLOps + experiment tracking",
+      "build": 6,
+      "read": 4,
+      "deliverable": "MLflow + Langfuse prompts + HF Hub + DVC + CI eval gate",
+      "star": false
+    },
+    {
       "wk": "8",
       "topic": "<b>Temporal + LLM</b>",
       "build": 8,
@@ -2465,6 +2473,14 @@
       "build": 6,
       "read": 5,
       "deliverable": "Judge + Elo + CI eval gate",
+      "star": false
+    },
+    {
+      "wk": "12B",
+      "topic": "<b>AI system design</b>",
+      "build": 7,
+      "read": 4,
+      "deliverable": "4 design docs + mock + differentiator brief",
       "star": false
     },
     {
@@ -2506,6 +2522,14 @@
       "read": 4,
       "deliverable": "Diffusion notebook + T2I agent",
       "star": false
+    },
+    {
+      "wk": "18",
+      "topic": "<b>Interview prep + portfolio</b>",
+      "build": 7,
+      "read": 3,
+      "deliverable": "STAR + take-home + README + blog + 20 targets",
+      "star": false
     }
   ],
   "notes": {
@@ -2524,6 +2548,6 @@
       "<b>Don't fine-tune unless evals say to.</b> The #1 trap for technical learners.",
       "<b>Your edges are Weeks 2B, 8, and 15.</b> JVM-native AI + Temporal orchestration + inference optimization. Build the capstone on the JVM and write the blog posts — they're your differentiated interview assets."
     ],
-    "sig": "Roadmap v7 · progress tracker · 17-week · Google Sans Flex · 1 Jun 2026 · sources: Huyen, AI Engineering (O'Reilly) · Ed Donner full 6-course series · ByteByteGo cohort · Mike X Cohen · Java Brains (JVM-native)"
+    "sig": "Roadmap v8 · progress tracker · 20-week · Google Sans Flex · 2 Jun 2026 · sources: Huyen, AI Engineering (O'Reilly) · Ed Donner full 6-course series · ByteByteGo cohort · Mike X Cohen · Java Brains (JVM-native) · Eugene Yan / Hamel for evals + MLOps · Alex Xu Sys Design Vol 2"
   }
 }
