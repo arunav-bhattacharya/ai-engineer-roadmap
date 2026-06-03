@@ -1,14 +1,15 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import roadmap from '../data/roadmap.json';
 import { OverallProgress } from '../components/OverallProgress';
 import { WeekCard } from '../components/WeekCard';
-import { WeekSidebar } from '../components/WeekSidebar';
+import { WeekSidebar, type SidebarSection } from '../components/WeekSidebar';
 import { WeekToolbar } from '../components/WeekToolbar';
 import { useCollapse } from '../lib/CollapseContext';
-import { leavesForPart } from '../lib/ids';
+import { leavesForWeek } from '../lib/ids';
 import { useProgress } from '../lib/ProgressContext';
-import type { Roadmap } from '../types/roadmap';
+import { TOPIC_GROUPS } from '../lib/topics';
+import type { Roadmap, Week } from '../types/roadmap';
 
 const r = roadmap as Roadmap;
 
@@ -21,23 +22,22 @@ const loadSidebarOpen = (): boolean => {
   }
 };
 
-const partIntros: Record<string, React.ReactNode> = {
-  part2: (
-    <p style={{ margin: 0 }}>
-      <b>Spine for Part II:</b> Chip Huyen, <i>AI Engineering: Building Applications with Foundation Models</i>{' '}
-      (O'Reilly, 2025). Each week maps to chapters and goes after the depth Part I deliberately skipped:{' '}
-      <b>why</b> models behave as they do, rigorous evaluation, retrieval / agent internals, the data and
-      fine-tuning math, inference performance, full production architecture, AI system design, and the
-      portfolio polish that converts builds into offers.
-    </p>
-  ),
-};
-
 export function StudyPlan() {
   const { expand } = useCollapse();
   const { pct } = useProgress();
   const location = useLocation();
-  const allWeeks = r.parts.flatMap((p) => p.weeks);
+
+  const weekById = useMemo(() => new Map<string, Week>(r.weeks.map((w) => [w.id, w])), []);
+  const sections: SidebarSection[] = useMemo(
+    () =>
+      TOPIC_GROUPS.map((tg) => ({
+        id: tg.id,
+        label: tg.label,
+        weeks: tg.weekIds.map((id) => weekById.get(id)).filter((w): w is Week => Boolean(w)),
+      })),
+    [weekById],
+  );
+  const allWeeks = sections.flatMap((s) => s.weeks);
   const weekIds = allWeeks.map((w) => w.id);
 
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(loadSidebarOpen);
@@ -69,7 +69,7 @@ export function StudyPlan() {
       <OverallProgress roadmap={r} />
 
       <div className={`partlayout${sidebarOpen ? '' : ' sidebar-collapsed'}`}>
-        {sidebarOpen ? <WeekSidebar parts={r.parts} /> : null}
+        {sidebarOpen ? <WeekSidebar sections={sections} /> : null}
         <div className="weekcol">
           <WeekToolbar
             weekIds={weekIds}
@@ -77,22 +77,28 @@ export function StudyPlan() {
             onToggleSidebar={() => setSidebarOpen((o) => !o)}
           />
 
-          {r.parts.map((part) => {
-            const s = pct(leavesForPart(part));
+          {TOPIC_GROUPS.map((tg, ti) => {
+            const weeks = tg.weekIds
+              .map((id) => weekById.get(id))
+              .filter((w): w is Week => Boolean(w));
+            if (weeks.length === 0) return null;
+            const allLeaves = weeks.flatMap(leavesForWeek);
+            const s = pct(allLeaves);
+            const kicker = `TOPIC ${String(ti + 1).padStart(2, '0')}`;
             return (
-              <section key={part.id} className="studyplan-part" id={`section-${part.id}`}>
-                <div className="partbar">
-                  <span className="pn">{part.pn}</span>
-                  <h2>{part.title}</h2>
-                  <span className="psub">{s.pct}% done</span>
-                  <span className="sub">{part.sub}</span>
+              <section
+                key={tg.id}
+                className="studyplan-topic"
+                id={`section-${tg.id}`}
+                style={{ '--wk-color': tg.color } as React.CSSProperties}
+              >
+                <div className="topicbar">
+                  <span className="tn mono">{kicker}</span>
+                  <h2>{tg.label}</h2>
+                  <span className="tpct mono">{s.pct}% done</span>
+                  <span className="tsub">{tg.sub}</span>
                 </div>
-
-                {partIntros[part.id] ? (
-                  <div className="block intro-block">{partIntros[part.id]}</div>
-                ) : null}
-
-                {part.weeks.map((w) => (
+                {weeks.map((w) => (
                   <WeekCard key={w.id} week={w} />
                 ))}
               </section>

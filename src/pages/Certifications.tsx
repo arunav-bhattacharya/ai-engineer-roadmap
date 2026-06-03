@@ -5,7 +5,7 @@ import { weekColor } from '../lib/colors';
 import type { Roadmap, Week } from '../types/roadmap';
 
 const r = roadmap as Roadmap;
-const allWeeks: Week[] = r.parts.flatMap((p) => p.weeks);
+const allWeeks: Week[] = r.weeks;
 const weekById = new Map(allWeeks.map((w) => [w.id, w]));
 
 export function Certifications() {

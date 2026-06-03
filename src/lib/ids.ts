@@ -1,4 +1,4 @@
-import type { Day, Part, Roadmap, Week } from '../types/roadmap';
+import type { Day, Roadmap, Week } from '../types/roadmap';
 
 export const resourceLeafId = (weekId: string, dayIdx: number, resIdx: number): string =>
   `${weekId}-${dayIdx}-r${resIdx}`;
@@ -24,16 +24,8 @@ export function leavesForWeek(week: Week): string[] {
   return ids;
 }
 
-export function leavesForPart(part: Part): string[] {
-  const ids: string[] = [];
-  part.weeks.forEach((w) => ids.push(...leavesForWeek(w)));
-  return ids;
-}
-
 export function leavesForRoadmap(roadmap: Roadmap): string[] {
-  const ids: string[] = [];
-  roadmap.parts.forEach((p) => ids.push(...leavesForPart(p)));
-  return ids;
+  return roadmap.weeks.flatMap((w) => leavesForWeek(w));
 }
 
 export function rowMastersForWeek(week: Week): string[] {
