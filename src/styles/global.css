@@ -40,25 +40,25 @@
 }
 
 :root[data-theme='light'] {
-  /* Warm ivory paper with vivid accents + soft elevation. */
-  --bg: #faf6ee;
-  --bg-2: #f1e6d2;
-  --panel: #fffdf8;
-  --panel-2: #f5ecdd;
+  /* Light warm ivory paper with vivid accents + soft elevation. */
+  --bg: #fdfbf5;
+  --bg-2: #f7f0e3;
+  --panel: #fffefb;
+  --panel-2: #f8f2e9;
   --ink: #2a2117;
   --ink-dim: #6c6253;
-  --line: #e7dcc7;
+  --line: #ece2d1;
   --amber: #b3610b;
   --amber-soft: #9a5712;
   --green: #2d7349;
   --red: #c03a28;
   --blue: #2660c6;
-  --grid: rgba(150, 100, 30, 0.05);
+  --grid: rgba(150, 100, 30, 0.04);
 
-  --row-alt: #f6efe1;
-  --row-hover: #f0e6d4;
-  --code-bg: #f2eada;
-  --header-bg-stop: #f7f0e2;
+  --row-alt: #faf5ec;
+  --row-hover: #f4edde;
+  --code-bg: #f6efe3;
+  --header-bg-stop: #fbf6ec;
   --accent-tint: rgba(179, 97, 11, 0.1);
   --link-underline: rgba(38, 96, 198, 0.35);
 
@@ -69,7 +69,7 @@
   --chip-book: rgba(150, 95, 20, 0.13);
   --chip-cohort: rgba(47, 125, 80, 0.1);
 
-  --check-tick: #fffdf8;
+  --check-tick: #fffefb;
   --wash: 14%;
   color-scheme: light;
 }
@@ -583,6 +583,17 @@ tbody tr:nth-child(even) {
 }
 tbody tr:hover {
   background: var(--row-hover);
+}
+/* week tables: alternate rows tinted with the week's topic colour */
+.week tbody tr:nth-child(even) {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--wk-accent) 18%, var(--panel)),
+    color-mix(in srgb, var(--wk-accent) 6%, var(--panel))
+  );
+}
+.week tbody tr:hover {
+  background: color-mix(in srgb, var(--wk-accent) 24%, var(--panel));
 }
 td.day {
   white-space: nowrap;
@@ -1394,6 +1405,9 @@ code {
   gap: 28px;
   align-items: start;
 }
+.partlayout.sidebar-collapsed {
+  grid-template-columns: 1fr;
+}
 .weeksidebar {
   position: sticky;
   top: calc(var(--stack-h) + 14px);
@@ -1487,6 +1501,16 @@ code {
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+.weektoolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sidebar-toggle[aria-pressed='true'] {
+  border-color: color-mix(in srgb, var(--amber) 45%, var(--line));
+  color: var(--amber);
 }
 .weektoolbar-count {
   font-size: 11.5px;
@@ -1513,10 +1537,14 @@ code {
 }
 
 @media (max-width: 980px) {
-  .partlayout {
+  .partlayout,
+  .partlayout.sidebar-collapsed {
     grid-template-columns: 1fr;
   }
   .weeksidebar {
+    display: none;
+  }
+  .sidebar-toggle {
     display: none;
   }
 }

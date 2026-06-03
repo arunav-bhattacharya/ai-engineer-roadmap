@@ -689,23 +689,35 @@
             },
             {
               "n": "5",
-              "focusTitle": "Production RAG",
-              "focusSub": "pgvector swap — your Postgres edge",
+              "focusTitle": "Production RAG + vector DB landscape",
+              "focusSub": "pgvector swap · HNSW vs IVF · when to pick Qdrant/Weaviate/Pinecone",
               "resources": [
                 {
                   "typeClass": "read",
                   "typeLabel": "read",
                   "label": "Hamel — most RAG problems are retrieval problems",
                   "url": "https://hamel.dev/blog/posts/evals/"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Pinecone — HNSW explained",
+                  "url": "https://www.pinecone.io/learn/series/faiss/hnsw/"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Qdrant benchmarks (vs pgvector / Weaviate / Pinecone / Milvus)",
+                  "url": "https://qdrant.tech/benchmarks/"
                 }
               ],
-              "est": "2h",
-              "hands": "Swap Chroma → <code>pgvector</code>. Record recall@5 / MRR across chunking strategies in <code>results.md</code>."
+              "est": "2.5h",
+              "hands": "Swap Chroma → <code>pgvector</code>; record recall@5 / MRR across chunking strategies in <code>results.md</code>. Then write a one-pager: <b>HNSW vs IVF</b> (when each wins on recall / latency / memory) + a decision matrix — Chroma / pgvector / Qdrant / Weaviate / Pinecone — scored on millions-of-vectors, metadata filtering, multi-tenancy, self-host vs SaaS."
             }
           ],
           "udemy": "Udemy: <b>Core Track — Week 5</b>",
           "udemyNone": false,
-          "deliverable": "Repo <code>week-03-rag</code> — answers \"what is sticky queue starvation?\" with citations + numbers."
+          "deliverable": "Repo <code>week-03-rag</code> — answers \"what is sticky queue starvation?\" with citations + numbers + vector-DB decision matrix."
         },
         {
           "id": "w4",
@@ -1062,6 +1074,119 @@
           "udemy": "Udemy: <b>weak fit.</b> Use the practitioners above; <a href=\"https://maven.com/parlance-labs/evals\" target=\"_blank\">Maven AI Evals</a> if you later invest.",
           "udemyNone": true,
           "deliverable": "Repo <code>week-07-evals</code> — eval suite + Langfuse dashboard + 3 judges w/ TPR/TNR + red-team doc."
+        },
+        {
+          "id": "w7b",
+          "tag": "WEEK 07B",
+          "title": "MLOps & Experiment Tracking",
+          "hours": "~10 hrs",
+          "goal": "<b>Goal:</b> add the ML lifecycle layer that observability (W7) doesn't cover — prompt / dataset / model versioning, experiment tracking, model registry. Once this is wired, every later result you ship is reproducible and every model upgrade can be gated. This is what makes \"AI Engineer\" sit next to \"MLOps\" on a job spec.",
+          "variant": "default",
+          "star": false,
+          "days": [
+            {
+              "n": "1",
+              "focusTitle": "Experiment tracking",
+              "focusSub": "MLflow + Weights & Biases — the runs/params/metrics primitive",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "MLflow tracking quickstart",
+                  "url": "https://mlflow.org/docs/latest/tracking.html"
+                },
+                {
+                  "typeClass": "course",
+                  "typeLabel": "course",
+                  "label": "W&B — Effective MLOps: Model Development",
+                  "url": "https://www.wandb.courses/courses/effective-mlops-model-development"
+                }
+              ],
+              "est": "2h",
+              "hands": "Re-run your W6 LoRA fine-tune with MLflow tracking: log hyperparams, train/eval loss curves, the LoRA adapter as an artifact, the eval-set metrics. Add a second run with a different learning rate; compare runs in the UI."
+            },
+            {
+              "n": "2",
+              "focusTitle": "Prompt versioning",
+              "focusSub": "Langfuse / PromptLayer — prompts are software",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "Langfuse — Prompt Management",
+                  "url": "https://langfuse.com/docs/prompts/get-started"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Hamel — A field guide to prompt management",
+                  "url": "https://hamel.dev/blog/posts/prompt/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Move your capstone's 3 hottest prompts into Langfuse with versions. In code, fetch by name+label (e.g. <code>billpay-classifier:production</code>). Run a quick A/B between v1 and v2; record judge scores on each."
+            },
+            {
+              "n": "3",
+              "focusTitle": "Model registry & lineage",
+              "focusSub": "MLflow Registry / HF Hub — \"which model is in prod?\"",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "MLflow Model Registry",
+                  "url": "https://mlflow.org/docs/latest/model-registry.html"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "HuggingFace Hub — models",
+                  "url": "https://huggingface.co/docs/hub/models"
+                }
+              ],
+              "est": "2h",
+              "hands": "Push the W6 LoRA adapter to HF Hub with a model card (training data, eval scores, intended use, known failure modes). Register in MLflow with stages <code>staging</code> → <code>production</code>. Document the promotion criteria."
+            },
+            {
+              "n": "4",
+              "focusTitle": "Dataset versioning + drift",
+              "focusSub": "DVC / HF Datasets — eval sets and training data have versions too",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "docs",
+                  "label": "DVC — Get Started",
+                  "url": "https://dvc.org/doc/start"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Eugene Yan — Monitoring ML in Production",
+                  "url": "https://eugeneyan.com/writing/practical-guide-to-maintaining-machine-learning/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Version your W7 golden eval set with DVC; tag <code>eval-v1</code> after CI passes. Sketch a drift detector — embedding-distance histogram between training distribution and a week of production traces."
+            },
+            {
+              "n": "5",
+              "focusTitle": "CI for ML — eval-gated promotion",
+              "focusSub": "GitHub Actions + your W7 evals as the gate",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Eugene Yan — Continuous Integration for ML",
+                  "url": "https://eugeneyan.com/writing/ci-for-ml/"
+                }
+              ],
+              "est": "2h",
+              "hands": "GitHub Actions workflow on PR: run your W7 eval suite against the proposed prompt/model version, fail PR if any judge regresses below threshold. Wire MLflow run URL into the PR comment. This is the foundation W16 generalises to full deploy gating."
+            }
+          ],
+          "udemy": "Udemy: <b>weak fit</b> — use docs above + <a href=\"https://www.wandb.courses/\" target=\"_blank\">W&amp;B Courses</a> (free) for depth.",
+          "udemyNone": true,
+          "deliverable": "Repo <code>week-07b-mlops</code> — MLflow runs + Langfuse prompt versions + HF Hub model + DVC-versioned eval set + eval-gated CI workflow."
         },
         {
           "id": "w8",
@@ -1475,6 +1600,140 @@
           "udemy": "Spine: <b>Huyen Ch 3–4</b> · <a href=\"https://maven.com/parlance-labs/evals\" target=\"_blank\">Maven AI Evals</a> if investing",
           "udemyNone": false,
           "deliverable": "Repo <code>week-12-eval</code> — perplexity calc + validated judge + Elo + model scorecard + CI eval gate."
+        },
+        {
+          "id": "w12b",
+          "tag": "WEEK 12B",
+          "title": "AI System Design",
+          "hours": "~11 hrs",
+          "goal": "<b>Goal — bridge from \"can build\" to \"can architect.\"</b> At top product companies the system-design loop is gatekeeping. Practice 4 canonical AI system designs end-to-end (RAG search, AI coding assistant, recsys + LLMs, agentic at scale), then a mock interview. Your JVM / Temporal / inference-opt edges become concrete answers here, not bullet points.",
+          "variant": "default",
+          "star": false,
+          "days": [
+            {
+              "n": "1",
+              "focusTitle": "AI system design frameworks",
+              "focusSub": "A repeatable 7-step template",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Eugene Yan — System Design for ML",
+                  "url": "https://eugeneyan.com/writing/system-design-for-discovery/"
+                },
+                {
+                  "typeClass": "book",
+                  "typeLabel": "book",
+                  "label": "Chip Huyen — Designing ML Systems (intro / Ch 1)"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Jay Alammar / others — AI system design write-ups"
+                }
+              ],
+              "est": "2h",
+              "hands": "Write your own 7-step AI-systems template: <i>(1) requirements → (2) functional &amp; non-functional → (3) data &amp; eval → (4) model &amp; retrieval → (5) serving / scale / cost → (6) safety &amp; failure modes → (7) iteration &amp; metrics</i>. Use it for every design below."
+            },
+            {
+              "n": "2",
+              "focusTitle": "Design — LLM-powered search (RAG at scale)",
+              "focusSub": "\"Design GitHub Code Search with LLM answers\"",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Anthropic — Contextual Retrieval",
+                  "url": "https://www.anthropic.com/news/contextual-retrieval"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Perplexity / Phind public engineering posts"
+                }
+              ],
+              "est": "2h",
+              "hands": "2-page design doc: index size (≈100M chunks), freshness SLO, recall target, latency budget (p95 &lt; 800ms), hybrid retrieval, reranker placement, caching, multi-tenant isolation, eval pipeline. Put real numbers."
+            },
+            {
+              "n": "3",
+              "focusTitle": "Design — AI coding assistant",
+              "focusSub": "\"Design Cursor / Copilot\"",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Cursor / Continue / Aider engineering blog posts"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "GitHub — How Copilot works",
+                  "url": "https://github.blog/2023-05-17-how-github-copilot-is-getting-better-at-understanding-your-code/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Design doc: autocomplete vs chat vs agent modes, context windowing strategy, repo indexing, latency (TTFT &lt; 150ms for autocomplete), local vs cloud model split, privacy, telemetry / eval."
+            },
+            {
+              "n": "4",
+              "focusTitle": "Design — recsys with LLM features",
+              "focusSub": "\"Design Spotify Discover with LLM reranking\"",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Eugene Yan — Search/Recsys + LLMs",
+                  "url": "https://eugeneyan.com/writing/"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Meta / Netflix / Spotify recsys papers (overview)"
+                }
+              ],
+              "est": "2h",
+              "hands": "Design doc: candidate generation (collaborative + content embeddings), LLM reranker at the head (cost gate), feature store, cold-start, online learning loop, A/B + Elo for ranker upgrades."
+            },
+            {
+              "n": "5",
+              "focusTitle": "Design — agentic workflow at scale",
+              "focusSub": "\"Customer-support copilot at 1M tickets / day\" — your Temporal lane",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Anthropic — Building Effective Agents",
+                  "url": "https://www.anthropic.com/research/building-effective-agents"
+                },
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Temporal — Durable Execution patterns",
+                  "url": "https://docs.temporal.io/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Design doc: tool inventory, HITL escalation, durable orchestration via Temporal, throttled fan-out (reusing W8 math), inference tier sizing (reusing W15), cost-per-ticket target, failure taxonomy + eval, audit/compliance. <b>Explicitly call out the JVM / Temporal / inference-opt edges.</b>"
+            },
+            {
+              "n": "6",
+              "focusTitle": "Mock interview + differentiator brief",
+              "focusSub": "Practise the 45-minute loop",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Alex Xu — System Design Interview (Vol 2) chapters on ML"
+                }
+              ],
+              "est": "1h",
+              "hands": "Record a 45-min mock for one of designs 2–5 (whiteboard or Excalidraw, talk aloud). Score against the rubric: requirements gathering, tradeoffs, depth on bottleneck, eval strategy, your edges. Write a 1-pager: \"my interview-ready angles\" — JVM-native AI, Temporal orchestration, inference economics."
+            }
+          ],
+          "udemy": "Spine: Eugene Yan / Huyen / Anthropic posts. No single course fits — interview prep itself is in W18.",
+          "udemyNone": true,
+          "deliverable": "Repo <code>week-12b-sysdesign</code> — 4 design docs + 1 mock recording + differentiator one-pager."
         },
         {
           "id": "w13",
@@ -2010,6 +2269,95 @@
           "udemy": "Spine: <b>ByteByteGo P5</b> + HF Diffusion Course",
           "udemyNone": false,
           "deliverable": "Repo <code>week-17-multimodal</code> — diffusion notebook + T2I generation agent."
+        },
+        {
+          "id": "w18",
+          "tag": "WEEK 18",
+          "title": "Interview Prep, Portfolio & Job Search",
+          "hours": "~10 hrs",
+          "goal": "<b>Goal — convert what you built into offers.</b> Everything before this week made you a strong AI engineer; this week makes that legible to a hiring loop. STAR stories from the capstone + Temporal + inference work, take-home rehearsal, GitHub polish, blog posts as proof, target-company outreach. Hireable people skip this and leave money on the table.",
+          "variant": "default",
+          "star": false,
+          "days": [
+            {
+              "n": "1",
+              "focusTitle": "STAR stories from your build",
+              "focusSub": "5 stories that cover the loop — your edges first",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Amazon — STAR method (overview)",
+                  "url": "https://www.amazon.jobs/content/en/how-we-hire/interview-prep"
+                }
+              ],
+              "est": "2h",
+              "hands": "Write 5 STAR stories (Situation / Task / Action / Result, ≤300 words each): (1) Temporal fan-out at 500K from W8, (2) RAG quality lift from W3/W13, (3) eval-gated CI from W7/W7B, (4) JVM-native AI from W2B, (5) inference cost/latency win from W15. Each must end with a metric."
+            },
+            {
+              "n": "2",
+              "focusTitle": "Take-home rehearsal",
+              "focusSub": "Time-box, ship, post-mortem",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Hamel — Take-home interview tips",
+                  "url": "https://hamel.dev/blog/"
+                }
+              ],
+              "est": "2.5h",
+              "hands": "Find 2 public AI-engineer take-homes (\"build a small RAG on this corpus,\" \"design + ship an agent for X\"). Do <b>one</b> on a 4-hour timer; ship a working repo with README, evals, and a 1-page writeup. Reflect: where did you go over time, what would you cut next time."
+            },
+            {
+              "n": "3",
+              "focusTitle": "GitHub & portfolio polish",
+              "focusSub": "Recruiters open the repo, not the resume",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Will Larson — Engineering portfolios",
+                  "url": "https://lethain.com/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Upgrade the capstone README: architecture diagram (Excalidraw), 60-sec demo gif, eval scoreboard, deploy notes, \"what I'd build next.\" Pin top 5 repos on your profile. Add a one-screen profile README that links the 3 things you want them to read first."
+            },
+            {
+              "n": "4",
+              "focusTitle": "Blog posts as interview assets",
+              "focusSub": "The W8 + W15 posts you've been drafting",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Eugene Yan — Why you should write",
+                  "url": "https://eugeneyan.com/writing/writing-for-engineers/"
+                }
+              ],
+              "est": "1.5h",
+              "hands": "Publish the W8 post (\"What Agent Frameworks Get Wrong About Workflow Orchestration\"). Start the W15 post (\"Inference Economics for Agentic Workloads\"). Cross-post to your site, dev.to, LinkedIn. These are linkable proof in every conversation."
+            },
+            {
+              "n": "5",
+              "focusTitle": "Target list & outreach",
+              "focusSub": "20 companies, 3 buckets, 5 warm intros",
+              "resources": [
+                {
+                  "typeClass": "read",
+                  "typeLabel": "read",
+                  "label": "Gergely Orosz — How to find AI engineering jobs",
+                  "url": "https://newsletter.pragmaticengineer.com/"
+                }
+              ],
+              "est": "2h",
+              "hands": "Build a target list of 20 companies in 3 buckets — frontier labs / AI-first product / AI-augmented incumbents. Tailor the resume per bucket. Identify 5 warm intros (LinkedIn 2nd-degree) and send messages today. Track in a simple sheet."
+            }
+          ],
+          "udemy": "Udemy: <b>none</b> — this week is about your own artifacts, not consuming content.",
+          "udemyNone": true,
+          "deliverable": "5 STAR stories + 1 completed take-home + polished capstone README + 1 published blog post + 20-company target list with 5 outreaches sent."
         }
       ]
     }
