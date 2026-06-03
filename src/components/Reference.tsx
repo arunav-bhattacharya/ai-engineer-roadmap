@@ -4,11 +4,11 @@ import { Notes } from './Notes';
 import { ResourceMap } from './ResourceMap';
 import { TimeSummaryTable } from './TimeSummaryTable';
 
-/** Collapsed reference section at the bottom of Overview. Default closed. */
-export function Appendix({ roadmap }: { roadmap: Roadmap }) {
+/** Collapsed reference section. Default closed. */
+export function Reference({ roadmap }: { roadmap: Roadmap }) {
   const [open, setOpen] = useState(false);
   return (
-    <section className={`appendix${open ? ' open' : ''}`} aria-label="Appendix and reference">
+    <section className={`appendix${open ? ' open' : ''}`} aria-label="Reference">
       <button
         type="button"
         className="appendix-toggle"
@@ -16,7 +16,7 @@ export function Appendix({ roadmap }: { roadmap: Roadmap }) {
         aria-expanded={open}
       >
         <span className="chevron" aria-hidden="true" />
-        <span className="sec-title">Appendix · reference</span>
+        <span className="sec-title">Reference</span>
         <span className="appendix-hint">
           {open ? 'Hide' : 'Resource map · time budget · buying notes'}
         </span>

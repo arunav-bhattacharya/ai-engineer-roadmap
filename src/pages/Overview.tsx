@@ -1,5 +1,4 @@
 import roadmap from '../data/roadmap.json';
-import { Appendix } from '../components/Appendix';
 import { Header } from '../components/Header';
 import { HowToStudy } from '../components/HowToStudy';
 import { OverallProgress } from '../components/OverallProgress';
@@ -20,8 +19,6 @@ export function Overview() {
         <HowToStudy block={r.howToStudy} />
         <Setup block={r.setup} />
       </div>
-
-      <Appendix roadmap={r} />
     </>
   );
 }
