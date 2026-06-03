@@ -1,28 +1,32 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { weekColor } from '../lib/colors';
 import { useProgress } from '../lib/ProgressContext';
 import { useCollapse } from '../lib/CollapseContext';
 import { leavesForWeek } from '../lib/ids';
-import type { Week } from '../types/roadmap';
+import type { Part, Week } from '../types/roadmap';
 
 interface Props {
-  weeks: Week[];
+  parts?: Part[];
+  weeks?: Week[];
 }
 
-export function WeekSidebar({ weeks }: Props) {
+export function WeekSidebar({ parts, weeks }: Props) {
+  const allWeeks: Week[] = useMemo(
+    () => (parts ? parts.flatMap((p) => p.weeks) : (weeks ?? [])),
+    [parts, weeks],
+  );
   const { pct } = useProgress();
   const { expand } = useCollapse();
-  const [active, setActive] = useState<string>(weeks[0]?.id ?? '');
+  const [active, setActive] = useState<string>(allWeeks[0]?.id ?? '');
 
   useEffect(() => {
-    const sections = weeks
+    const sections = allWeeks
       .map((w) => document.getElementById(w.id))
       .filter((el): el is HTMLElement => el !== null);
     if (sections.length === 0) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
-        // Pick the entry nearest the top that is intersecting.
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
@@ -32,47 +36,56 @@ export function WeekSidebar({ weeks }: Props) {
     );
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
-  }, [weeks]);
+  }, [allWeeks]);
 
   const onJump = (id: string) => (e: React.MouseEvent) => {
     e.preventDefault();
-    expand(id); // make sure it's open before scrolling
+    expand(id);
     setActive(id);
-    // allow the body to render before scrolling
     requestAnimationFrame(() => {
       document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
+  };
+
+  const renderItem = (w: Week) => {
+    const s = pct(leavesForWeek(w));
+    return (
+      <li key={w.id}>
+        <a href={`#${w.id}`} onClick={onJump(w.id)} className={active === w.id ? 'active' : ''}>
+          <span
+            className="wk-dot"
+            style={{ background: weekColor(w.id) }}
+            aria-hidden="true"
+          />
+          <span className="wk-label">
+            <span className="wk-tag">{w.tag}</span>
+            <span className="wk-title">{w.title}</span>
+          </span>
+          <span className="wk-pct">{s.pct}%</span>
+        </a>
+      </li>
+    );
   };
 
   return (
     <aside className="weeksidebar" aria-label="Weeks">
       <div className="weeksidebar-inner">
         <div className="weeksidebar-head">On this page</div>
-        <ul>
-          {weeks.map((w) => {
-            const s = pct(leavesForWeek(w));
-            return (
-              <li key={w.id}>
-                <a
-                  href={`#${w.id}`}
-                  onClick={onJump(w.id)}
-                  className={active === w.id ? 'active' : ''}
-                >
-                  <span
-                    className="wk-dot"
-                    style={{ background: weekColor(w.id) }}
-                    aria-hidden="true"
-                  />
-                  <span className="wk-label">
-                    <span className="wk-tag">{w.tag}</span>
-                    <span className="wk-title">{w.title}</span>
-                  </span>
-                  <span className="wk-pct">{s.pct}%</span>
-                </a>
-              </li>
-            );
-          })}
-        </ul>
+        {parts ? (
+          parts.map((p, idx) => (
+            <div
+              key={p.id}
+              className={`weeksidebar-group${idx > 0 ? ' weeksidebar-group-sep' : ''}`}
+            >
+              <div className="weeksidebar-section">
+                {p.pn} · {p.title}
+              </div>
+              <ul>{p.weeks.map(renderItem)}</ul>
+            </div>
+          ))
+        ) : (
+          <ul>{allWeeks.map(renderItem)}</ul>
+        )}
       </div>
     </aside>
   );

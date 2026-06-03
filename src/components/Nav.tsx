@@ -2,8 +2,8 @@ import { NavLink } from 'react-router-dom';
 
 const links = [
   { to: '/', label: 'Overview', end: true },
-  { to: '/part-1', label: 'Part I' },
-  { to: '/part-2', label: 'Part II' },
+  { to: '/study-plan', label: 'Study Plan' },
+  { to: '/certifications', label: 'Certifications' },
 ];
 
 export function Nav() {

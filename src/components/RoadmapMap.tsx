@@ -4,8 +4,6 @@ import { useProgress } from '../lib/ProgressContext';
 import { leavesForWeek } from '../lib/ids';
 import type { Roadmap, Week } from '../types/roadmap';
 
-const routeForPart = (partId: string): string => (partId === 'part2' ? '/part-2' : '/part-1');
-
 export function RoadmapMap({ roadmap }: { roadmap: Roadmap }) {
   const navigate = useNavigate();
   const { pct } = useProgress();
@@ -34,7 +32,7 @@ export function RoadmapMap({ roadmap }: { roadmap: Roadmap }) {
                   side={side}
                   color={weekColor(week.id)}
                   pctVal={pct(leavesForWeek(week)).pct}
-                  onClick={() => navigate(routeForPart(part.id), { state: { jump: week.id } })}
+                  onClick={() => navigate('/study-plan', { state: { jump: week.id } })}
                 />
               );
             })}
