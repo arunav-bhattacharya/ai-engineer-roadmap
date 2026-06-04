@@ -1288,6 +1288,102 @@ code {
   opacity: 0.5;
 }
 
+/* ===== exercise: EX-### chip + inline-expand detail ===== */
+.ex-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  padding: 2px 8px;
+  border: 1px solid color-mix(in srgb, var(--wk-accent) 45%, var(--line));
+  background: color-mix(in srgb, var(--wk-accent) 10%, transparent);
+  border-radius: 999px;
+  cursor: pointer;
+  color: var(--ink-dim);
+  transition: 0.15s;
+}
+.ex-chip:hover {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--wk-accent) 20%, transparent);
+}
+.ex-code {
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  color: color-mix(in srgb, var(--wk-accent) 70%, var(--ink));
+}
+.ex-caret {
+  width: 5px;
+  height: 5px;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+.ex-chip.open .ex-caret {
+  transform: rotate(135deg);
+}
+
+.exercise-detail-row > td {
+  padding: 0 14px 14px;
+  background: color-mix(in srgb, var(--wk-accent) 5%, var(--panel));
+  border-bottom: 1px solid var(--line);
+}
+.exercise-detail {
+  border-left: 3px solid var(--wk-accent);
+  padding: 12px 0 6px 16px;
+  max-width: 900px;
+}
+.ex-detail-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+.ex-detail-head .ex-code {
+  font-size: 11px;
+  flex: none;
+}
+.ex-detail-head b {
+  color: var(--ink);
+  font-weight: 600;
+}
+.ex-block {
+  margin: 0 0 12px;
+}
+.ex-label {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  margin-bottom: 5px;
+}
+.ex-block ol,
+.ex-block ul {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.ex-block li {
+  margin: 3px 0;
+}
+.ex-block li::marker {
+  color: var(--ink-dim);
+}
+.ex-stretch p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+}
+.ex-stretch {
+  border-top: 1px dashed var(--line);
+  padding-top: 10px;
+}
+
 @media print {
   #topbar,
   .toolbar,
@@ -1717,21 +1813,32 @@ code {
 .rmap {
   margin-top: 56px;
 }
-/* Overview plan toggle (Fast-Track vs Complete Plan) */
+/* Overview plan toggle (Fast vs Complete) — compact segmented switch */
 .plan-toggle {
   margin-left: auto;
   display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.plan-toggle-label {
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.plan-toggle-seg {
+  display: inline-flex;
   gap: 2px;
-  padding: 3px;
+  padding: 2px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--panel-2);
 }
-.plan-toggle button {
+.plan-toggle-seg button {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 0.02em;
-  padding: 6px 14px;
+  padding: 4px 11px;
   border: none;
   background: none;
   color: var(--ink-dim);
@@ -1740,10 +1847,10 @@ code {
   transition: 0.15s;
   white-space: nowrap;
 }
-.plan-toggle button:hover {
+.plan-toggle-seg button:hover {
   color: var(--ink);
 }
-.plan-toggle button.active {
+.plan-toggle-seg button.active {
   background: var(--accent-tint);
   color: var(--ink);
 }

@@ -9,6 +9,13 @@ export interface Resource {
   trailing?: string;
 }
 
+export interface Exercise {
+  goal: string;
+  steps: string[];
+  acceptance: string[];
+  stretch?: string;
+}
+
 export interface Day {
   n: string;
   focusTitle: string;
@@ -16,6 +23,7 @@ export interface Day {
   resources: Resource[];
   est: string;
   hands?: string;
+  exercise?: Exercise;
 }
 
 export interface CapstoneSpec {
