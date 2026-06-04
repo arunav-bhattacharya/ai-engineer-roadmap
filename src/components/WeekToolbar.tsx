@@ -2,13 +2,16 @@ import { useCollapse } from '../lib/CollapseContext';
 
 interface Props {
   weekIds: string[];
+  /** Extra collapse keys (e.g. topic-section ids) toggled together with the weeks. */
+  extraIds?: string[];
   sidebarOpen: boolean;
   onToggleSidebar: () => void;
 }
 
-export function WeekToolbar({ weekIds, sidebarOpen, onToggleSidebar }: Props) {
+export function WeekToolbar({ weekIds, extraIds = [], sidebarOpen, onToggleSidebar }: Props) {
   const { collapsed, collapseAll, expandAll } = useCollapse();
   const expandedCount = weekIds.filter((id) => !collapsed.has(id)).length;
+  const allIds = [...weekIds, ...extraIds];
 
   return (
     <div className="weektoolbar">
@@ -27,10 +30,10 @@ export function WeekToolbar({ weekIds, sidebarOpen, onToggleSidebar }: Props) {
         </span>
       </div>
       <div className="weektoolbar-btns">
-        <button type="button" onClick={() => expandAll(weekIds)}>
+        <button type="button" onClick={() => expandAll(allIds)}>
           Expand all
         </button>
-        <button type="button" onClick={() => collapseAll(weekIds)}>
+        <button type="button" onClick={() => collapseAll(allIds)}>
           Collapse all
         </button>
       </div>
