@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 import fasttrack from '../data/fasttrack.json';
-import { WeekCard } from '../components/WeekCard';
-import { useCollapse } from '../lib/CollapseContext';
+import { PlanView } from '../components/PlanView';
 import { useProgress } from '../lib/ProgressContext';
 import { leavesForWeek } from '../lib/ids';
+import { FT_TOPIC_GROUPS } from '../lib/topics';
 import type { Week } from '../types/roadmap';
 
 interface FastTrackData {
@@ -15,8 +15,6 @@ const ft = fasttrack as FastTrackData;
 
 export function FastTrack() {
   const { pct } = useProgress();
-  const { collapseAll, expandAll } = useCollapse();
-  const weekIds = ft.weeks.map((w) => w.id);
   const leaves = useMemo(() => ft.weeks.flatMap(leavesForWeek), []);
   const s = pct(leaves);
   const totalHours = ft.weeks.reduce((acc, w) => {
@@ -24,44 +22,28 @@ export function FastTrack() {
     return acc + (m ? Number(m[1]) : 0);
   }, 0);
 
-  return (
-    <>
-      <section className="cert-hero ft-hero">
-        <span className="kicker mono">Fast-track · 8 weeks · ~{totalHours} hrs</span>
-        <h1 className="cert-title">
-          Fast-Track<br />
-          <em>AI Engineer in 8 weeks</em>
-        </h1>
-        <p className="cert-lede" dangerouslySetInnerHTML={{ __html: ft.lede }} />
+  const header = (
+    <section className="cert-hero ft-hero">
+      <span className="kicker mono">Fast-track · 8 weeks · ~{totalHours} hrs</span>
+      <h1 className="cert-title">
+        Fast-Track<br />
+        <em>AI Engineer in 8 weeks</em>
+      </h1>
+      <p className="cert-lede" dangerouslySetInnerHTML={{ __html: ft.lede }} />
 
-        <div className="ft-progress">
-          <div className="ring" style={{ '--p': s.pct } as React.CSSProperties}>
-            <div>{s.pct}%</div>
-          </div>
-          <div className="dashinfo">
-            <div className="t">Fast-track progress</div>
-            <div className="s">
-              {s.done} of {s.total} items complete
-            </div>
-          </div>
+      <div className="ft-progress">
+        <div className="ring" style={{ '--p': s.pct } as React.CSSProperties}>
+          <div>{s.pct}%</div>
         </div>
-      </section>
-
-      <div className="weektoolbar ft-toolbar">
-        <span className="weektoolbar-count mono">{ft.weeks.length} weeks · build-first</span>
-        <div className="weektoolbar-btns">
-          <button type="button" onClick={() => expandAll(weekIds)}>
-            Expand all
-          </button>
-          <button type="button" onClick={() => collapseAll(weekIds)}>
-            Collapse all
-          </button>
+        <div className="dashinfo">
+          <div className="t">Fast-track progress</div>
+          <div className="s">
+            {s.done} of {s.total} items complete
+          </div>
         </div>
       </div>
-
-      {ft.weeks.map((w) => (
-        <WeekCard key={w.id} week={w} />
-      ))}
-    </>
+    </section>
   );
+
+  return <PlanView topicGroups={FT_TOPIC_GROUPS} weeks={ft.weeks} header={header} />;
 }

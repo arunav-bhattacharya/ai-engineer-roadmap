@@ -1,17 +1,13 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
-import roadmap from '../data/roadmap.json';
-import { OverallProgress } from '../components/OverallProgress';
-import { WeekCard } from '../components/WeekCard';
-import { WeekSidebar, type SidebarSection } from '../components/WeekSidebar';
-import { WeekToolbar } from '../components/WeekToolbar';
+import { WeekCard } from './WeekCard';
+import { WeekSidebar, type SidebarSection } from './WeekSidebar';
+import { WeekToolbar } from './WeekToolbar';
 import { useCollapse } from '../lib/CollapseContext';
 import { leavesForWeek } from '../lib/ids';
 import { useProgress } from '../lib/ProgressContext';
-import { TOPIC_GROUPS } from '../lib/topics';
-import type { Roadmap, Week } from '../types/roadmap';
-
-const r = roadmap as Roadmap;
+import type { TopicGroup } from '../lib/topics';
+import type { Week } from '../types/roadmap';
 
 const SIDEBAR_KEY = 'ai-roadmap-sidebar-v1';
 const loadSidebarOpen = (): boolean => {
@@ -24,24 +20,35 @@ const loadSidebarOpen = (): boolean => {
 
 const sectionKey = (topicId: string) => `section-${topicId}`;
 
-export function StudyPlan() {
+interface Props {
+  topicGroups: TopicGroup[];
+  weeks: Week[];
+  header?: ReactNode;
+}
+
+/**
+ * Shared plan layout used by both the Complete Plan and Fast-Track pages:
+ * a collapsible-topic sidebar + a week column whose topic banners and week
+ * cards are individually collapsible. Deep-links (location.state.jump) expand
+ * the target week's enclosing topic before scrolling.
+ */
+export function PlanView({ topicGroups, weeks, header }: Props) {
   const { expand, isCollapsed, toggle } = useCollapse();
   const { pct } = useProgress();
   const location = useLocation();
 
-  const weekById = useMemo(() => new Map<string, Week>(r.weeks.map((w) => [w.id, w])), []);
+  const weekById = useMemo(() => new Map<string, Week>(weeks.map((w) => [w.id, w])), [weeks]);
   const sections: SidebarSection[] = useMemo(
     () =>
-      TOPIC_GROUPS.map((tg) => ({
+      topicGroups.map((tg) => ({
         id: tg.id,
         label: tg.label,
         weeks: tg.weekIds.map((id) => weekById.get(id)).filter((w): w is Week => Boolean(w)),
       })),
-    [weekById],
+    [topicGroups, weekById],
   );
-  const allWeeks = sections.flatMap((s) => s.weeks);
-  const weekIds = allWeeks.map((w) => w.id);
-  const sectionIds = TOPIC_GROUPS.map((tg) => sectionKey(tg.id));
+  const weekIds = sections.flatMap((s) => s.weeks.map((w) => w.id));
+  const sectionIds = topicGroups.map((tg) => sectionKey(tg.id));
 
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(loadSidebarOpen);
   useEffect(() => {
@@ -52,15 +59,14 @@ export function StudyPlan() {
     }
   }, [sidebarOpen]);
 
-  // Deep-link from Overview RoadmapMap or Certifications page: navigate(state:{jump}).
-  // Also make sure the week's enclosing topic section is expanded before scrolling.
+  // Deep-link: expand the week's enclosing topic + the week, then scroll.
   const jump = (location.state as { jump?: string } | null)?.jump;
   const handledKey = useRef<string>('');
   useEffect(() => {
     if (!jump || !weekIds.includes(jump)) return;
     if (handledKey.current === location.key) return;
     handledKey.current = location.key;
-    const topic = TOPIC_GROUPS.find((tg) => tg.weekIds.includes(jump));
+    const topic = topicGroups.find((tg) => tg.weekIds.includes(jump));
     if (topic) expand(sectionKey(topic.id));
     expand(jump);
     const t = setTimeout(() => {
@@ -72,7 +78,7 @@ export function StudyPlan() {
 
   return (
     <>
-      <OverallProgress roadmap={r} />
+      {header}
 
       <div className={`partlayout${sidebarOpen ? '' : ' sidebar-collapsed'}`}>
         {sidebarOpen ? <WeekSidebar sections={sections} /> : null}
@@ -84,12 +90,12 @@ export function StudyPlan() {
             onToggleSidebar={() => setSidebarOpen((o) => !o)}
           />
 
-          {TOPIC_GROUPS.map((tg, ti) => {
-            const weeks = tg.weekIds
+          {topicGroups.map((tg, ti) => {
+            const tgWeeks = tg.weekIds
               .map((id) => weekById.get(id))
               .filter((w): w is Week => Boolean(w));
-            if (weeks.length === 0) return null;
-            const s = pct(weeks.flatMap(leavesForWeek));
+            if (tgWeeks.length === 0) return null;
+            const s = pct(tgWeeks.flatMap(leavesForWeek));
             const kicker = `TOPIC ${String(ti + 1).padStart(2, '0')}`;
             const key = sectionKey(tg.id);
             const collapsed = isCollapsed(key);
@@ -115,7 +121,7 @@ export function StudyPlan() {
                   <span className="tsub">{tg.sub}</span>
                 </button>
                 <div className="studyplan-topic-body" id={bodyId} hidden={collapsed}>
-                  {weeks.map((w) => (
+                  {tgWeeks.map((w) => (
                     <WeekCard key={w.id} week={w} />
                   ))}
                 </div>

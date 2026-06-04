@@ -1,22 +1,32 @@
 import { useNavigate } from 'react-router-dom';
-import { TOPIC_GROUPS } from '../lib/topics';
 import { useProgress } from '../lib/ProgressContext';
 import { leavesForWeek } from '../lib/ids';
-import type { Roadmap, Week } from '../types/roadmap';
+import type { TopicGroup } from '../lib/topics';
+import type { Week } from '../types/roadmap';
 
-export function RoadmapMap({ roadmap }: { roadmap: Roadmap }) {
+interface Props {
+  groups: TopicGroup[];
+  weeks: Week[];
+  /** Route to deep-link into when a node is clicked. */
+  route: string;
+  /** Optional control rendered in the section header (e.g. the plan toggle). */
+  control?: React.ReactNode;
+}
+
+export function RoadmapMap({ groups, weeks, route, control }: Props) {
   const navigate = useNavigate();
   const { pct } = useProgress();
-  const weekById = new Map<string, Week>(roadmap.weeks.map((w) => [w.id, w]));
+  const weekById = new Map<string, Week>(weeks.map((w) => [w.id, w]));
 
   return (
     <section className="rmap" aria-label="Visual roadmap">
       <div className="section-head">
         <h2 className="sec-title">The roadmap</h2>
+        {control}
       </div>
 
       <div className="rmap-track">
-        {TOPIC_GROUPS.map((tg, ti) => {
+        {groups.map((tg, ti) => {
           const weeks = tg.weekIds
             .map((id) => weekById.get(id))
             .filter((w): w is Week => Boolean(w));
@@ -37,7 +47,7 @@ export function RoadmapMap({ roadmap }: { roadmap: Roadmap }) {
                   side={side}
                   color={tg.color}
                   pctVal={pct(leavesForWeek(week)).pct}
-                  onClick={() => navigate('/study-plan', { state: { jump: week.id } })}
+                  onClick={() => navigate(route, { state: { jump: week.id } })}
                 />
               ))}
             </div>

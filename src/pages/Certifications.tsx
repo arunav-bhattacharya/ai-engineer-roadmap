@@ -95,7 +95,7 @@ function CertCard({ cert }: { cert: Certification }) {
 
       {cert.mapsTo.length > 0 && (
         <div className="cert-chip-row">
-          <span className="cert-chip-label mono">Maps to</span>
+          <span className="cert-chip-label mono">Maps to · Complete Plan</span>
           <div className="cert-chips">
             {cert.mapsTo.map((wid) => {
               const w = weekById.get(wid);
@@ -107,8 +107,8 @@ function CertCard({ cert }: { cert: Certification }) {
                   type="button"
                   className="cert-chip"
                   style={{ '--wk-color': color } as React.CSSProperties}
-                  onClick={() => navigate('/study-plan', { state: { jump: wid } })}
-                  aria-label={`Open ${w.tag} ${w.title} in the Study Plan`}
+                  onClick={() => navigate('/complete-plan', { state: { jump: wid } })}
+                  aria-label={`Open ${w.tag} ${w.title} in the Complete Plan`}
                   title={w.title}
                 >
                   <span className="cert-chip-dot" style={{ background: color }} aria-hidden="true" />
