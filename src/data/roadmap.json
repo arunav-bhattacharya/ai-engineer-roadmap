@@ -121,12 +121,12 @@
       "name": "ByteByteGo — Become an AI Engineer",
       "url": "https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/",
       "bestFor": "Pre-training, reasoning models, agent reasoning, multimodal",
-      "drives": "W2, W5, W7, W4, W6, W19"
+      "drives": "W2, W4, W5, W6, W7, W19"
     },
     {
       "name": "Chip Huyen — AI Engineering",
       "bestFor": "Evaluation, retrieval, finetuning, inference, architecture",
-      "drives": "W4–16 spine"
+      "drives": "W4, W6, W11, W14, W17, W18 (depth spine)"
     },
     {
       "name": "Java Brains — From Java to AI",
@@ -346,19 +346,19 @@
   ],
   "notes": {
     "paidCourses": [
-      "<a href=\"https://maven.com/parlance-labs/evals\" target=\"_blank\">AI Evals for Engineers &amp; PMs</a> (Hamel Husain &amp; Shreya Shankar) — highest-signal paid course in the space (~$2k). Pairs with Weeks 7 &amp; 12.",
-      "<a href=\"https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/\" target=\"_blank\">Ed Donner — AI Engineer Core Track</a> (~$15–20 on sale) — backbone for Weeks 2, 3, 6.",
-      "<a href=\"https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/\" target=\"_blank\">AI Engineer Agentic Track</a> (~$15–20) — 8 projects across OpenAI SDK / CrewAI / LangGraph / AutoGen / MCP; drives Weeks 4–5.",
+      "<a href=\"https://maven.com/parlance-labs/evals\" target=\"_blank\">AI Evals for Engineers &amp; PMs</a> (Hamel Husain &amp; Shreya Shankar) — highest-signal paid course in the space (~$2k). Pairs with Weeks 12 &amp; 14.",
+      "<a href=\"https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/\" target=\"_blank\">Ed Donner — AI Engineer Core Track</a> (~$15–20 on sale) — backbone for Weeks 2, 5, 10.",
+      "<a href=\"https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/\" target=\"_blank\">AI Engineer Agentic Track</a> (~$15–20) — 8 projects across OpenAI SDK / CrewAI / LangGraph / AutoGen / MCP; drives Weeks 7–8.",
       "<a href=\"https://www.udemy.com/course/generative-and-agentic-ai-in-production/\" target=\"_blank\">AI Engineer Production Track</a> (~$15–20) — AWS Bedrock/SageMaker, Lambda, Terraform, CI/CD, serverless multi-agent; drives Week 18."
     ],
     "buyingTip": "<b>Buying tip:</b> all three Ed Donner courses are on Udemy — the Personal Plan unlocks everything and beats buying individually; otherwise wait for the recurring ~$10–20 sale and never pay sticker. Chip Huyen's <i>AI Engineering</i> (the book you have) is the depth-weeks spine — no course replaces it.",
     "pitfalls": [
       "<b>You now own overlapping courses — don't binge them linearly.</b> Use the resource map: one primary per week, the rest as reference. Watching all six Ed Donner courses + ByteByteGo + Cohen end-to-end is hundreds of hours and mostly redundant.",
-      "<b>Don't let the depth weeks block shipping.</b> The capstone (W10) is the hireable artifact; W4–18 deepen you but a portfolio project beats half-read theory. Ship first.",
+      "<b>Don't let the depth weeks block shipping.</b> The capstone (W15) is the hireable artifact; the later depth weeks deepen you but a portfolio project beats half-read theory. Ship first.",
       "<b>Don't chase \"the correct framework.\"</b> Week 8 is breadth on purpose — learn all four, commit to none.",
       "<b>Your backend rigor is a superpower past Week 7.</b> Most AI engineers can't reason about throughput, idempotency, retries, or transactional semantics — your capstone and Week 17 should be 10× more production-ready than the median learner's.",
       "<b>Don't fine-tune unless evals say to.</b> The #1 trap for technical learners.",
-      "<b>Your edges are Weeks 2B, 8, and 15.</b> JVM-native AI + Temporal orchestration + inference optimization. Build the capstone on the JVM and write the blog posts — they're your differentiated interview assets."
+      "<b>Your edges are Weeks 3, 9, and 17.</b> JVM-native AI + Temporal orchestration + inference optimization. Build the capstone on the JVM and write the blog posts — they're your differentiated interview assets."
     ],
     "sig": "Roadmap v8 · progress tracker · 20-week · Google Sans Flex · 2 Jun 2026 · sources: Huyen, AI Engineering (O'Reilly) · Ed Donner full 6-course series · ByteByteGo cohort · Mike X Cohen · Java Brains (JVM-native) · Eugene Yan / Hamel for evals + MLOps · Alex Xu Sys Design Vol 2"
   },

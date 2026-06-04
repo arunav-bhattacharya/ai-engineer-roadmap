@@ -55,7 +55,7 @@ export const CERTIFICATIONS: Certification[] = [
     url: 'https://academy.langchain.com/',
     effort: '~10 hours',
     cost: 'Free',
-    mapsTo: ['w6', 'w8'],
+    mapsTo: ['w7', 'w8'],
     when: 'Finish during or right after W8 — that week already builds the same agent in LangGraph + 3 others.',
     why: 'LangGraph is the agent framework most commonly asked about in 2026 interviews. Short, focused, free, badge on completion. W8 builds in it already so net-new study is minimal.',
     process: [
@@ -111,7 +111,7 @@ export const CERTIFICATIONS: Certification[] = [
       'Work through HashiCorp Learn — "Terraform Associate Tutorials" (~10 hours).',
       'Take 2 free practice exams (Bryan Krausen on Udemy / Tutorials Dojo).',
       'Schedule the exam on PSI Online — proctored from home, 60 min, 57 questions.',
-      'Pass mark is ~70% — most engineers with W16 experience pass comfortably.',
+      'Pass mark is ~70% — most engineers with W18 experience pass comfortably.',
     ],
     links: [
       { label: 'Certification page', url: 'https://developer.hashicorp.com/certifications/infrastructure-automation' },

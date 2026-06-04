@@ -79,8 +79,44 @@ export const TOPIC_GROUPS: TopicGroup[] = [
   },
 ];
 
+/**
+ * Fast-Track topic groups — the 8-week condensed plan (ft0..ft7), four
+ * thematic pairs. Ids are prefixed `ft-` so the `section-ft-*` collapse keys
+ * never collide with the Complete Plan's section keys.
+ */
+export const FT_TOPIC_GROUPS: TopicGroup[] = [
+  {
+    id: 'ft-core',
+    label: 'Core LLM Skills',
+    sub: 'LLM APIs · retrieval & RAG',
+    color: '#e0913a', // amber
+    weekIds: ['ft0', 'ft1'],
+  },
+  {
+    id: 'ft-agents',
+    label: 'Agents & Evaluation',
+    sub: 'agents / MCP · evals & observability',
+    color: '#9b7fe0', // violet
+    weekIds: ['ft2', 'ft3'],
+  },
+  {
+    id: 'ft-models',
+    label: 'Models & Performance',
+    sub: 'fine-tuning · inference & cost',
+    color: '#3bb6a6', // teal
+    weekIds: ['ft4', 'ft5'],
+  },
+  {
+    id: 'ft-ship',
+    label: 'Ship & Showcase',
+    sub: 'deploy / system design · capstone & portfolio',
+    color: '#5b8def', // indigo
+    weekIds: ['ft6', 'ft7'],
+  },
+];
+
 const topicByWeekId: Record<string, TopicGroup> = {};
-for (const tg of TOPIC_GROUPS) {
+for (const tg of [...TOPIC_GROUPS, ...FT_TOPIC_GROUPS]) {
   for (const wid of tg.weekIds) {
     topicByWeekId[wid] = tg;
   }

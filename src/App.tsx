@@ -6,9 +6,9 @@ import { CollapseProvider } from './lib/CollapseContext';
 import { ProgressProvider } from './lib/ProgressContext';
 import { ThemeProvider } from './lib/ThemeContext';
 import { Certifications } from './pages/Certifications';
+import { CompletePlan } from './pages/CompletePlan';
 import { FastTrack } from './pages/FastTrack';
 import { Overview } from './pages/Overview';
-import { StudyPlan } from './pages/StudyPlan';
 
 export default function App() {
   return (
@@ -24,12 +24,13 @@ export default function App() {
             <div className="wrap">
               <Routes>
                 <Route path="/" element={<Overview />} />
-                <Route path="/study-plan" element={<StudyPlan />} />
                 <Route path="/fast-track" element={<FastTrack />} />
+                <Route path="/complete-plan" element={<CompletePlan />} />
                 <Route path="/certifications" element={<Certifications />} />
                 {/* legacy redirects */}
-                <Route path="/part-1" element={<Navigate to="/study-plan" replace />} />
-                <Route path="/part-2" element={<Navigate to="/study-plan" replace />} />
+                <Route path="/study-plan" element={<Navigate to="/complete-plan" replace />} />
+                <Route path="/part-1" element={<Navigate to="/complete-plan" replace />} />
+                <Route path="/part-2" element={<Navigate to="/complete-plan" replace />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </div>

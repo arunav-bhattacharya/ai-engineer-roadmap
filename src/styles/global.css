@@ -1452,6 +1452,10 @@ code {
   flex-direction: column;
   gap: 2px;
 }
+/* the flex rule above out-specifies the UA [hidden] rule, so restore it */
+.weeksidebar ul[hidden] {
+  display: none;
+}
 .weeksidebar a {
   display: flex;
   align-items: center;
@@ -1712,6 +1716,36 @@ code {
 }
 .rmap {
   margin-top: 56px;
+}
+/* Overview plan toggle (Fast-Track vs Complete Plan) */
+.plan-toggle {
+  margin-left: auto;
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel-2);
+}
+.plan-toggle button {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  padding: 6px 14px;
+  border: none;
+  background: none;
+  color: var(--ink-dim);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: 0.15s;
+  white-space: nowrap;
+}
+.plan-toggle button:hover {
+  color: var(--ink);
+}
+.plan-toggle button.active {
+  background: var(--accent-tint);
+  color: var(--ink);
 }
 .rmap-track {
   position: relative;
