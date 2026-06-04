@@ -25,7 +25,7 @@
   --header-bg-stop: #10130f;
   --accent-tint: rgba(232, 163, 61, 0.1);
   --link-underline: rgba(111, 168, 199, 0.3);
-  --hours-pill: #818cf8; /* bright indigo for the hours pill on the dark theme */
+  --hours-pill: #22d3ee; /* bright cyan for the hours pill on the dark theme */
 
   --chip-vid: rgba(217, 105, 90, 0.18);
   --chip-course: rgba(127, 176, 105, 0.18);
