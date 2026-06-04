@@ -26,11 +26,19 @@
               "typeLabel": "docs",
               "label": "Pydantic v2 docs",
               "url": "https://docs.pydantic.dev/latest/"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "ArjanCodes — Pydantic tutorial",
+              "url": "https://www.youtube.com/watch?v=502XOB0u8OY"
             }
           ],
           "est": "2.5h",
           "hands": "Set up <code>ai-fasttrack</code> repo with uv; model a Pydantic request/response; one typed function with a failing-validation test.",
           "exercise": {
+            "exId": "python-env-setup",
+            "summary": "This sets up a typed Python AI project so the rest of the fast-track has a foundation. You'll create the project with <code>uv</code>, add a Pydantic request/response model, write one typed function with a failing-validation test, and run <code>mypy</code>. Typed-and-tested from day one prevents a class of bugs later. Beginner trap: skipping the lockfile — without a committed <code>uv</code> lock, \"works on my machine\" breaks the moment a dependency updates.",
             "goal": "Set up a typed Python AI project.",
             "steps": [
               "Create <code>ai-fasttrack</code> with uv; add a Pydantic request/response model.",
@@ -59,6 +67,8 @@
           "est": "2h",
           "hands": "Tabulate $/M-token for 3 models you'll use; predict then verify token counts on 3 sample prompts.",
           "exercise": {
+            "exId": "how-llms-work",
+            "summary": "A Large Language Model (LLM) is a system that predicts text one token at a time, and your first job is intuition for what each model costs and is good at. You'll tabulate price per million input/output tokens for a frontier, a mid, and a local model, then estimate the cost of a typical 2k-in / 500-out call for each. Knowing this stops you reaching for the biggest model by reflex. Beginner trap: comparing only the headline price — a cheap model that needs three retries can cost more than one strong call.",
             "goal": "Build LLM cost/behaviour intuition.",
             "steps": [
               "Tabulate $/M tokens for 3 models you'll use.",
@@ -87,6 +97,8 @@
           "est": "2.5h",
           "hands": "Build an extractor: job description → <code>{role, seniority, skills[], remote}</code> validated as a Pydantic model.",
           "exercise": {
+            "exId": "prompting-structured-output",
+            "summary": "This combines prompting with schema-enforced output — the core \"make the model return usable data\" skill. You'll build an extractor that turns a job description into a typed Pydantic object, add a few-shot example, and validate three messy inputs. Structured output is what lets code consume model results. Pitfall: relying on the prompt alone to get JSON — pair it with a schema/validator, because asking nicely for JSON isn't reliable enough on its own.",
             "goal": "Prompt for reliable structured output.",
             "steps": [
               "Build an extractor: job description → <code>{role, seniority, skills[], remote}</code> Pydantic model.",
@@ -115,6 +127,8 @@
           "est": "2.5h",
           "hands": "LLM that can call 3 tools — <code>get_weather</code>, <code>search_files</code>, <code>run_sql</code> — with a clean dispatch loop.",
           "exercise": {
+            "exId": "tool-use-function-calling",
+            "summary": "Tool use (function calling) lets the model run your code and use the result — the foundation under every agent. You'll give the model three tools (<code>get_weather</code>, <code>search_files</code>, <code>run_sql</code>), write the routing loop, and handle a tool error gracefully. Build the loop by hand once and frameworks become obvious. Beginner trap: crashing on a tool error instead of returning it to the model — given the error text, the model can often recover.",
             "goal": "Implement a multi-tool dispatch loop.",
             "steps": [
               "Give the LLM 3 tools (<code>get_weather</code>, <code>search_files</code>, <code>run_sql</code>).",
@@ -152,11 +166,19 @@
               "typeLabel": "read",
               "label": "Pinecone — Chunking strategies",
               "url": "https://www.pinecone.io/learn/chunking-strategies/"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "DeepLearning.AI — Advanced Retrieval",
+              "url": "https://www.deeplearning.ai/short-courses/advanced-retrieval-for-ai/"
             }
           ],
           "est": "2h",
           "hands": "Chunk a docs corpus 3 ways; embed with <code>all-MiniLM-L6-v2</code>; eyeball the tradeoffs.",
           "exercise": {
+            "exId": "embeddings-chunking",
+            "summary": "Before retrieval you must split documents into chunks and turn them into embeddings (vectors that capture meaning); how you chunk silently decides quality. You'll chunk one corpus three ways (fixed, recursive, semantic), embed with <code>all-MiniLM-L6-v2</code>, and eyeball results on a few queries. Chunking is the cheapest, highest-leverage knob on a Retrieval-Augmented Generation (RAG) pipeline. Beginner trap: defaulting to fixed-size chunks that slice sentences in half — the model then retrieves fragments that read as nonsense.",
             "goal": "Pick a chunking strategy with evidence.",
             "steps": [
               "Chunk a corpus 3 ways and embed with <code>all-MiniLM-L6-v2</code>.",
@@ -180,11 +202,19 @@
               "typeLabel": "read",
               "label": "Anthropic — Contextual Retrieval",
               "url": "https://www.anthropic.com/news/contextual-retrieval"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "Ed Donner Core — RAG",
+              "url": "https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/"
             }
           ],
           "est": "2.5h",
           "hands": "Ingest docs into Chroma; answer questions with citations; no framework yet.",
           "exercise": {
+            "exId": "rag-from-scratch",
+            "summary": "You'll build a Retrieval-Augmented Generation (RAG) pipeline end to end with no framework, so you understand every part before a library hides it. Ingest a docs corpus into <code>Chroma</code>, retrieve the top-k chunks, stuff them into the prompt, answer with the source chunks cited, and add a guard that says \"not in context\" when nothing relevant is found. Doing it raw demystifies every RAG product you'll meet. Beginner trap: skipping the \"not in context\" guard — without it the model happily fabricates an answer when retrieval finds nothing.",
             "goal": "Build RAG from scratch with citations.",
             "steps": [
               "Ingest docs into Chroma (raw SDK + chromadb).",
@@ -214,11 +244,19 @@
               "typeLabel": "read",
               "label": "Qdrant benchmarks",
               "url": "https://qdrant.tech/benchmarks/"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "DeepLearning.AI — Advanced Retrieval",
+              "url": "https://www.deeplearning.ai/short-courses/advanced-retrieval-for-ai/"
             }
           ],
           "est": "2.5h",
           "hands": "Swap Chroma → pgvector; record recall@5 / MRR; write a 1-pager picking a vector DB for millions of vectors + metadata filtering.",
           "exercise": {
+            "exId": "vector-db-landscape",
+            "summary": "Choosing a vector database is an architecture decision; this makes it deliberate. You'll swap Chroma for <code>pgvector</code>, record recall@5 and Mean Reciprocal Rank (MRR), write the HNSW-vs-IVF index tradeoff, and score five databases for millions of vectors with metadata filtering. The right database depends on scale and operations, not benchmarks alone. Pitfall: picking the fastest on a microbenchmark — metadata filtering and \"runs next to my existing Postgres\" usually matter more in production.",
             "goal": "Choose a vector DB deliberately.",
             "steps": [
               "Swap Chroma → pgvector; record recall@5 / MRR.",
@@ -247,6 +285,8 @@
           "est": "2.5h",
           "hands": "Add a cross-encoder reranker; rebuild the pipeline in LlamaIndex; compare answer quality with/without rerank.",
           "exercise": {
+            "exId": "rerank-framework-rebuild",
+            "summary": "This adds reranking and then rebuilds the pipeline in a framework to see what it abstracts. You'll add a cross-encoder reranker and compare with/without, rebuild in LlamaIndex, and note what the framework hid. Reranking is the cheapest quality win in retrieval. Beginner trap: adopting the framework before understanding the steps — when it misbehaves you won't know which layer to fix.",
             "goal": "Rerank and rebuild in a framework.",
             "steps": [
               "Add a cross-encoder reranker; compare with/without.",
@@ -284,11 +324,19 @@
               "typeLabel": "read",
               "label": "Anthropic — Building Effective Agents",
               "url": "https://www.anthropic.com/research/building-effective-agents"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "HuggingFace — AI Agents Course",
+              "url": "https://huggingface.co/learn/agents-course"
             }
           ],
           "est": "3h",
           "hands": "Write a ReAct agent (no framework) that uses your Week-2 RAG + a calculator tool; log every step.",
           "exercise": {
+            "exId": "react-from-scratch",
+            "summary": "You'll write a ~100-line ReAct (reason–act–observe) agent with no framework. Wire it to your RAG plus a calculator tool, log every step, and add a max-step stop. The raw loop makes every agent library legible afterward. Pitfall: no step cap — a confused agent loops until it runs out of budget; the stop condition isn't optional.",
             "goal": "Write a ~100-line ReAct agent.",
             "steps": [
               "Implement reason→act→observe using your RAG + a calculator tool.",
@@ -312,11 +360,19 @@
               "typeLabel": "docs",
               "label": "LangGraph docs",
               "url": "https://langchain-ai.github.io/langgraph/"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "LangChain Academy — Intro to LangGraph",
+              "url": "https://academy.langchain.com/courses/intro-to-langgraph"
             }
           ],
           "est": "3h",
           "hands": "Rebuild the same agent in LangGraph with a conditional edge + memory; note what the framework hides.",
           "exercise": {
+            "exId": "agent-frameworks",
+            "summary": "This rebuilds your hand-written agent in LangGraph to feel what a framework gives you. You'll model state, tools, and a conditional edge, add memory and a human-in-the-loop (HITL) interrupt, and note what LangGraph abstracts. Rebuilding the same agent is the fastest way to judge a framework. Beginner trap: hiding real branching inside one node — the graph only helps if distinct steps are distinct nodes.",
             "goal": "Rebuild the agent in LangGraph.",
             "steps": [
               "Model state, tools, and a conditional edge.",
@@ -340,11 +396,19 @@
               "typeLabel": "docs",
               "label": "Model Context Protocol docs",
               "url": "https://modelcontextprotocol.io/"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "HuggingFace — MCP Course",
+              "url": "https://huggingface.co/learn/mcp-course"
             }
           ],
           "est": "2.5h",
           "hands": "Wrap one of your tools as an MCP server; call it from the agent through an MCP client.",
           "exercise": {
+            "exId": "mcp-model-context-protocol",
+            "summary": "The Model Context Protocol (MCP) is an open standard for exposing a tool to any model over a common interface. You'll wrap one tool as an MCP server, call it from the agent via an MCP client, and verify the round-trip. Build the tool once, reuse it everywhere. Pitfall: exposing a write-capable tool with no auth — treat an MCP server like any public API surface.",
             "goal": "Expose a tool via MCP.",
             "steps": [
               "Wrap one tool as an MCP server.",
@@ -368,11 +432,19 @@
               "typeLabel": "read",
               "label": "Anthropic — Building Effective Agents (patterns)",
               "url": "https://www.anthropic.com/research/building-effective-agents"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "Anthropic — How We Build Effective Agents",
+              "url": "https://www.youtube.com/watch?v=D7_ipDqhtwk"
             }
           ],
           "est": "2h",
           "hands": "Add a reflection step + a loop/cost circuit-breaker; compare quality vs the plain ReAct baseline.",
           "exercise": {
+            "exId": "reliability-patterns",
+            "summary": "This hardens the agent with the patterns that make it dependable. You'll add a reflection step and a loop/cost circuit-breaker, retries on tool failures, and compare quality against plain ReAct. Reliability primitives are what separate a demo from something you'd run unattended. Beginner trap: no cost circuit-breaker — a looping agent can quietly burn money before anyone notices.",
             "goal": "Add agent reliability patterns.",
             "steps": [
               "Add a reflection step + a loop/cost circuit-breaker.",
@@ -409,11 +481,19 @@
               "typeLabel": "read",
               "label": "Hamel — LLM Evals FAQ",
               "url": "https://hamel.dev/blog/posts/evals-faq/"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "Hamel Husain — Domain-Specific LLM Evals",
+              "url": "https://www.youtube.com/watch?v=eLXF0VojuSs"
             }
           ],
           "est": "1.5h",
           "hands": "Enumerate the failure modes you expect from your Week-3 agent; group them.",
           "exercise": {
+            "exId": "why-evals-are-everything",
+            "summary": "Evaluations (evals) are systematic tests of model quality, and they're the real differentiator between a demo and a product. You'll list the failure modes you expect from your agent, group them into categories, and pick the three that matter most. Knowing what to measure comes before building any grader. Beginner trap: \"it looked good in a few tries\" — vibes aren't evals; without measurement you can't tell if a change helped or hurt.",
             "goal": "List the failure modes you must catch.",
             "steps": [
               "Enumerate expected failures of your agent.",
@@ -442,6 +522,8 @@
           "est": "3h",
           "hands": "Label ~50 traces → cluster failures → write an LLM-judge per mode → validate TPR/TNR → keep a golden set of 20 that gates CI.",
           "exercise": {
+            "exId": "build-evals-llm-as-judge",
+            "summary": "This builds the eval suite and an LLM judge that gates your fast-track capstone. You'll label ~50 traces, cluster failures, write a model-as-judge grader per mode and validate it (true-positive/true-negative rate), and keep a 20-item golden set that gates continuous integration (CI). A validated judge is the alarm that catches regressions. Pitfall: trusting an unvalidated judge — if it disagrees with your own labels, its scores are noise.",
             "goal": "Build evals + an LLM judge.",
             "steps": [
               "Label ~50 traces; cluster failures.",
@@ -465,11 +547,19 @@
               "typeLabel": "tool",
               "label": "Langfuse",
               "url": "https://langfuse.com/"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "DeepLearning.AI — Evaluating AI Agents",
+              "url": "https://www.deeplearning.ai/short-courses/evaluating-ai-agents/"
             }
           ],
           "est": "2.5h",
           "hands": "Instrument every LLM/tool call with Langfuse; build a dashboard answering \"which tool calls fail most?\"",
           "exercise": {
+            "exId": "observability",
+            "summary": "Observability means tracing every model and tool call — cost, latency, inputs, outputs — so you can debug what actually happened. You'll wire Langfuse into every agent call, build a dashboard answering \"which tool calls fail most?\", and trace one real failing session end to end. You can't fix what you can't see. Beginner trap: logging only final answers — without per-step traces, a multi-step failure is impossible to localize.",
             "goal": "Instrument with observability.",
             "steps": [
               "Wire Langfuse into every call (cost, latency, tools).",
@@ -504,6 +594,8 @@
           "est": "2h",
           "hands": "Add input + output guardrails; run 10 injection attacks; document each defense.",
           "exercise": {
+            "exId": "guardrails-red-teaming",
+            "summary": "This adds guardrails and attacks your own app to find holes. You'll add input and output guardrails, run 10 injection attacks (try Lakera Gandalf), and document each mitigation. Assume any text the model reads might be adversarial. Beginner trap: filtering input but not output — a model can be coaxed into leaking secrets that only an output guard would catch.",
             "goal": "Add guardrails and red-team.",
             "steps": [
               "Add input + output guardrails.",
@@ -541,11 +633,19 @@
               "typeLabel": "read",
               "label": "Hugging Face — LLM course (fine-tuning)",
               "url": "https://huggingface.co/learn/llm-course"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "DeepLearning.AI — Finetuning LLMs",
+              "url": "https://www.deeplearning.ai/short-courses/finetuning-large-language-models/"
             }
           ],
           "est": "2h",
           "hands": "Write a 1-pager: for your capstone task, prove (or disprove) that prompting/RAG is enough before touching fine-tuning.",
           "exercise": {
+            "exId": "when-to-fine-tune",
+            "summary": "This is the decision exercise: prove whether fine-tuning is even worth it for your task. You'll show prompting/RAG is or isn't enough, write the decision and the metric that would justify fine-tuning, and estimate the data needed. Most \"we need to fine-tune\" instincts are cheaper to solve upstream. Pitfall: fine-tuning to add facts — for fresh knowledge RAG usually wins; fine-tuning is for behaviour and format.",
             "goal": "Decide whether to fine-tune at all.",
             "steps": [
               "Prove prompting/RAG is or isn't enough for your task.",
@@ -574,6 +674,8 @@
           "est": "3h",
           "hands": "LoRA-tune a small model (e.g. Llama-3.2-3B) on a focused dataset; beat the base model on a held-out test set.",
           "exercise": {
+            "exId": "lora-qlora",
+            "summary": "LoRA (Low-Rank Adaptation) fine-tunes a model by training small adapters instead of all its weights, so it fits modest hardware. You'll LoRA-tune a small model on a focused set, hold out a test set, and prove it beats base. Always measure against base — sometimes it doesn't win. Beginner trap: reporting training loss as success — only a held-out test set shows real improvement versus memorization.",
             "goal": "Run a LoRA fine-tune that beats base.",
             "steps": [
               "LoRA-tune a small model (e.g. Llama-3.2-3B) on a focused set.",
@@ -597,11 +699,19 @@
               "typeLabel": "tool",
               "label": "Ollama",
               "url": "https://ollama.com/"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "Learn Ollama in 15 Minutes (local models)",
+              "url": "https://www.youtube.com/watch?v=UtSSMs6ObqY"
             }
           ],
           "est": "2.5h",
           "hands": "Run a quantized model locally with Ollama; compare quality + latency vs the frontier API on 10 prompts.",
           "exercise": {
+            "exId": "local-models-quantization",
+            "summary": "This serves a quantized (compressed) model locally and weighs it against a frontier API. You'll run a quantized model via Ollama, compare quality and latency to the frontier API on 10 prompts, and note when local wins. Local trades some quality for cost, privacy, and control. Pitfall: judging quality on one prompt — quantization's quality loss is uneven, so test a spread before trusting it.",
             "goal": "Serve a quantized model locally.",
             "steps": [
               "Run a quantized model via Ollama.",
@@ -639,11 +749,19 @@
               "typeLabel": "docs",
               "label": "vLLM docs",
               "url": "https://docs.vllm.ai/"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "Fast, Cheap & Accurate — vLLM + Quantization",
+              "url": "https://www.youtube.com/watch?v=eJBjgakTulg"
             }
           ],
           "est": "2.5h",
           "hands": "Serve your Week-5 model with vLLM; benchmark TTFT / TPOT / throughput under load; build a latency-vs-cost table.",
           "exercise": {
+            "exId": "inference-metrics-serving",
+            "summary": "This measures inference like a systems engineer, under load. You'll serve your model with vLLM, benchmark Time To First Token (TTFT), Time Per Output Token (TPOT), and throughput under load, and build a latency-vs-cost table. These numbers drive serving decisions. Beginner trap: benchmarking one request at a time — the interesting behaviour only appears under concurrency.",
             "goal": "Measure inference under load.",
             "steps": [
               "Serve your model with vLLM.",
@@ -667,11 +785,19 @@
               "typeLabel": "docs",
               "label": "vLLM — batching & paged attention",
               "url": "https://docs.vllm.ai/"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "Fast, Cheap & Accurate — vLLM + Quantization",
+              "url": "https://www.youtube.com/watch?v=eJBjgakTulg"
             }
           ],
           "est": "2.5h",
           "hands": "Load-test continuous batching; chart throughput vs concurrency; enable speculative decoding and measure the speedup.",
           "exercise": {
+            "exId": "batching-kv-cache-spec-decoding",
+            "summary": "This tunes the serving layer with the three big levers: continuous batching, the Key/Value (KV) cache, and speculative decoding. You'll load-test batching and chart throughput vs concurrency, enable speculative decoding and measure the speedup, and observe KV-cache effects. Throughput is found by experiment, not assumed. Pitfall: enabling speculative decoding and not re-checking quality — speed is only a win if outputs hold.",
             "goal": "Tune the serving layer.",
             "steps": [
               "Load-test continuous batching; chart throughput vs concurrency.",
@@ -695,11 +821,19 @@
               "typeLabel": "docs",
               "label": "LiteLLM (gateway)",
               "url": "https://docs.litellm.ai/"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "Ed Donner — Production Track",
+              "url": "https://www.udemy.com/course/generative-and-agentic-ai-in-production/"
             }
           ],
           "est": "2.5h",
           "hands": "Add prompt + semantic caching; route easy queries to a small model via a gateway; measure the $ saved.",
           "exercise": {
+            "exId": "caching-routing-for-cost",
+            "summary": "Most production model cost is avoidable through caching and routing. You'll add prompt and semantic caching, route easy queries to a small model via a gateway (LiteLLM), and measure dollars saved on a realistic traffic mix. Not every query needs your most expensive model. Pitfall: semantic cache hits that are \"close but wrong\" — tune the similarity threshold, or you'll serve a cached answer to a subtly different question.",
             "goal": "Cut cost with caching + routing.",
             "steps": [
               "Add prompt + semantic caching.",
@@ -737,11 +871,19 @@
               "typeLabel": "read",
               "label": "OWASP LLM Top 10",
               "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "Ed Donner — Production Track",
+              "url": "https://www.udemy.com/course/generative-and-agentic-ai-in-production/"
             }
           ],
           "est": "2.5h",
           "hands": "Diagram your app as a layered architecture; label each layer in your actual code.",
           "exercise": {
+            "exId": "reference-architecture-guardrails",
+            "summary": "This diagrams your app as labeled layers and hardens it. You'll diagram the layers and label them in code, add input/output guardrails, and mark each layer's failure mode. A diagram that maps to real code is how you reason about the system. Beginner trap: a diagram that doesn't match the repo — if you can't point to each layer in code, it's decoration.",
             "goal": "Diagram the reference architecture + guardrails.",
             "steps": [
               "Diagram your app's layers and label them in code.",
@@ -765,11 +907,19 @@
               "typeLabel": "docs",
               "label": "AWS Bedrock docs",
               "url": "https://docs.aws.amazon.com/bedrock/"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "Ed Donner — Production Track",
+              "url": "https://www.udemy.com/course/generative-and-agentic-ai-in-production/"
             }
           ],
           "est": "3.5h",
           "hands": "Containerize the app; deploy behind API Gateway + Lambda (or App Runner); call Bedrock as a model provider.",
           "exercise": {
+            "exId": "cloud-deploy",
+            "summary": "This gets your app off localhost and onto the cloud. You'll containerize the capstone with Docker, deploy behind API Gateway + Lambda (or App Runner for a long-running agent), and call Bedrock as a model provider. A deployed URL is what makes the work demoable. Pitfall: choosing Lambda for a long-running agent — its timeout will kill multi-minute jobs; match the compute to the workload.",
             "goal": "Deploy to AWS.",
             "steps": [
               "Containerize the app with Docker.",
@@ -793,11 +943,19 @@
               "typeLabel": "docs",
               "label": "Terraform docs",
               "url": "https://developer.hashicorp.com/terraform"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "Ed Donner — Production Track",
+              "url": "https://www.udemy.com/course/generative-and-agentic-ai-in-production/"
             }
           ],
           "est": "3h",
           "hands": "Terraform your infra; GitHub Actions pipeline that runs the Week-4 eval gate before any deploy.",
           "exercise": {
+            "exId": "iac-eval-gated-ci-cd",
+            "summary": "This codifies infrastructure and gates deploys on evals. You'll Terraform your infra, make GitHub Actions run the eval gate before deploy, and confirm a regressing change is actually blocked. Infrastructure as Code makes deploys reproducible, and the gate is only real if it can stop a bad deploy. Pitfall: a gate that warns but doesn't block — regressions ship anyway if failing evals don't fail the build.",
             "goal": "Codify infra + eval-gated CI/CD.",
             "steps": [
               "Terraform your infra.",
@@ -826,6 +984,8 @@
           "est": "3h",
           "hands": "Write a 2-page design doc with real numbers: index size, latency budget, hybrid retrieval, caching, multi-tenant isolation, eval pipeline.",
           "exercise": {
+            "exId": "ai-system-design-drill",
+            "summary": "This drills one AI system design with real numbers under interview framing. You'll write a 2-page \"RAG search at scale\" design covering index size, latency budget, hybrid retrieval, caching, multi-tenant isolation, and eval, and state a cost-per-query estimate. Numbers are what make a design credible. Beginner trap: hand-waving scale — commit to concrete targets (latency, recall, cost) or it reads as a sketch, not a design.",
             "goal": "Drill one AI system design.",
             "steps": [
               "Write a 2-page 'RAG search at scale' design with real numbers.",
@@ -867,6 +1027,8 @@
           "est": "5h",
           "hands": "Combine RAG (W2) + agent/MCP (W3) + evals (W4) + deploy (W7) into one deployed app you'd demo to a hiring manager. No tutorials — just build.",
           "exercise": {
+            "exId": "build-the-capstone",
+            "summary": "This is where the fast-track pieces become one deployed app. You'll combine RAG, an agent with MCP tools, evals, and deployment into a single app in a real domain, and ship a minimum viable product (MVP) you'd actually demo. Integration is its own skill — the parts fighting each other is the lesson. Pitfall: scope creep — a small, finished, deployed app beats an ambitious half-built one every time.",
             "goal": "Build the capstone end-to-end.",
             "steps": [
               "Combine RAG (ft1) + agent/MCP (ft2) + evals (ft3) + deploy (ft6) into one deployed app.",
@@ -895,6 +1057,8 @@
           "est": "3.5h",
           "hands": "Wire the eval gate into CI; upgrade the README with an architecture diagram, a 60-sec demo gif, and an eval scoreboard.",
           "exercise": {
+            "exId": "evals-polish",
+            "summary": "This adds the eval gate and the polish that makes the capstone credible. You'll wire the eval gate into CI, upgrade the README (architecture diagram, 60-second demo gif, eval scoreboard), and fix the top three rough edges. Polish is what a reviewer sees first. Beginner trap: leaving evals out of CI — without the gate, the scoreboard goes stale the next time you change a prompt.",
             "goal": "Add evals + polish the capstone.",
             "steps": [
               "Wire the eval gate into CI.",
@@ -923,6 +1087,8 @@
           "est": "3.5h",
           "hands": "Write 3 STAR stories (each ends with a metric) + 1 blog post on the capstone; pin the repo and publish.",
           "exercise": {
+            "exId": "portfolio-star-blog",
+            "summary": "This makes the work legible to recruiters and interviewers. You'll write three STAR (Situation, Task, Action, Result) stories that each end in a metric, write one blog post on the capstone, and pin the repo. Visible, well-told work is what converts effort into interviews. Pitfall: a strong build nobody can find — if it's not pinned, written up, and demoable, it can't do its job.",
             "goal": "Make the work legible (portfolio).",
             "steps": [
               "Write 3 STAR stories (each ends in a metric).",

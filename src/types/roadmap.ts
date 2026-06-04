@@ -10,6 +10,10 @@ export interface Resource {
 }
 
 export interface Exercise {
+  /** Stable, track-independent identity (kebab slug). The same exercise shares one exId across tracks. */
+  exId: string;
+  /** Beginner-friendly overview, shown above the requirement steps. */
+  summary?: string;
   goal: string;
   steps: string[];
   acceptance: string[];
@@ -92,6 +96,12 @@ export interface Notes {
   sig: string;
 }
 
+export interface GlossaryEntry {
+  term: string;
+  full: string;
+  def?: string;
+}
+
 export interface Roadmap {
   meta: Record<string, string>;
   kicker: string;
@@ -105,4 +115,5 @@ export interface Roadmap {
   weeks: Week[];
   timeSummary: TimeSummaryRow[];
   notes: Notes;
+  glossary: GlossaryEntry[];
 }

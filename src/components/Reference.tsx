@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { Roadmap } from '../types/roadmap';
+import { Glossary } from './Glossary';
 import { Notes } from './Notes';
 import { ResourceMap } from './ResourceMap';
 import { TimeSummaryTable } from './TimeSummaryTable';
@@ -18,7 +19,7 @@ export function Reference({ roadmap }: { roadmap: Roadmap }) {
         <span className="chevron" aria-hidden="true" />
         <span className="sec-title">Reference</span>
         <span className="appendix-hint">
-          {open ? 'Hide' : 'Resource map · time budget · buying notes'}
+          {open ? 'Hide' : 'Resource map · time budget · buying notes · glossary'}
         </span>
       </button>
 
@@ -31,6 +32,7 @@ export function Reference({ roadmap }: { roadmap: Roadmap }) {
         <div className="block">
           <Notes notes={roadmap.notes} />
         </div>
+        <Glossary entries={roadmap.glossary} />
       </div>
     </section>
   );

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { Day } from '../types/roadmap';
 import { handsLeafId, leavesForDay, resourceLeafId } from '../lib/ids';
 import { exerciseCode, exerciseNumber } from '../lib/exercises';
+import { dayLabel } from '../lib/dayNumbers';
 import { useProgress } from '../lib/ProgressContext';
 import { DayCheck } from './DayCheck';
 import { HandsCheckbox } from './HandsCheckbox';
@@ -21,6 +22,7 @@ export function DayRow({ weekId, dayIdx, day, capstone }: Props) {
 
   const ex = day.exercise;
   const handsLeaf = handsLeafId(weekId, dayIdx);
+  const dn = dayLabel(weekId, dayIdx);
   const num = ex ? exerciseNumber(handsLeaf) : undefined;
   const code = num ? exerciseCode(num) : undefined;
   const detailId = `ex-detail-${weekId}-${dayIdx}`;
@@ -31,9 +33,9 @@ export function DayRow({ weekId, dayIdx, day, capstone }: Props) {
       <tr>
         <td className="day">
           <span className="daycell">
-            {leafIds.length > 0 ? <DayCheck leafIds={leafIds} label={day.n} /> : null}
+            {leafIds.length > 0 ? <DayCheck leafIds={leafIds} label={dn} /> : null}
             <span className="daynum" style={capstone ? { fontSize: 13 } : undefined}>
-              {day.n}
+              {dn}
             </span>
           </span>
         </td>
@@ -87,8 +89,11 @@ export function DayRow({ weekId, dayIdx, day, capstone }: Props) {
                 <span className="ex-code mono">{code}</span>
                 <b dangerouslySetInnerHTML={{ __html: ex.goal }} />
               </div>
+              {ex.summary ? (
+                <p className="ex-summary" dangerouslySetInnerHTML={{ __html: ex.summary }} />
+              ) : null}
               <div className="ex-block">
-                <span className="ex-label mono">Build steps</span>
+                <span className="ex-label mono">Requirement</span>
                 <ol>
                   {ex.steps.map((s, i) => (
                     <li key={i} dangerouslySetInnerHTML={{ __html: s }} />
@@ -96,7 +101,7 @@ export function DayRow({ weekId, dayIdx, day, capstone }: Props) {
                 </ol>
               </div>
               <div className="ex-block">
-                <span className="ex-label mono">Done when</span>
+                <span className="ex-label mono">Acceptance Criteria</span>
                 <ul>
                   {ex.acceptance.map((a, i) => (
                     <li key={i} dangerouslySetInnerHTML={{ __html: a }} />
