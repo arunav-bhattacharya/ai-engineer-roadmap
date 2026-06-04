@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { Day } from '../types/roadmap';
 import { handsLeafId, leavesForDay, resourceLeafId } from '../lib/ids';
 import { exerciseCode, exerciseNumber } from '../lib/exercises';
+import { useProgress } from '../lib/ProgressContext';
 import { DayCheck } from './DayCheck';
 import { HandsCheckbox } from './HandsCheckbox';
 import { RefCheckbox } from './RefCheckbox';
@@ -16,9 +17,11 @@ interface Props {
 export function DayRow({ weekId, dayIdx, day, capstone }: Props) {
   const leafIds = leavesForDay(weekId, dayIdx, day);
   const [open, setOpen] = useState(false);
+  const { isChecked, toggleOne } = useProgress();
 
   const ex = day.exercise;
-  const num = ex ? exerciseNumber(handsLeafId(weekId, dayIdx)) : undefined;
+  const handsLeaf = handsLeafId(weekId, dayIdx);
+  const num = ex ? exerciseNumber(handsLeaf) : undefined;
   const code = num ? exerciseCode(num) : undefined;
   const detailId = `ex-detail-${weekId}-${dayIdx}`;
   const colSpan = capstone ? 4 : 5;
@@ -49,19 +52,30 @@ export function DayRow({ weekId, dayIdx, day, capstone }: Props) {
         )}
         <td className="est">{day.est}</td>
         <td className="hands">
-          {day.hands ? <HandsCheckbox id={handsLeafId(weekId, dayIdx)} html={day.hands} /> : null}
           {ex && code ? (
-            <button
-              type="button"
-              className={`ex-chip${open ? ' open' : ''}`}
-              onClick={() => setOpen((o) => !o)}
-              aria-expanded={open}
-              aria-controls={detailId}
-              title={open ? 'Hide exercise detail' : 'Show exercise detail'}
-            >
-              <span className="ex-code mono">{code}</span>
-              <span className="ex-caret" aria-hidden="true" />
-            </button>
+            <div className="hands-ex">
+              <label className="handschk">
+                <input
+                  type="checkbox"
+                  checked={isChecked(handsLeaf)}
+                  onChange={() => toggleOne(handsLeaf)}
+                  aria-label={`Mark ${code} complete`}
+                />
+              </label>
+              <button
+                type="button"
+                className={`ex-toggle${open ? ' open' : ''}`}
+                onClick={() => setOpen((o) => !o)}
+                aria-expanded={open}
+                aria-controls={detailId}
+              >
+                <span className="ex-code mono">{code}</span>
+                <span className="ex-toggle-text">{open ? 'Hide steps' : 'Show steps'}</span>
+                <span className="ex-caret" aria-hidden="true" />
+              </button>
+            </div>
+          ) : day.hands ? (
+            <HandsCheckbox id={handsLeaf} html={day.hands} />
           ) : null}
         </td>
       </tr>

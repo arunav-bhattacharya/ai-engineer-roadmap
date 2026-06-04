@@ -34,7 +34,6 @@ export function Overview() {
 
   const toggle = (
     <div className="plan-toggle">
-      <span className="plan-toggle-label mono">Roadmap</span>
       <div className="plan-toggle-seg" role="tablist" aria-label="Choose roadmap depth">
         <button
           type="button"
