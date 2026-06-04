@@ -43,3 +43,6 @@ Thumbs.db
 coverage/
 .vitest/
 .cache/
+
+# claude code — per-machine local settings (not shared)
+.claude/settings.local.json
