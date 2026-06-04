@@ -391,7 +391,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Rewrite a Kotlin CSV transformer in Python with full type hints. <a href=\"https://exercism.org/tracks/python\" target=\"_blank\">Exercism Python</a>: 3 starter exercises."
+          "hands": "Rewrite a Kotlin CSV transformer in Python with full type hints. <a href=\"https://exercism.org/tracks/python\" target=\"_blank\">Exercism Python</a>: 3 starter exercises.",
+          "exercise": {
+            "goal": "Port a real Kotlin utility to idiomatic, fully-typed Python.",
+            "steps": [
+              "Pick a small Kotlin/Java util you've written (e.g. a CSV transformer) and reimplement it in Python 3.12 with type hints on every signature.",
+              "Run <code>mypy --strict</code> and fix every error.",
+              "Do 3 starter exercises on the Exercism Python track to drill syntax."
+            ],
+            "acceptance": [
+              "<code>mypy --strict</code> passes with zero errors.",
+              "The port handles the same edge cases as the original and is committed to <code>week-00</code>."
+            ],
+            "stretch": "Add a pytest parametrized test covering 3 edge cases."
+          }
         },
         {
           "n": "2",
@@ -407,7 +420,20 @@
             }
           ],
           "est": "2h",
-          "hands": "<a href=\"https://exercism.org/tracks/python\" target=\"_blank\">Exercism</a>: 4–5 exercises hitting comprehensions, dicts, generators."
+          "hands": "<a href=\"https://exercism.org/tracks/python\" target=\"_blank\">Exercism</a>: 4–5 exercises hitting comprehensions, dicts, generators.",
+          "exercise": {
+            "goal": "Internalise the Python idioms that replace Java boilerplate.",
+            "steps": [
+              "Rewrite a data-holding class as a <code>@dataclass(frozen=True)</code> with type hints.",
+              "Convert one loop-and-append into a comprehension, and one into a generator.",
+              "Wrap a resource in a <code>with</code> context manager."
+            ],
+            "acceptance": [
+              "A generator is used to stream rather than build a list.",
+              "4–5 Exercism exercises on comprehensions/dicts/generators pass."
+            ],
+            "stretch": "Compare generator vs list memory with <code>tracemalloc</code>."
+          }
         },
         {
           "n": "3",
@@ -422,7 +448,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Async <code>httpx</code> fetcher hitting 5 URLs concurrently; time it vs sequential."
+          "hands": "Async <code>httpx</code> fetcher hitting 5 URLs concurrently; time it vs sequential.",
+          "exercise": {
+            "goal": "Get asyncio muscle memory and prove the speedup.",
+            "steps": [
+              "Write an async <code>httpx</code> fetcher hitting 5 URLs with <code>asyncio.gather</code>.",
+              "Write the sequential version and time both.",
+              "Make one URL fail and ensure the batch still completes."
+            ],
+            "acceptance": [
+              "The concurrent version is measurably faster than sequential.",
+              "A failing URL doesn't crash the whole batch; mypy is clean."
+            ],
+            "stretch": "Add an <code>asyncio.Semaphore(2)</code> to cap concurrency and observe the timing change."
+          }
         },
         {
           "n": "4",
@@ -443,7 +482,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Model a billpay <code>Payment</code> as a Pydantic model with validators + a failing-validation test."
+          "hands": "Model a billpay <code>Payment</code> as a Pydantic model with validators + a failing-validation test.",
+          "exercise": {
+            "goal": "Build the Pydantic structured-output validator you'll reuse all course.",
+            "steps": [
+              "Model a billpay <code>Payment</code> as a Pydantic v2 model with a field validator and a model validator.",
+              "Write a test asserting a bad payload raises <code>ValidationError</code>.",
+              "Manage the project with <code>uv</code> + a committed lockfile."
+            ],
+            "acceptance": [
+              "Valid payload parses; invalid raises a clear error.",
+              "<code>uv.lock</code> is committed."
+            ],
+            "stretch": "Export the model's JSON Schema and adapt it into an LLM function/tool spec."
+          }
         },
         {
           "n": "5",
@@ -458,7 +510,20 @@
             }
           ],
           "est": "2h",
-          "hands": "FastAPI service: 2 endpoints (1 async) + 1 pytest. Commit to <code>ai-learning-lab/week-00</code>."
+          "hands": "FastAPI service: 2 endpoints (1 async) + 1 pytest. Commit to <code>ai-learning-lab/week-00</code>.",
+          "exercise": {
+            "goal": "Stand up your Python service comfort zone (FastAPI + pytest).",
+            "steps": [
+              "Build a FastAPI app with two endpoints, one of them async.",
+              "Add Pydantic request/response models.",
+              "Write one pytest using <code>TestClient</code>."
+            ],
+            "acceptance": [
+              "Both endpoints return the correct shapes.",
+              "pytest is green and the service is committed to <code>week-00</code>."
+            ],
+            "stretch": "Add an exception handler that returns RFC-7807-style problem details."
+          }
         }
       ],
       "udemy": "Udemy: <b>none — courses assume Python.</b> Don't pay for syntax.",
@@ -493,7 +558,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Write a real <code>CLAUDE.md</code> for your Billpay repo: build/lint/test commands, module map, conventions (Exposed, Temporal, KSP). Run one real task end-to-end."
+          "hands": "Write a real <code>CLAUDE.md</code> for your Billpay repo: build/lint/test commands, module map, conventions (Exposed, Temporal, KSP). Run one real task end-to-end.",
+          "exercise": {
+            "goal": "Turn CLAUDE.md into a real, working project constitution.",
+            "steps": [
+              "Write a <code>CLAUDE.md</code> for your Billpay repo: build/lint/test commands, module map, conventions (Exposed, Temporal, KSP).",
+              "Run one real task end-to-end driven only by that file.",
+              "Trim anything Claude didn't actually use."
+            ],
+            "acceptance": [
+              "Claude completes the task using only the documented commands/conventions.",
+              "The file is under ~1 page and committed."
+            ],
+            "stretch": "Add an <code>AGENTS.md</code> pointer and confirm both stay in sync."
+          }
         },
         {
           "n": "2",
@@ -509,7 +587,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Create 2 skills in <code>.claude/skills/</code>: one to generate Docusaurus pages from KSP variant metadata, one <code>/pr-summary</code>. Invoke both."
+          "hands": "Create 2 skills in <code>.claude/skills/</code>: one to generate Docusaurus pages from KSP variant metadata, one <code>/pr-summary</code>. Invoke both.",
+          "exercise": {
+            "goal": "Build reusable skills + slash commands for your workflow.",
+            "steps": [
+              "Create two skills in <code>.claude/skills/</code>: one to generate Docusaurus pages from KSP variant metadata, one <code>/pr-summary</code>.",
+              "Invoke both on real inputs.",
+              "Document each skill's trigger and inputs."
+            ],
+            "acceptance": [
+              "Both skills run and produce correct output on a real repo.",
+              "Each has a clear description so it triggers reliably."
+            ],
+            "stretch": "Add a third skill that scaffolds a Temporal activity from a template."
+          }
         },
         {
           "n": "3",
@@ -524,7 +615,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Add a <code>PreToolUse</code> hook that blocks force-push to <code>main</code> + scans writes for secrets (exit 2 = deny), and a <code>PostToolUse</code> hook running ktlint/detekt after edits. Verify they fire every time."
+          "hands": "Add a <code>PreToolUse</code> hook that blocks force-push to <code>main</code> + scans writes for secrets (exit 2 = deny), and a <code>PostToolUse</code> hook running ktlint/detekt after edits. Verify they fire every time.",
+          "exercise": {
+            "goal": "Add deterministic guardrails with hooks.",
+            "steps": [
+              "Add a <code>PreToolUse</code> or <code>PostToolUse</code> hook that runs your formatter/linter on edited files.",
+              "Add a hook that blocks commits to a protected branch.",
+              "Verify each fires on the relevant action."
+            ],
+            "acceptance": [
+              "The format/lint hook runs 100% of the time on edits.",
+              "The protection hook actually blocks the disallowed action."
+            ],
+            "stretch": "Wire a hook that runs the fast test subset before allowing a push."
+          }
         },
         {
           "n": "4",
@@ -551,7 +655,20 @@
             }
           ],
           "est": "2.5h",
-          "hands": "Run 3 subagents concurrently to review auth, payments, migrations. Use <b>plan mode</b> for a multi-file refactor; try a <b>Ralph Loop</b> (persistent self-correcting agent) on a sandboxed task; roll back via checkpoint."
+          "hands": "Run 3 subagents concurrently to review auth, payments, migrations. Use <b>plan mode</b> for a multi-file refactor; try a <b>Ralph Loop</b> (persistent self-correcting agent) on a sandboxed task; roll back via checkpoint.",
+          "exercise": {
+            "goal": "Parallelise with subagents, Agent Teams, and checkpointed loops.",
+            "steps": [
+              "Spawn 2+ subagents to work isolated parts of a task in parallel.",
+              "Run a Ralph-style loop with checkpoints on a multi-step refactor.",
+              "Capture where context isolation helped vs hurt."
+            ],
+            "acceptance": [
+              "A task is completed by parallel subagents with merged output.",
+              "A checkpointed loop recovers from an intentional mid-run failure."
+            ],
+            "stretch": "Measure wall-clock of parallel vs serial on the same task."
+          }
         },
         {
           "n": "5",
@@ -578,7 +695,20 @@
             }
           ],
           "est": "2.5h",
-          "hands": "Run <code>claude -p</code> headless in a GitHub Action / pre-commit. Wire an <b>autonomous loop</b>: raise a Jira issue → agent builds, tests, opens a PR. Connect a GitHub MCP server; skim the Agent SDK + Cowork."
+          "hands": "Run <code>claude -p</code> headless in a GitHub Action / pre-commit. Wire an <b>autonomous loop</b>: raise a Jira issue → agent builds, tests, opens a PR. Connect a GitHub MCP server; skim the Agent SDK + Cowork.",
+          "exercise": {
+            "goal": "Drive Claude Code headless / in CI and via the Agent SDK.",
+            "steps": [
+              "Run Claude Code headless on a scripted task (non-interactive).",
+              "Add a CI job that runs an autonomous PR-review pass.",
+              "Call the Agent SDK from a small script."
+            ],
+            "acceptance": [
+              "The headless run produces the expected artifact with no manual input.",
+              "The CI job comments on a PR automatically."
+            ],
+            "stretch": "Prototype an autonomous Jira→PR loop demo end-to-end."
+          }
         }
       ],
       "udemy": "Udemy: <b>AI Coder</b> (spine) + official docs.",
@@ -607,7 +737,20 @@
             }
           ],
           "est": "1.5h",
-          "hands": "Note the $/M-token cost of 3 models you'll use. Sketch when each fits."
+          "hands": "Note the $/M-token cost of 3 models you'll use. Sketch when each fits.",
+          "exercise": {
+            "goal": "Build cost/behaviour intuition for the models you'll use.",
+            "steps": [
+              "Tabulate $/M input+output tokens for 3 models (frontier, mid, local).",
+              "Sketch when each model is the right pick.",
+              "Estimate the per-call cost of a 2k-in / 500-out request for each."
+            ],
+            "acceptance": [
+              "A cost table covers 3 models with input+output pricing.",
+              "Each model has a one-line 'use when' rationale."
+            ],
+            "stretch": "Add latency expectations (TTFT) per model from a quick probe."
+          }
         },
         {
           "n": "2",
@@ -629,7 +772,20 @@
             }
           ],
           "est": "2.5h",
-          "hands": "Tokenize 3 sample inputs; predict then verify token counts."
+          "hands": "Tokenize 3 sample inputs; predict then verify token counts.",
+          "exercise": {
+            "goal": "Understand tokenization well enough to predict odd behaviour.",
+            "steps": [
+              "Tokenize 3 sample inputs (code, prose, a non-English string) and predict counts before checking.",
+              "Find an example where whitespace/casing changes the token count.",
+              "Note the cost implication of your worst case."
+            ],
+            "acceptance": [
+              "Predicted vs actual token counts are compared for 3 inputs.",
+              "You can explain one concrete 'why did the prompt behave oddly' case."
+            ],
+            "stretch": "Compare two tokenizers (e.g. GPT-4o vs Llama) on the same input."
+          }
         },
         {
           "n": "3",
@@ -644,7 +800,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Work notebooks ch.1–6. <b>Build 1:</b> CLI that summarizes a dir of markdown notes (raw <code>anthropic</code> SDK)."
+          "hands": "Work notebooks ch.1–6. <b>Build 1:</b> CLI that summarizes a dir of markdown notes (raw <code>anthropic</code> SDK).",
+          "exercise": {
+            "goal": "Ship your first raw-API script with solid prompting.",
+            "steps": [
+              "Work Anthropic's prompt-eng tutorial notebooks ch.1–6.",
+              "Build a CLI that summarizes a directory of markdown notes using the raw <code>anthropic</code> SDK.",
+              "Add a few-shot example and a chain-of-thought variant; compare outputs."
+            ],
+            "acceptance": [
+              "The CLI summarizes real files from a folder.",
+              "Few-shot vs zero-shot difference is documented."
+            ],
+            "stretch": "Add a <code>--style</code> flag that switches system prompts."
+          }
         },
         {
           "n": "4",
@@ -659,7 +828,20 @@
             }
           ],
           "est": "2h",
-          "hands": "<b>Build 2:</b> extractor — job description → <code>{role, seniority, skills[], remote}</code> as a Pydantic model."
+          "hands": "<b>Build 2:</b> extractor — job description → <code>{role, seniority, skills[], remote}</code> as a Pydantic model.",
+          "exercise": {
+            "goal": "Get reliable structured output via function calling.",
+            "steps": [
+              "Build an extractor: job description → <code>{role, seniority, skills[], remote}</code> as a Pydantic model.",
+              "Use the model's tool/function-calling to force the schema.",
+              "Feed 3 messy inputs and validate every result."
+            ],
+            "acceptance": [
+              "All 3 inputs produce schema-valid objects.",
+              "A malformed model response is caught and retried or surfaced."
+            ],
+            "stretch": "Add a confidence field and abstain when low."
+          }
         },
         {
           "n": "5",
@@ -675,7 +857,20 @@
             }
           ],
           "est": "2h",
-          "hands": "<b>Build 3:</b> LLM that can call 3 tools — <code>get_weather</code>, <code>search_files</code>, <code>run_sql</code>."
+          "hands": "<b>Build 3:</b> LLM that can call 3 tools — <code>get_weather</code>, <code>search_files</code>, <code>run_sql</code>.",
+          "exercise": {
+            "goal": "Implement a multi-tool dispatch loop by hand.",
+            "steps": [
+              "Give the LLM 3 tools — <code>get_weather</code>, <code>search_files</code>, <code>run_sql</code>.",
+              "Write the dispatch loop that routes tool calls and returns results.",
+              "Handle a tool error and a no-tool-needed turn."
+            ],
+            "acceptance": [
+              "The model correctly selects and calls the right tool per query.",
+              "Tool errors are returned to the model rather than crashing."
+            ],
+            "stretch": "Add parallel tool calls in a single turn and merge results."
+          }
         }
       ],
       "udemy": "Udemy: <b>Core Track — Week 1</b>",
@@ -716,7 +911,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Add <code>quarkus-langchain4j</code> to a Quarkus project; wire an Anthropic/OpenAI chat model; get your first completion from Kotlin."
+          "hands": "Add <code>quarkus-langchain4j</code> to a Quarkus project; wire an Anthropic/OpenAI chat model; get your first completion from Kotlin.",
+          "exercise": {
+            "goal": "Pick your JVM AI stack deliberately.",
+            "steps": [
+              "Spin up a Quarkus project with Quarkus-LangChain4j (and skim Spring AI).",
+              "Wire one chat call end-to-end.",
+              "Write a 1-pager: LangChain4j vs Spring AI vs Quarkus-LangChain4j for your use."
+            ],
+            "acceptance": [
+              "A JVM chat call returns a completion.",
+              "The decision doc states which you'll use for the capstone and why."
+            ],
+            "stretch": "Note the native-image implications for each option."
+          }
         },
         {
           "n": "2",
@@ -731,7 +939,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Port your W2 summarizer to a LangChain4j <code>AiServices</code> interface; add a system prompt + temperature; stream the response."
+          "hands": "Port your W2 summarizer to a LangChain4j <code>AiServices</code> interface; add a system prompt + temperature; stream the response.",
+          "exercise": {
+            "goal": "Use AiServices for typed chat, prompts, and streaming.",
+            "steps": [
+              "Define an <code>AiService</code> interface with a prompt template.",
+              "Add parameters and stream tokens to the console.",
+              "Swap the model provider via config only."
+            ],
+            "acceptance": [
+              "A typed AiService returns a completion from a template.",
+              "Streaming works and the provider is config-swappable."
+            ],
+            "stretch": "Add a system message that enforces a persona and test it."
+          }
         },
         {
           "n": "3",
@@ -746,7 +967,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Rebuild your W2 extractor to return a typed Kotlin <code>data class</code> directly — no manual JSON parsing."
+          "hands": "Rebuild your W2 extractor to return a typed Kotlin <code>data class</code> directly — no manual JSON parsing.",
+          "exercise": {
+            "goal": "Map LLM output to Kotlin data classes safely.",
+            "steps": [
+              "Have the AiService return a Kotlin data class (structured output).",
+              "Add validation for a required field.",
+              "Test a malformed-output path."
+            ],
+            "acceptance": [
+              "LLM output deserializes into the data class.",
+              "A bad output is caught and handled, not propagated raw."
+            ],
+            "stretch": "Generate the schema from the data class to constrain the model."
+          }
         },
         {
           "n": "4",
@@ -767,7 +1001,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Expose 2–3 <code>@Tool</code> methods (incl. a read-only Oracle query); build a minimal RAG over Temporal docs using a pgvector embedding store."
+          "hands": "Expose 2–3 <code>@Tool</code> methods (incl. a read-only Oracle query); build a minimal RAG over Temporal docs using a pgvector embedding store.",
+          "exercise": {
+            "goal": "Do tool-calling + RAG natively on the JVM.",
+            "steps": [
+              "Expose 2 <code>@Tool</code> methods the model can call.",
+              "Stand up a pgvector embedding store and ingest a small corpus.",
+              "Answer a question that requires retrieval + a tool call."
+            ],
+            "acceptance": [
+              "The model calls a @Tool method and uses retrieved context.",
+              "Citations/sources are returned with the answer."
+            ],
+            "stretch": "Add a hybrid (keyword + vector) retrieval path."
+          }
         },
         {
           "n": "5",
@@ -788,7 +1035,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Add chat memory + robust error handling (retry on malformed output, typed fallback) to your service. This is the pattern your capstone will ship on."
+          "hands": "Add chat memory + robust error handling (retry on malformed output, typed fallback) to your service. This is the pattern your capstone will ship on.",
+          "exercise": {
+            "goal": "Make the JVM LLM endpoint production-shaped.",
+            "steps": [
+              "Add chat memory across turns.",
+              "Add retries + a fallback model on failure.",
+              "Validate/guard the output before returning."
+            ],
+            "acceptance": [
+              "Multi-turn memory works within a session.",
+              "A forced provider failure falls back without erroring the caller."
+            ],
+            "stretch": "Add a circuit breaker and surface it via a health endpoint."
+          }
         }
       ],
       "udemy": "Resources: <b>Java Brains</b> (on-ramp) + LangChain4j / Spring AI / Quarkus docs",
@@ -822,7 +1082,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Implement temperature + top-p sampling over raw logprobs; show how each reshapes the output distribution."
+          "hands": "Implement temperature + top-p sampling over raw logprobs; show how each reshapes the output distribution.",
+          "exercise": {
+            "goal": "Make sampling parameters concrete by experiment.",
+            "steps": [
+              "Generate completions at temperature 0, 0.7, 1.2 on the same prompt.",
+              "Sweep top-k and top-p and observe diversity vs coherence.",
+              "Force a structured output and find the sampling that keeps it valid."
+            ],
+            "acceptance": [
+              "A short writeup ties each parameter to an observed effect.",
+              "You can state the sampling you'd use for deterministic extraction."
+            ],
+            "stretch": "Reproduce a 'temperature too high breaks JSON' failure and fix it."
+          }
         },
         {
           "n": "2",
@@ -842,7 +1115,20 @@
             }
           ],
           "est": "2.5h",
-          "hands": "Implement best-of-N, self-consistency, and a simple <b>Tree-of-Thoughts</b> + verifier search on a SQL/math task; chart accuracy vs token cost."
+          "hands": "Implement best-of-N, self-consistency, and a simple <b>Tree-of-Thoughts</b> + verifier search on a SQL/math task; chart accuracy vs token cost.",
+          "exercise": {
+            "goal": "Buy quality with test-time compute.",
+            "steps": [
+              "Implement best-of-N sampling with a simple scorer.",
+              "Implement a tiny Tree-of-Thoughts or search-against-verifier loop.",
+              "Compare accuracy vs a single greedy call on a small task set."
+            ],
+            "acceptance": [
+              "best-of-N beats single-shot on your task set.",
+              "A verifier/score gates the final answer."
+            ],
+            "stretch": "Plot accuracy vs N and find the cost/quality knee."
+          }
         },
         {
           "n": "3",
@@ -856,7 +1142,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Run the same prompt 20× at temp 0 vs 1; quantify variance. Design a determinism strategy for billpay-grade reliability."
+          "hands": "Run the same prompt 20× at temp 0 vs 1; quantify variance. Design a determinism strategy for billpay-grade reliability.",
+          "exercise": {
+            "goal": "Quantify the probabilistic nature + hallucination.",
+            "steps": [
+              "Run the same prompt 10× and measure answer variance.",
+              "Construct a prompt that reliably hallucinates and one that doesn't.",
+              "Note which mitigations (grounding, lower temp) reduce it."
+            ],
+            "acceptance": [
+              "Variance across runs is measured, not hand-waved.",
+              "A before/after shows a mitigation reducing hallucination."
+            ],
+            "stretch": "Add self-consistency voting and measure the lift."
+          }
         },
         {
           "n": "4",
@@ -882,7 +1181,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Read a DPO preference dataset; diagram outcome- vs process-reward models (ORM/PRM) and how STaR bootstraps reasoning data. Sketch preference data for a billpay assistant."
+          "hands": "Read a DPO preference dataset; diagram outcome- vs process-reward models (ORM/PRM) and how STaR bootstraps reasoning data. Sketch preference data for a billpay assistant.",
+          "exercise": {
+            "goal": "Trace the post-training pipeline that shapes behaviour.",
+            "steps": [
+              "Write notes distinguishing SFT vs RLHF vs DPO.",
+              "Summarize reward modeling (ORM vs PRM) in your own words.",
+              "Map STaR / Meta-CoT to where reasoning ability comes from."
+            ],
+            "acceptance": [
+              "A one-page note correctly separates the three post-training stages.",
+              "You can explain ORM vs PRM with an example."
+            ],
+            "stretch": "Find a real model card and identify which stages it used."
+          }
         },
         {
           "n": "5",
@@ -902,7 +1214,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Map the pre-training pipeline (corpora → cleaning → BPE → architecture). Build a decision table: per task class, which model size/family + why."
+          "hands": "Map the pre-training pipeline (corpora → cleaning → BPE → architecture). Build a decision table: per task class, which model size/family + why.",
+          "exercise": {
+            "goal": "Connect pre-training choices to model capability.",
+            "steps": [
+              "Summarize data corpora (Common Crawl/FineWeb) and BPE's role.",
+              "Compute a rough params↔memory estimate for a given size.",
+              "Explain MoE vs dense in 3 bullets."
+            ],
+            "acceptance": [
+              "A memory estimate for one model size is shown with the formula.",
+              "MoE tradeoffs are stated correctly."
+            ],
+            "stretch": "Compare context-length scaling costs for two architectures."
+          }
         },
         {
           "n": "6",
@@ -918,7 +1243,20 @@
             }
           ],
           "est": "1.5h",
-          "hands": "Optional: probe attention heads / activations on a small model. Pull the relevant module from Cohen's course — don't attempt all 90h; sample interpretability + attention internals."
+          "hands": "Optional: probe attention heads / activations on a small model. Pull the relevant module from Cohen's course — don't attempt all 90h; sample interpretability + attention internals.",
+          "exercise": {
+            "goal": "Take one peek inside the weights (optional).",
+            "steps": [
+              "Run a small mechanistic-interpretability notebook (e.g. logit lens / an induction head demo).",
+              "Identify one interpretable behaviour.",
+              "Write 3 sentences on what you saw."
+            ],
+            "acceptance": [
+              "A notebook runs and surfaces one interpretable signal.",
+              "You can describe it without jargon."
+            ],
+            "stretch": "Probe a second behaviour and compare."
+          }
         }
       ],
       "udemy": "Spine: <b>Huyen Ch 2</b> + ByteByteGo P1/P4 · Cohen (optional)",
@@ -952,7 +1290,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Write a 1-pager: 3 chunking strategies + when each wins."
+          "hands": "Write a 1-pager: 3 chunking strategies + when each wins.",
+          "exercise": {
+            "goal": "Choose chunking deliberately, not by default.",
+            "steps": [
+              "Chunk one corpus 3 ways (fixed, recursive, semantic).",
+              "Embed each with <code>all-MiniLM-L6-v2</code>.",
+              "Eyeball retrieval quality on 3 queries per strategy."
+            ],
+            "acceptance": [
+              "A 1-pager states 3 chunking strategies and when each wins.",
+              "You picked a default with a reason."
+            ],
+            "stretch": "Add overlap and measure its effect on recall."
+          }
         },
         {
           "n": "2",
@@ -967,7 +1318,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Ingest Temporal docs; chunk 3 ways; embed with <code>all-MiniLM-L6-v2</code>."
+          "hands": "Ingest Temporal docs; chunk 3 ways; embed with <code>all-MiniLM-L6-v2</code>.",
+          "exercise": {
+            "goal": "Build RAG end-to-end with no framework.",
+            "steps": [
+              "Ingest a docs corpus into Chroma using the raw <code>anthropic</code> + <code>chromadb</code> + sentence-transformers.",
+              "Retrieve top-k and stuff context into the prompt.",
+              "Return answers with source chunks."
+            ],
+            "acceptance": [
+              "A question is answered using retrieved context.",
+              "Sources are shown alongside the answer."
+            ],
+            "stretch": "Add a 'no answer in context' guard."
+          }
         },
         {
           "n": "3",
@@ -982,7 +1346,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Add a re-ranker (<code>cohere/rerank</code> free or <code>bge-reranker-v2-m3</code>). Compare with/without."
+          "hands": "Add a re-ranker (<code>cohere/rerank</code> free or <code>bge-reranker-v2-m3</code>). Compare with/without.",
+          "exercise": {
+            "goal": "Add reranking to the retrieve→augment→generate loop.",
+            "steps": [
+              "Add a reranker (<code>cohere/rerank</code> free tier or <code>bge-reranker-v2-m3</code>).",
+              "Compare answers with and without rerank on 5 queries.",
+              "Record where rerank changed the top result."
+            ],
+            "acceptance": [
+              "A measurable quality difference with/without rerank is recorded.",
+              "The reranked pipeline is the new default."
+            ],
+            "stretch": "Add MMR for diversity and compare."
+          }
         },
         {
           "n": "4",
@@ -997,7 +1374,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Rebuild in LlamaIndex/LangChain; implement hybrid + HyDE + query rewriting."
+          "hands": "Rebuild in LlamaIndex/LangChain; implement hybrid + HyDE + query rewriting.",
+          "exercise": {
+            "goal": "Rebuild in a framework to see what it hides.",
+            "steps": [
+              "Rebuild the pipeline in LlamaIndex or LangChain.",
+              "Add hybrid retrieval, HyDE, and query rewriting.",
+              "Diff the framework version against your scratch version."
+            ],
+            "acceptance": [
+              "The framework version matches scratch behaviour.",
+              "HyDE + query rewriting are wired and tested."
+            ],
+            "stretch": "Note which framework abstraction cost you control."
+          }
         },
         {
           "n": "5",
@@ -1024,7 +1414,20 @@
             }
           ],
           "est": "2.5h",
-          "hands": "Swap Chroma → <code>pgvector</code>; record recall@5 / MRR across chunking strategies in <code>results.md</code>. Then write a one-pager: <b>HNSW vs IVF</b> (when each wins on recall / latency / memory) + a decision matrix — Chroma / pgvector / Qdrant / Weaviate / Pinecone — scored on millions-of-vectors, metadata filtering, multi-tenancy, self-host vs SaaS."
+          "hands": "Swap Chroma → <code>pgvector</code>; record recall@5 / MRR across chunking strategies in <code>results.md</code>. Then write a one-pager: <b>HNSW vs IVF</b> (when each wins on recall / latency / memory) + a decision matrix — Chroma / pgvector / Qdrant / Weaviate / Pinecone — scored on millions-of-vectors, metadata filtering, multi-tenancy, self-host vs SaaS.",
+          "exercise": {
+            "goal": "Make RAG production-shaped and pick a vector DB.",
+            "steps": [
+              "Swap Chroma → <code>pgvector</code>; record recall@5 / MRR across chunking strategies in <code>results.md</code>.",
+              "Write the HNSW-vs-IVF tradeoff (recall/latency/memory).",
+              "Score Chroma/pgvector/Qdrant/Weaviate/Pinecone on a decision matrix."
+            ],
+            "acceptance": [
+              "recall@5 / MRR numbers are recorded for pgvector.",
+              "A decision matrix justifies a vector-DB pick for millions of vectors + metadata filtering."
+            ],
+            "stretch": "Load-test pgvector at 100k vectors and note p95 latency."
+          }
         }
       ],
       "udemy": "Udemy: <b>Core Track — Week 5</b>",
@@ -1052,7 +1455,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Implement BM25 + dense + RRF fusion on your W5 corpus; compare recall across the three."
+          "hands": "Implement BM25 + dense + RRF fusion on your W5 corpus; compare recall across the three.",
+          "exercise": {
+            "goal": "Implement and compare the core retrieval algorithms.",
+            "steps": [
+              "Implement BM25, dense, and RRF fusion over your W5 corpus.",
+              "Compare recall across the three.",
+              "Pick the winner for your data and justify it."
+            ],
+            "acceptance": [
+              "recall is compared across BM25/dense/fusion.",
+              "A winner is chosen with numbers."
+            ],
+            "stretch": "Add metadata pre-filtering and re-measure."
+          }
         },
         {
           "n": "2",
@@ -1072,7 +1488,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Add a cross-encoder reranker + query rewriting; measure nDCG lift vs the W5 baseline."
+          "hands": "Add a cross-encoder reranker + query rewriting; measure nDCG lift vs the W5 baseline.",
+          "exercise": {
+            "goal": "Optimise retrieval beyond the baseline.",
+            "steps": [
+              "Add a cross-encoder reranker + query rewriting.",
+              "Add contextual retrieval (Anthropic-style).",
+              "Measure nDCG lift vs the W5 baseline."
+            ],
+            "acceptance": [
+              "nDCG improves over baseline and the delta is recorded.",
+              "Each optimisation's individual contribution is noted."
+            ],
+            "stretch": "Try contextual-retrieval prompt caching to cut cost."
+          }
         },
         {
           "n": "3",
@@ -1086,7 +1515,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Add tabular retrieval over your Oracle schema — text-to-SQL plus row retrieval — feeding the agent."
+          "hands": "Add tabular retrieval over your Oracle schema — text-to-SQL plus row retrieval — feeding the agent.",
+          "exercise": {
+            "goal": "Retrieve beyond plain text.",
+            "steps": [
+              "Add tabular retrieval over your Oracle schema (text-to-SQL + row retrieval).",
+              "Feed retrieved rows into the agent.",
+              "Test 3 questions that require structured data."
+            ],
+            "acceptance": [
+              "The agent answers a question needing SQL/tabular retrieval.",
+              "Wrong-table/empty-result paths are handled."
+            ],
+            "stretch": "Add a multimodal (image/table) retrieval example."
+          }
         },
         {
           "n": "4",
@@ -1100,7 +1542,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Add a memory layer to your capstone agent (vector recall + rolling summary); test multi-session recall."
+          "hands": "Add a memory layer to your capstone agent (vector recall + rolling summary); test multi-session recall.",
+          "exercise": {
+            "goal": "Give your agent real memory.",
+            "steps": [
+              "Add a memory layer (vector recall + rolling summary) to the capstone agent.",
+              "Persist across sessions.",
+              "Test multi-session recall on a scripted conversation."
+            ],
+            "acceptance": [
+              "The agent recalls facts from a prior session.",
+              "Summary memory keeps context within the window."
+            ],
+            "stretch": "Add episodic memory and test retrieval of a specific past event."
+          }
         },
         {
           "n": "5",
@@ -1114,7 +1569,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Build a failure taxonomy + targeted evals for your agent; add loop/cost circuit-breakers."
+          "hands": "Build a failure taxonomy + targeted evals for your agent; add loop/cost circuit-breakers.",
+          "exercise": {
+            "goal": "Build a failure taxonomy + targeted evals for the agent.",
+            "steps": [
+              "Catalogue planning errors, tool errors, and loops you observe.",
+              "Write targeted evals for each failure mode.",
+              "Add loop and cost circuit-breakers."
+            ],
+            "acceptance": [
+              "A failure taxonomy with example traces exists.",
+              "Circuit-breakers stop runaway loops/cost."
+            ],
+            "stretch": "Wire the evals into CI as a gate."
+          }
         },
         {
           "n": "6",
@@ -1135,7 +1603,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Implement Reflexion (self-critique memory) and ReWOO (plan-then-execute) variants of your agent; compare against plain ReAct on your eval set."
+          "hands": "Implement Reflexion (self-critique memory) and ReWOO (plan-then-execute) variants of your agent; compare against plain ReAct on your eval set.",
+          "exercise": {
+            "goal": "Implement advanced agent reasoning variants.",
+            "steps": [
+              "Implement Reflexion (self-critique memory) and ReWOO (plan-then-execute).",
+              "Run both against your eval set.",
+              "Compare to plain ReAct on quality and cost."
+            ],
+            "acceptance": [
+              "Reflexion and ReWOO both run on your task.",
+              "A comparison table vs ReAct is recorded."
+            ],
+            "stretch": "Add Tree-of-Thoughts and compare on a planning task."
+          }
         }
       ],
       "udemy": "Spine: <b>Huyen Ch 6</b>",
@@ -1169,7 +1650,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Diagram the ReAct loop on paper before writing any code."
+          "hands": "Diagram the ReAct loop on paper before writing any code.",
+          "exercise": {
+            "goal": "Define precisely what an agent is (and isn't).",
+            "steps": [
+              "Write your own definition separating workflows from agents.",
+              "List the components: model, tools, loop, memory, stop condition.",
+              "Sketch the smallest agent for your domain."
+            ],
+            "acceptance": [
+              "A crisp written definition with the component list.",
+              "A diagram of your minimal agent."
+            ],
+            "stretch": "Map each component to a Temporal primitive."
+          }
         },
         {
           "n": "2–3",
@@ -1183,7 +1677,20 @@
             }
           ],
           "est": "4h",
-          "hands": "Write the loop yourself with 5 tools: web search (<a href=\"https://tavily.com/\" target=\"_blank\">Tavily</a> free), file r/w, python REPL, calculator, current_date."
+          "hands": "Write the loop yourself with 5 tools: web search (<a href=\"https://tavily.com/\" target=\"_blank\">Tavily</a> free), file r/w, python REPL, calculator, current_date.",
+          "exercise": {
+            "goal": "Write a ReAct agent in ~100 lines, no framework.",
+            "steps": [
+              "Implement reason→act→observe with your W5 RAG + a calculator tool.",
+              "Log every step (thought, action, observation).",
+              "Add a max-step stop condition."
+            ],
+            "acceptance": [
+              "The agent solves a multi-step task using tools.",
+              "Every step is logged and the loop terminates safely."
+            ],
+            "stretch": "Add a retry on malformed tool calls."
+          }
         },
         {
           "n": "4",
@@ -1198,7 +1705,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Sketch each Anthropic pattern as a flow."
+          "hands": "Sketch each Anthropic pattern as a flow.",
+          "exercise": {
+            "goal": "Catalogue the agentic patterns with examples.",
+            "steps": [
+              "Write a one-liner + when-to-use for chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer.",
+              "Map each to a real task you have.",
+              "Pick the pattern your capstone needs."
+            ],
+            "acceptance": [
+              "All 5 patterns have a use-case mapped.",
+              "Your capstone's primary pattern is chosen."
+            ],
+            "stretch": "Note the failure mode of each pattern."
+          }
         },
         {
           "n": "5",
@@ -1214,7 +1734,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Each pattern as a standalone example. Note: when would you use each <i>inside a Temporal workflow</i>?"
+          "hands": "Each pattern as a standalone example. Note: when would you use each <i>inside a Temporal workflow</i>?",
+          "exercise": {
+            "goal": "Implement the 5 agentic patterns.",
+            "steps": [
+              "Build chaining, routing, and parallelization.",
+              "Build orchestrator-workers and evaluator-optimizer.",
+              "Compare on the same task where sensible."
+            ],
+            "acceptance": [
+              "All 5 patterns run on real input.",
+              "A short note says which fit your workflow."
+            ],
+            "stretch": "Compose two patterns (e.g. router → workers) into one flow."
+          }
         }
       ],
       "udemy": "Udemy: <b>Agentic Track (foundations)</b> + Core Track Wk 8",
@@ -1243,7 +1776,20 @@
             }
           ],
           "est": "2.5h",
-          "hands": "Port your W7 ReAct agent to LangGraph; add a checkpointer + human-in-the-loop interrupt. Note where this mirrors Temporal signals."
+          "hands": "Port your W7 ReAct agent to LangGraph; add a checkpointer + human-in-the-loop interrupt. Note where this mirrors Temporal signals.",
+          "exercise": {
+            "goal": "Build the reference agent in LangGraph.",
+            "steps": [
+              "Model state, nodes, edges, and a checkpointer.",
+              "Add a human-in-the-loop interrupt.",
+              "Map LangGraph concepts to Temporal in notes."
+            ],
+            "acceptance": [
+              "The agent runs as a graph with a checkpointer.",
+              "A HITL interrupt pauses and resumes correctly."
+            ],
+            "stretch": "Add a conditional edge that routes on tool output."
+          }
         },
         {
           "n": "2",
@@ -1264,7 +1810,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Rebuild the same agent in the OpenAI Agents SDK; compare its handoff &amp; guardrail primitives to LangGraph edges."
+          "hands": "Rebuild the same agent in the OpenAI Agents SDK; compare its handoff &amp; guardrail primitives to LangGraph edges.",
+          "exercise": {
+            "goal": "Rebuild it on the OpenAI Agents SDK.",
+            "steps": [
+              "Implement handoffs between two agents.",
+              "Add guardrails and a session.",
+              "Compare ergonomics to LangGraph."
+            ],
+            "acceptance": [
+              "A handoff passes control with context intact.",
+              "A guardrail blocks a disallowed input."
+            ],
+            "stretch": "Add tracing and inspect a run."
+          }
         },
         {
           "n": "3",
@@ -1285,7 +1844,20 @@
             }
           ],
           "est": "2h",
-          "hands": "A 3-role crew (researcher → analyst → writer) producing a billpay incident summary."
+          "hands": "A 3-role crew (researcher → analyst → writer) producing a billpay incident summary.",
+          "exercise": {
+            "goal": "Rebuild it as a CrewAI role-based crew.",
+            "steps": [
+              "Define 2–3 roles with goals and tools.",
+              "Run the crew on the shared task.",
+              "Note where role abstraction helped/hurt."
+            ],
+            "acceptance": [
+              "The crew completes the task collaboratively.",
+              "A short comparison vs the prior two frameworks."
+            ],
+            "stretch": "Add a manager/critic role and measure quality."
+          }
         },
         {
           "n": "4",
@@ -1306,7 +1878,20 @@
             }
           ],
           "est": "2h",
-          "hands": "A group-chat of agents solving a task; note how orchestration/turn-taking differs from CrewAI roles."
+          "hands": "A group-chat of agents solving a task; note how orchestration/turn-taking differs from CrewAI roles.",
+          "exercise": {
+            "goal": "Rebuild it with AutoGen group chat.",
+            "steps": [
+              "Set up a conversational multi-agent group chat.",
+              "Run the shared task.",
+              "Capture termination and cost behaviour."
+            ],
+            "acceptance": [
+              "The group chat reaches a correct result and terminates.",
+              "Cost vs the other frameworks is noted."
+            ],
+            "stretch": "Add a tool-using agent to the group."
+          }
         },
         {
           "n": "5",
@@ -1328,7 +1913,20 @@
             }
           ],
           "est": "2.5h",
-          "hands": "<b>Build:</b> an MCP server exposing your Oracle DB read-only (reused later). Write \"<b>4 frameworks vs Temporal as a workflow engine</b>\" — a portfolio piece only you can write."
+          "hands": "<b>Build:</b> an MCP server exposing your Oracle DB read-only (reused later). Write \"<b>4 frameworks vs Temporal as a workflow engine</b>\" — a portfolio piece only you can write.",
+          "exercise": {
+            "goal": "Build an MCP server and deliver the verdict.",
+            "steps": [
+              "Build a small MCP server exposing one of your tools.",
+              "Call it from an agent via an MCP client.",
+              "Write the comparison doc across all four frameworks + when to use each."
+            ],
+            "acceptance": [
+              "The same agent runs against your MCP tool.",
+              "A comparison doc picks a default framework with reasons."
+            ],
+            "stretch": "Publish the MCP server and consume it from two different clients."
+          }
         }
       ],
       "udemy": "Udemy: <b>Agentic Track (full course)</b> — OpenAI SDK · CrewAI · LangGraph · AutoGen · MCP",
@@ -1358,7 +1956,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Wrap each LLM call as an Activity; keep non-determinism out of Workflow code. Port your W8 agent into a Temporal workflow skeleton."
+          "hands": "Wrap each LLM call as an Activity; keep non-determinism out of Workflow code. Port your W8 agent into a Temporal workflow skeleton.",
+          "exercise": {
+            "goal": "Map an agent onto a durable workflow.",
+            "steps": [
+              "Wrap each LLM/tool call as a Temporal Activity.",
+              "Keep all non-determinism out of Workflow code.",
+              "Port your W8 agent into a Temporal workflow skeleton."
+            ],
+            "acceptance": [
+              "The agent runs as a workflow with activities.",
+              "Workflow code is deterministic (no direct I/O)."
+            ],
+            "stretch": "Add a replay test proving determinism."
+          }
         },
         {
           "n": "2",
@@ -1372,7 +1983,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Add backoff retries + timeouts to LLM/tool Activities; make tool side-effects idempotent."
+          "hands": "Add backoff retries + timeouts to LLM/tool Activities; make tool side-effects idempotent.",
+          "exercise": {
+            "goal": "Make flaky LLM calls reliable.",
+            "steps": [
+              "Add backoff retries + timeouts to LLM/tool activities.",
+              "Add activity heartbeating for long calls.",
+              "Make a tool side-effect idempotent."
+            ],
+            "acceptance": [
+              "A transient failure is retried transparently.",
+              "Re-running an idempotent tool causes no double effect."
+            ],
+            "stretch": "Inject a 30% failure rate and confirm completion."
+          }
         },
         {
           "n": "3",
@@ -1386,7 +2010,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Add an approval gate via Signal; expose live agent state via Query; <code>executeUpdateWithStart</code> for kick-off + first input."
+          "hands": "Add an approval gate via Signal; expose live agent state via Query; <code>executeUpdateWithStart</code> for kick-off + first input.",
+          "exercise": {
+            "goal": "Add human-in-the-loop via Signals/Queries.",
+            "steps": [
+              "Add an approval gate using a Signal.",
+              "Expose live agent state via a Query.",
+              "Use <code>executeUpdateWithStart</code> for kickoff + first input."
+            ],
+            "acceptance": [
+              "A workflow pauses for approval and resumes on Signal.",
+              "Current state is observable via Query."
+            ],
+            "stretch": "Add a timeout that auto-rejects after N hours."
+          }
         },
         {
           "n": "4",
@@ -1400,7 +2037,20 @@
             }
           ],
           "est": "3h",
-          "hands": "Trigger 500K workflows throttled — rate-limit LLM calls, cap concurrency, protect the <code>r8g.8xlarge</code> Postgres without scaling it. Schedules vs <code>Workflow.sleep()</code> at scale."
+          "hands": "Trigger 500K workflows throttled — rate-limit LLM calls, cap concurrency, protect the <code>r8g.8xlarge</code> Postgres without scaling it. Schedules vs <code>Workflow.sleep()</code> at scale.",
+          "exercise": {
+            "goal": "Throttle fan-out at 500K scale.",
+            "steps": [
+              "Trigger a large batch of workflows, rate-limiting LLM calls and capping concurrency.",
+              "Protect the <code>r8g.8xlarge</code> Postgres without scaling it.",
+              "Compare Schedules vs <code>Workflow.sleep()</code> at scale."
+            ],
+            "acceptance": [
+              "A large fan-out runs within concurrency/rate caps.",
+              "Postgres stays healthy under the load."
+            ],
+            "stretch": "Chart throughput vs concurrency cap and find the safe ceiling."
+          }
         },
         {
           "n": "5",
@@ -1414,7 +2064,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Draft the post — it basically writes itself with your background. Your standout interview asset."
+          "hands": "Draft the post — it basically writes itself with your background. Your standout interview asset.",
+          "exercise": {
+            "goal": "Write the orchestration thesis.",
+            "steps": [
+              "Draft the blog: 'What Agent Frameworks Get Wrong About Workflow Orchestration'.",
+              "Back each claim with something from your build.",
+              "Get it review-ready."
+            ],
+            "acceptance": [
+              "A complete draft with concrete examples from your code.",
+              "It states your differentiated POV clearly."
+            ],
+            "stretch": "Publish and cross-post; capture one piece of feedback."
+          }
         }
       ],
       "udemy": "Udemy: <b>none exists — this is uniquely yours.</b>",
@@ -1443,7 +2106,20 @@
             }
           ],
           "est": "1.5h",
-          "hands": "Write your escalation decision tree; mark where billpay tasks would land."
+          "hands": "Write your escalation decision tree; mark where billpay tasks would land.",
+          "exercise": {
+            "goal": "Decide whether fine-tuning is even justified.",
+            "steps": [
+              "Walk the decision tree: prompt → few-shot → RAG → fine-tune for your task.",
+              "Write the case for/against fine-tuning here.",
+              "Define the metric that would prove it was worth it."
+            ],
+            "acceptance": [
+              "A written decision with the metric that would justify FT.",
+              "You can argue why prompting/RAG is or isn't enough."
+            ],
+            "stretch": "Estimate the data volume you'd need."
+          }
         },
         {
           "n": "2–3",
@@ -1463,7 +2139,20 @@
             }
           ],
           "est": "4h",
-          "hands": "Fine-tune <code>Qwen2.5-3B</code> with LoRA via <a href=\"https://github.com/unslothai/unsloth\" target=\"_blank\">unsloth</a> on a free Colab T4. Task: SQL gen on a synthetic billpay schema."
+          "hands": "Fine-tune <code>Qwen2.5-3B</code> with LoRA via <a href=\"https://github.com/unslothai/unsloth\" target=\"_blank\">unsloth</a> on a free Colab T4. Task: SQL gen on a synthetic billpay schema.",
+          "exercise": {
+            "goal": "Run a LoRA/QLoRA fine-tune that beats base.",
+            "steps": [
+              "Fine-tune a small model (e.g. Llama-3.2-3B) with LoRA/PEFT on a focused dataset.",
+              "Hold out a test set.",
+              "Compare tuned vs base on that set."
+            ],
+            "acceptance": [
+              "The tuned model beats base on the held-out metric.",
+              "Training config + results are committed."
+            ],
+            "stretch": "Try QLoRA (4-bit) and compare quality/VRAM."
+          }
         },
         {
           "n": "4",
@@ -1479,7 +2168,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Serve your fine-tuned model with vLLM; benchmark tokens/sec vs Ollama."
+          "hands": "Serve your fine-tuned model with vLLM; benchmark tokens/sec vs Ollama.",
+          "exercise": {
+            "goal": "Serve the model locally and preview quantization.",
+            "steps": [
+              "Run the model with Ollama, then with vLLM.",
+              "Quantize it and re-measure quality + latency.",
+              "Note when you'd choose each server."
+            ],
+            "acceptance": [
+              "The model serves under both runtimes.",
+              "A quality/latency comparison for a quantized variant exists."
+            ],
+            "stretch": "Expose an OpenAI-compatible endpoint and point your W2 script at it."
+          }
         },
         {
           "n": "5",
@@ -1494,7 +2196,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Pre-train a tiny GPT on Tiny Shakespeare. Optional but you'll never see transformers the same way."
+          "hands": "Pre-train a tiny GPT on Tiny Shakespeare. Optional but you'll never see transformers the same way.",
+          "exercise": {
+            "goal": "Read the transformer from the metal (optional).",
+            "steps": [
+              "Work a from-scratch transformer notebook (attention, blocks).",
+              "Re-derive one component in your own words.",
+              "Connect it to a knob you tuned in W4."
+            ],
+            "acceptance": [
+              "A notebook runs and you can explain attention end-to-end.",
+              "One component is re-derived in notes."
+            ],
+            "stretch": "Implement a single attention head from scratch."
+          }
         }
       ],
       "udemy": "Udemy: <b>Core Track — Week 7</b>",
@@ -1522,7 +2237,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Compute VRAM for full vs LoRA vs QLoRA on 7B/13B; verify against your actual Week-6 run."
+          "hands": "Compute VRAM for full vs LoRA vs QLoRA on 7B/13B; verify against your actual Week-6 run.",
+          "exercise": {
+            "goal": "Master the memory math behind training/serving.",
+            "steps": [
+              "Write the footprint formula for params × bytes/dtype.",
+              "Compute memory for FP32/FP16/BF16/INT8/INT4 for one model.",
+              "State what fits on your target GPU."
+            ],
+            "acceptance": [
+              "A memory sheet covers all 5 dtypes for one model.",
+              "You can say what fits in X GB."
+            ],
+            "stretch": "Add KV-cache memory to the estimate for a given context length."
+          }
         },
         {
           "n": "2",
@@ -1542,7 +2270,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Quantize your W10 model to Q4/Q5; benchmark quality + tokens/sec at each level."
+          "hands": "Quantize your W10 model to Q4/Q5; benchmark quality + tokens/sec at each level.",
+          "exercise": {
+            "goal": "Quantize and measure the tradeoff.",
+            "steps": [
+              "Quantize a model with GPTQ/AWQ and to GGUF.",
+              "Measure quality + latency vs full precision.",
+              "Record the quality/latency curve."
+            ],
+            "acceptance": [
+              "At least two quantization methods are benchmarked.",
+              "The quality/latency tradeoff is recorded."
+            ],
+            "stretch": "Find the lowest bit-width that holds your quality bar."
+          }
         },
         {
           "n": "3",
@@ -1562,7 +2303,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Merge two LoRA adapters with mergekit; eval the merged model on both source tasks."
+          "hands": "Merge two LoRA adapters with mergekit; eval the merged model on both source tasks.",
+          "exercise": {
+            "goal": "Merge models for multi-task capability.",
+            "steps": [
+              "Merge two adapters/models with SLERP or TIES/DARE.",
+              "Evaluate on both source tasks.",
+              "Check for capability regression."
+            ],
+            "acceptance": [
+              "A merged model retains both tasks' ability.",
+              "Any regression is quantified."
+            ],
+            "stretch": "Compare merge methods on the same pair."
+          }
         },
         {
           "n": "4",
@@ -1576,7 +2330,20 @@
             }
           ],
           "est": "2.5h",
-          "hands": "Build a 200-example billpay instruction dataset with an explicit quality rubric + coverage check."
+          "hands": "Build a 200-example billpay instruction dataset with an explicit quality rubric + coverage check.",
+          "exercise": {
+            "goal": "Curate a dataset that actually decides FT success.",
+            "steps": [
+              "Assemble a small dataset with explicit quality/coverage/quantity targets.",
+              "De-duplicate and clean.",
+              "Document acquisition + annotation choices."
+            ],
+            "acceptance": [
+              "A cleaned, deduped dataset with a documented spec.",
+              "Coverage gaps are noted."
+            ],
+            "stretch": "Add an inter-annotator agreement check on a sample."
+          }
         },
         {
           "n": "5",
@@ -1596,7 +2363,20 @@
             }
           ],
           "est": "2.5h",
-          "hands": "Synthesize + distill from a frontier model into your small model; dedup &amp; filter; try <b>RAFT</b> (train the model to ignore distractor docs) and re-run the W10 eval to show lift."
+          "hands": "Synthesize + distill from a frontier model into your small model; dedup &amp; filter; try <b>RAFT</b> (train the model to ignore distractor docs) and re-run the W10 eval to show lift.",
+          "exercise": {
+            "goal": "Generate data via synthesis, distillation, and RAFT.",
+            "steps": [
+              "Synthesize training examples with a stronger model.",
+              "Distill into your small model.",
+              "Apply retrieval-augmented fine-tuning (RAFT)."
+            ],
+            "acceptance": [
+              "A synthetic set is generated and quality-filtered.",
+              "The distilled/RAFT model is evaluated against baseline."
+            ],
+            "stretch": "Measure how much synthetic data closes the gap to the teacher."
+          }
         }
       ],
       "udemy": "Spine: <b>Huyen Ch 7–8</b>",
@@ -1630,7 +2410,20 @@
             }
           ],
           "est": "2h",
-          "hands": "List the failure modes you expect in your Week 8 agent."
+          "hands": "List the failure modes you expect in your Week 8 agent.",
+          "exercise": {
+            "goal": "Internalise why evals are the differentiator.",
+            "steps": [
+              "List the failure modes you expect in your W8 agent.",
+              "Group them into categories.",
+              "Pick the 3 that matter most for your task."
+            ],
+            "acceptance": [
+              "A categorised failure-mode list exists.",
+              "The top-3 are prioritised with reasons."
+            ],
+            "stretch": "Find a real production incident write-up and map it to a failure mode."
+          }
         },
         {
           "n": "2–3",
@@ -1645,7 +2438,20 @@
             }
           ],
           "est": "4h",
-          "hands": "On your W8 agent: label 100 traces → cluster failures → LLM-as-judge per mode → validate (TPR/TNR) → golden set of 20–30 that gate CI."
+          "hands": "On your W8 agent: label 100 traces → cluster failures → LLM-as-judge per mode → validate (TPR/TNR) → golden set of 20–30 that gate CI.",
+          "exercise": {
+            "goal": "Build an eval suite the Hamel way.",
+            "steps": [
+              "Label 100 traces from your W8 agent.",
+              "Cluster failures and write an LLM-as-judge per mode.",
+              "Validate each judge (TPR/TNR) and keep a 20–30 golden set that gates CI."
+            ],
+            "acceptance": [
+              "Judges are validated with TPR/TNR numbers.",
+              "A golden set gates CI."
+            ],
+            "stretch": "Add a cost-per-eval-run budget to CI."
+          }
         },
         {
           "n": "4",
@@ -1659,7 +2465,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Instrument every agent call (cost, latency, tools). Dashboard: \"which tool calls fail most?\""
+          "hands": "Instrument every agent call (cost, latency, tools). Dashboard: \"which tool calls fail most?\"",
+          "exercise": {
+            "goal": "Instrument everything with observability.",
+            "steps": [
+              "Wire Langfuse into every agent call (cost, latency, tools).",
+              "Build a dashboard answering 'which tool calls fail most?'.",
+              "Trace one real failing session end-to-end."
+            ],
+            "acceptance": [
+              "Every call is traced with cost+latency.",
+              "The dashboard answers the tool-failure question."
+            ],
+            "stretch": "Add alerting on a cost or error-rate threshold."
+          }
         },
         {
           "n": "5",
@@ -1679,7 +2498,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Add I/O guardrails. Try 10 attacks; document mitigations. (Expanded in Week 18.)"
+          "hands": "Add I/O guardrails. Try 10 attacks; document mitigations. (Expanded in Week 18.)",
+          "exercise": {
+            "goal": "Red-team and add guardrails.",
+            "steps": [
+              "Add input + output guardrails to the agent.",
+              "Run 10 prompt-injection / jailbreak attacks (try Lakera Gandalf).",
+              "Document each attack and its mitigation."
+            ],
+            "acceptance": [
+              "Guardrails block the majority of attacks.",
+              "A red-team doc lists attacks + mitigations."
+            ],
+            "stretch": "Add a canary-token test for data exfiltration."
+          }
         }
       ],
       "udemy": "Udemy: <b>weak fit.</b> Use the practitioners above; <a href=\"https://maven.com/parlance-labs/evals\" target=\"_blank\">Maven AI Evals</a> if you later invest.",
@@ -1714,7 +2546,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Re-run your W10 LoRA fine-tune with MLflow tracking: log hyperparams, train/eval loss curves, the LoRA adapter as an artifact, the eval-set metrics. Add a second run with a different learning rate; compare runs in the UI."
+          "hands": "Re-run your W10 LoRA fine-tune with MLflow tracking: log hyperparams, train/eval loss curves, the LoRA adapter as an artifact, the eval-set metrics. Add a second run with a different learning rate; compare runs in the UI.",
+          "exercise": {
+            "goal": "Make experiments reproducible with tracking.",
+            "steps": [
+              "Re-run your W10 LoRA fine-tune under MLflow tracking (params, loss curves, the adapter artifact, eval metrics).",
+              "Add a second run with a different learning rate.",
+              "Compare runs in the UI."
+            ],
+            "acceptance": [
+              "Two runs are logged and comparable in MLflow.",
+              "The adapter is stored as an artifact."
+            ],
+            "stretch": "Add W&B and log the same run to both."
+          }
         },
         {
           "n": "2",
@@ -1735,7 +2580,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Move your capstone's 3 hottest prompts into Langfuse with versions. In code, fetch by name+label (e.g. <code>billpay-classifier:production</code>). Run a quick A/B between v1 and v2; record judge scores on each."
+          "hands": "Move your capstone's 3 hottest prompts into Langfuse with versions. In code, fetch by name+label (e.g. <code>billpay-classifier:production</code>). Run a quick A/B between v1 and v2; record judge scores on each.",
+          "exercise": {
+            "goal": "Version prompts like software.",
+            "steps": [
+              "Move your capstone's 3 hottest prompts into Langfuse with versions.",
+              "Fetch by name+label in code (e.g. <code>billpay-classifier:production</code>).",
+              "A/B v1 vs v2 and record judge scores."
+            ],
+            "acceptance": [
+              "Prompts are fetched by version at runtime.",
+              "An A/B result picks a winner with numbers."
+            ],
+            "stretch": "Wire a rollback to the previous prompt version."
+          }
         },
         {
           "n": "3",
@@ -1756,7 +2614,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Push the W10 LoRA adapter to HF Hub with a model card (training data, eval scores, intended use, known failure modes). Register in MLflow with stages <code>staging</code> → <code>production</code>. Document the promotion criteria."
+          "hands": "Push the W10 LoRA adapter to HF Hub with a model card (training data, eval scores, intended use, known failure modes). Register in MLflow with stages <code>staging</code> → <code>production</code>. Document the promotion criteria.",
+          "exercise": {
+            "goal": "Stand up a model registry + lineage.",
+            "steps": [
+              "Push the W10 adapter to HF Hub with a model card (data, eval scores, intended use, failure modes).",
+              "Register it in MLflow with <code>staging</code>→<code>production</code> stages.",
+              "Document the promotion criteria."
+            ],
+            "acceptance": [
+              "A model card + registry entry exist with stages.",
+              "Promotion criteria are written down."
+            ],
+            "stretch": "Script a promotion that checks the eval gate first."
+          }
         },
         {
           "n": "4",
@@ -1777,7 +2648,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Version your W12 golden eval set with DVC; tag <code>eval-v1</code> after CI passes. Sketch a drift detector — embedding-distance histogram between training distribution and a week of production traces."
+          "hands": "Version your W12 golden eval set with DVC; tag <code>eval-v1</code> after CI passes. Sketch a drift detector — embedding-distance histogram between training distribution and a week of production traces.",
+          "exercise": {
+            "goal": "Version datasets and watch for drift.",
+            "steps": [
+              "Version your W12 golden eval set with DVC; tag <code>eval-v1</code>.",
+              "Sketch a drift detector (embedding-distance histogram: train vs a week of prod traces).",
+              "Decide a drift threshold."
+            ],
+            "acceptance": [
+              "The eval set is DVC-versioned and tagged.",
+              "A drift metric + threshold are defined."
+            ],
+            "stretch": "Simulate drift and confirm the detector fires."
+          }
         },
         {
           "n": "5",
@@ -1792,7 +2676,20 @@
             }
           ],
           "est": "2h",
-          "hands": "GitHub Actions workflow on PR: run your W12 eval suite against the proposed prompt/model version, fail PR if any judge regresses below threshold. Wire MLflow run URL into the PR comment. This is the foundation W18 generalises to full deploy gating."
+          "hands": "GitHub Actions workflow on PR: run your W12 eval suite against the proposed prompt/model version, fail PR if any judge regresses below threshold. Wire MLflow run URL into the PR comment. This is the foundation W18 generalises to full deploy gating.",
+          "exercise": {
+            "goal": "Gate deploys on evals in CI.",
+            "steps": [
+              "Add a GitHub Actions job that runs the W12 evals on a PR's prompt/model version.",
+              "Fail the PR if any judge regresses below threshold.",
+              "Post the MLflow run URL into the PR comment."
+            ],
+            "acceptance": [
+              "The CI job blocks a regressing PR.",
+              "The run URL appears on the PR."
+            ],
+            "stretch": "Add a manual-approval step for production promotion."
+          }
         }
       ],
       "udemy": "Udemy: <b>weak fit</b> — use docs above + <a href=\"https://www.wandb.courses/\" target=\"_blank\">W&amp;B Courses</a> (free) for depth.",
@@ -1820,7 +2717,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Compute perplexity of a local model on a held-out billpay-docs set; interpret what it tells you."
+          "hands": "Compute perplexity of a local model on a held-out billpay-docs set; interpret what it tells you.",
+          "exercise": {
+            "goal": "Compute language-modeling metrics by hand.",
+            "steps": [
+              "Compute cross-entropy and perplexity on a held-out set.",
+              "Relate BPC/BPB to perplexity.",
+              "Interpret what a perplexity delta means."
+            ],
+            "acceptance": [
+              "Perplexity is computed correctly on real text.",
+              "You can explain what a change in it implies."
+            ],
+            "stretch": "Compare perplexity of two models on the same set."
+          }
         },
         {
           "n": "2",
@@ -1840,7 +2750,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Build an LLM judge with an explicit rubric; validate against human labels (TPR/TNR); measure position/verbosity bias."
+          "hands": "Build an LLM judge with an explicit rubric; validate against human labels (TPR/TNR); measure position/verbosity bias.",
+          "exercise": {
+            "goal": "Use LLM-as-judge with eyes open.",
+            "steps": [
+              "Build a judge for one criterion with a rubric.",
+              "Validate it against human labels (TPR/TNR).",
+              "Probe for position/verbosity/self bias."
+            ],
+            "acceptance": [
+              "The judge is validated against humans.",
+              "At least one bias is demonstrated and mitigated."
+            ],
+            "stretch": "Add pairwise judging and compare to pointwise."
+          }
         },
         {
           "n": "3",
@@ -1860,7 +2783,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Pairwise-compare 3 models on your task; compute an Elo ranking from the results."
+          "hands": "Pairwise-compare 3 models on your task; compute an Elo ranking from the results.",
+          "exercise": {
+            "goal": "Rank models with comparative eval.",
+            "steps": [
+              "Run pairwise comparisons on a task set.",
+              "Compute Elo / build a mini arena.",
+              "Produce a ranked scorecard."
+            ],
+            "acceptance": [
+              "An Elo/ranked scorecard across ≥3 models exists.",
+              "Confidence/agreement is noted."
+            ],
+            "stretch": "Add bootstrap confidence intervals to the Elo."
+          }
         },
         {
           "n": "4",
@@ -1874,7 +2810,20 @@
             }
           ],
           "est": "2.5h",
-          "hands": "Build a model-selection scorecard for billpay (capability × cost × latency × control). Critically read 2 public benchmarks for leakage/mismatch."
+          "hands": "Build a model-selection scorecard for billpay (capability × cost × latency × control). Critically read 2 public benchmarks for leakage/mismatch.",
+          "exercise": {
+            "goal": "Select a model on criteria, not vibes.",
+            "steps": [
+              "Score candidates on capability, cost, latency.",
+              "Decide build vs buy for your task.",
+              "Cross-check against a public benchmark."
+            ],
+            "acceptance": [
+              "A selection matrix yields a justified pick.",
+              "Benchmark caveats are noted."
+            ],
+            "stretch": "Recompute the pick if the budget halves."
+          }
         },
         {
           "n": "5",
@@ -1894,7 +2843,20 @@
             }
           ],
           "est": "2.5h",
-          "hands": "Design an end-to-end eval pipeline for your capstone (component-level + system-level); wire it into CI as a release gate."
+          "hands": "Design an end-to-end eval pipeline for your capstone (component-level + system-level); wire it into CI as a release gate.",
+          "exercise": {
+            "goal": "Design the full eval pipeline.",
+            "steps": [
+              "Define evals for each component (retrieval, judge, end-to-end).",
+              "Write guidelines + methods + the data each needs.",
+              "Wire it to run on a schedule + on PRs."
+            ],
+            "acceptance": [
+              "Every component has an eval defined.",
+              "The pipeline runs automatically."
+            ],
+            "stretch": "Add a regression dashboard over time."
+          }
         }
       ],
       "udemy": "Spine: <b>Huyen Ch 3–4</b> · <a href=\"https://maven.com/parlance-labs/evals\" target=\"_blank\">Maven AI Evals</a> if investing",
@@ -2020,7 +2982,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Write your own 7-step AI-systems template: <i>(1) requirements → (2) functional &amp; non-functional → (3) data &amp; eval → (4) model &amp; retrieval → (5) serving / scale / cost → (6) safety &amp; failure modes → (7) iteration &amp; metrics</i>. Use it for every design below."
+          "hands": "Write your own 7-step AI-systems template: <i>(1) requirements → (2) functional &amp; non-functional → (3) data &amp; eval → (4) model &amp; retrieval → (5) serving / scale / cost → (6) safety &amp; failure modes → (7) iteration &amp; metrics</i>. Use it for every design below.",
+          "exercise": {
+            "goal": "Build a repeatable AI system-design template.",
+            "steps": [
+              "Write your 7-step template (requirements → functional/non-functional → data & eval → model & retrieval → serving/scale/cost → safety/failure → iteration/metrics).",
+              "Pressure-test it on a toy prompt.",
+              "Keep it to one page."
+            ],
+            "acceptance": [
+              "A reusable 7-step template exists.",
+              "It's been applied once end-to-end."
+            ],
+            "stretch": "Add a checklist of numbers to always state (latency, recall, cost)."
+          }
         },
         {
           "n": "2",
@@ -2040,7 +3015,20 @@
             }
           ],
           "est": "2h",
-          "hands": "2-page design doc: index size (≈100M chunks), freshness SLO, recall target, latency budget (p95 &lt; 800ms), hybrid retrieval, reranker placement, caching, multi-tenant isolation, eval pipeline. Put real numbers."
+          "hands": "2-page design doc: index size (≈100M chunks), freshness SLO, recall target, latency budget (p95 &lt; 800ms), hybrid retrieval, reranker placement, caching, multi-tenant isolation, eval pipeline. Put real numbers.",
+          "exercise": {
+            "goal": "Design LLM-powered search at scale.",
+            "steps": [
+              "Write a 2-page design for 'GitHub Code Search with LLM answers' (~100M chunks).",
+              "Put real numbers: freshness SLO, recall target, p95 < 800ms, caching, multi-tenant isolation.",
+              "Show the eval pipeline."
+            ],
+            "acceptance": [
+              "The doc has concrete numbers, not hand-waving.",
+              "Hybrid retrieval + reranker placement are justified."
+            ],
+            "stretch": "Add a cost-per-query estimate."
+          }
         },
         {
           "n": "3",
@@ -2060,7 +3048,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Design doc: autocomplete vs chat vs agent modes, context windowing strategy, repo indexing, latency (TTFT &lt; 150ms for autocomplete), local vs cloud model split, privacy, telemetry / eval."
+          "hands": "Design doc: autocomplete vs chat vs agent modes, context windowing strategy, repo indexing, latency (TTFT &lt; 150ms for autocomplete), local vs cloud model split, privacy, telemetry / eval.",
+          "exercise": {
+            "goal": "Design an AI coding assistant.",
+            "steps": [
+              "Design Cursor/Copilot: autocomplete vs chat vs agent modes.",
+              "Specify context windowing, repo indexing, TTFT < 150ms for autocomplete.",
+              "Cover local vs cloud split, privacy, telemetry/eval."
+            ],
+            "acceptance": [
+              "Latency budgets per mode are stated.",
+              "The context/indexing strategy is concrete."
+            ],
+            "stretch": "Add an offline-degradation story."
+          }
         },
         {
           "n": "4",
@@ -2080,7 +3081,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Design doc: candidate generation (collaborative + content embeddings), LLM reranker at the head (cost gate), feature store, cold-start, online learning loop, A/B + Elo for ranker upgrades."
+          "hands": "Design doc: candidate generation (collaborative + content embeddings), LLM reranker at the head (cost gate), feature store, cold-start, online learning loop, A/B + Elo for ranker upgrades.",
+          "exercise": {
+            "goal": "Design a recsys with LLM features.",
+            "steps": [
+              "Design Spotify Discover with an LLM reranker: candidate generation + reranking head (cost gate).",
+              "Cover feature store, cold-start, online learning.",
+              "Specify A/B + Elo for ranker upgrades."
+            ],
+            "acceptance": [
+              "Candidate-gen vs rerank split is justified on cost.",
+              "Cold-start + evaluation are addressed."
+            ],
+            "stretch": "Estimate the LLM-rerank cost ceiling at scale."
+          }
         },
         {
           "n": "5",
@@ -2101,7 +3115,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Design doc: tool inventory, HITL escalation, durable orchestration via Temporal, throttled fan-out (reusing W9 math), inference tier sizing (reusing W17), cost-per-ticket target, failure taxonomy + eval, audit/compliance. <b>Explicitly call out the JVM / Temporal / inference-opt edges.</b>"
+          "hands": "Design doc: tool inventory, HITL escalation, durable orchestration via Temporal, throttled fan-out (reusing W9 math), inference tier sizing (reusing W17), cost-per-ticket target, failure taxonomy + eval, audit/compliance. <b>Explicitly call out the JVM / Temporal / inference-opt edges.</b>",
+          "exercise": {
+            "goal": "Design an agentic workflow at 1M tickets/day.",
+            "steps": [
+              "Design a support copilot: tool inventory, HITL escalation, durable orchestration (Temporal), throttled fan-out (reuse W9), inference tier (reuse W17).",
+              "Set a cost-per-ticket target.",
+              "Add a failure taxonomy + audit/compliance — call out your JVM/Temporal/inference edges."
+            ],
+            "acceptance": [
+              "The design hits a cost-per-ticket target with numbers.",
+              "Your differentiated edges are explicit in the doc."
+            ],
+            "stretch": "Add a graceful-degradation plan when the model provider is down."
+          }
         },
         {
           "n": "6",
@@ -2115,7 +3142,20 @@
             }
           ],
           "est": "1h",
-          "hands": "Record a 45-min mock for one of designs 2–5 (whiteboard or Excalidraw, talk aloud). Score against the rubric: requirements gathering, tradeoffs, depth on bottleneck, eval strategy, your edges. Write a 1-pager: \"my interview-ready angles\" — JVM-native AI, Temporal orchestration, inference economics."
+          "hands": "Record a 45-min mock for one of designs 2–5 (whiteboard or Excalidraw, talk aloud). Score against the rubric: requirements gathering, tradeoffs, depth on bottleneck, eval strategy, your edges. Write a 1-pager: \"my interview-ready angles\" — JVM-native AI, Temporal orchestration, inference economics.",
+          "exercise": {
+            "goal": "Rehearse the 45-minute design interview.",
+            "steps": [
+              "Record a 45-min mock for one of designs 1–4 (whiteboard/Excalidraw, talk aloud).",
+              "Score yourself against the rubric (requirements, tradeoffs, bottleneck depth, eval, edges).",
+              "Write a 1-pager: 'my interview-ready angles'."
+            ],
+            "acceptance": [
+              "A recorded mock exists, self-scored.",
+              "The differentiator one-pager is written."
+            ],
+            "stretch": "Do a second mock and close your weakest rubric area."
+          }
         }
       ],
       "udemy": "Spine: Eugene Yan / Huyen / Anthropic posts. No single course fits — interview prep itself is in W18.",
@@ -2143,7 +3183,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Benchmark TTFT / TPOT / throughput of your W10 model under load; build a latency-vs-cost table."
+          "hands": "Benchmark TTFT / TPOT / throughput of your W10 model under load; build a latency-vs-cost table.",
+          "exercise": {
+            "goal": "Measure inference like a systems engineer.",
+            "steps": [
+              "Benchmark TTFT / TPOT / throughput of your W10 model under load.",
+              "Define goodput for your SLO.",
+              "Build a latency-vs-cost table."
+            ],
+            "acceptance": [
+              "TTFT/TPOT/throughput are measured under real load.",
+              "A latency-vs-cost table exists."
+            ],
+            "stretch": "Plot throughput vs batch size and find the knee."
+          }
         },
         {
           "n": "2",
@@ -2163,7 +3216,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Enable speculative decoding in vLLM; measure the speedup vs baseline."
+          "hands": "Enable speculative decoding in vLLM; measure the speedup vs baseline.",
+          "exercise": {
+            "goal": "Optimise the model for inference.",
+            "steps": [
+              "Enable speculative decoding in vLLM and measure speedup.",
+              "Quantize and re-measure.",
+              "Note any quality delta."
+            ],
+            "acceptance": [
+              "Spec-decoding speedup vs baseline is measured.",
+              "Quality impact of quantization is recorded."
+            ],
+            "stretch": "Try tensor parallelism across 2 GPUs (or simulate) and note scaling."
+          }
         },
         {
           "n": "3",
@@ -2183,7 +3249,20 @@
             }
           ],
           "est": "2.5h",
-          "hands": "Load-test vLLM continuous batching; chart throughput vs concurrency; observe KV-cache + prefill effects."
+          "hands": "Load-test vLLM continuous batching; chart throughput vs concurrency; observe KV-cache + prefill effects.",
+          "exercise": {
+            "goal": "Optimise the serving layer.",
+            "steps": [
+              "Load-test vLLM continuous batching; chart throughput vs concurrency.",
+              "Observe KV-cache + prefill effects.",
+              "Find the concurrency that maximises goodput."
+            ],
+            "acceptance": [
+              "A throughput-vs-concurrency chart exists.",
+              "KV-cache/prefill behaviour is described."
+            ],
+            "stretch": "Test prefill/decode disaggregation and compare."
+          }
         },
         {
           "n": "4",
@@ -2203,7 +3282,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Add prompt + semantic caching; route easy queries to a small model via a gateway; measure $ saved."
+          "hands": "Add prompt + semantic caching; route easy queries to a small model via a gateway; measure $ saved.",
+          "exercise": {
+            "goal": "Cut cost with caching and routing.",
+            "steps": [
+              "Add prompt + semantic caching.",
+              "Route easy queries to a small model via a gateway (LiteLLM).",
+              "Measure $ saved on a realistic traffic mix."
+            ],
+            "acceptance": [
+              "Cache hit-rate and $ saved are measured.",
+              "Routing sends easy traffic to the cheap model correctly."
+            ],
+            "stretch": "Add a cache-invalidation policy and test it."
+          }
         },
         {
           "n": "5",
@@ -2217,7 +3309,20 @@
             }
           ],
           "est": "2.5h",
-          "hands": "Design the serving tier for 500K throttled workflows: concurrency caps, batching, cache-hit targets — without scaling the <code>r8g.8xlarge</code>. This is your interview centerpiece."
+          "hands": "Design the serving tier for 500K throttled workflows: concurrency caps, batching, cache-hit targets — without scaling the <code>r8g.8xlarge</code>. This is your interview centerpiece.",
+          "exercise": {
+            "goal": "Design the serving tier for 500K throttled workflows.",
+            "steps": [
+              "Design concurrency caps, batching, and cache-hit targets for the W9 fan-out.",
+              "Stay within the <code>r8g.8xlarge</code> Postgres budget.",
+              "Write it up as your interview centerpiece."
+            ],
+            "acceptance": [
+              "A serving-tier design hits throughput targets within budget.",
+              "It ties explicitly to the Temporal fan-out."
+            ],
+            "stretch": "Compute the $/1K-requests of the final design."
+          }
         }
       ],
       "udemy": "Spine: <b>Huyen Ch 9</b> — no course matches your background here.",
@@ -2245,7 +3350,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Draw your capstone as the full layered architecture; label each layer in your actual code."
+          "hands": "Draw your capstone as the full layered architecture; label each layer in your actual code.",
+          "exercise": {
+            "goal": "Draw the production reference architecture.",
+            "steps": [
+              "Diagram your capstone as layers: context → guardrails → router → cache → agents → orchestration.",
+              "Label each layer in your actual code.",
+              "Mark the failure domain of each."
+            ],
+            "acceptance": [
+              "A layered diagram maps 1:1 to your code.",
+              "Each layer's failure mode is labelled."
+            ],
+            "stretch": "Add SLOs per layer."
+          }
         },
         {
           "n": "2",
@@ -2265,7 +3383,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Add input + output guardrails to the capstone; red-team with 10 injections; document each defense."
+          "hands": "Add input + output guardrails to the capstone; red-team with 10 injections; document each defense.",
+          "exercise": {
+            "goal": "Harden with guardrails + defensive prompting.",
+            "steps": [
+              "Add input + output guardrails to the capstone.",
+              "Red-team with 10 injections.",
+              "Document each defense (map to OWASP LLM Top 10)."
+            ],
+            "acceptance": [
+              "Guardrails block the injection set.",
+              "Defenses are mapped to OWASP items."
+            ],
+            "stretch": "Add an allow/deny policy engine in front of tools."
+          }
         },
         {
           "n": "3",
@@ -2286,7 +3417,20 @@
             }
           ],
           "est": "3h",
-          "hands": "Containerize the capstone (Docker); deploy behind API Gateway + Lambda (or App Runner for the long-running agent); call Bedrock as a model provider."
+          "hands": "Containerize the capstone (Docker); deploy behind API Gateway + Lambda (or App Runner for the long-running agent); call Bedrock as a model provider.",
+          "exercise": {
+            "goal": "Deploy to the cloud.",
+            "steps": [
+              "Containerize the capstone with Docker.",
+              "Deploy behind API Gateway + Lambda (or App Runner for the long-running agent).",
+              "Call Bedrock as a model provider."
+            ],
+            "acceptance": [
+              "The app is reachable on a public endpoint.",
+              "Bedrock serves at least one call path."
+            ],
+            "stretch": "Add autoscaling and load-test the endpoint."
+          }
         },
         {
           "n": "4",
@@ -2307,7 +3451,20 @@
             }
           ],
           "est": "2.5h",
-          "hands": "Terraform your infra; GitHub Actions pipeline that runs the Week-12 eval gate before any deploy. Note the Vercel/GCP/Azure equivalents the Production Track covers."
+          "hands": "Terraform your infra; GitHub Actions pipeline that runs the Week-12 eval gate before any deploy. Note the Vercel/GCP/Azure equivalents the Production Track covers.",
+          "exercise": {
+            "goal": "Codify infra + eval-gated CI/CD.",
+            "steps": [
+              "Terraform your infrastructure.",
+              "GitHub Actions pipeline runs the W13 eval gate before any deploy.",
+              "Note the Vercel/GCP/Azure equivalents."
+            ],
+            "acceptance": [
+              "<code>terraform apply</code> provisions the stack reproducibly.",
+              "A regressing eval blocks deploy."
+            ],
+            "stretch": "Add a blue/green or canary deploy step."
+          }
         },
         {
           "n": "5",
@@ -2327,7 +3484,20 @@
             }
           ],
           "est": "2.5h",
-          "hands": "Deploy the multi-agent capstone serverless (Aurora Serverless + SQS); wire Langfuse; add a conversational feedback-capture loop."
+          "hands": "Deploy the multi-agent capstone serverless (Aurora Serverless + SQS); wire Langfuse; add a conversational feedback-capture loop.",
+          "exercise": {
+            "goal": "Go serverless multi-agent with a feedback loop.",
+            "steps": [
+              "Deploy the multi-agent capstone serverless (Aurora Serverless + SQS).",
+              "Wire Langfuse.",
+              "Add a conversational feedback-capture loop."
+            ],
+            "acceptance": [
+              "The serverless deployment handles a real request.",
+              "User feedback is captured and stored."
+            ],
+            "stretch": "Pipe feedback into the eval set automatically."
+          }
         },
         {
           "n": "6",
@@ -2342,7 +3512,20 @@
             }
           ],
           "est": "2.5h",
-          "hands": "Add a thin SaaS layer (auth, usage metering, subscription tier) in front of the capstone; document the MLOps loop — monitoring, retraining triggers, rollback. Optional but makes the project look commercial."
+          "hands": "Add a thin SaaS layer (auth, usage metering, subscription tier) in front of the capstone; document the MLOps loop — monitoring, retraining triggers, rollback. Optional but makes the project look commercial.",
+          "exercise": {
+            "goal": "Wrap it as a thin SaaS with MLOps maturity.",
+            "steps": [
+              "Add auth, usage metering, and a subscription tier in front of the capstone.",
+              "Document the MLOps loop: monitoring, retraining triggers, rollback.",
+              "Add a basic admin/usage view."
+            ],
+            "acceptance": [
+              "A user can sign up, is metered, and is tier-limited.",
+              "The MLOps loop is documented."
+            ],
+            "stretch": "Add Stripe test-mode billing."
+          }
         }
       ],
       "udemy": "Udemy: <b>Production Track</b> + Huyen Ch 10",
@@ -2377,7 +3560,20 @@
             }
           ],
           "est": "2h",
-          "hands": "One-pager comparing the four families; where diffusion won and why."
+          "hands": "One-pager comparing the four families; where diffusion won and why.",
+          "exercise": {
+            "goal": "Map the generative model families.",
+            "steps": [
+              "Write a 1-pager comparing VAE, GANs, autoregressive, diffusion.",
+              "State where diffusion won and why.",
+              "Note one use-case per family."
+            ],
+            "acceptance": [
+              "The 1-pager correctly contrasts the four families.",
+              "Diffusion's advantages are explained."
+            ],
+            "stretch": "Add where autoregressive image models are resurging."
+          }
         },
         {
           "n": "2",
@@ -2392,7 +3588,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Run the HF diffusion-from-scratch notebook; sample at varying step counts and observe quality/latency."
+          "hands": "Run the HF diffusion-from-scratch notebook; sample at varying step counts and observe quality/latency.",
+          "exercise": {
+            "goal": "Understand diffusion deeply.",
+            "steps": [
+              "Run the HF diffusion-from-scratch notebook.",
+              "Sample at varying step counts; observe quality/latency.",
+              "Contrast U-Net vs DiT in notes."
+            ],
+            "acceptance": [
+              "The notebook runs and you vary the sampler steps.",
+              "Quality-vs-latency tradeoff is recorded."
+            ],
+            "stretch": "Implement a tiny DDPM sampling loop yourself."
+          }
         },
         {
           "n": "3",
@@ -2407,7 +3616,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Generate images with SDXL via <code>diffusers</code>; evaluate a set with CLIP score; try ControlNet for composition control."
+          "hands": "Generate images with SDXL via <code>diffusers</code>; evaluate a set with CLIP score; try ControlNet for composition control.",
+          "exercise": {
+            "goal": "Generate and evaluate text-to-image.",
+            "steps": [
+              "Generate images with SDXL via <code>diffusers</code>.",
+              "Evaluate a set with CLIP score (and note FID).",
+              "Try ControlNet for composition control."
+            ],
+            "acceptance": [
+              "Images are generated and scored with CLIP.",
+              "ControlNet changes composition as expected."
+            ],
+            "stretch": "Build a small prompt→image grid for A/B comparison."
+          }
         },
         {
           "n": "4",
@@ -2422,7 +3644,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Read the T2V system design; run an open T2V model on a short clip; note the scaling challenges."
+          "hands": "Read the T2V system design; run an open T2V model on a short clip; note the scaling challenges.",
+          "exercise": {
+            "goal": "Survey and run text-to-video.",
+            "steps": [
+              "Read a T2V system design (latent diffusion / DiT for video).",
+              "Run an open T2V model on a short clip.",
+              "Note the scaling challenges."
+            ],
+            "acceptance": [
+              "A short clip is generated.",
+              "Scaling bottlenecks are summarised."
+            ],
+            "stretch": "Estimate the compute to double the clip length."
+          }
         },
         {
           "n": "5",
@@ -2437,7 +3672,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Build a small T2I agent that generates concept references / backdrops from a prompt — a useful pre-shoot tool for your portrait work."
+          "hands": "Build a small T2I agent that generates concept references / backdrops from a prompt — a useful pre-shoot tool for your portrait work.",
+          "exercise": {
+            "goal": "Build a generation agent tied to your photography.",
+            "steps": [
+              "Build a small T2I agent that generates concept references/backdrops from a prompt.",
+              "Add a style/lighting control.",
+              "Use it to pre-visualise one real shoot."
+            ],
+            "acceptance": [
+              "The agent produces usable concept references.",
+              "It's driven by a clean prompt interface."
+            ],
+            "stretch": "Add a gallery export of the generated set."
+          }
         }
       ],
       "udemy": "Spine: <b>ByteByteGo P5</b> + HF Diffusion Course",
@@ -2466,7 +3714,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Write 5 STAR stories (Situation / Task / Action / Result, ≤300 words each): (1) Temporal fan-out at 500K from W9, (2) RAG quality lift from W5/W6, (3) eval-gated CI from W12/W13, (4) JVM-native AI from W3, (5) inference cost/latency win from W17. Each must end with a metric."
+          "hands": "Write 5 STAR stories (Situation / Task / Action / Result, ≤300 words each): (1) Temporal fan-out at 500K from W9, (2) RAG quality lift from W5/W6, (3) eval-gated CI from W12/W13, (4) JVM-native AI from W3, (5) inference cost/latency win from W17. Each must end with a metric.",
+          "exercise": {
+            "goal": "Write 5 STAR stories from your build.",
+            "steps": [
+              "Draft STAR stories (≤300 words each): Temporal fan-out (W9), RAG lift (W5/W6), eval-gated CI (W12/W13), JVM-native AI (W3), inference win (W17).",
+              "End each with a metric.",
+              "Lead with your differentiated edges."
+            ],
+            "acceptance": [
+              "5 STAR stories exist, each ending in a metric.",
+              "Edge stories (JVM/Temporal/inference) are front-loaded."
+            ],
+            "stretch": "Record yourself telling two in under 2 minutes each."
+          }
         },
         {
           "n": "2",
@@ -2481,7 +3742,20 @@
             }
           ],
           "est": "2.5h",
-          "hands": "Find 2 public AI-engineer take-homes (\"build a small RAG on this corpus,\" \"design + ship an agent for X\"). Do <b>one</b> on a 4-hour timer; ship a working repo with README, evals, and a 1-page writeup. Reflect: where did you go over time, what would you cut next time."
+          "hands": "Find 2 public AI-engineer take-homes (\"build a small RAG on this corpus,\" \"design + ship an agent for X\"). Do <b>one</b> on a 4-hour timer; ship a working repo with README, evals, and a 1-page writeup. Reflect: where did you go over time, what would you cut next time.",
+          "exercise": {
+            "goal": "Rehearse a real take-home under time.",
+            "steps": [
+              "Find 2 public AI-engineer take-homes.",
+              "Do one on a 4-hour timer; ship a repo with README, evals, and a 1-page writeup.",
+              "Post-mortem where you went over time."
+            ],
+            "acceptance": [
+              "A complete, working take-home repo is shipped.",
+              "A post-mortem lists what to cut next time."
+            ],
+            "stretch": "Do the second under 3 hours applying the lessons."
+          }
         },
         {
           "n": "3",
@@ -2496,7 +3770,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Upgrade the capstone README: architecture diagram (Excalidraw), 60-sec demo gif, eval scoreboard, deploy notes, \"what I'd build next.\" Pin top 5 repos on your profile. Add a one-screen profile README that links the 3 things you want them to read first."
+          "hands": "Upgrade the capstone README: architecture diagram (Excalidraw), 60-sec demo gif, eval scoreboard, deploy notes, \"what I'd build next.\" Pin top 5 repos on your profile. Add a one-screen profile README that links the 3 things you want them to read first.",
+          "exercise": {
+            "goal": "Polish GitHub + portfolio for recruiters.",
+            "steps": [
+              "Upgrade the capstone README: architecture diagram, 60-sec demo gif, eval scoreboard, deploy notes.",
+              "Pin your top 5 repos.",
+              "Add a one-screen profile README linking the 3 things to read first."
+            ],
+            "acceptance": [
+              "The capstone README has a diagram + demo gif + scoreboard.",
+              "The profile is curated and pinned."
+            ],
+            "stretch": "Get one peer to review the repo cold and note confusion points."
+          }
         },
         {
           "n": "4",
@@ -2511,7 +3798,20 @@
             }
           ],
           "est": "1.5h",
-          "hands": "Publish the W9 post (\"What Agent Frameworks Get Wrong About Workflow Orchestration\"). Start the W17 post (\"Inference Economics for Agentic Workloads\"). Cross-post to your site, dev.to, LinkedIn. These are linkable proof in every conversation."
+          "hands": "Publish the W9 post (\"What Agent Frameworks Get Wrong About Workflow Orchestration\"). Start the W17 post (\"Inference Economics for Agentic Workloads\"). Cross-post to your site, dev.to, LinkedIn. These are linkable proof in every conversation.",
+          "exercise": {
+            "goal": "Publish blog posts as interview assets.",
+            "steps": [
+              "Publish the W9 post ('What Agent Frameworks Get Wrong About Workflow Orchestration').",
+              "Start the W17 post ('Inference Economics for Agentic Workloads').",
+              "Cross-post to your site, dev.to, LinkedIn."
+            ],
+            "acceptance": [
+              "One post is published and linkable.",
+              "The second is drafted."
+            ],
+            "stretch": "Add a diagram and a code snippet to each post."
+          }
         },
         {
           "n": "5",
@@ -2526,7 +3826,20 @@
             }
           ],
           "est": "2h",
-          "hands": "Build a target list of 20 companies in 3 buckets — frontier labs / AI-first product / AI-augmented incumbents. Tailor the resume per bucket. Identify 5 warm intros (LinkedIn 2nd-degree) and send messages today. Track in a simple sheet."
+          "hands": "Build a target list of 20 companies in 3 buckets — frontier labs / AI-first product / AI-augmented incumbents. Tailor the resume per bucket. Identify 5 warm intros (LinkedIn 2nd-degree) and send messages today. Track in a simple sheet.",
+          "exercise": {
+            "goal": "Build a target list and start outreach.",
+            "steps": [
+              "List 20 companies in 3 buckets (frontier labs / AI-first product / AI-augmented incumbents).",
+              "Tailor your resume per bucket.",
+              "Identify 5 warm intros and message them today; track in a sheet."
+            ],
+            "acceptance": [
+              "A 20-company list with 3 buckets + tailored resumes.",
+              "5 outreach messages are sent and tracked."
+            ],
+            "stretch": "Add a weekly cadence and a follow-up template."
+          }
         }
       ],
       "udemy": "Udemy: <b>none</b> — this week is about your own artifacts, not consuming content.",

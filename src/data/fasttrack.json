@@ -15,41 +15,118 @@
           "focusTitle": "Python + env setup",
           "focusSub": "uv, Pydantic v2, typed I/O",
           "resources": [
-            { "typeClass": "tool", "typeLabel": "tool", "label": "uv quickstart", "url": "https://docs.astral.sh/uv/getting-started/" },
-            { "typeClass": "read", "typeLabel": "docs", "label": "Pydantic v2 docs", "url": "https://docs.pydantic.dev/latest/" }
+            {
+              "typeClass": "tool",
+              "typeLabel": "tool",
+              "label": "uv quickstart",
+              "url": "https://docs.astral.sh/uv/getting-started/"
+            },
+            {
+              "typeClass": "read",
+              "typeLabel": "docs",
+              "label": "Pydantic v2 docs",
+              "url": "https://docs.pydantic.dev/latest/"
+            }
           ],
           "est": "2.5h",
-          "hands": "Set up <code>ai-fasttrack</code> repo with uv; model a Pydantic request/response; one typed function with a failing-validation test."
+          "hands": "Set up <code>ai-fasttrack</code> repo with uv; model a Pydantic request/response; one typed function with a failing-validation test.",
+          "exercise": {
+            "goal": "Set up a typed Python AI project.",
+            "steps": [
+              "Create <code>ai-fasttrack</code> with uv; add a Pydantic request/response model.",
+              "Write one typed function with a failing-validation test.",
+              "Run mypy."
+            ],
+            "acceptance": [
+              "uv lockfile committed; mypy clean.",
+              "The validation test proves the model rejects bad input."
+            ],
+            "stretch": "Add a FastAPI stub exposing the function."
+          }
         },
         {
           "n": "2",
           "focusTitle": "How LLMs work",
           "focusSub": "tokens, context window, cost intuition",
           "resources": [
-            { "typeClass": "vid", "typeLabel": "video", "label": "Karpathy — Intro to LLMs (1h)", "url": "https://www.youtube.com/watch?v=zjkBMFhNj_g" }
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "Karpathy — Intro to LLMs (1h)",
+              "url": "https://www.youtube.com/watch?v=zjkBMFhNj_g"
+            }
           ],
           "est": "2h",
-          "hands": "Tabulate $/M-token for 3 models you'll use; predict then verify token counts on 3 sample prompts."
+          "hands": "Tabulate $/M-token for 3 models you'll use; predict then verify token counts on 3 sample prompts.",
+          "exercise": {
+            "goal": "Build LLM cost/behaviour intuition.",
+            "steps": [
+              "Tabulate $/M tokens for 3 models you'll use.",
+              "Predict then verify token counts on 3 prompts.",
+              "Note which model fits which job."
+            ],
+            "acceptance": [
+              "A cost table for 3 models exists.",
+              "Predicted vs actual token counts are compared."
+            ],
+            "stretch": "Add TTFT from a quick probe."
+          }
         },
         {
           "n": "3",
           "focusTitle": "Prompting + structured output",
           "focusSub": "zero/few-shot, CoT, JSON schemas",
           "resources": [
-            { "typeClass": "course", "typeLabel": "course", "label": "Anthropic Prompt-Eng Interactive Tutorial", "url": "https://github.com/anthropics/prompt-eng-interactive-tutorial" }
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "Anthropic Prompt-Eng Interactive Tutorial",
+              "url": "https://github.com/anthropics/prompt-eng-interactive-tutorial"
+            }
           ],
           "est": "2.5h",
-          "hands": "Build an extractor: job description → <code>{role, seniority, skills[], remote}</code> validated as a Pydantic model."
+          "hands": "Build an extractor: job description → <code>{role, seniority, skills[], remote}</code> validated as a Pydantic model.",
+          "exercise": {
+            "goal": "Prompt for reliable structured output.",
+            "steps": [
+              "Build an extractor: job description → <code>{role, seniority, skills[], remote}</code> Pydantic model.",
+              "Add a few-shot example.",
+              "Validate 3 messy inputs."
+            ],
+            "acceptance": [
+              "All 3 inputs produce schema-valid objects.",
+              "Few-shot vs zero-shot difference noted."
+            ],
+            "stretch": "Add an abstain path when confidence is low."
+          }
         },
         {
           "n": "4",
           "focusTitle": "Tool use / function calling",
           "focusSub": "the multi-tool dispatch loop",
           "resources": [
-            { "typeClass": "course", "typeLabel": "course", "label": "DLAI — Function Calling & Data Extraction", "url": "https://www.deeplearning.ai/short-courses/function-calling-and-data-extraction-with-llms/" }
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "DLAI — Function Calling & Data Extraction",
+              "url": "https://www.deeplearning.ai/short-courses/function-calling-and-data-extraction-with-llms/"
+            }
           ],
           "est": "2.5h",
-          "hands": "LLM that can call 3 tools — <code>get_weather</code>, <code>search_files</code>, <code>run_sql</code> — with a clean dispatch loop."
+          "hands": "LLM that can call 3 tools — <code>get_weather</code>, <code>search_files</code>, <code>run_sql</code> — with a clean dispatch loop.",
+          "exercise": {
+            "goal": "Implement a multi-tool dispatch loop.",
+            "steps": [
+              "Give the LLM 3 tools (<code>get_weather</code>, <code>search_files</code>, <code>run_sql</code>).",
+              "Write the routing loop.",
+              "Handle a tool error gracefully."
+            ],
+            "acceptance": [
+              "The model selects the right tool per query.",
+              "Errors return to the model instead of crashing."
+            ],
+            "stretch": "Add a parallel multi-tool turn."
+          }
         }
       ],
       "udemy": "Resources: Karpathy + Anthropic tutorial (both free).",
@@ -70,41 +147,118 @@
           "focusTitle": "Embeddings & chunking",
           "focusSub": "strategies and when each wins",
           "resources": [
-            { "typeClass": "read", "typeLabel": "read", "label": "Pinecone — Chunking strategies", "url": "https://www.pinecone.io/learn/chunking-strategies/" }
+            {
+              "typeClass": "read",
+              "typeLabel": "read",
+              "label": "Pinecone — Chunking strategies",
+              "url": "https://www.pinecone.io/learn/chunking-strategies/"
+            }
           ],
           "est": "2h",
-          "hands": "Chunk a docs corpus 3 ways; embed with <code>all-MiniLM-L6-v2</code>; eyeball the tradeoffs."
+          "hands": "Chunk a docs corpus 3 ways; embed with <code>all-MiniLM-L6-v2</code>; eyeball the tradeoffs.",
+          "exercise": {
+            "goal": "Pick a chunking strategy with evidence.",
+            "steps": [
+              "Chunk a corpus 3 ways and embed with <code>all-MiniLM-L6-v2</code>.",
+              "Compare retrieval on 3 queries.",
+              "Choose a default."
+            ],
+            "acceptance": [
+              "A 1-pager states which chunking wins and when.",
+              "A default is chosen with a reason."
+            ],
+            "stretch": "Add overlap and re-measure."
+          }
         },
         {
           "n": "2",
           "focusTitle": "RAG from scratch",
           "focusSub": "retrieve → augment → generate",
           "resources": [
-            { "typeClass": "read", "typeLabel": "read", "label": "Anthropic — Contextual Retrieval", "url": "https://www.anthropic.com/news/contextual-retrieval" }
+            {
+              "typeClass": "read",
+              "typeLabel": "read",
+              "label": "Anthropic — Contextual Retrieval",
+              "url": "https://www.anthropic.com/news/contextual-retrieval"
+            }
           ],
           "est": "2.5h",
-          "hands": "Ingest docs into Chroma; answer questions with citations; no framework yet."
+          "hands": "Ingest docs into Chroma; answer questions with citations; no framework yet.",
+          "exercise": {
+            "goal": "Build RAG from scratch with citations.",
+            "steps": [
+              "Ingest docs into Chroma (raw SDK + chromadb).",
+              "Retrieve top-k and answer with sources.",
+              "Add a 'not in context' guard."
+            ],
+            "acceptance": [
+              "Questions are answered with cited sources.",
+              "Out-of-context questions are refused."
+            ],
+            "stretch": "Add a reranker and compare."
+          }
         },
         {
           "n": "3",
           "focusTitle": "Vector DB landscape",
           "focusSub": "Chroma → pgvector/Qdrant · HNSW vs IVF",
           "resources": [
-            { "typeClass": "read", "typeLabel": "read", "label": "Pinecone — HNSW explained", "url": "https://www.pinecone.io/learn/series/faiss/hnsw/" },
-            { "typeClass": "read", "typeLabel": "read", "label": "Qdrant benchmarks", "url": "https://qdrant.tech/benchmarks/" }
+            {
+              "typeClass": "read",
+              "typeLabel": "read",
+              "label": "Pinecone — HNSW explained",
+              "url": "https://www.pinecone.io/learn/series/faiss/hnsw/"
+            },
+            {
+              "typeClass": "read",
+              "typeLabel": "read",
+              "label": "Qdrant benchmarks",
+              "url": "https://qdrant.tech/benchmarks/"
+            }
           ],
           "est": "2.5h",
-          "hands": "Swap Chroma → pgvector; record recall@5 / MRR; write a 1-pager picking a vector DB for millions of vectors + metadata filtering."
+          "hands": "Swap Chroma → pgvector; record recall@5 / MRR; write a 1-pager picking a vector DB for millions of vectors + metadata filtering.",
+          "exercise": {
+            "goal": "Choose a vector DB deliberately.",
+            "steps": [
+              "Swap Chroma → pgvector; record recall@5 / MRR.",
+              "Write the HNSW-vs-IVF tradeoff.",
+              "Score Chroma/pgvector/Qdrant/Weaviate/Pinecone for millions of vectors + metadata filtering."
+            ],
+            "acceptance": [
+              "recall@5 / MRR recorded for pgvector.",
+              "A decision matrix justifies a pick."
+            ],
+            "stretch": "Load-test at 100k vectors; note p95."
+          }
         },
         {
           "n": "4",
           "focusTitle": "Rerank + framework rebuild",
           "focusSub": "hybrid, reranker, LlamaIndex/LangChain",
           "resources": [
-            { "typeClass": "course", "typeLabel": "course", "label": "DLAI — Building & Evaluating Advanced RAG", "url": "https://www.deeplearning.ai/short-courses/building-evaluating-advanced-rag/" }
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "DLAI — Building & Evaluating Advanced RAG",
+              "url": "https://www.deeplearning.ai/short-courses/building-evaluating-advanced-rag/"
+            }
           ],
           "est": "2.5h",
-          "hands": "Add a cross-encoder reranker; rebuild the pipeline in LlamaIndex; compare answer quality with/without rerank."
+          "hands": "Add a cross-encoder reranker; rebuild the pipeline in LlamaIndex; compare answer quality with/without rerank.",
+          "exercise": {
+            "goal": "Rerank and rebuild in a framework.",
+            "steps": [
+              "Add a cross-encoder reranker; compare with/without.",
+              "Rebuild the pipeline in LlamaIndex.",
+              "Note what the framework hid."
+            ],
+            "acceptance": [
+              "A measurable rerank improvement is recorded.",
+              "The framework version matches scratch behaviour."
+            ],
+            "stretch": "Add hybrid retrieval and compare."
+          }
         }
       ],
       "udemy": "Resources: DLAI short courses (audit free).",
@@ -125,40 +279,112 @@
           "focusTitle": "ReAct from scratch",
           "focusSub": "reason → act → observe in ~100 lines",
           "resources": [
-            { "typeClass": "read", "typeLabel": "read", "label": "Anthropic — Building Effective Agents", "url": "https://www.anthropic.com/research/building-effective-agents" }
+            {
+              "typeClass": "read",
+              "typeLabel": "read",
+              "label": "Anthropic — Building Effective Agents",
+              "url": "https://www.anthropic.com/research/building-effective-agents"
+            }
           ],
           "est": "3h",
-          "hands": "Write a ReAct agent (no framework) that uses your Week-2 RAG + a calculator tool; log every step."
+          "hands": "Write a ReAct agent (no framework) that uses your Week-2 RAG + a calculator tool; log every step.",
+          "exercise": {
+            "goal": "Write a ~100-line ReAct agent.",
+            "steps": [
+              "Implement reason→act→observe using your RAG + a calculator tool.",
+              "Log every step.",
+              "Add a max-step stop."
+            ],
+            "acceptance": [
+              "The agent solves a multi-step task with tools.",
+              "Steps are logged; the loop terminates."
+            ],
+            "stretch": "Add a retry on malformed tool calls."
+          }
         },
         {
           "n": "2",
           "focusTitle": "Agent frameworks",
           "focusSub": "LangGraph — state, tools, branching",
           "resources": [
-            { "typeClass": "read", "typeLabel": "docs", "label": "LangGraph docs", "url": "https://langchain-ai.github.io/langgraph/" }
+            {
+              "typeClass": "read",
+              "typeLabel": "docs",
+              "label": "LangGraph docs",
+              "url": "https://langchain-ai.github.io/langgraph/"
+            }
           ],
           "est": "3h",
-          "hands": "Rebuild the same agent in LangGraph with a conditional edge + memory; note what the framework hides."
+          "hands": "Rebuild the same agent in LangGraph with a conditional edge + memory; note what the framework hides.",
+          "exercise": {
+            "goal": "Rebuild the agent in LangGraph.",
+            "steps": [
+              "Model state, tools, and a conditional edge.",
+              "Add memory + a HITL interrupt.",
+              "Note what LangGraph abstracts."
+            ],
+            "acceptance": [
+              "The agent runs as a graph with memory.",
+              "A conditional edge routes on tool output."
+            ],
+            "stretch": "Add a checkpointer and resume mid-run."
+          }
         },
         {
           "n": "3",
           "focusTitle": "MCP — Model Context Protocol",
           "focusSub": "standard tool/resource interface",
           "resources": [
-            { "typeClass": "read", "typeLabel": "docs", "label": "Model Context Protocol docs", "url": "https://modelcontextprotocol.io/" }
+            {
+              "typeClass": "read",
+              "typeLabel": "docs",
+              "label": "Model Context Protocol docs",
+              "url": "https://modelcontextprotocol.io/"
+            }
           ],
           "est": "2.5h",
-          "hands": "Wrap one of your tools as an MCP server; call it from the agent through an MCP client."
+          "hands": "Wrap one of your tools as an MCP server; call it from the agent through an MCP client.",
+          "exercise": {
+            "goal": "Expose a tool via MCP.",
+            "steps": [
+              "Wrap one tool as an MCP server.",
+              "Call it from the agent via an MCP client.",
+              "Verify the round-trip."
+            ],
+            "acceptance": [
+              "The agent uses the tool through MCP.",
+              "The server runs independently."
+            ],
+            "stretch": "Consume the server from a second client."
+          }
         },
         {
           "n": "4",
           "focusTitle": "Reliability patterns",
           "focusSub": "reflection, retries, loop/cost limits",
           "resources": [
-            { "typeClass": "read", "typeLabel": "read", "label": "Anthropic — Building Effective Agents (patterns)", "url": "https://www.anthropic.com/research/building-effective-agents" }
+            {
+              "typeClass": "read",
+              "typeLabel": "read",
+              "label": "Anthropic — Building Effective Agents (patterns)",
+              "url": "https://www.anthropic.com/research/building-effective-agents"
+            }
           ],
           "est": "2h",
-          "hands": "Add a reflection step + a loop/cost circuit-breaker; compare quality vs the plain ReAct baseline."
+          "hands": "Add a reflection step + a loop/cost circuit-breaker; compare quality vs the plain ReAct baseline.",
+          "exercise": {
+            "goal": "Add agent reliability patterns.",
+            "steps": [
+              "Add a reflection step + a loop/cost circuit-breaker.",
+              "Add retries on tool failures.",
+              "Compare quality vs plain ReAct."
+            ],
+            "acceptance": [
+              "Circuit-breakers stop runaway loops/cost.",
+              "A comparison vs ReAct is recorded."
+            ],
+            "stretch": "Add ReWOO (plan-then-execute) and compare."
+          }
         }
       ],
       "udemy": "Resources: LangGraph docs + Anthropic agent guide (free).",
@@ -178,41 +404,118 @@
           "n": "1",
           "focusTitle": "Why evals are everything",
           "resources": [
-            { "typeClass": "read", "typeLabel": "read", "label": "Hamel — LLM Evals FAQ", "url": "https://hamel.dev/blog/posts/evals-faq/" }
+            {
+              "typeClass": "read",
+              "typeLabel": "read",
+              "label": "Hamel — LLM Evals FAQ",
+              "url": "https://hamel.dev/blog/posts/evals-faq/"
+            }
           ],
           "est": "1.5h",
-          "hands": "Enumerate the failure modes you expect from your Week-3 agent; group them."
+          "hands": "Enumerate the failure modes you expect from your Week-3 agent; group them.",
+          "exercise": {
+            "goal": "List the failure modes you must catch.",
+            "steps": [
+              "Enumerate expected failures of your agent.",
+              "Group them.",
+              "Pick the top 3."
+            ],
+            "acceptance": [
+              "A categorised failure list exists.",
+              "Top-3 prioritised."
+            ],
+            "stretch": "Map each to a concrete test."
+          }
         },
         {
           "n": "2",
           "focusTitle": "Build evals + LLM-as-judge",
           "focusSub": "label, cluster, judge, validate",
           "resources": [
-            { "typeClass": "course", "typeLabel": "course", "label": "DLAI — Evaluating AI Agents", "url": "https://www.deeplearning.ai/short-courses/evaluating-ai-agents/" }
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "DLAI — Evaluating AI Agents",
+              "url": "https://www.deeplearning.ai/short-courses/evaluating-ai-agents/"
+            }
           ],
           "est": "3h",
-          "hands": "Label ~50 traces → cluster failures → write an LLM-judge per mode → validate TPR/TNR → keep a golden set of 20 that gates CI."
+          "hands": "Label ~50 traces → cluster failures → write an LLM-judge per mode → validate TPR/TNR → keep a golden set of 20 that gates CI.",
+          "exercise": {
+            "goal": "Build evals + an LLM judge.",
+            "steps": [
+              "Label ~50 traces; cluster failures.",
+              "Write an LLM judge per mode and validate (TPR/TNR).",
+              "Keep a 20-item golden set that gates CI."
+            ],
+            "acceptance": [
+              "Judges validated with TPR/TNR.",
+              "A golden set gates CI."
+            ],
+            "stretch": "Add a per-run cost budget."
+          }
         },
         {
           "n": "3",
           "focusTitle": "Observability",
           "focusSub": "cost, latency, tool failures",
           "resources": [
-            { "typeClass": "tool", "typeLabel": "tool", "label": "Langfuse", "url": "https://langfuse.com/" }
+            {
+              "typeClass": "tool",
+              "typeLabel": "tool",
+              "label": "Langfuse",
+              "url": "https://langfuse.com/"
+            }
           ],
           "est": "2.5h",
-          "hands": "Instrument every LLM/tool call with Langfuse; build a dashboard answering \"which tool calls fail most?\""
+          "hands": "Instrument every LLM/tool call with Langfuse; build a dashboard answering \"which tool calls fail most?\"",
+          "exercise": {
+            "goal": "Instrument with observability.",
+            "steps": [
+              "Wire Langfuse into every call (cost, latency, tools).",
+              "Build a 'which tool fails most' dashboard.",
+              "Trace one failing session."
+            ],
+            "acceptance": [
+              "Calls are traced with cost+latency.",
+              "The dashboard answers the tool-failure question."
+            ],
+            "stretch": "Alert on an error-rate threshold."
+          }
         },
         {
           "n": "4",
           "focusTitle": "Guardrails & red-teaming",
           "focusSub": "I/O guardrails, prompt injection",
           "resources": [
-            { "typeClass": "read", "typeLabel": "read", "label": "OWASP LLM Top 10", "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/" },
-            { "typeClass": "tool", "typeLabel": "play", "label": "Lakera Gandalf", "url": "https://gandalf.lakera.ai/" }
+            {
+              "typeClass": "read",
+              "typeLabel": "read",
+              "label": "OWASP LLM Top 10",
+              "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+            },
+            {
+              "typeClass": "tool",
+              "typeLabel": "play",
+              "label": "Lakera Gandalf",
+              "url": "https://gandalf.lakera.ai/"
+            }
           ],
           "est": "2h",
-          "hands": "Add input + output guardrails; run 10 injection attacks; document each defense."
+          "hands": "Add input + output guardrails; run 10 injection attacks; document each defense.",
+          "exercise": {
+            "goal": "Add guardrails and red-team.",
+            "steps": [
+              "Add input + output guardrails.",
+              "Run 10 injection attacks (try Lakera Gandalf).",
+              "Document each mitigation."
+            ],
+            "acceptance": [
+              "Guardrails block most attacks.",
+              "A red-team doc lists attacks + fixes."
+            ],
+            "stretch": "Add a data-exfiltration canary test."
+          }
         }
       ],
       "udemy": "Resources: Hamel + Eugene Yan + DLAI (audit free).",
@@ -233,30 +536,84 @@
           "focusTitle": "When to fine-tune",
           "focusSub": "the decision tree",
           "resources": [
-            { "typeClass": "read", "typeLabel": "read", "label": "Hugging Face — LLM course (fine-tuning)", "url": "https://huggingface.co/learn/llm-course" }
+            {
+              "typeClass": "read",
+              "typeLabel": "read",
+              "label": "Hugging Face — LLM course (fine-tuning)",
+              "url": "https://huggingface.co/learn/llm-course"
+            }
           ],
           "est": "2h",
-          "hands": "Write a 1-pager: for your capstone task, prove (or disprove) that prompting/RAG is enough before touching fine-tuning."
+          "hands": "Write a 1-pager: for your capstone task, prove (or disprove) that prompting/RAG is enough before touching fine-tuning.",
+          "exercise": {
+            "goal": "Decide whether to fine-tune at all.",
+            "steps": [
+              "Prove prompting/RAG is or isn't enough for your task.",
+              "Write the decision + the metric that would justify FT.",
+              "Estimate data needed."
+            ],
+            "acceptance": [
+              "A written decision with a justifying metric.",
+              "Data-volume estimate included."
+            ],
+            "stretch": "Sketch the labeling plan if you proceeded."
+          }
         },
         {
           "n": "2",
           "focusTitle": "LoRA / QLoRA",
           "focusSub": "parameter-efficient fine-tuning",
           "resources": [
-            { "typeClass": "course", "typeLabel": "course", "label": "HF — Fine-tuning chapters", "url": "https://huggingface.co/learn/nlp-course" }
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "HF — Fine-tuning chapters",
+              "url": "https://huggingface.co/learn/nlp-course"
+            }
           ],
           "est": "3h",
-          "hands": "LoRA-tune a small model (e.g. Llama-3.2-3B) on a focused dataset; beat the base model on a held-out test set."
+          "hands": "LoRA-tune a small model (e.g. Llama-3.2-3B) on a focused dataset; beat the base model on a held-out test set.",
+          "exercise": {
+            "goal": "Run a LoRA fine-tune that beats base.",
+            "steps": [
+              "LoRA-tune a small model (e.g. Llama-3.2-3B) on a focused set.",
+              "Hold out a test set.",
+              "Compare tuned vs base."
+            ],
+            "acceptance": [
+              "Tuned beats base on the held-out metric.",
+              "Config + results committed."
+            ],
+            "stretch": "Try QLoRA and compare VRAM/quality."
+          }
         },
         {
           "n": "3",
           "focusTitle": "Local models + quantization",
           "focusSub": "Ollama, GGUF, 4-bit",
           "resources": [
-            { "typeClass": "tool", "typeLabel": "tool", "label": "Ollama", "url": "https://ollama.com/" }
+            {
+              "typeClass": "tool",
+              "typeLabel": "tool",
+              "label": "Ollama",
+              "url": "https://ollama.com/"
+            }
           ],
           "est": "2.5h",
-          "hands": "Run a quantized model locally with Ollama; compare quality + latency vs the frontier API on 10 prompts."
+          "hands": "Run a quantized model locally with Ollama; compare quality + latency vs the frontier API on 10 prompts.",
+          "exercise": {
+            "goal": "Serve a quantized model locally.",
+            "steps": [
+              "Run a quantized model via Ollama.",
+              "Compare quality + latency vs the frontier API on 10 prompts.",
+              "Note when local wins."
+            ],
+            "acceptance": [
+              "The quantized model serves locally.",
+              "A quality/latency comparison exists."
+            ],
+            "stretch": "Expose an OpenAI-compatible endpoint and reuse your ft0 script."
+          }
         }
       ],
       "udemy": "Resources: Hugging Face course (free) — pairs with the HF cert.",
@@ -277,30 +634,84 @@
           "focusTitle": "Inference metrics & serving",
           "focusSub": "TTFT, TPOT, throughput; vLLM",
           "resources": [
-            { "typeClass": "read", "typeLabel": "docs", "label": "vLLM docs", "url": "https://docs.vllm.ai/" }
+            {
+              "typeClass": "read",
+              "typeLabel": "docs",
+              "label": "vLLM docs",
+              "url": "https://docs.vllm.ai/"
+            }
           ],
           "est": "2.5h",
-          "hands": "Serve your Week-5 model with vLLM; benchmark TTFT / TPOT / throughput under load; build a latency-vs-cost table."
+          "hands": "Serve your Week-5 model with vLLM; benchmark TTFT / TPOT / throughput under load; build a latency-vs-cost table.",
+          "exercise": {
+            "goal": "Measure inference under load.",
+            "steps": [
+              "Serve your model with vLLM.",
+              "Benchmark TTFT/TPOT/throughput under load.",
+              "Build a latency-vs-cost table."
+            ],
+            "acceptance": [
+              "Inference metrics are measured under load.",
+              "A latency-vs-cost table exists."
+            ],
+            "stretch": "Plot throughput vs batch size."
+          }
         },
         {
           "n": "2",
           "focusTitle": "Batching, KV cache, spec decoding",
           "focusSub": "continuous batching, paged attention",
           "resources": [
-            { "typeClass": "read", "typeLabel": "docs", "label": "vLLM — batching & paged attention", "url": "https://docs.vllm.ai/" }
+            {
+              "typeClass": "read",
+              "typeLabel": "docs",
+              "label": "vLLM — batching & paged attention",
+              "url": "https://docs.vllm.ai/"
+            }
           ],
           "est": "2.5h",
-          "hands": "Load-test continuous batching; chart throughput vs concurrency; enable speculative decoding and measure the speedup."
+          "hands": "Load-test continuous batching; chart throughput vs concurrency; enable speculative decoding and measure the speedup.",
+          "exercise": {
+            "goal": "Tune the serving layer.",
+            "steps": [
+              "Load-test continuous batching; chart throughput vs concurrency.",
+              "Enable speculative decoding; measure speedup.",
+              "Observe KV-cache effects."
+            ],
+            "acceptance": [
+              "A throughput-vs-concurrency chart exists.",
+              "Spec-decoding speedup is measured."
+            ],
+            "stretch": "Find the concurrency that maximises goodput."
+          }
         },
         {
           "n": "3",
           "focusTitle": "Caching & routing for cost",
           "focusSub": "prompt + semantic cache, gateway",
           "resources": [
-            { "typeClass": "read", "typeLabel": "docs", "label": "LiteLLM (gateway)", "url": "https://docs.litellm.ai/" }
+            {
+              "typeClass": "read",
+              "typeLabel": "docs",
+              "label": "LiteLLM (gateway)",
+              "url": "https://docs.litellm.ai/"
+            }
           ],
           "est": "2.5h",
-          "hands": "Add prompt + semantic caching; route easy queries to a small model via a gateway; measure the $ saved."
+          "hands": "Add prompt + semantic caching; route easy queries to a small model via a gateway; measure the $ saved.",
+          "exercise": {
+            "goal": "Cut cost with caching + routing.",
+            "steps": [
+              "Add prompt + semantic caching.",
+              "Route easy queries to a small model via a gateway.",
+              "Measure $ saved."
+            ],
+            "acceptance": [
+              "Cache hit-rate + $ saved measured.",
+              "Routing works on a realistic mix."
+            ],
+            "stretch": "Add cache invalidation and test it."
+          }
         }
       ],
       "udemy": "Resources: vLLM + LiteLLM docs (free).",
@@ -321,40 +732,112 @@
           "focusTitle": "Reference architecture + guardrails",
           "focusSub": "context → guardrails → router → agents",
           "resources": [
-            { "typeClass": "read", "typeLabel": "read", "label": "OWASP LLM Top 10", "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/" }
+            {
+              "typeClass": "read",
+              "typeLabel": "read",
+              "label": "OWASP LLM Top 10",
+              "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+            }
           ],
           "est": "2.5h",
-          "hands": "Diagram your app as a layered architecture; label each layer in your actual code."
+          "hands": "Diagram your app as a layered architecture; label each layer in your actual code.",
+          "exercise": {
+            "goal": "Diagram the reference architecture + guardrails.",
+            "steps": [
+              "Diagram your app's layers and label them in code.",
+              "Add input/output guardrails.",
+              "Mark each layer's failure mode."
+            ],
+            "acceptance": [
+              "A layered diagram maps to your code.",
+              "Guardrails are in place."
+            ],
+            "stretch": "Add SLOs per layer."
+          }
         },
         {
           "n": "2",
           "focusTitle": "Cloud deploy",
           "focusSub": "Docker, AWS Bedrock, Lambda/App Runner",
           "resources": [
-            { "typeClass": "read", "typeLabel": "docs", "label": "AWS Bedrock docs", "url": "https://docs.aws.amazon.com/bedrock/" }
+            {
+              "typeClass": "read",
+              "typeLabel": "docs",
+              "label": "AWS Bedrock docs",
+              "url": "https://docs.aws.amazon.com/bedrock/"
+            }
           ],
           "est": "3.5h",
-          "hands": "Containerize the app; deploy behind API Gateway + Lambda (or App Runner); call Bedrock as a model provider."
+          "hands": "Containerize the app; deploy behind API Gateway + Lambda (or App Runner); call Bedrock as a model provider.",
+          "exercise": {
+            "goal": "Deploy to AWS.",
+            "steps": [
+              "Containerize the app with Docker.",
+              "Deploy behind API Gateway + Lambda (or App Runner).",
+              "Call Bedrock as a provider."
+            ],
+            "acceptance": [
+              "The app is reachable publicly.",
+              "Bedrock serves a call path."
+            ],
+            "stretch": "Add autoscaling + a load test."
+          }
         },
         {
           "n": "3",
           "focusTitle": "IaC + eval-gated CI/CD",
           "focusSub": "Terraform, GitHub Actions",
           "resources": [
-            { "typeClass": "read", "typeLabel": "docs", "label": "Terraform docs", "url": "https://developer.hashicorp.com/terraform" }
+            {
+              "typeClass": "read",
+              "typeLabel": "docs",
+              "label": "Terraform docs",
+              "url": "https://developer.hashicorp.com/terraform"
+            }
           ],
           "est": "3h",
-          "hands": "Terraform your infra; GitHub Actions pipeline that runs the Week-4 eval gate before any deploy."
+          "hands": "Terraform your infra; GitHub Actions pipeline that runs the Week-4 eval gate before any deploy.",
+          "exercise": {
+            "goal": "Codify infra + eval-gated CI/CD.",
+            "steps": [
+              "Terraform your infra.",
+              "GitHub Actions runs the ft3 eval gate before deploy.",
+              "Confirm a regressing change is blocked."
+            ],
+            "acceptance": [
+              "<code>terraform apply</code> provisions the stack.",
+              "A regressing eval blocks deploy."
+            ],
+            "stretch": "Add a canary deploy step."
+          }
         },
         {
           "n": "4",
           "focusTitle": "AI system design drill",
           "focusSub": "\"design RAG search at scale\"",
           "resources": [
-            { "typeClass": "read", "typeLabel": "read", "label": "Eugene Yan — System Design for ML", "url": "https://eugeneyan.com/writing/system-design-for-discovery/" }
+            {
+              "typeClass": "read",
+              "typeLabel": "read",
+              "label": "Eugene Yan — System Design for ML",
+              "url": "https://eugeneyan.com/writing/system-design-for-discovery/"
+            }
           ],
           "est": "3h",
-          "hands": "Write a 2-page design doc with real numbers: index size, latency budget, hybrid retrieval, caching, multi-tenant isolation, eval pipeline."
+          "hands": "Write a 2-page design doc with real numbers: index size, latency budget, hybrid retrieval, caching, multi-tenant isolation, eval pipeline.",
+          "exercise": {
+            "goal": "Drill one AI system design.",
+            "steps": [
+              "Write a 2-page 'RAG search at scale' design with real numbers.",
+              "Cover index size, latency budget, hybrid retrieval, caching, multi-tenant isolation, eval.",
+              "State a cost-per-query estimate."
+            ],
+            "acceptance": [
+              "The design has concrete numbers.",
+              "Eval + isolation are addressed."
+            ],
+            "stretch": "Do a 30-min spoken mock of it."
+          }
         }
       ],
       "udemy": "Resources: AWS + Terraform docs (free) — pairs with the AWS AI Practitioner + Terraform certs.",
@@ -375,30 +858,83 @@
           "focusTitle": "Build the capstone",
           "focusSub": "agentic RAG app, end-to-end",
           "resources": [
-            { "typeClass": "read", "typeLabel": "write", "label": "Ship an end-to-end agentic RAG app (your domain)" }
+            {
+              "typeClass": "read",
+              "typeLabel": "write",
+              "label": "Ship an end-to-end agentic RAG app (your domain)"
+            }
           ],
           "est": "5h",
-          "hands": "Combine RAG (W2) + agent/MCP (W3) + evals (W4) + deploy (W7) into one deployed app you'd demo to a hiring manager. No tutorials — just build."
+          "hands": "Combine RAG (W2) + agent/MCP (W3) + evals (W4) + deploy (W7) into one deployed app you'd demo to a hiring manager. No tutorials — just build.",
+          "exercise": {
+            "goal": "Build the capstone end-to-end.",
+            "steps": [
+              "Combine RAG (ft1) + agent/MCP (ft2) + evals (ft3) + deploy (ft6) into one deployed app.",
+              "Pick a real domain.",
+              "Ship an MVP you'd demo."
+            ],
+            "acceptance": [
+              "A deployed, demo-able agentic RAG app exists.",
+              "It exercises retrieval + tools + evals."
+            ],
+            "stretch": "Add streaming + a polished UI."
+          }
         },
         {
           "n": "3",
           "focusTitle": "Evals + polish",
           "focusSub": "eval gate, README, diagram",
           "resources": [
-            { "typeClass": "read", "typeLabel": "read", "label": "Eugene Yan — Writing for engineers", "url": "https://eugeneyan.com/writing/writing-for-engineers/" }
+            {
+              "typeClass": "read",
+              "typeLabel": "read",
+              "label": "Eugene Yan — Writing for engineers",
+              "url": "https://eugeneyan.com/writing/writing-for-engineers/"
+            }
           ],
           "est": "3.5h",
-          "hands": "Wire the eval gate into CI; upgrade the README with an architecture diagram, a 60-sec demo gif, and an eval scoreboard."
+          "hands": "Wire the eval gate into CI; upgrade the README with an architecture diagram, a 60-sec demo gif, and an eval scoreboard.",
+          "exercise": {
+            "goal": "Add evals + polish the capstone.",
+            "steps": [
+              "Wire the eval gate into CI.",
+              "Upgrade the README: architecture diagram, 60-sec demo gif, eval scoreboard.",
+              "Fix the top 3 rough edges."
+            ],
+            "acceptance": [
+              "CI runs the eval gate.",
+              "README has diagram + gif + scoreboard."
+            ],
+            "stretch": "Add a one-command local setup."
+          }
         },
         {
           "n": "4",
           "focusTitle": "Portfolio · STAR · blog",
           "focusSub": "make the work legible",
           "resources": [
-            { "typeClass": "read", "typeLabel": "read", "label": "Eugene Yan — Why you should write", "url": "https://eugeneyan.com/writing/writing-for-engineers/" }
+            {
+              "typeClass": "read",
+              "typeLabel": "read",
+              "label": "Eugene Yan — Why you should write",
+              "url": "https://eugeneyan.com/writing/writing-for-engineers/"
+            }
           ],
           "est": "3.5h",
-          "hands": "Write 3 STAR stories (each ends with a metric) + 1 blog post on the capstone; pin the repo and publish."
+          "hands": "Write 3 STAR stories (each ends with a metric) + 1 blog post on the capstone; pin the repo and publish.",
+          "exercise": {
+            "goal": "Make the work legible (portfolio).",
+            "steps": [
+              "Write 3 STAR stories (each ends in a metric).",
+              "Write 1 blog post on the capstone.",
+              "Pin the repo and publish."
+            ],
+            "acceptance": [
+              "3 STAR stories + 1 published post.",
+              "The repo is pinned and presentable."
+            ],
+            "stretch": "Record a 2-minute demo walkthrough."
+          }
         }
       ],
       "udemy": "Resources: your own artifacts — no course this week.",

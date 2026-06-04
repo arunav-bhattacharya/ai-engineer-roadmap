@@ -33,25 +33,30 @@ export function Overview() {
   }, [plan]);
 
   const toggle = (
-    <div className="plan-toggle" role="tablist" aria-label="Roadmap plan">
-      <button
-        type="button"
-        role="tab"
-        aria-selected={plan === 'fast'}
-        className={plan === 'fast' ? 'active' : ''}
-        onClick={() => setPlan('fast')}
-      >
-        Fast-Track · 8 wks
-      </button>
-      <button
-        type="button"
-        role="tab"
-        aria-selected={plan === 'complete'}
-        className={plan === 'complete' ? 'active' : ''}
-        onClick={() => setPlan('complete')}
-      >
-        Complete Plan · 20 wks
-      </button>
+    <div className="plan-toggle">
+      <span className="plan-toggle-label mono">Roadmap</span>
+      <div className="plan-toggle-seg" role="tablist" aria-label="Choose roadmap depth">
+        <button
+          type="button"
+          role="tab"
+          aria-selected={plan === 'fast'}
+          className={plan === 'fast' ? 'active' : ''}
+          onClick={() => setPlan('fast')}
+          title="Fast-Track — 8 weeks"
+        >
+          Fast
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={plan === 'complete'}
+          className={plan === 'complete' ? 'active' : ''}
+          onClick={() => setPlan('complete')}
+          title="Complete Plan — 20 weeks"
+        >
+          Complete
+        </button>
+      </div>
     </div>
   );
 

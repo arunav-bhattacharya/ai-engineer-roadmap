@@ -15,40 +15,15 @@ interface Props {
   sections: SidebarSection[];
 }
 
-const EXPANDED_KEY = 'ai-roadmap-sidebar-topics-v1';
-const loadExpanded = (): Set<string> => {
-  try {
-    const raw = localStorage.getItem(EXPANDED_KEY);
-    if (!raw) return new Set();
-    const arr = JSON.parse(raw);
-    return Array.isArray(arr) ? new Set(arr.filter((x): x is string => typeof x === 'string')) : new Set();
-  } catch {
-    return new Set();
-  }
-};
+const sectionKey = (topicId: string) => `section-${topicId}`;
 
 export function WeekSidebar({ sections }: Props) {
   const allWeeks: Week[] = useMemo(() => sections.flatMap((s) => s.weeks), [sections]);
   const { pct } = useProgress();
-  const { expand } = useCollapse();
+  // Sidebar disclosures share the SAME collapse state as the page topic banners,
+  // so expanding/collapsing a topic in either place stays in sync.
+  const { expand, isCollapsed, toggle } = useCollapse();
   const [active, setActive] = useState<string>(allWeeks[0]?.id ?? '');
-
-  // Topic sections in the sidebar are collapsed by default; expansions persist.
-  const [expandedTopics, setExpandedTopics] = useState<Set<string>>(loadExpanded);
-  useEffect(() => {
-    try {
-      localStorage.setItem(EXPANDED_KEY, JSON.stringify([...expandedTopics]));
-    } catch {
-      /* ignore */
-    }
-  }, [expandedTopics]);
-
-  const toggleTopic = (id: string) =>
-    setExpandedTopics((prev) => {
-      const next = new Set(prev);
-      next.has(id) ? next.delete(id) : next.add(id);
-      return next;
-    });
 
   useEffect(() => {
     const sectionEls = allWeeks
@@ -83,7 +58,7 @@ export function WeekSidebar({ sections }: Props) {
       <div className="weeksidebar-inner">
         <div className="weeksidebar-head">On this page</div>
         {sections.map((section, idx) => {
-          const open = expandedTopics.has(section.id);
+          const open = !isCollapsed(sectionKey(section.id));
           const s = pct(section.weeks.flatMap(leavesForWeek));
           const listId = `sb-topic-${section.id}`;
           return (
@@ -96,7 +71,7 @@ export function WeekSidebar({ sections }: Props) {
               <button
                 type="button"
                 className="weeksidebar-section"
-                onClick={() => toggleTopic(section.id)}
+                onClick={() => toggle(sectionKey(section.id))}
                 aria-expanded={open}
                 aria-controls={listId}
               >
