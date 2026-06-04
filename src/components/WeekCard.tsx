@@ -22,7 +22,7 @@ export function WeekCard({ week }: Props) {
   const summary = pct(leaves);
   const collapsed = isCollapsed(week.id);
 
-  const isCapstone = week.id === 'w9';
+  const isCapstone = (week.specs?.length ?? 0) > 0;
   const bodyId = `weekbody-${week.id}`;
 
   return (

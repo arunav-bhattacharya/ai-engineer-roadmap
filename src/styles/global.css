@@ -1516,12 +1516,46 @@ code {
   border-top: 1px solid var(--line);
 }
 .weeksidebar-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
   font-family: var(--font-mono);
   font-size: 9.5px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--amber);
-  padding: 4px 8px 8px;
+  padding: 7px 8px;
+  background: none;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  text-align: left;
+}
+.weeksidebar-section:hover {
+  background: var(--row-hover);
+}
+.weeksidebar-section .chevron {
+  margin-top: 0;
+  width: 6px;
+  height: 6px;
+  border-color: var(--amber);
+}
+.weeksidebar-group.open .weeksidebar-section .chevron {
+  transform: rotate(135deg);
+}
+.weeksidebar-section-label {
+  flex: 1;
+  min-width: 0;
+}
+.weeksidebar-section-pct {
+  flex: none;
+  font-size: 9px;
+  color: var(--ink-dim);
+  letter-spacing: 0.04em;
+}
+.weeksidebar-group > ul {
+  margin-top: 2px;
 }
 /* StudyPlan: topic-section banners */
 .studyplan-topic + .studyplan-topic {
@@ -1531,9 +1565,23 @@ code {
   display: flex;
   align-items: baseline;
   gap: 14px;
+  width: 100%;
   margin: 30px 0 6px;
-  padding-bottom: 10px;
+  padding: 0 0 10px;
   position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: var(--ink);
+}
+.topicbar .chevron {
+  align-self: center;
+  margin-top: 0;
+  border-color: var(--wk-color, var(--ink-dim));
+}
+.studyplan-topic:not(.collapsed) .topicbar .chevron {
+  transform: rotate(135deg);
 }
 .topicbar::after {
   content: '';
@@ -2171,4 +2219,17 @@ code {
 :root[data-theme='light'] .cert-hero,
 :root[data-theme='light'] .cert {
   box-shadow: 0 1px 2px rgba(60, 45, 20, 0.05), 0 12px 30px -18px rgba(60, 45, 20, 0.22);
+}
+
+/* ===== fast-track page ===== */
+.ft-hero .ft-progress {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+.ft-toolbar {
+  margin-top: 24px;
 }

@@ -22,8 +22,10 @@ const loadSidebarOpen = (): boolean => {
   }
 };
 
+const sectionKey = (topicId: string) => `section-${topicId}`;
+
 export function StudyPlan() {
-  const { expand } = useCollapse();
+  const { expand, isCollapsed, toggle } = useCollapse();
   const { pct } = useProgress();
   const location = useLocation();
 
@@ -39,6 +41,7 @@ export function StudyPlan() {
   );
   const allWeeks = sections.flatMap((s) => s.weeks);
   const weekIds = allWeeks.map((w) => w.id);
+  const sectionIds = TOPIC_GROUPS.map((tg) => sectionKey(tg.id));
 
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(loadSidebarOpen);
   useEffect(() => {
@@ -50,12 +53,15 @@ export function StudyPlan() {
   }, [sidebarOpen]);
 
   // Deep-link from Overview RoadmapMap or Certifications page: navigate(state:{jump}).
+  // Also make sure the week's enclosing topic section is expanded before scrolling.
   const jump = (location.state as { jump?: string } | null)?.jump;
   const handledKey = useRef<string>('');
   useEffect(() => {
     if (!jump || !weekIds.includes(jump)) return;
     if (handledKey.current === location.key) return;
     handledKey.current = location.key;
+    const topic = TOPIC_GROUPS.find((tg) => tg.weekIds.includes(jump));
+    if (topic) expand(sectionKey(topic.id));
     expand(jump);
     const t = setTimeout(() => {
       document.getElementById(jump)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -73,6 +79,7 @@ export function StudyPlan() {
         <div className="weekcol">
           <WeekToolbar
             weekIds={weekIds}
+            extraIds={sectionIds}
             sidebarOpen={sidebarOpen}
             onToggleSidebar={() => setSidebarOpen((o) => !o)}
           />
@@ -82,25 +89,36 @@ export function StudyPlan() {
               .map((id) => weekById.get(id))
               .filter((w): w is Week => Boolean(w));
             if (weeks.length === 0) return null;
-            const allLeaves = weeks.flatMap(leavesForWeek);
-            const s = pct(allLeaves);
+            const s = pct(weeks.flatMap(leavesForWeek));
             const kicker = `TOPIC ${String(ti + 1).padStart(2, '0')}`;
+            const key = sectionKey(tg.id);
+            const collapsed = isCollapsed(key);
+            const bodyId = `topicbody-${tg.id}`;
             return (
               <section
                 key={tg.id}
-                className="studyplan-topic"
+                className={`studyplan-topic${collapsed ? ' collapsed' : ''}`}
                 id={`section-${tg.id}`}
                 style={{ '--wk-color': tg.color } as React.CSSProperties}
               >
-                <div className="topicbar">
+                <button
+                  type="button"
+                  className="topicbar"
+                  onClick={() => toggle(key)}
+                  aria-expanded={!collapsed}
+                  aria-controls={bodyId}
+                >
+                  <span className="chevron" aria-hidden="true" />
                   <span className="tn mono">{kicker}</span>
                   <h2>{tg.label}</h2>
                   <span className="tpct mono">{s.pct}% done</span>
                   <span className="tsub">{tg.sub}</span>
+                </button>
+                <div className="studyplan-topic-body" id={bodyId} hidden={collapsed}>
+                  {weeks.map((w) => (
+                    <WeekCard key={w.id} week={w} />
+                  ))}
                 </div>
-                {weeks.map((w) => (
-                  <WeekCard key={w.id} week={w} />
-                ))}
               </section>
             );
           })}
