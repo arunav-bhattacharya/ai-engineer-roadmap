@@ -25,7 +25,7 @@
   --header-bg-stop: #10130f;
   --accent-tint: rgba(232, 163, 61, 0.1);
   --link-underline: rgba(111, 168, 199, 0.3);
-  --hours-pill: #c77dff; /* one vibrant hue for the hours pill across all topics */
+  --hours-pill: #818cf8; /* bright indigo for the hours pill on the dark theme */
 
   --chip-vid: rgba(217, 105, 90, 0.18);
   --chip-course: rgba(127, 176, 105, 0.18);
@@ -61,7 +61,7 @@
   --code-bg: #f6efe3;
   --header-bg-stop: #fbf6ec;
   --accent-tint: rgba(179, 97, 11, 0.1);
-  --hours-pill: #8b3ad6; /* deeper violet for contrast on the ivory light theme */
+  --hours-pill: #b5462e; /* reddish-rust for contrast on the ivory light theme */
   --link-underline: rgba(38, 96, 198, 0.35);
 
   --chip-vid: rgba(192, 58, 40, 0.12);
@@ -768,6 +768,46 @@ code {
 .block ul li {
   margin-bottom: 8px;
 }
+.glossary {
+  margin: 0;
+  display: grid;
+  gap: 15px 26px;
+}
+@media (min-width: 760px) {
+  .glossary {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.glossary-row {
+  margin: 0;
+}
+.glossary-row dt {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+}
+.glossary-term {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--ink) 7%, transparent);
+  border: 1px solid var(--line);
+  padding: 1px 7px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+.glossary-full {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.glossary-row dd {
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-dim);
+}
 .ratio {
   display: flex;
   gap: 0;
@@ -1361,6 +1401,15 @@ code {
   color: var(--ink);
   font-weight: 600;
 }
+.ex-summary {
+  margin: 0 0 14px;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--ink-dim);
+}
+.ex-summary code {
+  color: var(--ink);
+}
 .ex-block {
   margin: 0 0 12px;
 }
@@ -1674,6 +1723,27 @@ code {
 /* StudyPlan: topic-section banners */
 .studyplan-topic + .studyplan-topic {
   margin-top: 40px;
+}
+.topic-totop {
+  display: flex;
+  justify-content: flex-end;
+  margin: 12px 2px 2px;
+}
+.totop-link {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ink-dim);
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.totop-link:hover {
+  color: var(--wk-color, var(--amber));
+  background: color-mix(in srgb, var(--wk-color, var(--amber)) 12%, transparent);
 }
 .topicbar {
   display: flex;
@@ -2022,10 +2092,12 @@ code {
 .rmap-hours {
   margin-left: auto;
   font-size: 10px;
-  color: var(--ink-dim);
-  border: 1px solid var(--line);
+  font-weight: 600;
+  color: var(--hours-pill);
+  background: color-mix(in srgb, var(--hours-pill) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--hours-pill) 45%, transparent);
   padding: 2px 8px;
-  border-radius: 20px;
+  border-radius: 999px;
   white-space: nowrap;
 }
 .rmap-title {

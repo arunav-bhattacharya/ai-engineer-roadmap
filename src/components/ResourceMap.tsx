@@ -6,7 +6,7 @@ export function ResourceMap({ rows }: { rows: ResourceMapRow[] }) {
       <h3>Your resource stack — what drives each week</h3>
       <p>
         You own all of these. Don't watch them linearly — they overlap heavily. Use one primary per week (below)
-        and treat the rest as reference. Chip Huyen's book is the spine for the depth weeks (W11–16).
+        and treat the rest as reference. Chip Huyen's book is the spine for the depth weeks (W12–17).
       </p>
       <div className="gtable">
         <table>

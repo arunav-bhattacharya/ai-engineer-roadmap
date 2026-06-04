@@ -125,6 +125,17 @@ export function PlanView({ topicGroups, weeks, header }: Props) {
                     <WeekCard key={w.id} week={w} />
                   ))}
                 </div>
+                {collapsed ? null : (
+                  <div className="topic-totop">
+                    <button
+                      type="button"
+                      className="totop-link"
+                      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    >
+                      ↑ Back to top
+                    </button>
+                  </div>
+                )}
               </section>
             );
           })}

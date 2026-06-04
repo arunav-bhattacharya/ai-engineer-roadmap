@@ -3,7 +3,7 @@
     "duration": "20 weeks",
     "pace": "~10–12 hrs / wk",
     "ratio": "70% build / 30% read",
-    "prereq_gap": "Python (Week 0)"
+    "prereq_gap": "Python (Week 1)"
   },
   "kicker": "Senior JVM Engineer → AI Engineer",
   "titleHtml": "AI Engineer<br><em>Roadmap</em>",
@@ -26,7 +26,7 @@
     },
     {
       "name": "AI Coder — Vibe Coder → Agentic Engineer",
-      "description": "Spine for W1 · Claude Code deep, Agent Teams, Agent SDK, autonomous Jira→PR",
+      "description": "Spine for W2 · Claude Code deep, Agent Teams, Agent SDK, autonomous Jira→PR",
       "url": "https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer/"
     }
   ],
@@ -97,61 +97,103 @@
       "name": "Ed Donner — AI Coder",
       "url": "https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer/",
       "bestFor": "Claude Code mastery, agentic coding, Agent Teams, Agent SDK",
-      "drives": "W1"
+      "drives": "W2"
     },
     {
       "name": "Ed Donner — Core Track",
       "url": "https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/",
       "bestFor": "LLM APIs, RAG, QLoRA, agents from scratch",
-      "drives": "W2, W5, W10"
+      "drives": "W3, W6, W11"
     },
     {
       "name": "Ed Donner — Agentic Track",
       "url": "https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/",
       "bestFor": "OpenAI SDK, CrewAI, LangGraph, AutoGen, MCP",
-      "drives": "W7, W8"
+      "drives": "W8, W9"
     },
     {
       "name": "Ed Donner — Production Track",
       "url": "https://www.udemy.com/course/generative-and-agentic-ai-in-production/",
       "bestFor": "AWS, Docker, Terraform, CI/CD, SaaS, MLOps",
-      "drives": "W18"
+      "drives": "W19"
     },
     {
       "name": "ByteByteGo — Become an AI Engineer",
       "url": "https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/",
       "bestFor": "Pre-training, reasoning models, agent reasoning, multimodal",
-      "drives": "W2, W4, W5, W6, W7, W19"
+      "drives": "W3, W5, W6, W7, W8, W20"
     },
     {
       "name": "Chip Huyen — AI Engineering",
       "bestFor": "Evaluation, retrieval, finetuning, inference, architecture",
-      "drives": "W4, W6, W11, W14, W17, W18 (depth spine)"
+      "drives": "W5, W7, W12, W15, W18, W19 (depth spine)"
     },
     {
       "name": "Java Brains — From Java to AI",
       "url": "https://javabrains.io/courses/from-java-to-ai",
       "bestFor": "Code-free LLM on-ramp + JVM integration framing (Spring AI / LangChain4j)",
-      "drives": "W3"
+      "drives": "W4"
     },
     {
       "name": "Mike X Cohen — Deep LLM Mechanisms",
       "url": "https://www.udemy.com/course/dullms_x/",
       "bestFor": "Transformer math, PyTorch-from-scratch, interpretability",
-      "drives": "W4 + deep-dive"
+      "drives": "W5 + deep-dive"
     },
     {
       "name": "Ed Donner — AI Builder",
       "url": "https://www.udemy.com/course/ai-builder-with-n8n-create-agents-voice-agents/",
       "bestFor": "n8n + voice agents · business/commercial mindset",
       "drives": "Optional"
+    },
+    {
+      "name": "3Blue1Brown — Neural Nets & Transformers",
+      "url": "https://www.youtube.com/@3blue1brown",
+      "bestFor": "Visual intuition for transformers, attention, GPT internals",
+      "drives": "W5"
+    },
+    {
+      "name": "Anthropic — Building Effective Agents (talk)",
+      "url": "https://www.youtube.com/watch?v=D7_ipDqhtwk",
+      "bestFor": "Workflow-vs-agent and agent design patterns",
+      "drives": "W8"
+    },
+    {
+      "name": "Temporal — Durable Execution for AI",
+      "url": "https://www.youtube.com/watch?v=w4spcXq5uCw",
+      "bestFor": "Durable agent orchestration and reliability",
+      "drives": "W10"
+    },
+    {
+      "name": "Hamel Husain — LLM Evals",
+      "url": "https://www.youtube.com/@hamelhusain7140",
+      "bestFor": "Error analysis, LLM-as-judge, eval systems",
+      "drives": "W13, W15"
+    },
+    {
+      "name": "Python channels — mCoding · ArjanCodes · freeCodeCamp",
+      "url": "https://www.youtube.com/@mCoding",
+      "bestFor": "Pythonic idioms, asyncio, Pydantic, FastAPI",
+      "drives": "W1"
+    },
+    {
+      "name": "Ollama — run local LLMs",
+      "url": "https://www.youtube.com/watch?v=UtSSMs6ObqY",
+      "bestFor": "Running quantized models locally",
+      "drives": "W11"
+    },
+    {
+      "name": "vLLM + Quantization (talk)",
+      "url": "https://www.youtube.com/watch?v=eJBjgakTulg",
+      "bestFor": "Inference serving and quantization tradeoffs",
+      "drives": "W12, W18"
     }
   ],
   "howToStudy": {
     "paragraphs": [
       "Budget ~10 hrs/week: ~2 hrs read/watch, ~6 hrs coding, ~2 hrs writing (a README or short post — this is where it snaps into your head). The single biggest predictor of retention is the build-to-theory ratio.",
       "<b>The pattern that works for engineers like you:</b>",
-      "<b>Two cadences:</b> the build phase (Weeks 0–10) is hands-keyboard, capstone-driven — don't stall on theory. The depth phase (Weeks 11–18) is what makes you <i>senior</i> in AI, not just functional: it's anchored on Chip Huyen's <i>AI Engineering</i> (O'Reilly) — keep the book open as the spine for W4–16, then AI system design (W16) and interview prep (W20) close it out.",
+      "<b>Two cadences:</b> the build phase (Weeks 1–11) is hands-keyboard, capstone-driven — don't stall on theory. The depth phase (Weeks 12–19) is what makes you <i>senior</i> in AI, not just functional: it's anchored on Chip Huyen's <i>AI Engineering</i> (O'Reilly) — keep the book open as the spine for W5–17, then AI system design (W17) and interview prep (W21) close it out.",
       "<b>Don't fall for:</b> tutorial hell, framework-collecting, chasing every model release. Pick one frontier API (Anthropic) + one open-source path (HuggingFace + Ollama) and stick to them."
     ],
     "bullets": [
@@ -171,12 +213,12 @@
       "<b>Vector DB:</b> start with Chroma (in-process, zero-ops). Move to pgvector/Qdrant later.",
       "<b>Observability:</b> sign up for <a href=\"https://langfuse.com/\" target=\"_blank\">Langfuse</a> (open-source, self-hostable).",
       "<b>Git:</b> one repo <code>ai-learning-lab</code>, one folder per week.",
-      "<b>Claude Code:</b> install <a href=\"https://docs.claude.com/en/docs/claude-code/overview\" target=\"_blank\">Claude Code</a> now — Week 1 turns it into your daily driver."
+      "<b>Claude Code:</b> install <a href=\"https://docs.claude.com/en/docs/claude-code/overview\" target=\"_blank\">Claude Code</a> now — Week 2 turns it into your daily driver."
     ]
   },
   "timeSummary": [
     {
-      "wk": "0",
+      "wk": "1",
       "topic": "Python pre-prep + setup",
       "build": 6,
       "read": 4,
@@ -184,7 +226,7 @@
       "star": false
     },
     {
-      "wk": "1",
+      "wk": "2",
       "topic": "<b>Claude Code &amp; agentic coding</b>",
       "build": 7,
       "read": 4,
@@ -192,7 +234,7 @@
       "star": false
     },
     {
-      "wk": "2",
+      "wk": "3",
       "topic": "Gen AI building blocks",
       "build": 6,
       "read": 4,
@@ -200,7 +242,7 @@
       "star": false
     },
     {
-      "wk": "3",
+      "wk": "4",
       "topic": "<b>JVM-native AI (Spring AI/LangChain4j)</b>",
       "build": 7,
       "read": 3,
@@ -208,7 +250,7 @@
       "star": false
     },
     {
-      "wk": "4",
+      "wk": "5",
       "topic": "FM internals + reasoning",
       "build": 6,
       "read": 6,
@@ -216,7 +258,7 @@
       "star": false
     },
     {
-      "wk": "5",
+      "wk": "6",
       "topic": "Context engineering + RAG",
       "build": 7,
       "read": 3,
@@ -224,7 +266,7 @@
       "star": false
     },
     {
-      "wk": "6",
+      "wk": "7",
       "topic": "Advanced RAG &amp; agents",
       "build": 8,
       "read": 3,
@@ -232,7 +274,7 @@
       "star": false
     },
     {
-      "wk": "7",
+      "wk": "8",
       "topic": "Agents from scratch",
       "build": 7,
       "read": 3,
@@ -240,7 +282,7 @@
       "star": false
     },
     {
-      "wk": "8",
+      "wk": "9",
       "topic": "Multi-framework agents + MCP",
       "build": 7,
       "read": 4,
@@ -248,7 +290,7 @@
       "star": false
     },
     {
-      "wk": "9",
+      "wk": "10",
       "topic": "<b>Temporal + LLM</b>",
       "build": 8,
       "read": 3,
@@ -256,7 +298,7 @@
       "star": false
     },
     {
-      "wk": "10",
+      "wk": "11",
       "topic": "Fine-tuning + local",
       "build": 6,
       "read": 4,
@@ -264,7 +306,7 @@
       "star": false
     },
     {
-      "wk": "11",
+      "wk": "12",
       "topic": "Finetuning + dataset eng",
       "build": 7,
       "read": 4,
@@ -272,7 +314,7 @@
       "star": false
     },
     {
-      "wk": "12",
+      "wk": "13",
       "topic": "Evals + observability",
       "build": 7,
       "read": 3,
@@ -280,7 +322,7 @@
       "star": false
     },
     {
-      "wk": "13",
+      "wk": "14",
       "topic": "MLOps + experiment tracking",
       "build": 6,
       "read": 4,
@@ -288,7 +330,7 @@
       "star": false
     },
     {
-      "wk": "14",
+      "wk": "15",
       "topic": "Evaluation, deep",
       "build": 6,
       "read": 5,
@@ -296,7 +338,7 @@
       "star": false
     },
     {
-      "wk": "15",
+      "wk": "16",
       "topic": "Capstone build + polish",
       "build": 17,
       "read": 3,
@@ -304,7 +346,7 @@
       "star": false
     },
     {
-      "wk": "16",
+      "wk": "17",
       "topic": "<b>AI system design</b>",
       "build": 7,
       "read": 4,
@@ -312,7 +354,7 @@
       "star": false
     },
     {
-      "wk": "17",
+      "wk": "18",
       "topic": "<b>Inference optimization</b>",
       "build": 8,
       "read": 3,
@@ -320,7 +362,7 @@
       "star": false
     },
     {
-      "wk": "18",
+      "wk": "19",
       "topic": "Architecture + AWS deploy",
       "build": 9,
       "read": 4,
@@ -328,7 +370,7 @@
       "star": false
     },
     {
-      "wk": "19",
+      "wk": "20",
       "topic": "Multimodal",
       "build": 6,
       "read": 4,
@@ -336,7 +378,7 @@
       "star": false
     },
     {
-      "wk": "20",
+      "wk": "21",
       "topic": "<b>Interview prep + portfolio</b>",
       "build": 7,
       "read": 3,
@@ -346,29 +388,29 @@
   ],
   "notes": {
     "paidCourses": [
-      "<a href=\"https://maven.com/parlance-labs/evals\" target=\"_blank\">AI Evals for Engineers &amp; PMs</a> (Hamel Husain &amp; Shreya Shankar) — highest-signal paid course in the space (~$2k). Pairs with Weeks 12 &amp; 14.",
-      "<a href=\"https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/\" target=\"_blank\">Ed Donner — AI Engineer Core Track</a> (~$15–20 on sale) — backbone for Weeks 2, 5, 10.",
-      "<a href=\"https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/\" target=\"_blank\">AI Engineer Agentic Track</a> (~$15–20) — 8 projects across OpenAI SDK / CrewAI / LangGraph / AutoGen / MCP; drives Weeks 7–8.",
-      "<a href=\"https://www.udemy.com/course/generative-and-agentic-ai-in-production/\" target=\"_blank\">AI Engineer Production Track</a> (~$15–20) — AWS Bedrock/SageMaker, Lambda, Terraform, CI/CD, serverless multi-agent; drives Week 18."
+      "<a href=\"https://maven.com/parlance-labs/evals\" target=\"_blank\">AI Evals for Engineers &amp; PMs</a> (Hamel Husain &amp; Shreya Shankar) — highest-signal paid course in the space (~$2k). Pairs with Weeks 13 &amp; 14.",
+      "<a href=\"https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/\" target=\"_blank\">Ed Donner — AI Engineer Core Track</a> (~$15–20 on sale) — backbone for Weeks 3, 6, 11.",
+      "<a href=\"https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/\" target=\"_blank\">AI Engineer Agentic Track</a> (~$15–20) — 8 projects across OpenAI SDK / CrewAI / LangGraph / AutoGen / MCP; drives Weeks 8–9.",
+      "<a href=\"https://www.udemy.com/course/generative-and-agentic-ai-in-production/\" target=\"_blank\">AI Engineer Production Track</a> (~$15–20) — AWS Bedrock/SageMaker, Lambda, Terraform, CI/CD, serverless multi-agent; drives Week 19."
     ],
     "buyingTip": "<b>Buying tip:</b> all three Ed Donner courses are on Udemy — the Personal Plan unlocks everything and beats buying individually; otherwise wait for the recurring ~$10–20 sale and never pay sticker. Chip Huyen's <i>AI Engineering</i> (the book you have) is the depth-weeks spine — no course replaces it.",
     "pitfalls": [
       "<b>You now own overlapping courses — don't binge them linearly.</b> Use the resource map: one primary per week, the rest as reference. Watching all six Ed Donner courses + ByteByteGo + Cohen end-to-end is hundreds of hours and mostly redundant.",
-      "<b>Don't let the depth weeks block shipping.</b> The capstone (W15) is the hireable artifact; the later depth weeks deepen you but a portfolio project beats half-read theory. Ship first.",
-      "<b>Don't chase \"the correct framework.\"</b> Week 8 is breadth on purpose — learn all four, commit to none.",
-      "<b>Your backend rigor is a superpower past Week 7.</b> Most AI engineers can't reason about throughput, idempotency, retries, or transactional semantics — your capstone and Week 17 should be 10× more production-ready than the median learner's.",
+      "<b>Don't let the depth weeks block shipping.</b> The capstone (W16) is the hireable artifact; the later depth weeks deepen you but a portfolio project beats half-read theory. Ship first.",
+      "<b>Don't chase \"the correct framework.\"</b> Week 9 is breadth on purpose — learn all four, commit to none.",
+      "<b>Your backend rigor is a superpower past Week 8.</b> Most AI engineers can't reason about throughput, idempotency, retries, or transactional semantics — your capstone and Week 18 should be 10× more production-ready than the median learner's.",
       "<b>Don't fine-tune unless evals say to.</b> The #1 trap for technical learners.",
-      "<b>Your edges are Weeks 3, 9, and 17.</b> JVM-native AI + Temporal orchestration + inference optimization. Build the capstone on the JVM and write the blog posts — they're your differentiated interview assets."
+      "<b>Your edges are Weeks 4, 10, and 17.</b> JVM-native AI + Temporal orchestration + inference optimization. Build the capstone on the JVM and write the blog posts — they're your differentiated interview assets."
     ],
     "sig": "Roadmap v8 · progress tracker · 20-week · Google Sans Flex · 2 Jun 2026 · sources: Huyen, AI Engineering (O'Reilly) · Ed Donner full 6-course series · ByteByteGo cohort · Mike X Cohen · Java Brains (JVM-native) · Eugene Yan / Hamel for evals + MLOps · Alex Xu Sys Design Vol 2"
   },
   "weeks": [
     {
       "id": "w0",
-      "tag": "WEEK 00",
+      "tag": "WEEK 01",
       "title": "Python Pre-Prep & Environment",
       "hours": "~10 hrs",
-      "goal": "<b>Goal:</b> stop fighting Python. Be fluent enough that the language is invisible by Week 1. No AI yet — pure language + tooling delta from Kotlin.",
+      "goal": "<b>Goal:</b> stop fighting Python. Be fluent enough that the language is invisible by Week 2. No AI yet — pure language + tooling delta from Kotlin.",
       "variant": "default",
       "star": false,
       "days": [
@@ -388,11 +430,19 @@
               "typeLabel": "read",
               "label": "Learn X in Y — Python",
               "url": "https://learnxinyminutes.com/docs/python/"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "mCoding — 25 nooby Python habits to ditch",
+              "url": "https://www.youtube.com/watch?v=qUeud6DvOWI"
             }
           ],
           "est": "2h",
           "hands": "Rewrite a Kotlin CSV transformer in Python with full type hints. <a href=\"https://exercism.org/tracks/python\" target=\"_blank\">Exercism Python</a>: 3 starter exercises.",
           "exercise": {
+            "exId": "python-for-java-kotlin-devs",
+            "summary": "You'll port a small program you already wrote in Java or Kotlin into idiomatic, fully type-hinted Python — proving you can read and write Python before any AI work begins. For example, reimplement a CSV transformer and annotate every signature, then run <code>mypy --strict</code> until it's clean. The point isn't the program; it's building reflexes in the language nearly every AI library speaks. Beginner trap: writing \"Java in Python\" (manual loops, getters/setters) instead of leaning on Python's lighter idioms — the next exercise fixes exactly that.",
             "goal": "Port a real Kotlin utility to idiomatic, fully-typed Python.",
             "steps": [
               "Pick a small Kotlin/Java util you've written (e.g. a CSV transformer) and reimplement it in Python 3.12 with type hints on every signature.",
@@ -401,7 +451,7 @@
             ],
             "acceptance": [
               "<code>mypy --strict</code> passes with zero errors.",
-              "The port handles the same edge cases as the original and is committed to <code>week-00</code>."
+              "The port handles the same edge cases as the original and is committed to <code>week-01</code>."
             ],
             "stretch": "Add a pytest parametrized test covering 3 edge cases."
           }
@@ -417,11 +467,19 @@
               "label": "Real Python — dataclasses",
               "url": "https://realpython.com/python-data-classes/",
               "trailing": "+ comprehensions/generators"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "mCoding — 21 MORE nooby Python habits",
+              "url": "https://www.youtube.com/watch?v=E8NijUYfyus"
             }
           ],
           "est": "2h",
           "hands": "<a href=\"https://exercism.org/tracks/python\" target=\"_blank\">Exercism</a>: 4–5 exercises hitting comprehensions, dicts, generators.",
           "exercise": {
+            "exId": "core-idioms",
+            "summary": "This swaps Java boilerplate for the Python idioms you'll see in every codebase: <code>@dataclass</code> instead of getter/setter classes, comprehensions and generators instead of loop-and-append, and <code>with</code> blocks for cleanup. Concretely, rewrite one data class as a frozen <code>@dataclass</code> and turn one loop into a comprehension. Knowing these makes library code readable and your code Pythonic. Watch out: comprehensions that grow three lines long are usually clearer as a normal loop — idiomatic doesn't mean cramming everything onto one line.",
             "goal": "Internalise the Python idioms that replace Java boilerplate.",
             "steps": [
               "Rewrite a data-holding class as a <code>@dataclass(frozen=True)</code> with type hints.",
@@ -445,11 +503,19 @@
               "typeLabel": "read",
               "label": "Real Python — Async IO in Python",
               "url": "https://realpython.com/async-io-python/"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "ArjanCodes — Next-Level Asyncio",
+              "url": "https://www.youtube.com/watch?v=GpqAQxH1Afc"
             }
           ],
           "est": "2h",
           "hands": "Async <code>httpx</code> fetcher hitting 5 URLs concurrently; time it vs sequential.",
           "exercise": {
+            "exId": "async-typing",
+            "summary": "Most AI work is I/O-bound — you spend each call waiting on a model API — so <code>asyncio</code> lets you fire many requests at once instead of one at a time. You'll write an async fetcher that hits 5 URLs with <code>asyncio.gather</code>, time it against the sequential version, and confirm one failure doesn't sink the batch. Expect a real speedup because the waits overlap. Beginner trap: calling a blocking (non-async) library inside async code freezes the whole loop — every step in the chain has to be awaitable.",
             "goal": "Get asyncio muscle memory and prove the speedup.",
             "steps": [
               "Write an async <code>httpx</code> fetcher hitting 5 URLs with <code>asyncio.gather</code>.",
@@ -479,11 +545,19 @@
               "typeLabel": "tool",
               "label": "uv quickstart",
               "url": "https://docs.astral.sh/uv/getting-started/"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "ArjanCodes — Pydantic tutorial",
+              "url": "https://www.youtube.com/watch?v=502XOB0u8OY"
             }
           ],
           "est": "2h",
           "hands": "Model a billpay <code>Payment</code> as a Pydantic model with validators + a failing-validation test.",
           "exercise": {
+            "exId": "pydantic-v2-uv",
+            "summary": "Pydantic is a library that validates data against a typed schema and raises a clear error when it doesn't fit — the backbone of reliable model output later. You'll model a <code>Payment</code>, add field and model validators, and write a test proving a bad payload raises <code>ValidationError</code>; <code>uv</code> manages the project with a committed lockfile. This is the validator you'll reuse all course to force model output into a known shape. Pitfall: catching the <code>ValidationError</code> and silently continuing — the whole point is to fail loudly on bad data.",
             "goal": "Build the Pydantic structured-output validator you'll reuse all course.",
             "steps": [
               "Model a billpay <code>Payment</code> as a Pydantic v2 model with a field validator and a model validator.",
@@ -507,11 +581,19 @@
               "typeLabel": "read",
               "label": "FastAPI tutorial",
               "url": "https://fastapi.tiangolo.com/tutorial/"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "freeCodeCamp — FastAPI Course",
+              "url": "https://www.youtube.com/watch?v=tLKKmouUams"
             }
           ],
           "est": "2h",
-          "hands": "FastAPI service: 2 endpoints (1 async) + 1 pytest. Commit to <code>ai-learning-lab/week-00</code>.",
+          "hands": "FastAPI service: 2 endpoints (1 async) + 1 pytest. Commit to <code>ai-learning-lab/week-01</code>.",
           "exercise": {
+            "exId": "fastapi-pytest",
+            "summary": "FastAPI is the standard Python framework for serving models and agents behind an HTTP endpoint; pytest is how you prove it works. You'll build an app with two endpoints (one async), attach Pydantic request/response models, and write a test with <code>TestClient</code>. Nearly every project you ship this course is a FastAPI service, so this is your comfort zone. Beginner trap: forgetting <code>async def</code> on an endpoint that awaits I/O — it still runs, but blocks other requests under load.",
             "goal": "Stand up your Python service comfort zone (FastAPI + pytest).",
             "steps": [
               "Build a FastAPI app with two endpoints, one of them async.",
@@ -520,7 +602,7 @@
             ],
             "acceptance": [
               "Both endpoints return the correct shapes.",
-              "pytest is green and the service is committed to <code>week-00</code>."
+              "pytest is green and the service is committed to <code>week-01</code>."
             ],
             "stretch": "Add an exception handler that returns RFC-7807-style problem details."
           }
@@ -532,7 +614,7 @@
     },
     {
       "id": "w1",
-      "tag": "WEEK 01",
+      "tag": "WEEK 02",
       "title": "Claude Code & Agentic Coding",
       "hours": "~11 hrs",
       "goal": "<b>Goal — front-loaded on purpose.</b> You already use Claude Code daily; this week turns it into an autonomous coding system you drive efficiently, then pushes into multi-agent coding. Spine: <a href=\"https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer/\" target=\"_blank\">Ed Donner — AI Coder</a>. You'll use these skills to build every later project, so the payoff compounds.",
@@ -560,6 +642,8 @@
           "est": "2h",
           "hands": "Write a real <code>CLAUDE.md</code> for your Billpay repo: build/lint/test commands, module map, conventions (Exposed, Temporal, KSP). Run one real task end-to-end.",
           "exercise": {
+            "exId": "claude-md-agents-md-project-constitution",
+            "summary": "<code>CLAUDE.md</code> is a file that tells an AI coding agent how your repo works — build/test commands, the module map, your conventions — so it stops guessing. You'll write one for a real repo, run a task driven only by that file, then delete whatever the agent never used. Think of it as onboarding docs an agent actually reads every time. Pitfall: dumping your whole wiki in — an overstuffed file wastes context and buries the rules that matter; keep it lean.",
             "goal": "Turn CLAUDE.md into a real, working project constitution.",
             "steps": [
               "Write a <code>CLAUDE.md</code> for your Billpay repo: build/lint/test commands, module map, conventions (Exposed, Temporal, KSP).",
@@ -584,11 +668,19 @@
               "label": "Slash commands",
               "url": "https://code.claude.com/docs/en/slash-commands",
               "trailing": "(now merged into Skills)"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "Ed Donner — AI Coder (Claude Code)",
+              "url": "https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer/"
             }
           ],
           "est": "2h",
           "hands": "Create 2 skills in <code>.claude/skills/</code>: one to generate Docusaurus pages from KSP variant metadata, one <code>/pr-summary</code>. Invoke both.",
           "exercise": {
+            "exId": "skills-slash-commands",
+            "summary": "Skills and slash commands package a repeatable workflow into something an agent can invoke on demand — like a <code>/pr-summary</code> command or a doc generator. You'll build two real ones, run them on actual inputs, and document each one's trigger. This turns \"paste the same long prompt again\" into a one-word call. Watch out: making a skill too broad (\"do everything\") — narrow, single-purpose skills are far more reliable to trigger.",
             "goal": "Build reusable skills + slash commands for your workflow.",
             "steps": [
               "Create two skills in <code>.claude/skills/</code>: one to generate Docusaurus pages from KSP variant metadata, one <code>/pr-summary</code>.",
@@ -612,11 +704,19 @@
               "typeLabel": "docs",
               "label": "Hooks reference",
               "url": "https://code.claude.com/docs/en/hooks"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "Ed Donner — AI Coder (Claude Code)",
+              "url": "https://www.udemy.com/course/ai-coder-from-vibe-coder-to-agentic-engineer/"
             }
           ],
           "est": "2h",
           "hands": "Add a <code>PreToolUse</code> hook that blocks force-push to <code>main</code> + scans writes for secrets (exit 2 = deny), and a <code>PostToolUse</code> hook running ktlint/detekt after edits. Verify they fire every time.",
           "exercise": {
+            "exId": "hooks-deterministic-guardrails",
+            "summary": "Hooks run your own deterministic code at fixed points in an agent's loop — so a formatter, linter, or branch check fires every time, not just when the model remembers. You'll add a hook that lints edited files and one that blocks commits to a protected branch, and verify each fires. The lesson: put guarantees in code, not in prompts. Beginner trap: relying on the model to \"please run the tests\" — only a hook makes it non-optional.",
             "goal": "Add deterministic guardrails with hooks.",
             "steps": [
               "Add a <code>PreToolUse</code> or <code>PostToolUse</code> hook that runs your formatter/linter on edited files.",
@@ -657,6 +757,8 @@
           "est": "2.5h",
           "hands": "Run 3 subagents concurrently to review auth, payments, migrations. Use <b>plan mode</b> for a multi-file refactor; try a <b>Ralph Loop</b> (persistent self-correcting agent) on a sandboxed task; roll back via checkpoint.",
           "exercise": {
+            "exId": "subagents-agent-teams-ralph-loops",
+            "summary": "When a task is too big for one context window, you split it across subagents working in parallel and checkpoint long jobs so they can resume. You'll spawn 2+ subagents on isolated parts of a task, run a checkpointed loop on a multi-step refactor, and note where isolation helped versus hurt. The payoff is speed and focus on large work. Pitfall: parallelizing tasks that actually share state — isolated agents can make conflicting edits that don't merge cleanly.",
             "goal": "Parallelise with subagents, Agent Teams, and checkpointed loops.",
             "steps": [
               "Spawn 2+ subagents to work isolated parts of a task in parallel.",
@@ -697,6 +799,8 @@
           "est": "2.5h",
           "hands": "Run <code>claude -p</code> headless in a GitHub Action / pre-commit. Wire an <b>autonomous loop</b>: raise a Jira issue → agent builds, tests, opens a PR. Connect a GitHub MCP server; skim the Agent SDK + Cowork.",
           "exercise": {
+            "exId": "headless-ci-autonomous-loops-agent-sdk",
+            "summary": "Headless mode runs an AI coding agent non-interactively — in a script or continuous-integration pipeline — and the Agent SDK (Software Development Kit) lets you embed one in your own program. You'll run a scripted task headless, add a job that does an autonomous PR-review pass, and call the SDK from a small script. This is how agentic coding scales beyond your terminal. Watch out: letting an autonomous loop run without a cost/step cap — unattended agents need a hard stop.",
             "goal": "Drive Claude Code headless / in CI and via the Agent SDK.",
             "steps": [
               "Run Claude Code headless on a scripted task (non-interactive).",
@@ -717,7 +821,7 @@
     },
     {
       "id": "w2",
-      "tag": "WEEK 02",
+      "tag": "WEEK 03",
       "title": "Gen AI Building Blocks",
       "hours": "~10 hrs",
       "goal": "<b>Goal:</b> understand how LLMs actually work, and ship 3 LLM-powered scripts from raw API calls — no framework.",
@@ -739,6 +843,8 @@
           "est": "1.5h",
           "hands": "Note the $/M-token cost of 3 models you'll use. Sketch when each fits.",
           "exercise": {
+            "exId": "how-llms-work",
+            "summary": "A Large Language Model (LLM) is a system that predicts text one token at a time, and your first job is intuition for what each model costs and is good at. You'll tabulate price per million input/output tokens for a frontier, a mid, and a local model, then estimate the cost of a typical 2k-in / 500-out call for each. Knowing this stops you reaching for the biggest model by reflex. Beginner trap: comparing only the headline price — a cheap model that needs three retries can cost more than one strong call.",
             "goal": "Build cost/behaviour intuition for the models you'll use.",
             "steps": [
               "Tabulate $/M input+output tokens for 3 models (frontier, mid, local).",
@@ -774,6 +880,8 @@
           "est": "2.5h",
           "hands": "Tokenize 3 sample inputs; predict then verify token counts.",
           "exercise": {
+            "exId": "tokenization-deep-dive",
+            "summary": "Models don't see characters or words — they see tokens, sub-word chunks produced by a tokenizer, and that quirk explains a lot of odd behaviour and cost. You'll tokenize code, prose, and a non-English string, predicting counts before checking, and find a case where casing or whitespace changes the count. It makes pricing and context limits concrete. Pitfall: assuming one word equals one token — code, emoji, and other languages can be far more token-hungry, blowing past context windows you thought were safe.",
             "goal": "Understand tokenization well enough to predict odd behaviour.",
             "steps": [
               "Tokenize 3 sample inputs (code, prose, a non-English string) and predict counts before checking.",
@@ -802,6 +910,8 @@
           "est": "2h",
           "hands": "Work notebooks ch.1–6. <b>Build 1:</b> CLI that summarizes a dir of markdown notes (raw <code>anthropic</code> SDK).",
           "exercise": {
+            "exId": "prompt-engineering",
+            "summary": "This is your first real script against a raw model API, with deliberate prompting instead of trial and error. You'll work Anthropic's prompt-engineering tutorial, build a command-line tool that summarizes a folder of notes via the raw SDK, then compare a few-shot version against a chain-of-thought one. Seeing the output change with the prompt builds the core skill. Beginner trap: blaming the model for a bad answer that was really a vague prompt — be specific about format, role, and constraints first.",
             "goal": "Ship your first raw-API script with solid prompting.",
             "steps": [
               "Work Anthropic's prompt-eng tutorial notebooks ch.1–6.",
@@ -830,6 +940,8 @@
           "est": "2h",
           "hands": "<b>Build 2:</b> extractor — job description → <code>{role, seniority, skills[], remote}</code> as a Pydantic model.",
           "exercise": {
+            "exId": "structured-output-function-calling",
+            "summary": "Free-text answers are hard to use in code; function calling forces the model to return data in a schema you define. You'll build an extractor that turns a job description into a typed <code>{role, seniority, skills[], remote}</code> object, using the model's tool-calling to enforce the shape, and validate three messy inputs. This is how you bolt a model onto real software. Pitfall: trusting the schema blindly — always validate the result, because a model can emit a field that's the right type but wrong.",
             "goal": "Get reliable structured output via function calling.",
             "steps": [
               "Build an extractor: job description → <code>{role, seniority, skills[], remote}</code> as a Pydantic model.",
@@ -851,7 +963,7 @@
             {
               "typeClass": "course",
               "typeLabel": "core",
-              "label": "Ed Donner — Week 1",
+              "label": "Ed Donner — Week 2",
               "url": "https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/",
               "trailing": "(frontier models, prompting, tool use)"
             }
@@ -859,6 +971,8 @@
           "est": "2h",
           "hands": "<b>Build 3:</b> LLM that can call 3 tools — <code>get_weather</code>, <code>search_files</code>, <code>run_sql</code>.",
           "exercise": {
+            "exId": "tool-use",
+            "summary": "Tool use lets a model call your code — fetch weather, search files, run SQL — and fold the result into its answer; you'll build the dispatch loop by hand to see the mechanics. Give the model three tools, route whichever it picks, return the result, and handle both a tool error and a turn that needs no tool. Everything labelled \"agent\" later is this loop plus memory. Beginner trap: crashing on a tool error instead of returning the error text to the model — it can often recover if you let it see what went wrong.",
             "goal": "Implement a multi-tool dispatch loop by hand.",
             "steps": [
               "Give the LLM 3 tools — <code>get_weather</code>, <code>search_files</code>, <code>run_sql</code>.",
@@ -873,13 +987,13 @@
           }
         }
       ],
-      "udemy": "Udemy: <b>Core Track — Week 1</b>",
+      "udemy": "Udemy: <b>Core Track — Week 2</b>",
       "udemyNone": false,
-      "deliverable": "Repo <code>week-02-basics</code> + README on tokens, context windows, cost math."
+      "deliverable": "Repo <code>week-03-basics</code> + README on tokens, context windows, cost math."
     },
     {
       "id": "w3",
-      "tag": "WEEK 03",
+      "tag": "WEEK 04",
       "title": "JVM-Native AI — Spring AI & LangChain4j",
       "hours": "~10 hrs",
       "goal": "<b>Goal — your unfair advantage.</b> Re-implement what you just learned in Python (LLM APIs, tool use, structured output) in your <i>real</i> stack — LangChain4j / Spring AI on Quarkus — so you can ship AI into Billpay without leaving the JVM. Almost no AI-engineering learner can do this; you already own the stack. On-ramp: <a href=\"https://javabrains.io/courses/from-java-to-ai\" target=\"_blank\">Java Brains — From Java to AI</a> (skim if any concept feels shaky).",
@@ -908,11 +1022,19 @@
               "typeLabel": "docs",
               "label": "Spring AI",
               "url": "https://spring.io/projects/spring-ai"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "Java Brains — From Java to AI",
+              "url": "https://javabrains.io/courses/from-java-to-ai"
             }
           ],
           "est": "2h",
           "hands": "Add <code>quarkus-langchain4j</code> to a Quarkus project; wire an Anthropic/OpenAI chat model; get your first completion from Kotlin.",
           "exercise": {
+            "exId": "landscape-setup",
+            "summary": "If your background is Java/Kotlin, you can do AI on the Java Virtual Machine (JVM) instead of switching to Python — this picks that stack deliberately. You'll spin up a Quarkus project with Quarkus-LangChain4j, wire one chat call end to end, and write a one-pager comparing LangChain4j, Spring AI, and Quarkus-LangChain4j. Choosing on purpose beats cargo-culting a tutorial's stack. Pitfall: picking a framework for its star count rather than your runtime and team — the one-pager forces a real reason.",
             "goal": "Pick your JVM AI stack deliberately.",
             "steps": [
               "Spin up a Quarkus project with Quarkus-LangChain4j (and skim Spring AI).",
@@ -936,11 +1058,19 @@
               "typeLabel": "docs",
               "label": "LangChain4j — Ai Services",
               "url": "https://docs.langchain4j.dev/tutorials/ai-services"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "Java Brains — From Java to AI",
+              "url": "https://javabrains.io/courses/from-java-to-ai"
             }
           ],
           "est": "2h",
-          "hands": "Port your W2 summarizer to a LangChain4j <code>AiServices</code> interface; add a system prompt + temperature; stream the response.",
+          "hands": "Port your W3 summarizer to a LangChain4j <code>AiServices</code> interface; add a system prompt + temperature; stream the response.",
           "exercise": {
+            "exId": "chat-prompts-parameters",
+            "summary": "LangChain4j's <code>AiServices</code> turns a chat model into a typed Java interface — you declare a method, it handles the prompt plumbing. You'll define an interface with a prompt template, stream tokens to the console, and swap the model provider via config alone. The provider-swap proves your code isn't welded to one vendor. Watch out: hard-coding the model name or key in code instead of config — you lose exactly the portability this exercise teaches.",
             "goal": "Use AiServices for typed chat, prompts, and streaming.",
             "steps": [
               "Define an <code>AiService</code> interface with a prompt template.",
@@ -964,11 +1094,19 @@
               "typeLabel": "docs",
               "label": "LangChain4j — Structured Outputs",
               "url": "https://docs.langchain4j.dev/tutorials/structured-outputs"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "Java Brains — From Java to AI",
+              "url": "https://javabrains.io/courses/from-java-to-ai"
             }
           ],
           "est": "2h",
-          "hands": "Rebuild your W2 extractor to return a typed Kotlin <code>data class</code> directly — no manual JSON parsing.",
+          "hands": "Rebuild your W3 extractor to return a typed Kotlin <code>data class</code> directly — no manual JSON parsing.",
           "exercise": {
+            "exId": "structured-output-type-safety",
+            "summary": "On the JVM you can have the model return a real Kotlin data class, not a string you parse by hand. You'll map output to a data class, validate a required field, and test what happens when the model returns malformed output. Type safety catches bad model output at the boundary. Pitfall: assuming structured output always parses — leave a tested fallback path for the day the model returns something off-schema.",
             "goal": "Map LLM output to Kotlin data classes safely.",
             "steps": [
               "Have the AiService return a Kotlin data class (structured output).",
@@ -998,11 +1136,19 @@
               "typeLabel": "docs",
               "label": "Quarkus-LangChain4j — RAG",
               "url": "https://docs.quarkiverse.io/quarkus-langchain4j/dev/"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "Java Brains — From Java to AI",
+              "url": "https://javabrains.io/courses/from-java-to-ai"
             }
           ],
           "est": "2h",
           "hands": "Expose 2–3 <code>@Tool</code> methods (incl. a read-only Oracle query); build a minimal RAG over Temporal docs using a pgvector embedding store.",
           "exercise": {
+            "exId": "tool-calling-rag-on-the-jvm",
+            "summary": "This does tool-calling plus Retrieval-Augmented Generation (RAG) natively in Java — the model both calls your methods and answers from a document store. You'll expose two <code>@Tool</code> methods, stand up a <code>pgvector</code> store with a small corpus, and answer a question needing both retrieval and a tool call. It proves the JVM is a first-class AI runtime. Beginner trap: retrieving documents but never checking they're relevant — irrelevant chunks in the prompt produce confident wrong answers.",
             "goal": "Do tool-calling + RAG natively on the JVM.",
             "steps": [
               "Expose 2 <code>@Tool</code> methods the model can call.",
@@ -1037,6 +1183,8 @@
           "est": "2h",
           "hands": "Add chat memory + robust error handling (retry on malformed output, typed fallback) to your service. This is the pattern your capstone will ship on.",
           "exercise": {
+            "exId": "memory-error-handling-resilience",
+            "summary": "A demo becomes production-shaped when it remembers the conversation and survives failures. You'll add chat memory across turns, retries with a fallback model, and an output guard before returning. These three turn a happy-path demo into something you'd expose to users. Pitfall: unbounded memory — stuffing the entire history into every call quietly grows cost and latency until you hit the context limit; summarize or window it.",
             "goal": "Make the JVM LLM endpoint production-shaped.",
             "steps": [
               "Add chat memory across turns.",
@@ -1057,7 +1205,7 @@
     },
     {
       "id": "w4",
-      "tag": "WEEK 04",
+      "tag": "WEEK 05",
       "title": "Foundation Model Internals",
       "hours": "~12 hrs",
       "goal": "<b>Goal:</b> understand <i>why</i> models behave as they do — the theory you skipped in Part I, now that you can contextualize it against systems you've built. <span class=\"mono\" style=\"color:var(--amber-soft)\">Huyen Ch 2.</span>",
@@ -1079,11 +1227,19 @@
               "typeLabel": "read",
               "label": "HF — How to generate text",
               "url": "https://huggingface.co/blog/how-to-generate"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "Mike X Cohen — Deep LLM Mechanisms",
+              "url": "https://www.udemy.com/course/dullms_x/"
             }
           ],
           "est": "2h",
           "hands": "Implement temperature + top-p sampling over raw logprobs; show how each reshapes the output distribution.",
           "exercise": {
+            "exId": "sampling-decoding",
+            "summary": "Sampling parameters like temperature and top-p control how random a model's output is; this makes them concrete by experiment. You'll generate the same prompt at temperature 0, 0.7, and 1.2, sweep top-k/top-p, and find the setting that keeps a structured output valid. Now the knobs mean something instead of being magic numbers. Beginner trap: cranking temperature for \"creativity\" on a task that needs reliability — high randomness breaks JSON and reproducibility.",
             "goal": "Make sampling parameters concrete by experiment.",
             "steps": [
               "Generate completions at temperature 0, 0.7, 1.2 on the same prompt.",
@@ -1117,6 +1273,8 @@
           "est": "2.5h",
           "hands": "Implement best-of-N, self-consistency, and a simple <b>Tree-of-Thoughts</b> + verifier search on a SQL/math task; chart accuracy vs token cost.",
           "exercise": {
+            "exId": "test-time-compute-reasoning",
+            "summary": "You can buy accuracy at inference time by having the model do more work — sampling several answers and picking the best, or searching over reasoning paths. You'll implement best-of-N with a simple scorer and a tiny Tree-of-Thoughts loop, then compare accuracy against one greedy call. The tradeoff is quality versus tokens and latency. Pitfall: assuming more samples always help — without a decent scorer to choose among them, best-of-N just adds cost.",
             "goal": "Buy quality with test-time compute.",
             "steps": [
               "Implement best-of-N sampling with a simple scorer.",
@@ -1139,11 +1297,19 @@
               "typeClass": "book",
               "typeLabel": "book",
               "label": "Huyen Ch 2 — The Probabilistic Nature of AI"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "3Blue1Brown — But what is a GPT?",
+              "url": "https://www.youtube.com/watch?v=yMQPQuz5WpA"
             }
           ],
           "est": "2h",
           "hands": "Run the same prompt 20× at temp 0 vs 1; quantify variance. Design a determinism strategy for billpay-grade reliability.",
           "exercise": {
+            "exId": "probabilistic-nature-hallucination",
+            "summary": "Models are probabilistic, so the same prompt can give different answers and sometimes confident wrong ones (hallucinations); here you quantify it. You'll run one prompt 10 times to measure variance, build a prompt that reliably hallucinates and one that doesn't, and note which mitigations (grounding, lower temperature) help. Seeing the variance first-hand changes how much you trust a single output. Beginner trap: treating one good run as proof — always check behaviour across repeated runs.",
             "goal": "Quantify the probabilistic nature + hallucination.",
             "steps": [
               "Run the same prompt 10× and measure answer variance.",
@@ -1183,6 +1349,8 @@
           "est": "2h",
           "hands": "Read a DPO preference dataset; diagram outcome- vs process-reward models (ORM/PRM) and how STaR bootstraps reasoning data. Sketch preference data for a billpay assistant.",
           "exercise": {
+            "exId": "post-training-reasoning-rl",
+            "summary": "A base model becomes a helpful assistant through post-training; this traces that pipeline. You'll write notes distinguishing Supervised Fine-Tuning (SFT), Reinforcement Learning from Human Feedback (RLHF), and Direct Preference Optimization (DPO), summarize outcome vs process reward models, and map where reasoning ability comes from. It's the vocabulary behind \"why does this model behave this way\". Pitfall: conflating SFT with RLHF — one teaches format from examples, the other shapes preference from comparisons.",
             "goal": "Trace the post-training pipeline that shapes behaviour.",
             "steps": [
               "Write notes distinguishing SFT vs RLHF vs DPO.",
@@ -1216,6 +1384,8 @@
           "est": "2h",
           "hands": "Map the pre-training pipeline (corpora → cleaning → BPE → architecture). Build a decision table: per task class, which model size/family + why.",
           "exercise": {
+            "exId": "pre-training-architecture-size",
+            "summary": "This connects pre-training choices — data, tokenizer, architecture, size — to what a model can do. You'll summarize the big corpora and Byte-Pair Encoding (BPE)'s role, estimate the params-to-memory relationship for a given size, and explain Mixture-of-Experts versus dense models in three bullets. It demystifies why a 70B model needs the hardware it does. Beginner trap: equating parameter count with quality — data quality and training choices often matter more than raw size.",
             "goal": "Connect pre-training choices to model capability.",
             "steps": [
               "Summarize data corpora (Common Crawl/FineWeb) and BPE's role.",
@@ -1245,6 +1415,8 @@
           "est": "1.5h",
           "hands": "Optional: probe attention heads / activations on a small model. Pull the relevant module from Cohen's course — don't attempt all 90h; sample interpretability + attention internals.",
           "exercise": {
+            "exId": "mechanistic-interpretability",
+            "summary": "Mechanistic interpretability is the attempt to read what's actually happening inside a model's weights; this is one optional peek. You'll run a small notebook (a logit lens or an induction-head demo), identify one interpretable behaviour, and write three sentences on it. It's a humbling reminder these aren't total black boxes. Pitfall: over-reading a toy demo — a clean result on a tiny model rarely generalizes to a frontier one.",
             "goal": "Take one peek inside the weights (optional).",
             "steps": [
               "Run a small mechanistic-interpretability notebook (e.g. logit lens / an induction head demo).",
@@ -1261,14 +1433,14 @@
       ],
       "udemy": "Spine: <b>Huyen Ch 2</b> + ByteByteGo P1/P4 · Cohen (optional)",
       "udemyNone": false,
-      "deliverable": "Repo <code>week-04-fm-internals</code> — sampling + ToT/verifier eval + reward-model notes + determinism writeup."
+      "deliverable": "Repo <code>week-05-fm-internals</code> — sampling + ToT/verifier eval + reward-model notes + determinism writeup."
     },
     {
       "id": "w5",
-      "tag": "WEEK 05",
+      "tag": "WEEK 06",
       "title": "Context Engineering & RAG",
       "hours": "~10 hrs",
-      "goal": "<b>Goal:</b> build RAG from scratch (no framework), then rebuild with a framework. Corpus: Temporal docs — eat your own dog food. (Deep retrieval theory comes back in Week 6.)",
+      "goal": "<b>Goal:</b> build RAG from scratch (no framework), then rebuild with a framework. Corpus: Temporal docs — eat your own dog food. (Deep retrieval theory comes back in Week 7.)",
       "variant": "default",
       "star": false,
       "days": [
@@ -1292,6 +1464,8 @@
           "est": "2h",
           "hands": "Write a 1-pager: 3 chunking strategies + when each wins.",
           "exercise": {
+            "exId": "embeddings-chunking",
+            "summary": "Before retrieval you must split documents into chunks and turn them into embeddings (vectors that capture meaning); how you chunk silently decides quality. You'll chunk one corpus three ways (fixed, recursive, semantic), embed with <code>all-MiniLM-L6-v2</code>, and eyeball results on a few queries. Chunking is the cheapest, highest-leverage knob on a Retrieval-Augmented Generation (RAG) pipeline. Beginner trap: defaulting to fixed-size chunks that slice sentences in half — the model then retrieves fragments that read as nonsense.",
             "goal": "Choose chunking deliberately, not by default.",
             "steps": [
               "Chunk one corpus 3 ways (fixed, recursive, semantic).",
@@ -1315,11 +1489,19 @@
               "typeLabel": "read",
               "label": "Anthropic — Contextual Retrieval",
               "url": "https://www.anthropic.com/news/contextual-retrieval"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "Ed Donner Core — RAG",
+              "url": "https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/"
             }
           ],
           "est": "2h",
           "hands": "Ingest Temporal docs; chunk 3 ways; embed with <code>all-MiniLM-L6-v2</code>.",
           "exercise": {
+            "exId": "rag-from-scratch",
+            "summary": "You'll build a Retrieval-Augmented Generation (RAG) pipeline end to end with no framework, so you understand every part before a library hides it. Ingest a docs corpus into <code>Chroma</code>, retrieve the top-k chunks, stuff them into the prompt, answer with the source chunks cited, and add a guard that says \"not in context\" when nothing relevant is found. Doing it raw demystifies every RAG product you'll meet. Beginner trap: skipping the \"not in context\" guard — without it the model happily fabricates an answer when retrieval finds nothing.",
             "goal": "Build RAG end-to-end with no framework.",
             "steps": [
               "Ingest a docs corpus into Chroma using the raw <code>anthropic</code> + <code>chromadb</code> + sentence-transformers.",
@@ -1341,13 +1523,15 @@
             {
               "typeClass": "course",
               "typeLabel": "core",
-              "label": "Ed Donner — Week 8 (RAG)",
+              "label": "Ed Donner — Week 9 (RAG)",
               "url": "https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/"
             }
           ],
           "est": "2h",
           "hands": "Add a re-ranker (<code>cohere/rerank</code> free or <code>bge-reranker-v2-m3</code>). Compare with/without.",
           "exercise": {
+            "exId": "retrieve-augment-generate",
+            "summary": "Reranking improves the retrieve→augment→generate loop by re-scoring retrieved chunks so the best ones land in the prompt. You'll add a reranker (Cohere's free tier or <code>bge-reranker</code>), compare answers with and without it on five queries, and record where it changed the top result. Retrieval gets you candidates; reranking gets you the right one. Pitfall: reranking a huge candidate set — it's slower and costlier, so retrieve a sane top-N first, then rerank that.",
             "goal": "Add reranking to the retrieve→augment→generate loop.",
             "steps": [
               "Add a reranker (<code>cohere/rerank</code> free tier or <code>bge-reranker-v2-m3</code>).",
@@ -1376,6 +1560,8 @@
           "est": "2h",
           "hands": "Rebuild in LlamaIndex/LangChain; implement hybrid + HyDE + query rewriting.",
           "exercise": {
+            "exId": "framework-rebuild",
+            "summary": "Now you rebuild your scratch pipeline in a framework (LlamaIndex or LangChain) to see exactly what it automates — and what it hides. Add hybrid retrieval, HyDE (Hypothetical Document Embeddings), and query rewriting, then diff the framework version against your hand-built one. Frameworks are great once you know what they're doing for you. Beginner trap: adopting a framework before understanding the basics — when it breaks, you won't know which layer failed.",
             "goal": "Rebuild in a framework to see what it hides.",
             "steps": [
               "Rebuild the pipeline in LlamaIndex or LangChain.",
@@ -1411,11 +1597,19 @@
               "typeLabel": "read",
               "label": "Qdrant benchmarks (vs pgvector / Weaviate / Pinecone / Milvus)",
               "url": "https://qdrant.tech/benchmarks/"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "DeepLearning.AI — Advanced Retrieval",
+              "url": "https://www.deeplearning.ai/short-courses/advanced-retrieval-for-ai/"
             }
           ],
           "est": "2.5h",
           "hands": "Swap Chroma → <code>pgvector</code>; record recall@5 / MRR across chunking strategies in <code>results.md</code>. Then write a one-pager: <b>HNSW vs IVF</b> (when each wins on recall / latency / memory) + a decision matrix — Chroma / pgvector / Qdrant / Weaviate / Pinecone — scored on millions-of-vectors, metadata filtering, multi-tenancy, self-host vs SaaS.",
           "exercise": {
+            "exId": "production-rag-vector-db-landscape",
+            "summary": "This makes RAG production-shaped and forces a real vector-database choice. You'll swap Chroma for <code>pgvector</code>, record recall@5 and Mean Reciprocal Rank (MRR) across chunking strategies, write the HNSW-vs-IVF index tradeoff, and score five databases on a decision matrix. Picking a vector database is an architecture decision, not a default. Pitfall: choosing on benchmarks alone — operational fit (does it run next to your Postgres? metadata filtering?) usually matters more than raw speed.",
             "goal": "Make RAG production-shaped and pick a vector DB.",
             "steps": [
               "Swap Chroma → <code>pgvector</code>; record recall@5 / MRR across chunking strategies in <code>results.md</code>.",
@@ -1430,16 +1624,16 @@
           }
         }
       ],
-      "udemy": "Udemy: <b>Core Track — Week 5</b>",
+      "udemy": "Udemy: <b>Core Track — Week 6</b>",
       "udemyNone": false,
-      "deliverable": "Repo <code>week-05-rag</code> — answers \"what is sticky queue starvation?\" with citations + numbers + vector-DB decision matrix."
+      "deliverable": "Repo <code>week-06-rag</code> — answers \"what is sticky queue starvation?\" with citations + numbers + vector-DB decision matrix."
     },
     {
       "id": "w6",
-      "tag": "WEEK 06",
+      "tag": "WEEK 07",
       "title": "Advanced RAG & Agents",
       "hours": "~11 hrs",
-      "goal": "<b>Goal:</b> the retrieval and agent depth that actually moves production quality — beyond the basic pipeline you built in Week 5. <span class=\"mono\" style=\"color:var(--amber-soft)\">Huyen Ch 6.</span>",
+      "goal": "<b>Goal:</b> the retrieval and agent depth that actually moves production quality — beyond the basic pipeline you built in Week 6. <span class=\"mono\" style=\"color:var(--amber-soft)\">Huyen Ch 6.</span>",
       "variant": "default",
       "star": false,
       "days": [
@@ -1452,14 +1646,22 @@
               "typeClass": "book",
               "typeLabel": "book",
               "label": "Huyen Ch 6 — Retrieval Algorithms"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "DeepLearning.AI — Advanced Retrieval",
+              "url": "https://www.deeplearning.ai/short-courses/advanced-retrieval-for-ai/"
             }
           ],
           "est": "2h",
-          "hands": "Implement BM25 + dense + RRF fusion on your W5 corpus; compare recall across the three.",
+          "hands": "Implement BM25 + dense + RRF fusion on your W6 corpus; compare recall across the three.",
           "exercise": {
+            "exId": "retrieval-algorithms",
+            "summary": "This implements the core retrieval algorithms so you can compare them on your own data. You'll build BM25 (keyword ranking), dense (embedding) retrieval, and Reciprocal Rank Fusion (RRF) to combine them, then compare recall and pick a winner with justification. Hybrid usually beats either alone. Beginner trap: assuming embeddings always win — keyword search still dominates for exact terms, codes, and rare names that embeddings smear together.",
             "goal": "Implement and compare the core retrieval algorithms.",
             "steps": [
-              "Implement BM25, dense, and RRF fusion over your W5 corpus.",
+              "Implement BM25, dense, and RRF fusion over your W6 corpus.",
               "Compare recall across the three.",
               "Pick the winner for your data and justify it."
             ],
@@ -1485,16 +1687,24 @@
               "typeLabel": "read",
               "label": "Anthropic — Contextual Retrieval",
               "url": "https://www.anthropic.com/news/contextual-retrieval"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "DeepLearning.AI — Building & Evaluating Advanced RAG",
+              "url": "https://www.deeplearning.ai/short-courses/building-evaluating-advanced-rag/"
             }
           ],
           "est": "2h",
-          "hands": "Add a cross-encoder reranker + query rewriting; measure nDCG lift vs the W5 baseline.",
+          "hands": "Add a cross-encoder reranker + query rewriting; measure nDCG lift vs the W6 baseline.",
           "exercise": {
+            "exId": "retrieval-optimization",
+            "summary": "Here you push retrieval past the baseline with reranking, query rewriting, and contextual retrieval. You'll add a cross-encoder reranker and Anthropic-style contextual retrieval, then measure the ranking-quality (nDCG) lift against your earlier baseline. Always measure the lift — optimizations that feel better often don't move the metric. Pitfall: stacking techniques with no baseline number — you can't tell which one helped, or whether you made it worse.",
             "goal": "Optimise retrieval beyond the baseline.",
             "steps": [
               "Add a cross-encoder reranker + query rewriting.",
               "Add contextual retrieval (Anthropic-style).",
-              "Measure nDCG lift vs the W5 baseline."
+              "Measure nDCG lift vs the W6 baseline."
             ],
             "acceptance": [
               "nDCG improves over baseline and the delta is recorded.",
@@ -1512,11 +1722,19 @@
               "typeClass": "book",
               "typeLabel": "book",
               "label": "Huyen Ch 6 — RAG Beyond Texts"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "ByteByteGo — training-time techniques",
+              "url": "https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/"
             }
           ],
           "est": "2h",
           "hands": "Add tabular retrieval over your Oracle schema — text-to-SQL plus row retrieval — feeding the agent.",
           "exercise": {
+            "exId": "rag-beyond-text",
+            "summary": "Real questions often need structured data, not just prose, so retrieval expands to tables and databases. You'll add text-to-SQL plus row retrieval over a real schema, feed retrieved rows to the agent, and test three questions that require structured data. Many \"the AI got the number wrong\" bugs are really retrieval-over-text bugs. Beginner trap: letting a model free-write SQL against production — constrain it, validate it, and run it read-only.",
             "goal": "Retrieve beyond plain text.",
             "steps": [
               "Add tabular retrieval over your Oracle schema (text-to-SQL + row retrieval).",
@@ -1539,11 +1757,19 @@
               "typeClass": "book",
               "typeLabel": "book",
               "label": "Huyen Ch 6 — Memory"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "Ed Donner — Agentic Track",
+              "url": "https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/"
             }
           ],
           "est": "2h",
           "hands": "Add a memory layer to your capstone agent (vector recall + rolling summary); test multi-session recall.",
           "exercise": {
+            "exId": "agent-memory-systems",
+            "summary": "Agents feel stateless until you give them memory — recall of past turns and a rolling summary. You'll add vector recall plus a rolling summary to your agent, persist it across sessions, and test multi-session recall on a scripted conversation. Memory is what makes an assistant feel continuous. Pitfall: remembering everything — unbounded memory balloons cost and surfaces stale facts; decide what to keep, summarize, and forget.",
             "goal": "Give your agent real memory.",
             "steps": [
               "Add a memory layer (vector recall + rolling summary) to the capstone agent.",
@@ -1566,11 +1792,19 @@
               "typeClass": "book",
               "typeLabel": "book",
               "label": "Huyen Ch 6 — Agent Failure Modes and Evaluation"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "DeepLearning.AI — Evaluating AI Agents",
+              "url": "https://www.deeplearning.ai/short-courses/evaluating-ai-agents/"
             }
           ],
           "est": "2h",
           "hands": "Build a failure taxonomy + targeted evals for your agent; add loop/cost circuit-breakers.",
           "exercise": {
+            "exId": "agent-failure-modes-eval",
+            "summary": "Agents fail in characteristic ways — bad plans, tool errors, infinite loops — and naming them is the first step to catching them. You'll catalogue the failures you actually observe, write a targeted eval for each, and add loop and cost circuit-breakers. A failure taxonomy turns \"it's flaky\" into a checklist. Beginner trap: no circuit-breaker — one looping agent can burn a surprising amount of money before you notice.",
             "goal": "Build a failure taxonomy + targeted evals for the agent.",
             "steps": [
               "Catalogue planning errors, tool errors, and loops you observe.",
@@ -1605,6 +1839,8 @@
           "est": "2h",
           "hands": "Implement Reflexion (self-critique memory) and ReWOO (plan-then-execute) variants of your agent; compare against plain ReAct on your eval set.",
           "exercise": {
+            "exId": "advanced-agent-reasoning",
+            "summary": "This implements smarter agent loops beyond plain ReAct: Reflexion (the agent critiques and retries) and ReWOO (Reasoning WithOut Observation — plan first, then execute). You'll run both against your eval set and compare quality and cost to a ReAct baseline. Fancier loops aren't automatically better. Pitfall: adding reflection everywhere — the extra calls can double cost for a quality gain that only shows up on hard tasks.",
             "goal": "Implement advanced agent reasoning variants.",
             "steps": [
               "Implement Reflexion (self-critique memory) and ReWOO (plan-then-execute).",
@@ -1621,11 +1857,11 @@
       ],
       "udemy": "Spine: <b>Huyen Ch 6</b>",
       "udemyNone": false,
-      "deliverable": "Repo <code>week-06-advanced-rag</code> — hybrid+rerank + tabular RAG + agent memory + failure evals."
+      "deliverable": "Repo <code>week-07-advanced-rag</code> — hybrid+rerank + tabular RAG + agent memory + failure evals."
     },
     {
       "id": "w7",
-      "tag": "WEEK 07",
+      "tag": "WEEK 08",
       "title": "Agents — Build Without Frameworks",
       "hours": "~10 hrs",
       "goal": "<b>Goal:</b> write a ReAct loop in ~100 lines. Once you grok this, every framework becomes a thin wrapper in your mind.",
@@ -1647,11 +1883,19 @@
               "typeLabel": "read",
               "label": "Lilian Weng — LLM-Powered Agents",
               "url": "https://lilianweng.github.io/posts/2023-06-23-agent/"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "Anthropic — How We Build Effective Agents",
+              "url": "https://www.youtube.com/watch?v=D7_ipDqhtwk"
             }
           ],
           "est": "2h",
           "hands": "Diagram the ReAct loop on paper before writing any code.",
           "exercise": {
+            "exId": "what-is-an-agent",
+            "summary": "Before building agents you need a crisp definition separating a true agent from a scripted workflow. You'll write your own definition, list the components (model, tools, loop, memory, stop condition), and sketch the smallest agent for your domain. A clear mental model prevents over-engineering. Beginner trap: calling every model call an \"agent\" — if there's no loop and no tool use it's a workflow, and a workflow is often the better choice.",
             "goal": "Define precisely what an agent is (and isn't).",
             "steps": [
               "Write your own definition separating workflows from agents.",
@@ -1674,14 +1918,22 @@
               "typeClass": "read",
               "typeLabel": "build",
               "label": "Loop: thought → action → observation → repeat"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "HuggingFace — AI Agents Course",
+              "url": "https://huggingface.co/learn/agents-course"
             }
           ],
           "est": "4h",
           "hands": "Write the loop yourself with 5 tools: web search (<a href=\"https://tavily.com/\" target=\"_blank\">Tavily</a> free), file r/w, python REPL, calculator, current_date.",
           "exercise": {
+            "exId": "react-agent-from-scratch",
+            "summary": "You'll write a ReAct agent — reason, act, observe — in about 100 lines with no framework. Wire it to your earlier RAG plus a calculator tool, log every thought/action/observation, and add a max-step stop. Seeing the raw loop makes every agent framework legible afterward. Pitfall: no step cap — a confused ReAct agent loops until it runs out of money; the stop condition is not optional.",
             "goal": "Write a ReAct agent in ~100 lines, no framework.",
             "steps": [
-              "Implement reason→act→observe with your W5 RAG + a calculator tool.",
+              "Implement reason→act→observe with your W6 RAG + a calculator tool.",
               "Log every step (thought, action, observation).",
               "Add a max-step stop condition."
             ],
@@ -1707,6 +1959,8 @@
           "est": "2h",
           "hands": "Sketch each Anthropic pattern as a flow.",
           "exercise": {
+            "exId": "agentic-patterns",
+            "summary": "This catalogues the reusable agent patterns — chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer — with a when-to-use for each. You'll map each to a real task and pick the one your capstone needs. Most \"agent\" problems are really one of these patterns in disguise. Beginner trap: reaching for a complex multi-agent setup when simple prompt chaining would do — match the pattern to the task, not the hype.",
             "goal": "Catalogue the agentic patterns with examples.",
             "steps": [
               "Write a one-liner + when-to-use for chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer.",
@@ -1736,6 +1990,8 @@
           "est": "2h",
           "hands": "Each pattern as a standalone example. Note: when would you use each <i>inside a Temporal workflow</i>?",
           "exercise": {
+            "exId": "implement-the-5-patterns",
+            "summary": "Now you actually implement those five patterns and compare them on the same task. Build chaining, routing, and parallelization, then orchestrator-workers and evaluator-optimizer. Implementing them cements when each pays off. Pitfall: evaluator-optimizer loops with no exit criterion — define \"good enough\" or they iterate forever.",
             "goal": "Implement the 5 agentic patterns.",
             "steps": [
               "Build chaining, routing, and parallelization.",
@@ -1752,11 +2008,11 @@
       ],
       "udemy": "Udemy: <b>Agentic Track (foundations)</b> + Core Track Wk 8",
       "udemyNone": false,
-      "deliverable": "Repo <code>week-07-agents-from-scratch</code> — ReAct + 5 patterns + Temporal-context comparison."
+      "deliverable": "Repo <code>week-08-agents-from-scratch</code> — ReAct + 5 patterns + Temporal-context comparison."
     },
     {
       "id": "w8",
-      "tag": "WEEK 08",
+      "tag": "WEEK 09",
       "title": "Multi-Framework Agents + MCP",
       "hours": "~11 hrs",
       "goal": "<b>Goal:</b> become fluent across the four frameworks the Agentic Track teaches — build the <i>same</i> agent in each, then form opinions on each vs a real workflow engine. Breadth here makes you fluent in any team's stack.",
@@ -1776,8 +2032,10 @@
             }
           ],
           "est": "2.5h",
-          "hands": "Port your W7 ReAct agent to LangGraph; add a checkpointer + human-in-the-loop interrupt. Note where this mirrors Temporal signals.",
+          "hands": "Port your W8 ReAct agent to LangGraph; add a checkpointer + human-in-the-loop interrupt. Note where this mirrors Temporal signals.",
           "exercise": {
+            "exId": "langgraph",
+            "summary": "LangGraph models an agent as an explicit state graph — nodes, edges, and a checkpointer for resumability. You'll build the reference agent in it, add a human-in-the-loop interrupt, and map each concept to Temporal in notes. Graphs make complex control flow inspectable. Beginner trap: hiding real branching logic inside one giant node — the graph only helps if the steps are actually separate nodes.",
             "goal": "Build the reference agent in LangGraph.",
             "steps": [
               "Model state, nodes, edges, and a checkpointer.",
@@ -1812,6 +2070,8 @@
           "est": "2h",
           "hands": "Rebuild the same agent in the OpenAI Agents SDK; compare its handoff &amp; guardrail primitives to LangGraph edges.",
           "exercise": {
+            "exId": "openai-agents-sdk",
+            "summary": "This rebuilds the same agent on the OpenAI Agents SDK to feel a different framework's ergonomics. You'll implement handoffs between two agents, add guardrails and a session, and compare the developer experience to LangGraph. Building the same thing twice is the fastest way to judge a framework. Pitfall: agent-to-agent handoffs with no guardrail — one agent can hand off a bad instruction the next executes blindly.",
             "goal": "Rebuild it on the OpenAI Agents SDK.",
             "steps": [
               "Implement handoffs between two agents.",
@@ -1846,6 +2106,8 @@
           "est": "2h",
           "hands": "A 3-role crew (researcher → analyst → writer) producing a billpay incident summary.",
           "exercise": {
+            "exId": "crewai",
+            "summary": "CrewAI frames a multi-agent system as a crew of roles, each with a goal and tools. You'll define 2–3 roles, run the crew on the shared task, and note where the role abstraction helped versus added overhead. Role framing is intuitive but isn't free. Beginner trap: inventing roles that don't map to real subtasks — extra agents add coordination cost without adding capability.",
             "goal": "Rebuild it as a CrewAI role-based crew.",
             "steps": [
               "Define 2–3 roles with goals and tools.",
@@ -1880,6 +2142,8 @@
           "est": "2h",
           "hands": "A group-chat of agents solving a task; note how orchestration/turn-taking differs from CrewAI roles.",
           "exercise": {
+            "exId": "autogen",
+            "summary": "AutoGen models agents as a conversational group chat that talk to each other to solve a task. You'll set up the group chat, run the shared task, and capture how termination and cost behave. It's a very different mental model from a fixed graph. Pitfall: no termination condition — group chats can ramble turn after turn, quietly running up token cost.",
             "goal": "Rebuild it with AutoGen group chat.",
             "steps": [
               "Set up a conversational multi-agent group chat.",
@@ -1915,6 +2179,8 @@
           "est": "2.5h",
           "hands": "<b>Build:</b> an MCP server exposing your Oracle DB read-only (reused later). Write \"<b>4 frameworks vs Temporal as a workflow engine</b>\" — a portfolio piece only you can write.",
           "exercise": {
+            "exId": "mcp-the-verdict",
+            "summary": "The Model Context Protocol (MCP) is an open standard for exposing tools and data to any model over a common interface — build a server once, call it from anywhere. You'll build a small MCP server for one of your tools, call it from an agent via an MCP client, and write the verdict comparing all four agent frameworks. MCP is becoming the universal connector for tool integration. Beginner trap: exposing a write-capable tool over MCP with no auth or guardrail — treat an MCP server like any public API surface.",
             "goal": "Build an MCP server and deliver the verdict.",
             "steps": [
               "Build a small MCP server exposing one of your tools.",
@@ -1931,11 +2197,11 @@
       ],
       "udemy": "Udemy: <b>Agentic Track (full course)</b> — OpenAI SDK · CrewAI · LangGraph · AutoGen · MCP",
       "udemyNone": false,
-      "deliverable": "Repo <code>week-08-frameworks</code> — same agent ×4 + Oracle MCP server + comparison doc."
+      "deliverable": "Repo <code>week-09-frameworks</code> — same agent ×4 + Oracle MCP server + comparison doc."
     },
     {
       "id": "w9",
-      "tag": "WEEK 09",
+      "tag": "WEEK 10",
       "title": "Temporal + LLM Orchestration",
       "hours": "~11 hrs",
       "goal": "<b>Goal — YOUR DIFFERENTIATOR.</b> No course teaches this. Run agents as durable, throttled, observable Temporal workflows at 500K+ scale. This is why you're hireable; the capstone is built on it.",
@@ -1953,16 +2219,24 @@
               "label": "Temporal docs",
               "url": "https://docs.temporal.io/",
               "trailing": "+ your production experience"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "Temporal — Why Every AI Agent Needs Durable Execution",
+              "url": "https://www.youtube.com/watch?v=w4spcXq5uCw"
             }
           ],
           "est": "2h",
-          "hands": "Wrap each LLM call as an Activity; keep non-determinism out of Workflow code. Port your W8 agent into a Temporal workflow skeleton.",
+          "hands": "Wrap each LLM call as an Activity; keep non-determinism out of Workflow code. Port your W9 agent into a Temporal workflow skeleton.",
           "exercise": {
+            "exId": "agents-workflows-mapping",
+            "summary": "Durable workflow engines like Temporal make flaky agents reliable by recording every step so a crash can resume exactly where it left off. You'll wrap each model/tool call as a Temporal Activity, keep non-determinism out of workflow code, and port an earlier agent into a workflow skeleton. This is how agents survive real-world failures. Pitfall: putting a random or time-dependent call directly in workflow code — non-determinism breaks Temporal's replay; it belongs in an Activity.",
             "goal": "Map an agent onto a durable workflow.",
             "steps": [
               "Wrap each LLM/tool call as a Temporal Activity.",
               "Keep all non-determinism out of Workflow code.",
-              "Port your W8 agent into a Temporal workflow skeleton."
+              "Port your W9 agent into a Temporal workflow skeleton."
             ],
             "acceptance": [
               "The agent runs as a workflow with activities.",
@@ -1980,11 +2254,19 @@
               "typeClass": "read",
               "typeLabel": "read",
               "label": "Temporal retry policies + Activity heartbeating"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "Temporal — Why Every AI Agent Needs Durable Execution",
+              "url": "https://www.youtube.com/watch?v=w4spcXq5uCw"
             }
           ],
           "est": "2h",
           "hands": "Add backoff retries + timeouts to LLM/tool Activities; make tool side-effects idempotent.",
           "exercise": {
+            "exId": "reliability-for-flaky-llms",
+            "summary": "Model and tool calls fail intermittently, so you add the reliability primitives that absorb it. You'll add backoff retries and timeouts to activities, heartbeating for long calls, and make one side-effecting tool idempotent. Idempotency is what makes a retry safe. Beginner trap: retrying a non-idempotent action like \"send payment\" — a blind retry can do it twice.",
             "goal": "Make flaky LLM calls reliable.",
             "steps": [
               "Add backoff retries + timeouts to LLM/tool activities.",
@@ -2007,11 +2289,19 @@
               "typeClass": "read",
               "typeLabel": "read",
               "label": "Temporal Signals / Queries / Updates"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "Temporal — Why Every AI Agent Needs Durable Execution",
+              "url": "https://www.youtube.com/watch?v=w4spcXq5uCw"
             }
           ],
           "est": "2h",
           "hands": "Add an approval gate via Signal; expose live agent state via Query; <code>executeUpdateWithStart</code> for kick-off + first input.",
           "exercise": {
+            "exId": "human-in-the-loop",
+            "summary": "Some actions need a human's yes before they run; durable Signals and Queries make that gate first-class. You'll add an approval gate via a Signal, expose live agent state via a Query, and start the workflow with its first input atomically. This is how you ship agents that take real actions safely. Pitfall: blocking forever waiting for approval — add a timeout and a default so a forgotten request doesn't wedge the workflow.",
             "goal": "Add human-in-the-loop via Signals/Queries.",
             "steps": [
               "Add an approval gate using a Signal.",
@@ -2039,6 +2329,8 @@
           "est": "3h",
           "hands": "Trigger 500K workflows throttled — rate-limit LLM calls, cap concurrency, protect the <code>r8g.8xlarge</code> Postgres without scaling it. Schedules vs <code>Workflow.sleep()</code> at scale.",
           "exercise": {
+            "exId": "throttled-fan-out-at-scale",
+            "summary": "Triggering thousands of agent runs at once will melt your model API and your database unless you throttle. You'll fire a large batch while rate-limiting model calls and capping concurrency, protect a fixed-size Postgres without scaling it, and compare scheduling approaches. Backpressure is a first-class design concern at scale. Beginner trap: unbounded fan-out — launching 500K workflows with no concurrency cap takes down the very dependencies they share.",
             "goal": "Throttle fan-out at 500K scale.",
             "steps": [
               "Trigger a large batch of workflows, rate-limiting LLM calls and capping concurrency.",
@@ -2066,6 +2358,8 @@
           "est": "2h",
           "hands": "Draft the post — it basically writes itself with your background. Your standout interview asset.",
           "exercise": {
+            "exId": "write-the-thesis",
+            "summary": "Turning your build into a written argument is how it becomes interview and portfolio currency. You'll draft a blog post (\"What Agent Frameworks Get Wrong About Workflow Orchestration\"), back every claim with something from your own build, and get it review-ready. Specific, build-backed writing is far more credible than opinion. Pitfall: generic hot-takes with no evidence — anchor each claim to a concrete thing you measured or shipped.",
             "goal": "Write the orchestration thesis.",
             "steps": [
               "Draft the blog: 'What Agent Frameworks Get Wrong About Workflow Orchestration'.",
@@ -2082,14 +2376,14 @@
       ],
       "udemy": "Udemy: <b>none exists — this is uniquely yours.</b>",
       "udemyNone": true,
-      "deliverable": "Repo <code>week-09-temporal-llm</code> — durable multi-agent workflow w/ HITL signals + throttled fan-out + blog draft."
+      "deliverable": "Repo <code>week-10-temporal-llm</code> — durable multi-agent workflow w/ HITL signals + throttled fan-out + blog draft."
     },
     {
       "id": "w10",
-      "tag": "WEEK 10",
+      "tag": "WEEK 11",
       "title": "Fine-Tuning & Local Models",
       "hours": "~10 hrs",
-      "goal": "<b>Goal:</b> know when fine-tuning helps (rarely) and how to do it when it does. Decision tree: prompt → few-shot → RAG → fine-tune. (The memory math &amp; quantization theory deepen in Week 11.)",
+      "goal": "<b>Goal:</b> know when fine-tuning helps (rarely) and how to do it when it does. Decision tree: prompt → few-shot → RAG → fine-tune. (The memory math &amp; quantization theory deepen in Week 12.)",
       "variant": "default",
       "star": false,
       "days": [
@@ -2103,11 +2397,19 @@
               "typeLabel": "read",
               "label": "Hamel — Fine-Tuning is Probably Not For You",
               "url": "https://hamel.dev/blog/posts/fine_tuning_valuable.html"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "DeepLearning.AI — Finetuning LLMs",
+              "url": "https://www.deeplearning.ai/short-courses/finetuning-large-language-models/"
             }
           ],
           "est": "1.5h",
           "hands": "Write your escalation decision tree; mark where billpay tasks would land.",
           "exercise": {
+            "exId": "when-fine-tuning-pays-off",
+            "summary": "Fine-tuning is often the wrong first move; this is the decision exercise that proves whether you even need it. You'll walk the ladder — prompt → few-shot → RAG → fine-tune — for your task, write the case for and against, and define the metric that would justify the cost. Most \"we need to fine-tune\" instincts are solved cheaper upstream. Beginner trap: fine-tuning to add knowledge — for fresh facts RAG is usually better; fine-tuning is for behaviour and format.",
             "goal": "Decide whether fine-tuning is even justified.",
             "steps": [
               "Walk the decision tree: prompt → few-shot → RAG → fine-tune for your task.",
@@ -2134,13 +2436,15 @@
             {
               "typeClass": "course",
               "typeLabel": "core",
-              "label": "Core Track — Week 12 (QLoRA)",
+              "label": "Core Track — Week 13 (QLoRA)",
               "url": "https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/"
             }
           ],
           "est": "4h",
           "hands": "Fine-tune <code>Qwen2.5-3B</code> with LoRA via <a href=\"https://github.com/unslothai/unsloth\" target=\"_blank\">unsloth</a> on a free Colab T4. Task: SQL gen on a synthetic billpay schema.",
           "exercise": {
+            "exId": "lora-qlora-peft",
+            "summary": "Full fine-tuning is expensive; Parameter-Efficient Fine-Tuning (PEFT) methods like LoRA (Low-Rank Adaptation) train small adapters instead, and QLoRA does it on a quantized base so it fits one GPU. You'll LoRA-tune a small model on a focused dataset, hold out a test set, and prove the tuned model beats base on it. Always measure against base — sometimes it doesn't win. Pitfall: reporting training loss as success — only a held-out test set shows whether you improved or just memorized.",
             "goal": "Run a LoRA/QLoRA fine-tune that beats base.",
             "steps": [
               "Fine-tune a small model (e.g. Llama-3.2-3B) with LoRA/PEFT on a focused dataset.",
@@ -2165,11 +2469,19 @@
               "label": "llama.cpp",
               "url": "https://github.com/ggerganov/llama.cpp",
               "trailing": "— Q4_K_M vs Q5_K_M vs FP16"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "Learn Ollama in 15 Minutes (local models)",
+              "url": "https://www.youtube.com/watch?v=UtSSMs6ObqY"
             }
           ],
           "est": "2h",
           "hands": "Serve your fine-tuned model with vLLM; benchmark tokens/sec vs Ollama.",
           "exercise": {
+            "exId": "local-serving",
+            "summary": "Running models locally matters for cost, privacy, and latency; this serves one two ways and previews quantization. You'll run the model with Ollama, then vLLM, quantize it, and re-measure quality and latency. Each server suits a different job — quick local dev versus high-throughput serving. Beginner trap: judging a server on a single request — the differences show up under concurrent load, not one-off calls.",
             "goal": "Serve the model locally and preview quantization.",
             "steps": [
               "Run the model with Ollama, then with vLLM.",
@@ -2180,7 +2492,7 @@
               "The model serves under both runtimes.",
               "A quality/latency comparison for a quantized variant exists."
             ],
-            "stretch": "Expose an OpenAI-compatible endpoint and point your W2 script at it."
+            "stretch": "Expose an OpenAI-compatible endpoint and point your W3 script at it."
           }
         },
         {
@@ -2198,11 +2510,13 @@
           "est": "2h",
           "hands": "Pre-train a tiny GPT on Tiny Shakespeare. Optional but you'll never see transformers the same way.",
           "exercise": {
+            "exId": "optional-transformers-from-the-metal",
+            "summary": "This optional deep-dive reads a transformer from scratch — attention, blocks — so the architecture stops being a black box. You'll work a from-scratch notebook, re-derive one component in your own words, and connect it to a knob you tuned earlier. Depth here pays off when you debug weird model behaviour. Pitfall: getting lost in math for its own sake — aim to connect each piece to something observable, not to memorize equations.",
             "goal": "Read the transformer from the metal (optional).",
             "steps": [
               "Work a from-scratch transformer notebook (attention, blocks).",
               "Re-derive one component in your own words.",
-              "Connect it to a knob you tuned in W4."
+              "Connect it to a knob you tuned in W5."
             ],
             "acceptance": [
               "A notebook runs and you can explain attention end-to-end.",
@@ -2212,13 +2526,13 @@
           }
         }
       ],
-      "udemy": "Udemy: <b>Core Track — Week 7</b>",
+      "udemy": "Udemy: <b>Core Track — Week 8</b>",
       "udemyNone": false,
-      "deliverable": "Repo <code>week-10-finetuning</code> — LoRA model beating base on held-out test + \"when would I fine-tune at work?\" writeup."
+      "deliverable": "Repo <code>week-11-finetuning</code> — LoRA model beating base on held-out test + \"when would I fine-tune at work?\" writeup."
     },
     {
       "id": "w11",
-      "tag": "WEEK 11",
+      "tag": "WEEK 12",
       "title": "Finetuning Depth + Dataset Engineering",
       "hours": "~11 hrs",
       "goal": "<b>Goal:</b> the quantitative grounding behind fine-tuning, and the data work that actually decides whether it works — the half of fine-tuning nobody shows you. <span class=\"mono\" style=\"color:var(--amber-soft)\">Huyen Ch 7–8.</span>",
@@ -2234,11 +2548,19 @@
               "typeClass": "book",
               "typeLabel": "book",
               "label": "Huyen Ch 7 — Memory Bottlenecks"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "Mike X Cohen — Deep LLM Mechanisms",
+              "url": "https://www.udemy.com/course/dullms_x/"
             }
           ],
           "est": "2h",
-          "hands": "Compute VRAM for full vs LoRA vs QLoRA on 7B/13B; verify against your actual Week-6 run.",
+          "hands": "Compute VRAM for full vs LoRA vs QLoRA on 7B/13B; verify against your actual Week-7 run.",
           "exercise": {
+            "exId": "memory-math-numerics",
+            "summary": "Whether a model fits your hardware is arithmetic, not guesswork. You'll write the params × bytes-per-dtype footprint formula, compute memory for FP32/FP16/BF16/INT8/INT4 for one model, and state what fits on your target GPU. This math decides every serving and training choice. Beginner trap: forgetting that training needs several times more memory than inference (gradients, optimizer states) — a model that serves fine may not train on the same card.",
             "goal": "Master the memory math behind training/serving.",
             "steps": [
               "Write the footprint formula for params × bytes/dtype.",
@@ -2267,11 +2589,19 @@
               "typeLabel": "read",
               "label": "llama.cpp",
               "url": "https://github.com/ggerganov/llama.cpp"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "Fast, Cheap & Accurate — vLLM + Quantization",
+              "url": "https://www.youtube.com/watch?v=eJBjgakTulg"
             }
           ],
           "est": "2h",
-          "hands": "Quantize your W10 model to Q4/Q5; benchmark quality + tokens/sec at each level.",
+          "hands": "Quantize your W11 model to Q4/Q5; benchmark quality + tokens/sec at each level.",
           "exercise": {
+            "exId": "quantization",
+            "summary": "Quantization shrinks a model by storing weights in fewer bits, trading a little quality for big memory and speed wins. You'll quantize with GPTQ/AWQ and to GGUF (a common local-inference format), then measure quality and latency against full precision and plot the curve. Knowing the curve lets you pick the cheapest precision that's still good enough. Pitfall: quantizing too aggressively (e.g. 3-bit) and shipping without an eval — quality can fall off a cliff at the low end.",
             "goal": "Quantize and measure the tradeoff.",
             "steps": [
               "Quantize a model with GPTQ/AWQ and to GGUF.",
@@ -2300,11 +2630,19 @@
               "typeLabel": "tool",
               "label": "mergekit",
               "url": "https://github.com/arcee-ai/mergekit"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "ByteByteGo — training-time techniques",
+              "url": "https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/"
             }
           ],
           "est": "2h",
           "hands": "Merge two LoRA adapters with mergekit; eval the merged model on both source tasks.",
           "exercise": {
+            "exId": "model-merging-multi-task",
+            "summary": "Model merging combines two fine-tuned models into one that can do both tasks, with no extra training. You'll merge two adapters with SLERP or TIES/DARE, evaluate on both source tasks, and check for capability regression. It's a cheap way to get multi-task ability. Beginner trap: assuming a merge keeps both skills intact — always re-test both tasks, because merging can quietly degrade one.",
             "goal": "Merge models for multi-task capability.",
             "steps": [
               "Merge two adapters/models with SLERP or TIES/DARE.",
@@ -2327,11 +2665,19 @@
               "typeClass": "book",
               "typeLabel": "book",
               "label": "Huyen Ch 8 — Data Curation"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "ByteByteGo — training-time techniques",
+              "url": "https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/"
             }
           ],
           "est": "2.5h",
           "hands": "Build a 200-example billpay instruction dataset with an explicit quality rubric + coverage check.",
           "exercise": {
+            "exId": "data-curation",
+            "summary": "For fine-tuning, dataset quality decides success more than any hyperparameter. You'll assemble a small dataset with explicit quality/coverage/quantity targets, de-duplicate and clean it, and document your acquisition and annotation choices. A few hundred clean examples beat thousands of noisy ones. Pitfall: scraping volume and skipping cleaning — duplicates and label noise teach the model the wrong thing.",
             "goal": "Curate a dataset that actually decides FT success.",
             "steps": [
               "Assemble a small dataset with explicit quality/coverage/quantity targets.",
@@ -2360,11 +2706,19 @@
               "typeLabel": "cohort",
               "label": "ByteByteGo P2 — RAFT",
               "url": "https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "ByteByteGo — training-time techniques",
+              "url": "https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/"
             }
           ],
           "est": "2.5h",
-          "hands": "Synthesize + distill from a frontier model into your small model; dedup &amp; filter; try <b>RAFT</b> (train the model to ignore distractor docs) and re-run the W10 eval to show lift.",
+          "hands": "Synthesize + distill from a frontier model into your small model; dedup &amp; filter; try <b>RAFT</b> (train the model to ignore distractor docs) and re-run the W11 eval to show lift.",
           "exercise": {
+            "exId": "synthesis-distillation-raft",
+            "summary": "When you lack data, you can generate it — synthesis with a stronger model, distillation into a smaller one, and RAFT (Retrieval-Augmented Fine-Tuning) to teach use of retrieved context. You'll synthesize examples, distill into your small model, and apply RAFT. Synthetic data is powerful but needs guarding. Beginner trap: training on unfiltered synthetic data — errors from the generator get baked in and amplified.",
             "goal": "Generate data via synthesis, distillation, and RAFT.",
             "steps": [
               "Synthesize training examples with a stronger model.",
@@ -2381,14 +2735,14 @@
       ],
       "udemy": "Spine: <b>Huyen Ch 7–8</b>",
       "udemyNone": false,
-      "deliverable": "Repo <code>week-11-data</code> — memory-math sheet + quantized models + merged adapter + synthetic dataset."
+      "deliverable": "Repo <code>week-12-data</code> — memory-math sheet + quantized models + merged adapter + synthetic dataset."
     },
     {
       "id": "w12",
-      "tag": "WEEK 12",
+      "tag": "WEEK 13",
       "title": "Evals, Observability & Production Basics",
       "hours": "~10 hrs",
-      "goal": "<b>Goal:</b> the most undervalued skill in AI engineering. After this week you're in the top 10% purely because most people skip evals. (The measurement theory — perplexity, judges, ranking — goes deep in Week 14.)",
+      "goal": "<b>Goal:</b> the most undervalued skill in AI engineering. After this week you're in the top 10% purely because most people skip evals. (The measurement theory — perplexity, judges, ranking — goes deep in Week 15.)",
       "variant": "default",
       "star": false,
       "days": [
@@ -2407,14 +2761,22 @@
               "typeLabel": "read",
               "label": "Eugene Yan — LLM Patterns",
               "url": "https://eugeneyan.com/writing/llm-patterns/"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "Hamel Husain — Domain-Specific LLM Evals",
+              "url": "https://www.youtube.com/watch?v=eLXF0VojuSs"
             }
           ],
           "est": "2h",
-          "hands": "List the failure modes you expect in your Week 8 agent.",
+          "hands": "List the failure modes you expect in your Week 9 agent.",
           "exercise": {
+            "exId": "why-evals-are-everything",
+            "summary": "Evaluations (evals) are systematic tests of model quality, and they're the real differentiator between a demo and a product. You'll list the failure modes you expect from your agent, group them into categories, and pick the three that matter most. Knowing what to measure comes before building any grader. Beginner trap: \"it looked good in a few tries\" — vibes aren't evals; without measurement you can't tell if a change helped or hurt.",
             "goal": "Internalise why evals are the differentiator.",
             "steps": [
-              "List the failure modes you expect in your W8 agent.",
+              "List the failure modes you expect in your W9 agent.",
               "Group them into categories.",
               "Pick the 3 that matter most for your task."
             ],
@@ -2438,11 +2800,13 @@
             }
           ],
           "est": "4h",
-          "hands": "On your W8 agent: label 100 traces → cluster failures → LLM-as-judge per mode → validate (TPR/TNR) → golden set of 20–30 that gate CI.",
+          "hands": "On your W9 agent: label 100 traces → cluster failures → LLM-as-judge per mode → validate (TPR/TNR) → golden set of 20–30 that gate CI.",
           "exercise": {
+            "exId": "build-evals",
+            "summary": "This builds a real eval suite the Hamel Husain way: look at your data, cluster failures, and write LLM-as-judge graders. You'll label 100 traces, write a judge per failure mode, validate each judge against your labels (its true-positive and true-negative rates), and keep a 20–30 item golden set that gates continuous integration (CI). The golden set is your regression alarm. Pitfall: trusting an unvalidated judge — a grader that disagrees with you is worse than no grader.",
             "goal": "Build an eval suite the Hamel way.",
             "steps": [
-              "Label 100 traces from your W8 agent.",
+              "Label 100 traces from your W9 agent.",
               "Cluster failures and write an LLM-as-judge per mode.",
               "Validate each judge (TPR/TNR) and keep a 20–30 golden set that gates CI."
             ],
@@ -2462,11 +2826,19 @@
               "typeLabel": "tool",
               "label": "Langfuse",
               "url": "https://langfuse.com/"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "DeepLearning.AI — Evaluating AI Agents",
+              "url": "https://www.deeplearning.ai/short-courses/evaluating-ai-agents/"
             }
           ],
           "est": "2h",
           "hands": "Instrument every agent call (cost, latency, tools). Dashboard: \"which tool calls fail most?\"",
           "exercise": {
+            "exId": "observability",
+            "summary": "Observability means tracing every model and tool call — cost, latency, inputs, outputs — so you can debug what actually happened. You'll wire Langfuse into every agent call, build a dashboard answering \"which tool calls fail most?\", and trace one real failing session end to end. You can't fix what you can't see. Beginner trap: logging only final answers — without per-step traces, a multi-step failure is impossible to localize.",
             "goal": "Instrument everything with observability.",
             "steps": [
               "Wire Langfuse into every agent call (cost, latency, tools).",
@@ -2498,8 +2870,10 @@
             }
           ],
           "est": "2h",
-          "hands": "Add I/O guardrails. Try 10 attacks; document mitigations. (Expanded in Week 18.)",
+          "hands": "Add I/O guardrails. Try 10 attacks; document mitigations. (Expanded in Week 19.)",
           "exercise": {
+            "exId": "security-red-teaming",
+            "summary": "Model apps have a new attack surface — prompt injection and jailbreaks — so you red-team yours and add guardrails. You'll add input and output guardrails, run 10 injection/jailbreak attacks (try Lakera Gandalf), and document each attack and its mitigation. Assume any text the model reads may be adversarial. Pitfall: guarding the input but not the output — a model can be tricked into emitting secrets or unsafe content that an output filter would catch.",
             "goal": "Red-team and add guardrails.",
             "steps": [
               "Add input + output guardrails to the agent.",
@@ -2516,14 +2890,14 @@
       ],
       "udemy": "Udemy: <b>weak fit.</b> Use the practitioners above; <a href=\"https://maven.com/parlance-labs/evals\" target=\"_blank\">Maven AI Evals</a> if you later invest.",
       "udemyNone": true,
-      "deliverable": "Repo <code>week-12-evals</code> — eval suite + Langfuse dashboard + 3 judges w/ TPR/TNR + red-team doc."
+      "deliverable": "Repo <code>week-13-evals</code> — eval suite + Langfuse dashboard + 3 judges w/ TPR/TNR + red-team doc."
     },
     {
       "id": "w13",
-      "tag": "WEEK 13",
+      "tag": "WEEK 14",
       "title": "MLOps & Experiment Tracking",
       "hours": "~10 hrs",
-      "goal": "<b>Goal:</b> add the ML lifecycle layer that observability (W12) doesn't cover — prompt / dataset / model versioning, experiment tracking, model registry. Once this is wired, every later result you ship is reproducible and every model upgrade can be gated. This is what makes \"AI Engineer\" sit next to \"MLOps\" on a job spec.",
+      "goal": "<b>Goal:</b> add the ML lifecycle layer that observability (W13) doesn't cover — prompt / dataset / model versioning, experiment tracking, model registry. Once this is wired, every later result you ship is reproducible and every model upgrade can be gated. This is what makes \"AI Engineer\" sit next to \"MLOps\" on a job spec.",
       "variant": "default",
       "star": false,
       "days": [
@@ -2546,11 +2920,13 @@
             }
           ],
           "est": "2h",
-          "hands": "Re-run your W10 LoRA fine-tune with MLflow tracking: log hyperparams, train/eval loss curves, the LoRA adapter as an artifact, the eval-set metrics. Add a second run with a different learning rate; compare runs in the UI.",
+          "hands": "Re-run your W11 LoRA fine-tune with MLflow tracking: log hyperparams, train/eval loss curves, the LoRA adapter as an artifact, the eval-set metrics. Add a second run with a different learning rate; compare runs in the UI.",
           "exercise": {
+            "exId": "experiment-tracking",
+            "summary": "Experiment tracking makes machine-learning work reproducible — params, metrics, and artifacts logged per run instead of lost in your terminal. You'll re-run an earlier LoRA fine-tune under MLflow tracking, add a second run with a different learning rate, and compare them in the UI. Without tracking, \"which run was that?\" has no answer. Beginner trap: not logging the exact data and config — a metric you can't reproduce is just an anecdote.",
             "goal": "Make experiments reproducible with tracking.",
             "steps": [
-              "Re-run your W10 LoRA fine-tune under MLflow tracking (params, loss curves, the adapter artifact, eval metrics).",
+              "Re-run your W11 LoRA fine-tune under MLflow tracking (params, loss curves, the adapter artifact, eval metrics).",
               "Add a second run with a different learning rate.",
               "Compare runs in the UI."
             ],
@@ -2582,6 +2958,8 @@
           "est": "2h",
           "hands": "Move your capstone's 3 hottest prompts into Langfuse with versions. In code, fetch by name+label (e.g. <code>billpay-classifier:production</code>). Run a quick A/B between v1 and v2; record judge scores on each.",
           "exercise": {
+            "exId": "prompt-versioning",
+            "summary": "Prompts are production code and deserve versioning, not edits buried in source. You'll move your three hottest prompts into Langfuse with versions, fetch them by name and label in code (e.g. <code>billpay-classifier:production</code>), and A/B v1 vs v2 with judge scores. Versioned prompts let you roll back a bad change instantly. Pitfall: editing the live prompt in place — with no version history you can't diff or revert when quality drops.",
             "goal": "Version prompts like software.",
             "steps": [
               "Move your capstone's 3 hottest prompts into Langfuse with versions.",
@@ -2614,11 +2992,13 @@
             }
           ],
           "est": "2h",
-          "hands": "Push the W10 LoRA adapter to HF Hub with a model card (training data, eval scores, intended use, known failure modes). Register in MLflow with stages <code>staging</code> → <code>production</code>. Document the promotion criteria.",
+          "hands": "Push the W11 LoRA adapter to HF Hub with a model card (training data, eval scores, intended use, known failure modes). Register in MLflow with stages <code>staging</code> → <code>production</code>. Document the promotion criteria.",
           "exercise": {
+            "exId": "model-registry-lineage",
+            "summary": "A model registry tracks which model version is where, with a model card documenting data, eval scores, and intended use. You'll push an adapter to the Hugging Face Hub with a model card, register it in MLflow with staging→production stages, and document promotion criteria. Lineage answers \"what's in production and why\". Beginner trap: promoting to production with no written criteria — \"it seemed better\" isn't a gate you can audit later.",
             "goal": "Stand up a model registry + lineage.",
             "steps": [
-              "Push the W10 adapter to HF Hub with a model card (data, eval scores, intended use, failure modes).",
+              "Push the W11 adapter to HF Hub with a model card (data, eval scores, intended use, failure modes).",
               "Register it in MLflow with <code>staging</code>→<code>production</code> stages.",
               "Document the promotion criteria."
             ],
@@ -2648,11 +3028,13 @@
             }
           ],
           "est": "2h",
-          "hands": "Version your W12 golden eval set with DVC; tag <code>eval-v1</code> after CI passes. Sketch a drift detector — embedding-distance histogram between training distribution and a week of production traces.",
+          "hands": "Version your W13 golden eval set with DVC; tag <code>eval-v1</code> after CI passes. Sketch a drift detector — embedding-distance histogram between training distribution and a week of production traces.",
           "exercise": {
+            "exId": "dataset-versioning-drift",
+            "summary": "Datasets change over time, so you version them and watch for drift — when production data stops resembling what you evaluated on. You'll version your golden eval set with DVC (Data Version Control), sketch an embedding-distance drift detector (train vs a week of prod), and pick a drift threshold. Drift is how a once-good system silently degrades. Pitfall: versioning code but not data — an eval result is meaningless if you can't pin the exact dataset that produced it.",
             "goal": "Version datasets and watch for drift.",
             "steps": [
-              "Version your W12 golden eval set with DVC; tag <code>eval-v1</code>.",
+              "Version your W13 golden eval set with DVC; tag <code>eval-v1</code>.",
               "Sketch a drift detector (embedding-distance histogram: train vs a week of prod traces).",
               "Decide a drift threshold."
             ],
@@ -2666,7 +3048,7 @@
         {
           "n": "5",
           "focusTitle": "CI for ML — eval-gated promotion",
-          "focusSub": "GitHub Actions + your W12 evals as the gate",
+          "focusSub": "GitHub Actions + your W13 evals as the gate",
           "resources": [
             {
               "typeClass": "read",
@@ -2676,11 +3058,13 @@
             }
           ],
           "est": "2h",
-          "hands": "GitHub Actions workflow on PR: run your W12 eval suite against the proposed prompt/model version, fail PR if any judge regresses below threshold. Wire MLflow run URL into the PR comment. This is the foundation W18 generalises to full deploy gating.",
+          "hands": "GitHub Actions workflow on PR: run your W13 eval suite against the proposed prompt/model version, fail PR if any judge regresses below threshold. Wire MLflow run URL into the PR comment. This is the foundation W19 generalises to full deploy gating.",
           "exercise": {
+            "exId": "ci-for-ml-eval-gated-promotion",
+            "summary": "This puts evals in the pipeline: a prompt or model change can't merge unless it passes. You'll add a GitHub Actions job that runs your evals on a PR's version, fails the PR if any judge regresses below threshold, and posts the run URL into the PR comment. The gate makes quality non-negotiable. Beginner trap: a gate with no teeth — if a failing eval only warns instead of blocking, regressions ship anyway.",
             "goal": "Gate deploys on evals in CI.",
             "steps": [
-              "Add a GitHub Actions job that runs the W12 evals on a PR's prompt/model version.",
+              "Add a GitHub Actions job that runs the W13 evals on a PR's prompt/model version.",
               "Fail the PR if any judge regresses below threshold.",
               "Post the MLflow run URL into the PR comment."
             ],
@@ -2694,14 +3078,14 @@
       ],
       "udemy": "Udemy: <b>weak fit</b> — use docs above + <a href=\"https://www.wandb.courses/\" target=\"_blank\">W&amp;B Courses</a> (free) for depth.",
       "udemyNone": true,
-      "deliverable": "Repo <code>week-13-mlops</code> — MLflow runs + Langfuse prompt versions + HF Hub model + DVC-versioned eval set + eval-gated CI workflow."
+      "deliverable": "Repo <code>week-14-mlops</code> — MLflow runs + Langfuse prompt versions + HF Hub model + DVC-versioned eval set + eval-gated CI workflow."
     },
     {
       "id": "w14",
-      "tag": "WEEK 14",
+      "tag": "WEEK 15",
       "title": "Evaluation, Deep",
       "hours": "~11 hrs",
-      "goal": "<b>Goal:</b> the measurement foundations behind Week 12. This is what separates engineers who <i>think</i> their system works from those who can prove it. <span class=\"mono\" style=\"color:var(--amber-soft)\">Huyen Ch 3–4.</span>",
+      "goal": "<b>Goal:</b> the measurement foundations behind Week 13. This is what separates engineers who <i>think</i> their system works from those who can prove it. <span class=\"mono\" style=\"color:var(--amber-soft)\">Huyen Ch 3–4.</span>",
       "variant": "default",
       "star": false,
       "days": [
@@ -2714,11 +3098,19 @@
               "typeClass": "book",
               "typeLabel": "book",
               "label": "Huyen Ch 3 — Understanding LM Metrics"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "Mike X Cohen — Deep LLM Mechanisms",
+              "url": "https://www.udemy.com/course/dullms_x/"
             }
           ],
           "est": "2h",
           "hands": "Compute perplexity of a local model on a held-out billpay-docs set; interpret what it tells you.",
           "exercise": {
+            "exId": "language-modeling-metrics",
+            "summary": "This computes the classic language-modeling metrics by hand so they stop being jargon. You'll compute cross-entropy and perplexity on a held-out set, relate bits-per-character to perplexity, and interpret what a perplexity delta actually means. Knowing the math grounds every benchmark you'll read. Pitfall: comparing perplexity across different tokenizers — the numbers aren't comparable unless the tokenization matches.",
             "goal": "Compute language-modeling metrics by hand.",
             "steps": [
               "Compute cross-entropy and perplexity on a held-out set.",
@@ -2747,11 +3139,19 @@
               "typeLabel": "read",
               "label": "Hamel — Evals FAQ",
               "url": "https://hamel.dev/blog/posts/evals-faq/"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "Hamel Husain — Domain-Specific LLM Evals",
+              "url": "https://www.youtube.com/watch?v=eLXF0VojuSs"
             }
           ],
           "est": "2h",
           "hands": "Build an LLM judge with an explicit rubric; validate against human labels (TPR/TNR); measure position/verbosity bias.",
           "exercise": {
+            "exId": "ai-as-a-judge",
+            "summary": "Using a model to grade outputs (LLM-as-judge) scales evaluation, but only if you validate the judge and watch its biases. You'll build a judge for one criterion with a rubric, validate it against human labels (true-positive/true-negative rate), and probe for position, verbosity, and self-preference bias. A judge you haven't checked can be confidently wrong. Beginner trap: trusting judge scores without human spot-checks — judges favor longer, more confident answers regardless of correctness.",
             "goal": "Use LLM-as-judge with eyes open.",
             "steps": [
               "Build a judge for one criterion with a rubric.",
@@ -2780,11 +3180,19 @@
               "typeLabel": "tool",
               "label": "LMArena (Chatbot Arena)",
               "url": "https://lmarena.ai/"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "DeepLearning.AI — Evaluating AI Agents",
+              "url": "https://www.deeplearning.ai/short-courses/evaluating-ai-agents/"
             }
           ],
           "est": "2h",
           "hands": "Pairwise-compare 3 models on your task; compute an Elo ranking from the results.",
           "exercise": {
+            "exId": "comparative-eval-ranking",
+            "summary": "Sometimes you can't score answers absolutely, but you can compare them pairwise and rank. You'll run pairwise comparisons on a task set, compute Elo to build a mini arena, and produce a ranked scorecard. Relative ranking is often more reliable than absolute scores. Pitfall: too few comparisons — Elo needs enough matchups to stabilize, or the ranking is noise.",
             "goal": "Rank models with comparative eval.",
             "steps": [
               "Run pairwise comparisons on a task set.",
@@ -2807,11 +3215,19 @@
               "typeClass": "book",
               "typeLabel": "book",
               "label": "Huyen Ch 4 — Evaluation Criteria + Model Selection"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "DeepLearning.AI — Evaluating AI Agents",
+              "url": "https://www.deeplearning.ai/short-courses/evaluating-ai-agents/"
             }
           ],
           "est": "2.5h",
           "hands": "Build a model-selection scorecard for billpay (capability × cost × latency × control). Critically read 2 public benchmarks for leakage/mismatch.",
           "exercise": {
+            "exId": "eval-criteria-model-selection",
+            "summary": "Model choice should be a scored decision across capability, cost, and latency — not a vibe. You'll score candidates on those axes, decide build-vs-buy for your task, and cross-check against a public benchmark. An explicit scorecard makes the tradeoff defensible. Beginner trap: optimizing only for capability — the strongest model can be too slow or too expensive for your actual budget.",
             "goal": "Select a model on criteria, not vibes.",
             "steps": [
               "Score candidates on capability, cost, latency.",
@@ -2840,11 +3256,19 @@
               "typeLabel": "read",
               "label": "Eugene Yan — LLM Patterns",
               "url": "https://eugeneyan.com/writing/llm-patterns/"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "Hamel Husain — Domain-Specific LLM Evals",
+              "url": "https://www.youtube.com/watch?v=eLXF0VojuSs"
             }
           ],
           "est": "2.5h",
           "hands": "Design an end-to-end eval pipeline for your capstone (component-level + system-level); wire it into CI as a release gate.",
           "exercise": {
+            "exId": "eval-pipeline-design",
+            "summary": "This designs the whole eval pipeline — per-component and end-to-end — that runs automatically. You'll define evals for retrieval, the judge, and end-to-end behaviour, write guidelines and methods with the data each needs, and wire it to run on a schedule and on PRs. A pipeline catches regressions you'd never notice by hand. Pitfall: only evaluating end to end — when it fails you won't know which component broke; test the pieces too.",
             "goal": "Design the full eval pipeline.",
             "steps": [
               "Define evals for each component (retrieval, judge, end-to-end).",
@@ -2861,61 +3285,61 @@
       ],
       "udemy": "Spine: <b>Huyen Ch 3–4</b> · <a href=\"https://maven.com/parlance-labs/evals\" target=\"_blank\">Maven AI Evals</a> if investing",
       "udemyNone": false,
-      "deliverable": "Repo <code>week-14-eval</code> — perplexity calc + validated judge + Elo + model scorecard + CI eval gate."
+      "deliverable": "Repo <code>week-15-eval</code> — perplexity calc + validated judge + Elo + model scorecard + CI eval gate."
     },
     {
       "id": "w15",
-      "tag": "WEEK 15",
+      "tag": "WEEK 16",
       "title": "Capstone — Billpay Ops Copilot",
       "hours": "~20 hrs",
-      "goal": "<b>Goal:</b> ship one real, end-to-end agentic system you'd demo to a hiring manager. Uses everything: structured outputs, RAG, multi-framework agents, MCP, evals, Langfuse, and Temporal orchestration. No tutorials — just build. <b style=\"color:var(--amber-soft)\">Build it JVM-native</b> — Quarkus + Quarkus-LangChain4j + the Temporal Java SDK, reusing your Week 3 work. The Python weeks were for learning; the capstone ships on your stack, which makes it a far stronger portfolio piece for <i>your</i> background.",
+      "goal": "<b>Goal:</b> ship one real, end-to-end agentic system you'd demo to a hiring manager. Uses everything: structured outputs, RAG, multi-framework agents, MCP, evals, Langfuse, and Temporal orchestration. No tutorials — just build. <b style=\"color:var(--amber-soft)\">Build it JVM-native</b> — Quarkus + Quarkus-LangChain4j + the Temporal Java SDK, reusing your Week 4 work. The Python weeks were for learning; the capstone ships on your stack, which makes it a far stronger portfolio piece for <i>your</i> background.",
       "variant": "default",
       "star": false,
       "days": [
         {
-          "n": "W15 · Mon–Tue",
+          "n": "W16 · Mon–Tue",
           "focusTitle": "Scope & happy path",
           "resources": [],
           "est": "4h",
           "hands": "Design doc (architecture, tradeoffs); implement the happy-path diagnosis on one failure class."
         },
         {
-          "n": "W15 · Wed",
+          "n": "W16 · Wed",
           "focusTitle": "Tool integrations",
           "resources": [],
           "est": "4h",
           "hands": "Wire Temporal API tool, Oracle read MCP, runbook RAG, metrics tool."
         },
         {
-          "n": "W15 · Thu",
+          "n": "W16 · Thu",
           "focusTitle": "Reliability + observability",
           "resources": [],
           "est": "4h",
           "hands": "Temporal orchestration, retries/timeouts, HITL approval signal, Langfuse tracing."
         },
         {
-          "n": "W15 · Fri",
+          "n": "W16 · Fri",
           "focusTitle": "Deploy",
           "resources": [],
           "est": "4h",
-          "hands": "Deploy to Fly.io / Modal (full AWS deploy comes in Week 18). Smoke test end-to-end."
+          "hands": "Deploy to Fly.io / Modal (full AWS deploy comes in Week 19). Smoke test end-to-end."
         },
         {
-          "n": "W10 · 1–3",
+          "n": "W11 · 1–3",
           "focusTitle": "Finish + evals + writeup",
           "resources": [],
           "est": "8h",
           "hands": "≥10 golden incidents in the eval suite; 1500-word writeup on architecture, tradeoffs, \"what I'd do at 10× scale.\""
         },
         {
-          "n": "W10 · 4",
+          "n": "W11 · 4",
           "focusTitle": "Portfolio polish",
           "resources": [],
           "est": "3h",
           "hands": "Pin repo; blog post; LinkedIn + Loom demo. Resume bullets that lead with outcomes (\"cut RAG P95 800ms→180ms via hybrid + reranker\"), not tech names."
         },
         {
-          "n": "W10 · 5",
+          "n": "W11 · 5",
           "focusTitle": "Reflect + plan Part II",
           "resources": [],
           "est": "2h",
@@ -2932,10 +3356,10 @@
           "body": "An agent that diagnoses a <b>stuck Temporal workflow</b> given a workflow ID, then proposes (and optionally executes, behind a human-approval signal) a mitigation. It sits exactly at the intersection of your strengths and AI engineering.",
           "bullets": [
             "<b>Input:</b> a workflow ID (or an alert webhook).",
-            "<b>Tools / MCP servers:</b> query Temporal API (history, pending activities, stuck task queues); read Oracle business state via your Week-5 read-only MCP server; RAG over runbooks + Temporal docs (Week 5); a metrics tool (shard latency, sync-match rate).",
+            "<b>Tools / MCP servers:</b> query Temporal API (history, pending activities, stuck task queues); read Oracle business state via your Week-6 read-only MCP server; RAG over runbooks + Temporal docs (Week 6); a metrics tool (shard latency, sync-match rate).",
             "<b>Reasoning:</b> a Quarkus-LangChain4j agent (or LangGraph if you'd rather stay in Python) classifies the failure (sticky-queue starvation, poller starvation, <code>IO:XactSync</code> contention, prepared-statement pinning, …) and drafts a mitigation.",
             "<b>Orchestration:</b> the whole diagnosis runs as a <b>Temporal workflow (Java SDK)</b> — durable, retryable, with a human-approval <b>Signal</b> before any write action.",
-            "<b>Quality gates:</b> eval suite (Week 12) with golden incidents; LLM-as-judge on diagnosis correctness.",
+            "<b>Quality gates:</b> eval suite (Week 13) with golden incidents; LLM-as-judge on diagnosis correctness.",
             "<b>Observability:</b> full Langfuse tracing of every tool call and token."
           ]
         },
@@ -2952,7 +3376,7 @@
     },
     {
       "id": "w16",
-      "tag": "WEEK 16",
+      "tag": "WEEK 17",
       "title": "AI System Design",
       "hours": "~11 hrs",
       "goal": "<b>Goal — bridge from \"can build\" to \"can architect.\"</b> At top product companies the system-design loop is gatekeeping. Practice 4 canonical AI system designs end-to-end (RAG search, AI coding assistant, recsys + LLMs, agentic at scale), then a mock interview. Your JVM / Temporal / inference-opt edges become concrete answers here, not bullet points.",
@@ -2984,6 +3408,8 @@
           "est": "2h",
           "hands": "Write your own 7-step AI-systems template: <i>(1) requirements → (2) functional &amp; non-functional → (3) data &amp; eval → (4) model &amp; retrieval → (5) serving / scale / cost → (6) safety &amp; failure modes → (7) iteration &amp; metrics</i>. Use it for every design below.",
           "exercise": {
+            "exId": "ai-system-design-frameworks",
+            "summary": "AI system-design interviews reward a repeatable structure; this builds yours. You'll write a 7-step template (requirements → functional/non-functional → data and eval → model and retrieval → serving/scale/cost → safety/failure → iteration/metrics), pressure-test it on a toy prompt, and keep it to one page. A template stops you freezing on a blank whiteboard. Beginner trap: jumping straight to architecture — interviewers want requirements and tradeoffs first.",
             "goal": "Build a repeatable AI system-design template.",
             "steps": [
               "Write your 7-step template (requirements → functional/non-functional → data & eval → model & retrieval → serving/scale/cost → safety/failure → iteration/metrics).",
@@ -3017,6 +3443,8 @@
           "est": "2h",
           "hands": "2-page design doc: index size (≈100M chunks), freshness SLO, recall target, latency budget (p95 &lt; 800ms), hybrid retrieval, reranker placement, caching, multi-tenant isolation, eval pipeline. Put real numbers.",
           "exercise": {
+            "exId": "design-llm-powered-search-rag-at-scale",
+            "summary": "This is a full design for RAG search over ~100M chunks, with real numbers. You'll write a 2-page design for \"GitHub Code Search with LLM answers\", commit to a freshness Service-Level Objective (SLO), a recall target, p95 under 800ms, caching, and multi-tenant isolation, and show the eval pipeline. Concrete numbers separate a real design from hand-waving. Pitfall: ignoring freshness and isolation — at scale, stale indexes and tenant data leaks are the hard parts, not the happy path.",
             "goal": "Design LLM-powered search at scale.",
             "steps": [
               "Write a 2-page design for 'GitHub Code Search with LLM answers' (~100M chunks).",
@@ -3050,6 +3478,8 @@
           "est": "2h",
           "hands": "Design doc: autocomplete vs chat vs agent modes, context windowing strategy, repo indexing, latency (TTFT &lt; 150ms for autocomplete), local vs cloud model split, privacy, telemetry / eval.",
           "exercise": {
+            "exId": "design-ai-coding-assistant",
+            "summary": "Designing a Cursor/Copilot-style assistant forces latency and context tradeoffs to the surface. You'll cover autocomplete vs chat vs agent modes, specify context windowing and repo indexing with Time To First Token (TTFT) under 150ms for autocomplete, and address the local-vs-cloud split, privacy, and telemetry. Autocomplete latency is a brutal constraint that shapes everything. Beginner trap: using one big model for autocomplete — it's too slow; fast inline completion needs a small, specialized model.",
             "goal": "Design an AI coding assistant.",
             "steps": [
               "Design Cursor/Copilot: autocomplete vs chat vs agent modes.",
@@ -3083,6 +3513,8 @@
           "est": "2h",
           "hands": "Design doc: candidate generation (collaborative + content embeddings), LLM reranker at the head (cost gate), feature store, cold-start, online learning loop, A/B + Elo for ranker upgrades.",
           "exercise": {
+            "exId": "design-recsys-with-llm-features",
+            "summary": "This designs a recommender system (RecSys) that uses a model as a reranking feature, not the whole engine. You'll design Spotify Discover with candidate generation plus an LLM reranking head behind a cost gate, cover the feature store, cold-start, and online learning, and specify A/B plus Elo for ranker upgrades. The model is a feature, not the system. Pitfall: putting a model in the hot path for every item — it's too slow and costly; gate it to a small reranked candidate set.",
             "goal": "Design a recsys with LLM features.",
             "steps": [
               "Design Spotify Discover with an LLM reranker: candidate generation + reranking head (cost gate).",
@@ -3115,11 +3547,13 @@
             }
           ],
           "est": "2h",
-          "hands": "Design doc: tool inventory, HITL escalation, durable orchestration via Temporal, throttled fan-out (reusing W9 math), inference tier sizing (reusing W17), cost-per-ticket target, failure taxonomy + eval, audit/compliance. <b>Explicitly call out the JVM / Temporal / inference-opt edges.</b>",
+          "hands": "Design doc: tool inventory, HITL escalation, durable orchestration via Temporal, throttled fan-out (reusing W10 math), inference tier sizing (reusing W18), cost-per-ticket target, failure taxonomy + eval, audit/compliance. <b>Explicitly call out the JVM / Temporal / inference-opt edges.</b>",
           "exercise": {
+            "exId": "design-agentic-workflow-at-scale",
+            "summary": "This designs an agentic support copilot at 1M tickets/day, pulling together everything: tools, human-in-the-loop escalation, durable orchestration, throttled fan-out, and an inference tier. You'll set a cost-per-ticket target and add a failure taxonomy plus audit/compliance, leaning on your JVM/Temporal/inference edges. Scale turns each component into a real constraint. Beginner trap: designing for the happy path — at this volume, escalation, retries, and cost-per-ticket are the design, not afterthoughts.",
             "goal": "Design an agentic workflow at 1M tickets/day.",
             "steps": [
-              "Design a support copilot: tool inventory, HITL escalation, durable orchestration (Temporal), throttled fan-out (reuse W9), inference tier (reuse W17).",
+              "Design a support copilot: tool inventory, HITL escalation, durable orchestration (Temporal), throttled fan-out (reuse W10), inference tier (reuse W18).",
               "Set a cost-per-ticket target.",
               "Add a failure taxonomy + audit/compliance — call out your JVM/Temporal/inference edges."
             ],
@@ -3144,6 +3578,8 @@
           "est": "1h",
           "hands": "Record a 45-min mock for one of designs 2–5 (whiteboard or Excalidraw, talk aloud). Score against the rubric: requirements gathering, tradeoffs, depth on bottleneck, eval strategy, your edges. Write a 1-pager: \"my interview-ready angles\" — JVM-native AI, Temporal orchestration, inference economics.",
           "exercise": {
+            "exId": "mock-interview-differentiator-brief",
+            "summary": "Design skill only shows under interview pressure, so you rehearse one out loud on a timer. You'll record a 45-minute mock for one of your designs, score yourself against a rubric (requirements, tradeoffs, bottleneck depth, eval, edges), and write a one-pager of your interview-ready angles. The recording reveals filler and gaps you can't feel live. Pitfall: practicing silently — talking through tradeoffs aloud is a different, harder skill than thinking them.",
             "goal": "Rehearse the 45-minute design interview.",
             "steps": [
               "Record a 45-min mock for one of designs 1–4 (whiteboard/Excalidraw, talk aloud).",
@@ -3158,13 +3594,13 @@
           }
         }
       ],
-      "udemy": "Spine: Eugene Yan / Huyen / Anthropic posts. No single course fits — interview prep itself is in W18.",
+      "udemy": "Spine: Eugene Yan / Huyen / Anthropic posts. No single course fits — interview prep itself is in W19.",
       "udemyNone": true,
-      "deliverable": "Repo <code>week-16-sysdesign</code> — 4 design docs + 1 mock recording + differentiator one-pager."
+      "deliverable": "Repo <code>week-17-sysdesign</code> — 4 design docs + 1 mock recording + differentiator one-pager."
     },
     {
       "id": "w17",
-      "tag": "WEEK 17",
+      "tag": "WEEK 18",
       "title": "Inference Optimization",
       "hours": "~11 hrs",
       "goal": "<b>Goal — YOUR SECOND EDGE.</b> Distributed-systems thinking applied to LLM serving: throughput, batching, caching, latency-vs-cost. This is the strongest specialised material in the plan — most AI engineers can't reason about it; you do this for a living. <span class=\"mono\" style=\"color:var(--amber-soft)\">Huyen Ch 9.</span>",
@@ -3180,14 +3616,22 @@
               "typeClass": "book",
               "typeLabel": "book",
               "label": "Huyen Ch 9 — Understanding Inference Optimization"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "Fast, Cheap & Accurate — vLLM + Quantization",
+              "url": "https://www.youtube.com/watch?v=eJBjgakTulg"
             }
           ],
           "est": "2h",
-          "hands": "Benchmark TTFT / TPOT / throughput of your W10 model under load; build a latency-vs-cost table.",
+          "hands": "Benchmark TTFT / TPOT / throughput of your W11 model under load; build a latency-vs-cost table.",
           "exercise": {
+            "exId": "inference-metrics-accelerators",
+            "summary": "Serving models is a systems problem with its own metrics; this measures them properly. You'll benchmark Time To First Token (TTFT), Time Per Output Token (TPOT), and throughput under load, define goodput for your SLO, and build a latency-vs-cost table. These numbers drive every serving decision. Beginner trap: quoting average latency — tail latency (p95/p99) under load is what users feel and what your SLO must target.",
             "goal": "Measure inference like a systems engineer.",
             "steps": [
-              "Benchmark TTFT / TPOT / throughput of your W10 model under load.",
+              "Benchmark TTFT / TPOT / throughput of your W11 model under load.",
               "Define goodput for your SLO.",
               "Build a latency-vs-cost table."
             ],
@@ -3213,11 +3657,19 @@
               "typeLabel": "docs",
               "label": "vLLM docs",
               "url": "https://docs.vllm.ai/"
+            },
+            {
+              "typeClass": "vid",
+              "typeLabel": "video",
+              "label": "Fast, Cheap & Accurate — vLLM + Quantization",
+              "url": "https://www.youtube.com/watch?v=eJBjgakTulg"
             }
           ],
           "est": "2h",
           "hands": "Enable speculative decoding in vLLM; measure the speedup vs baseline.",
           "exercise": {
+            "exId": "model-optimization",
+            "summary": "This optimizes the model itself for faster inference. You'll enable speculative decoding in vLLM and measure the speedup, quantize and re-measure, and note any quality delta. Speed gains are only real if quality holds. Pitfall: shipping an optimization without re-checking quality — speculative decoding and quantization can subtly change outputs.",
             "goal": "Optimise the model for inference.",
             "steps": [
               "Enable speculative decoding in vLLM and measure speedup.",
@@ -3246,11 +3698,19 @@
               "typeLabel": "docs",
               "label": "vLLM — batching & paged attention",
               "url": "https://docs.vllm.ai/"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "Ed Donner — Production Track",
+              "url": "https://www.udemy.com/course/generative-and-agentic-ai-in-production/"
             }
           ],
           "est": "2.5h",
           "hands": "Load-test vLLM continuous batching; chart throughput vs concurrency; observe KV-cache + prefill effects.",
           "exercise": {
+            "exId": "service-optimization",
+            "summary": "Beyond the model, the serving layer's batching and caching decide throughput. You'll load-test vLLM continuous batching, chart throughput vs concurrency, observe Key/Value (KV) cache and prefill effects, and find the concurrency that maximizes goodput. The right concurrency is discovered, not guessed. Beginner trap: maxing concurrency for throughput — past a point latency spikes and goodput (useful, on-time responses) actually falls.",
             "goal": "Optimise the serving layer.",
             "steps": [
               "Load-test vLLM continuous batching; chart throughput vs concurrency.",
@@ -3279,11 +3739,19 @@
               "typeLabel": "docs",
               "label": "LiteLLM (gateway)",
               "url": "https://docs.litellm.ai/"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "Ed Donner — Production Track",
+              "url": "https://www.udemy.com/course/generative-and-agentic-ai-in-production/"
             }
           ],
           "est": "2h",
           "hands": "Add prompt + semantic caching; route easy queries to a small model via a gateway; measure $ saved.",
           "exercise": {
+            "exId": "caching-routing-for-cost",
+            "summary": "Most production model cost is avoidable through caching and routing. You'll add prompt and semantic caching, route easy queries to a small model via a gateway (LiteLLM), and measure dollars saved on a realistic traffic mix. Not every query needs your most expensive model. Pitfall: semantic cache hits that are \"close but wrong\" — tune the similarity threshold, or you'll serve a cached answer to a subtly different question.",
             "goal": "Cut cost with caching and routing.",
             "steps": [
               "Add prompt + semantic caching.",
@@ -3305,15 +3773,17 @@
             {
               "typeClass": "book",
               "typeLabel": "book",
-              "label": "Huyen Ch 9 + your Week 9"
+              "label": "Huyen Ch 9 + your Week 10"
             }
           ],
           "est": "2.5h",
           "hands": "Design the serving tier for 500K throttled workflows: concurrency caps, batching, cache-hit targets — without scaling the <code>r8g.8xlarge</code>. This is your interview centerpiece.",
           "exercise": {
+            "exId": "throughput-at-scale",
+            "summary": "This designs the serving tier for a large throttled workload end to end. You'll design concurrency caps, batching, and cache-hit targets for a 500K-workflow fan-out, stay within a fixed Postgres budget, and write it up as an interview centerpiece. Designing within a hard resource budget is the realistic version of the problem. Beginner trap: assuming you can just scale the database — the exercise is hitting the target without scaling the bottleneck.",
             "goal": "Design the serving tier for 500K throttled workflows.",
             "steps": [
-              "Design concurrency caps, batching, and cache-hit targets for the W9 fan-out.",
+              "Design concurrency caps, batching, and cache-hit targets for the W10 fan-out.",
               "Stay within the <code>r8g.8xlarge</code> Postgres budget.",
               "Write it up as your interview centerpiece."
             ],
@@ -3327,11 +3797,11 @@
       ],
       "udemy": "Spine: <b>Huyen Ch 9</b> — no course matches your background here.",
       "udemyNone": true,
-      "deliverable": "Repo <code>week-17-inference</code> — load-test harness + spec-decoding bench + batching chart + gateway/cache + scale design doc."
+      "deliverable": "Repo <code>week-18-inference</code> — load-test harness + spec-decoding bench + batching chart + gateway/cache + scale design doc."
     },
     {
       "id": "w18",
-      "tag": "WEEK 18",
+      "tag": "WEEK 19",
       "title": "AI Eng Architecture & Production Deployment",
       "hours": "~13 hrs",
       "goal": "<b>Goal:</b> assemble everything into a production reference architecture and deploy it to the cloud — the platform-engineering layer that is 70–80% of real production AI work. <span class=\"mono\" style=\"color:var(--amber-soft)\">Huyen Ch 10 + Ed Donner Production Track.</span>",
@@ -3347,11 +3817,19 @@
               "typeClass": "book",
               "typeLabel": "book",
               "label": "Huyen Ch 10 — AI Engineering Architecture"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "Ed Donner — Production Track",
+              "url": "https://www.udemy.com/course/generative-and-agentic-ai-in-production/"
             }
           ],
           "est": "2h",
           "hands": "Draw your capstone as the full layered architecture; label each layer in your actual code.",
           "exercise": {
+            "exId": "reference-architecture",
+            "summary": "A reference architecture is the layered diagram of your whole system — context, guardrails, router, cache, agents, orchestration — mapped to real code. You'll diagram your capstone as those layers, label each in your actual code, and mark each layer's failure domain. The diagram is how you reason about and explain the system. Pitfall: a pretty diagram that doesn't match the code — if you can't point to each layer in the repo, it's fiction.",
             "goal": "Draw the production reference architecture.",
             "steps": [
               "Diagram your capstone as layers: context → guardrails → router → cache → agents → orchestration.",
@@ -3380,11 +3858,19 @@
               "typeLabel": "read",
               "label": "OWASP LLM Top 10",
               "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "Ed Donner — Production Track",
+              "url": "https://www.udemy.com/course/generative-and-agentic-ai-in-production/"
             }
           ],
           "est": "2h",
           "hands": "Add input + output guardrails to the capstone; red-team with 10 injections; document each defense.",
           "exercise": {
+            "exId": "guardrails-defensive-prompting",
+            "summary": "Production agents need layered defenses against misuse and injection. You'll add input and output guardrails to the capstone, red-team with 10 injections, and document each defense mapped to the OWASP (Open Worldwide Application Security Project) LLM Top 10. Mapping to a known list makes your security story legible. Beginner trap: treating defensive prompting as enough — system-prompt instructions can be overridden; you need real input/output filters too.",
             "goal": "Harden with guardrails + defensive prompting.",
             "steps": [
               "Add input + output guardrails to the capstone.",
@@ -3419,6 +3905,8 @@
           "est": "3h",
           "hands": "Containerize the capstone (Docker); deploy behind API Gateway + Lambda (or App Runner for the long-running agent); call Bedrock as a model provider.",
           "exercise": {
+            "exId": "cloud-deploy",
+            "summary": "This gets your app off localhost and onto the cloud. You'll containerize the capstone with Docker, deploy behind API Gateway + Lambda (or App Runner for a long-running agent), and call Bedrock as a model provider. A deployed URL is what makes the work demoable. Pitfall: choosing Lambda for a long-running agent — its timeout will kill multi-minute jobs; match the compute to the workload.",
             "goal": "Deploy to the cloud.",
             "steps": [
               "Containerize the capstone with Docker.",
@@ -3451,12 +3939,14 @@
             }
           ],
           "est": "2.5h",
-          "hands": "Terraform your infra; GitHub Actions pipeline that runs the Week-12 eval gate before any deploy. Note the Vercel/GCP/Azure equivalents the Production Track covers.",
+          "hands": "Terraform your infra; GitHub Actions pipeline that runs the Week-13 eval gate before any deploy. Note the Vercel/GCP/Azure equivalents the Production Track covers.",
           "exercise": {
+            "exId": "iac-ci-cd-for-ai",
+            "summary": "Infrastructure as Code (IaC) plus eval-gated continuous integration/continuous delivery (CI/CD) makes deploys reproducible and safe. You'll Terraform your infrastructure and add a GitHub Actions pipeline that runs the eval gate before any deploy, noting the Vercel/GCP/Azure equivalents. Click-ops doesn't reproduce; code does. Beginner trap: deploying without the eval gate in the pipeline — a green build that skips evals can still ship a quality regression.",
             "goal": "Codify infra + eval-gated CI/CD.",
             "steps": [
               "Terraform your infrastructure.",
-              "GitHub Actions pipeline runs the W13 eval gate before any deploy.",
+              "GitHub Actions pipeline runs the W14 eval gate before any deploy.",
               "Note the Vercel/GCP/Azure equivalents."
             ],
             "acceptance": [
@@ -3486,6 +3976,8 @@
           "est": "2.5h",
           "hands": "Deploy the multi-agent capstone serverless (Aurora Serverless + SQS); wire Langfuse; add a conversational feedback-capture loop.",
           "exercise": {
+            "exId": "serverless-multi-agent-feedback",
+            "summary": "This goes serverless and closes the loop with user feedback. You'll deploy the multi-agent capstone serverless (Aurora Serverless + SQS), wire Langfuse, and add a conversational feedback-capture loop. Feedback is the fuel for the next round of evals. Pitfall: collecting feedback you never use — capture it in a form your eval pipeline can actually consume.",
             "goal": "Go serverless multi-agent with a feedback loop.",
             "steps": [
               "Deploy the multi-agent capstone serverless (Aurora Serverless + SQS).",
@@ -3514,6 +4006,8 @@
           "est": "2.5h",
           "hands": "Add a thin SaaS layer (auth, usage metering, subscription tier) in front of the capstone; document the MLOps loop — monitoring, retraining triggers, rollback. Optional but makes the project look commercial.",
           "exercise": {
+            "exId": "saas-productization-mlops",
+            "summary": "This wraps the capstone as a thin software-as-a-service product with real operational maturity. You'll add auth, usage metering, and a subscription tier, document the MLOps (Machine-Learning Operations) loop — monitoring, retraining triggers, rollback — and add a basic admin/usage view. Productizing forces the operational questions a demo skips. Beginner trap: shipping with no rollback plan — when a model update regresses, you need a fast, tested way back.",
             "goal": "Wrap it as a thin SaaS with MLOps maturity.",
             "steps": [
               "Add auth, usage metering, and a subscription tier in front of the capstone.",
@@ -3534,7 +4028,7 @@
     },
     {
       "id": "w19",
-      "tag": "WEEK 19",
+      "tag": "WEEK 20",
       "title": "Multimodal & Generative Media",
       "hours": "~10 hrs",
       "goal": "<b>Optional — breadth, and personally relevant.</b> The least central to a backend-agentic path, but it's an entire domain (and ties to your photography). Spine: <a href=\"https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/\" target=\"_blank\">ByteByteGo P5</a>. Skip without guilt if you're optimizing purely for agentic-backend roles.",
@@ -3562,6 +4056,8 @@
           "est": "2h",
           "hands": "One-pager comparing the four families; where diffusion won and why.",
           "exercise": {
+            "exId": "generative-model-families",
+            "summary": "This maps the families of generative models so you know why diffusion dominates images. You'll write a one-pager comparing VAEs, GANs, autoregressive models, and diffusion, state where diffusion won and why, and note a use-case per family. The map orients you before the deep dive. Pitfall: treating \"generative AI\" as only language models — image, audio, and video use very different architectures.",
             "goal": "Map the generative model families.",
             "steps": [
               "Write a 1-pager comparing VAE, GANs, autoregressive, diffusion.",
@@ -3590,6 +4086,8 @@
           "est": "2h",
           "hands": "Run the HF diffusion-from-scratch notebook; sample at varying step counts and observe quality/latency.",
           "exercise": {
+            "exId": "diffusion-deep",
+            "summary": "This builds real understanding of how diffusion models turn noise into images. You'll run a diffusion-from-scratch notebook, sample at varying step counts to watch the quality/latency tradeoff, and contrast U-Net vs DiT backbones. Step count is the cost knob you'll tune constantly. Beginner trap: assuming more steps are always better — past a point quality plateaus while latency keeps climbing.",
             "goal": "Understand diffusion deeply.",
             "steps": [
               "Run the HF diffusion-from-scratch notebook.",
@@ -3613,11 +4111,19 @@
               "typeLabel": "docs",
               "label": "HF diffusers docs",
               "url": "https://huggingface.co/docs/diffusers"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "HuggingFace — Diffusion Course",
+              "url": "https://huggingface.co/learn/diffusion-course"
             }
           ],
           "est": "2h",
           "hands": "Generate images with SDXL via <code>diffusers</code>; evaluate a set with CLIP score; try ControlNet for composition control.",
           "exercise": {
+            "exId": "text-to-image-hands-on",
+            "summary": "This generates and — crucially — evaluates text-to-image output. You'll generate with SDXL via <code>diffusers</code>, score a set with CLIP score (and note FID), and try ControlNet for composition control. Evaluating image quality is harder and more important than generating it. Pitfall: judging by a few cherry-picked images — use a metric and a fixed prompt set so \"better\" means something.",
             "goal": "Generate and evaluate text-to-image.",
             "steps": [
               "Generate images with SDXL via <code>diffusers</code>.",
@@ -3641,11 +4147,19 @@
               "typeLabel": "cohort",
               "label": "ByteByteGo P5 — T2V",
               "url": "https://community.bytebyteai.com/c/course-become-an-ai-engineer-cohort2/"
+            },
+            {
+              "typeClass": "course",
+              "typeLabel": "course",
+              "label": "HuggingFace — Diffusion Course",
+              "url": "https://huggingface.co/learn/diffusion-course"
             }
           ],
           "est": "2h",
           "hands": "Read the T2V system design; run an open T2V model on a short clip; note the scaling challenges.",
           "exercise": {
+            "exId": "text-to-video",
+            "summary": "Text-to-video is the current frontier; this surveys and runs it. You'll read a text-to-video system design (latent diffusion / DiT for video), run an open model on a short clip, and note the scaling challenges. Understanding the constraints matters more than the demo here. Beginner trap: expecting image-quality results — video adds temporal consistency and huge compute cost that current open models struggle with.",
             "goal": "Survey and run text-to-video.",
             "steps": [
               "Read a T2V system design (latent diffusion / DiT for video).",
@@ -3674,6 +4188,8 @@
           "est": "2h",
           "hands": "Build a small T2I agent that generates concept references / backdrops from a prompt — a useful pre-shoot tool for your portrait work.",
           "exercise": {
+            "exId": "build-a-generation-agent",
+            "summary": "This ties generative media to a real use of yours — a small text-to-image agent for your photography. You'll build an agent that generates concept references from a prompt, add a style/lighting control, and use it to pre-visualize a real shoot. A personal use-case makes the skill stick. Pitfall: a one-shot generator with no controls — useful creative tools need iteration knobs (style, seed, composition), not just a prompt box.",
             "goal": "Build a generation agent tied to your photography.",
             "steps": [
               "Build a small T2I agent that generates concept references/backdrops from a prompt.",
@@ -3690,11 +4206,11 @@
       ],
       "udemy": "Spine: <b>ByteByteGo P5</b> + HF Diffusion Course",
       "udemyNone": false,
-      "deliverable": "Repo <code>week-19-multimodal</code> — diffusion notebook + T2I generation agent."
+      "deliverable": "Repo <code>week-20-multimodal</code> — diffusion notebook + T2I generation agent."
     },
     {
       "id": "w20",
-      "tag": "WEEK 20",
+      "tag": "WEEK 21",
       "title": "Interview Prep, Portfolio & Job Search",
       "hours": "~10 hrs",
       "goal": "<b>Goal — convert what you built into offers.</b> Everything before this week made you a strong AI engineer; this week makes that legible to a hiring loop. STAR stories from the capstone + Temporal + inference work, take-home rehearsal, GitHub polish, blog posts as proof, target-company outreach. Hireable people skip this and leave money on the table.",
@@ -3714,11 +4230,13 @@
             }
           ],
           "est": "2h",
-          "hands": "Write 5 STAR stories (Situation / Task / Action / Result, ≤300 words each): (1) Temporal fan-out at 500K from W9, (2) RAG quality lift from W5/W6, (3) eval-gated CI from W12/W13, (4) JVM-native AI from W3, (5) inference cost/latency win from W17. Each must end with a metric.",
+          "hands": "Write 5 STAR stories (Situation / Task / Action / Result, ≤300 words each): (1) Temporal fan-out at 500K from W10, (2) RAG quality lift from W6/W7, (3) eval-gated CI from W13/W14, (4) JVM-native AI from W4, (5) inference cost/latency win from W18. Each must end with a metric.",
           "exercise": {
+            "exId": "star-stories-from-your-build",
+            "summary": "Interviews reward stories, and STAR (Situation, Task, Action, Result) is the structure that lands them. You'll draft five STAR stories from your build (each ≤300 words, ending in a metric), covering your strongest pieces, and lead with your differentiated edges. A metric-ended story beats a vague \"I worked on...\". Beginner trap: all situation and no result — the Result with a number is the part interviewers remember.",
             "goal": "Write 5 STAR stories from your build.",
             "steps": [
-              "Draft STAR stories (≤300 words each): Temporal fan-out (W9), RAG lift (W5/W6), eval-gated CI (W12/W13), JVM-native AI (W3), inference win (W17).",
+              "Draft STAR stories (≤300 words each): Temporal fan-out (W10), RAG lift (W6/W7), eval-gated CI (W13/W14), JVM-native AI (W4), inference win (W18).",
               "End each with a metric.",
               "Lead with your differentiated edges."
             ],
@@ -3744,6 +4262,8 @@
           "est": "2.5h",
           "hands": "Find 2 public AI-engineer take-homes (\"build a small RAG on this corpus,\" \"design + ship an agent for X\"). Do <b>one</b> on a 4-hour timer; ship a working repo with README, evals, and a 1-page writeup. Reflect: where did you go over time, what would you cut next time.",
           "exercise": {
+            "exId": "take-home-rehearsal",
+            "summary": "Take-home assignments are won by scoping under time pressure, which you can rehearse. You'll find two public AI-engineer take-homes, do one on a 4-hour timer shipping a repo with README, evals, and a writeup, then post-mortem where you overran. Practicing the clock is the real skill. Pitfall: gold-plating one feature and skipping evals/README — graders reward a complete, documented solution over a half-finished clever one.",
             "goal": "Rehearse a real take-home under time.",
             "steps": [
               "Find 2 public AI-engineer take-homes.",
@@ -3772,6 +4292,8 @@
           "est": "2h",
           "hands": "Upgrade the capstone README: architecture diagram (Excalidraw), 60-sec demo gif, eval scoreboard, deploy notes, \"what I'd build next.\" Pin top 5 repos on your profile. Add a one-screen profile README that links the 3 things you want them to read first.",
           "exercise": {
+            "exId": "github-portfolio-polish",
+            "summary": "Recruiters skim, so your GitHub has to sell the work in seconds. You'll upgrade the capstone README with an architecture diagram, a 60-second demo gif, an eval scoreboard, and deploy notes, pin your top five repos, and add a one-screen profile README. Presentation is part of the engineering. Beginner trap: a great project with a bare README — if the first screen doesn't show what it does, most people never run it.",
             "goal": "Polish GitHub + portfolio for recruiters.",
             "steps": [
               "Upgrade the capstone README: architecture diagram, 60-sec demo gif, eval scoreboard, deploy notes.",
@@ -3788,7 +4310,7 @@
         {
           "n": "4",
           "focusTitle": "Blog posts as interview assets",
-          "focusSub": "The W9 + W17 posts you've been drafting",
+          "focusSub": "The W10 + W18 posts you've been drafting",
           "resources": [
             {
               "typeClass": "read",
@@ -3798,12 +4320,14 @@
             }
           ],
           "est": "1.5h",
-          "hands": "Publish the W9 post (\"What Agent Frameworks Get Wrong About Workflow Orchestration\"). Start the W17 post (\"Inference Economics for Agentic Workloads\"). Cross-post to your site, dev.to, LinkedIn. These are linkable proof in every conversation.",
+          "hands": "Publish the W10 post (\"What Agent Frameworks Get Wrong About Workflow Orchestration\"). Start the W18 post (\"Inference Economics for Agentic Workloads\"). Cross-post to your site, dev.to, LinkedIn. These are linkable proof in every conversation.",
           "exercise": {
+            "exId": "blog-posts-as-interview-assets",
+            "summary": "Published writing is durable proof of expertise that works while you sleep. You'll publish your orchestration post, start an inference-economics post, and cross-post to your site, dev.to, and LinkedIn. A good post is a credential you can link in every application. Pitfall: waiting for the \"perfect\" post — shipping a solid one and iterating beats an unpublished masterpiece.",
             "goal": "Publish blog posts as interview assets.",
             "steps": [
-              "Publish the W9 post ('What Agent Frameworks Get Wrong About Workflow Orchestration').",
-              "Start the W17 post ('Inference Economics for Agentic Workloads').",
+              "Publish the W10 post ('What Agent Frameworks Get Wrong About Workflow Orchestration').",
+              "Start the W18 post ('Inference Economics for Agentic Workloads').",
               "Cross-post to your site, dev.to, LinkedIn."
             ],
             "acceptance": [
@@ -3828,6 +4352,8 @@
           "est": "2h",
           "hands": "Build a target list of 20 companies in 3 buckets — frontier labs / AI-first product / AI-augmented incumbents. Tailor the resume per bucket. Identify 5 warm intros (LinkedIn 2nd-degree) and send messages today. Track in a simple sheet.",
           "exercise": {
+            "exId": "target-list-outreach",
+            "summary": "A job search converts better as a targeted campaign than a spray of applications. You'll list 20 companies in three buckets (frontier labs / AI-first products / AI-augmented incumbents), tailor your resume per bucket, and message 5 warm intros today, tracking it in a sheet. Warm intros convert far better than cold applies. Beginner trap: one generic resume for everyone — tailoring to the bucket is what gets the first reply.",
             "goal": "Build a target list and start outreach.",
             "steps": [
               "List 20 companies in 3 buckets (frontier labs / AI-first product / AI-augmented incumbents).",
@@ -3845,6 +4371,218 @@
       "udemy": "Udemy: <b>none</b> — this week is about your own artifacts, not consuming content.",
       "udemyNone": true,
       "deliverable": "5 STAR stories + 1 completed take-home + polished capstone README + 1 published blog post + 20-company target list with 5 outreaches sent."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "LLM",
+      "full": "Large Language Model",
+      "def": "A neural network trained on huge amounts of text to predict and generate language."
+    },
+    {
+      "term": "RAG",
+      "full": "Retrieval-Augmented Generation",
+      "def": "Fetching relevant documents and feeding them to a model so its answers are grounded in your own data."
+    },
+    {
+      "term": "MCP",
+      "full": "Model Context Protocol",
+      "def": "An open standard (from Anthropic) for connecting AI models to external tools and data sources."
+    },
+    {
+      "term": "FM",
+      "full": "Foundation Model",
+      "def": "A large model pre-trained on broad data that can be adapted to many downstream tasks."
+    },
+    {
+      "term": "SFT",
+      "full": "Supervised Fine-Tuning",
+      "def": "Training a base model on curated input→output examples to teach a desired behaviour."
+    },
+    {
+      "term": "PEFT",
+      "full": "Parameter-Efficient Fine-Tuning",
+      "def": "A family of methods (including LoRA) that adapt a model by training only a small fraction of its parameters."
+    },
+    {
+      "term": "LoRA",
+      "full": "Low-Rank Adaptation",
+      "def": "A fine-tuning method that trains small adapter matrices instead of the full model, saving memory."
+    },
+    {
+      "term": "QLoRA",
+      "full": "Quantized Low-Rank Adaptation",
+      "def": "LoRA applied on top of a quantized (compressed) base model, enabling fine-tuning on a single GPU."
+    },
+    {
+      "term": "RLHF",
+      "full": "Reinforcement Learning from Human Feedback",
+      "def": "Aligning a model to human preferences using a reward model learned from human comparisons."
+    },
+    {
+      "term": "DPO",
+      "full": "Direct Preference Optimization",
+      "def": "A simpler alternative to RLHF that optimizes preferences directly, without a separate reward model."
+    },
+    {
+      "term": "RAFT",
+      "full": "Retrieval-Augmented Fine-Tuning",
+      "def": "Fine-tuning a model to use retrieved documents well and ignore distracting ones."
+    },
+    {
+      "term": "STaR",
+      "full": "Self-Taught Reasoner",
+      "def": "A method where a model bootstraps its own training data from the reasoning chains it gets right."
+    },
+    {
+      "term": "PRM",
+      "full": "Process Reward Model",
+      "def": "A reward model that scores each step of a reasoning chain, not just the final answer."
+    },
+    {
+      "term": "ReAct",
+      "full": "Reasoning + Acting",
+      "def": "An agent pattern that interleaves chain-of-thought reasoning with tool-use actions."
+    },
+    {
+      "term": "ReWOO",
+      "full": "Reasoning WithOut Observation",
+      "def": "An agent pattern that plans all tool calls up front to cut token usage."
+    },
+    {
+      "term": "HITL",
+      "full": "Human-in-the-Loop",
+      "def": "A workflow where a person reviews or approves an AI action before it proceeds."
+    },
+    {
+      "term": "HNSW",
+      "full": "Hierarchical Navigable Small World",
+      "def": "A graph-based index for fast approximate nearest-neighbour search in vector databases."
+    },
+    {
+      "term": "IVF",
+      "full": "Inverted File Index",
+      "def": "A vector-search index that clusters vectors into lists to speed up approximate search."
+    },
+    {
+      "term": "BM25",
+      "full": "Best Matching 25",
+      "def": "A classic keyword-ranking function for text search — lexical, not semantic."
+    },
+    {
+      "term": "RRF",
+      "full": "Reciprocal Rank Fusion",
+      "def": "A way to merge several ranked lists (e.g. keyword + vector results) into one."
+    },
+    {
+      "term": "MRR",
+      "full": "Mean Reciprocal Rank",
+      "def": "A retrieval metric: the average of 1 / (rank of the first relevant result)."
+    },
+    {
+      "term": "HyDE",
+      "full": "Hypothetical Document Embeddings",
+      "def": "A retrieval trick: generate a hypothetical answer, embed it, and search with that."
+    },
+    {
+      "term": "TTFT",
+      "full": "Time To First Token",
+      "def": "How long a model takes to produce its first output token — the latency a user feels first."
+    },
+    {
+      "term": "TPOT",
+      "full": "Time Per Output Token",
+      "def": "The average time to generate each token after the first."
+    },
+    {
+      "term": "KV cache",
+      "full": "Key/Value Cache",
+      "def": "Stored attention keys and values that let a model skip recomputing past tokens, speeding up generation."
+    },
+    {
+      "term": "VRAM",
+      "full": "Video Random-Access Memory",
+      "def": "The memory on a GPU — the main limit on which models you can run or train."
+    },
+    {
+      "term": "GGUF",
+      "full": "GPT-Generated Unified Format",
+      "def": "A file format for distributing quantized models for local inference (e.g. llama.cpp)."
+    },
+    {
+      "term": "GPTQ",
+      "full": "Generative Pre-trained Transformer Quantization",
+      "def": "A post-training method that compresses model weights to 3–4 bits."
+    },
+    {
+      "term": "BPE",
+      "full": "Byte-Pair Encoding",
+      "def": "A tokenization algorithm that builds a vocabulary by merging frequent character pairs."
+    },
+    {
+      "term": "CLIP",
+      "full": "Contrastive Language–Image Pre-training",
+      "def": "A model that learns shared embeddings for images and text, enabling text↔image search."
+    },
+    {
+      "term": "SLO",
+      "full": "Service-Level Objective",
+      "def": "A target for a service metric (e.g. 99% of requests under 2s) used to manage reliability."
+    },
+    {
+      "term": "IaC",
+      "full": "Infrastructure as Code",
+      "def": "Managing servers and cloud resources through version-controlled config files (e.g. Terraform)."
+    },
+    {
+      "term": "CI/CD",
+      "full": "Continuous Integration / Continuous Delivery",
+      "def": "Automated pipelines that test and ship code changes safely and often."
+    },
+    {
+      "term": "MLOps",
+      "full": "Machine-Learning Operations",
+      "def": "Practices and tooling for deploying, monitoring, and maintaining ML systems in production."
+    },
+    {
+      "term": "DVC",
+      "full": "Data Version Control",
+      "def": "A Git-like tool for versioning datasets and machine-learning pipelines."
+    },
+    {
+      "term": "OWASP",
+      "full": "Open Worldwide Application Security Project",
+      "def": "A nonprofit publishing widely-used security guidance, including a Top 10 for LLM apps."
+    },
+    {
+      "term": "RecSys",
+      "full": "Recommender System",
+      "def": "A system that predicts and suggests items a user is likely to want."
+    },
+    {
+      "term": "STAR",
+      "full": "Situation, Task, Action, Result",
+      "def": "A structure for answering behavioural interview questions with one concrete story."
+    },
+    {
+      "term": "JVM",
+      "full": "Java Virtual Machine",
+      "def": "The runtime that executes Java, Kotlin, and other bytecode languages."
+    },
+    {
+      "term": "SDK",
+      "full": "Software Development Kit",
+      "def": "A library plus tools for building on top of a platform or service."
+    },
+    {
+      "term": "AWS",
+      "full": "Amazon Web Services",
+      "def": "Amazon's cloud platform."
+    },
+    {
+      "term": "GCP",
+      "full": "Google Cloud Platform",
+      "def": "Google's cloud platform."
     }
   ]
 }

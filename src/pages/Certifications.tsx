@@ -64,7 +64,7 @@ export function Certifications() {
           <li><b>Databricks ML Professional / Data Engineer</b> — off-stack unless your employer runs Databricks.</li>
           <li><b>NVIDIA DLI</b> — niche compute / GPU; only if a target role asks for it.</li>
           <li><b>Pinecone Vector DB</b> — vendor-specific; your plan moves to pgvector and the industry doesn't weight it.</li>
-          <li><b>Weights &amp; Biases MLOps</b> — light cert; the W&amp;B Courses material is covered in W13 for free.</li>
+          <li><b>Weights &amp; Biases MLOps</b> — light cert; the W&amp;B Courses material is covered in W14 for free.</li>
           <li><b>CKA (Kubernetes Administrator)</b> — high value but a separate domain; only if a target role explicitly lists k8s.</li>
         </ul>
       </section>
