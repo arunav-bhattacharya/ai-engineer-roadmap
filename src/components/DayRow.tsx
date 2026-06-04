@@ -70,7 +70,6 @@ export function DayRow({ weekId, dayIdx, day, capstone }: Props) {
                 aria-controls={detailId}
               >
                 <span className="ex-code mono">{code}</span>
-                <span className="ex-toggle-text">{open ? 'Hide steps' : 'Show steps'}</span>
                 <span className="ex-caret" aria-hidden="true" />
               </button>
             </div>

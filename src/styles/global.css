@@ -1314,16 +1314,13 @@ code {
 .ex-toggle:hover {
   color: color-mix(in srgb, var(--blue) 75%, var(--ink));
 }
-.ex-toggle:hover .ex-toggle-text {
+.ex-toggle:hover .ex-code {
   text-decoration: underline;
 }
 .ex-code {
   font-size: 11px;
   letter-spacing: 0.04em;
   color: inherit;
-}
-.ex-toggle-text {
-  font-size: 12.5px;
 }
 .ex-caret {
   width: 5px;
